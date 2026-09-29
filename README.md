@@ -189,6 +189,8 @@
 
 [*Decisions, Not Tokens*](https://github.com/youzizzz1028/Awesome-Jev/blob/f3703012b0034eefe0d59936c44cd33ea11b2990/paper/main.tex) (working draft, 2026) covers machine-native decision models more broadly, from classical classifiers to Jev.
 
+[*Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem*](https://arxiv.org/abs/2609.30216) (arXiv preprint, 2026) surveys 2,170 public GitHub Jev projects to map early growth, application domains, and decision-use patterns.
+
 ## Method
 
 - Scope, search and screening: [docs/methodology.md](docs/methodology.md). Limitations: [docs/limitations.md](docs/limitations.md).

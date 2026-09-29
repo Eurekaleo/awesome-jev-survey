@@ -488,6 +488,10 @@ def render_method_blocks(x):
     branch = x.cfg.get('repository_default_branch') or 'main'
     doc = lambda path: f'{repo.rstrip("/")}/blob/{branch}/{path}' if repo else path
     prior = x.d['review-relations']['related_surveys'][0]
+    further = x.d['review-relations']['related_surveys'][1:]
+    further_html = ''.join(
+        f'<p class="fine">Related survey: <a href="{esc(rs["url"])}" target="_blank" rel="noopener noreferrer"><em>{esc(rs["title"])}</em></a> (arXiv preprint, 2026) {esc(rs["description"])}</p>'
+        for rs in further)
     files = [('data/references.bib', 'references.bib'), ('data/exports/papers.csv', 'papers.csv'), ('data/exports/claims.csv', 'claims.csv'),
              ('data/exports/repositories.csv', 'repositories.csv'), ('data/search-runs.json', 'search log (JSON)')]
     dl = ''.join(f'<li><a href="{f}"{" download" if not f.endswith(".json") else ""}>{esc(lab)}</a></li>' for f, lab in files)
@@ -501,7 +505,7 @@ def render_method_blocks(x):
 <li>Openness is recorded field by field — code, weights, data, predictions — because each can be released on its own.</li></ul>
 <p class="fine">Details: <a href="{esc(doc("docs/methodology.md"))}">methodology</a> · <a href="{esc(doc("docs/limitations.md"))}">limitations</a></p></article>
 <article class="mblock"><h3>Data</h3><ul class="dl-list">{dl}</ul>
-<p class="fine">Related survey: <a href="{esc(prior["url"])}" target="_blank" rel="noopener noreferrer"><em>Decisions, Not Tokens</em></a> (working draft, 2026) covers machine-native decision models more broadly, from classical classifiers to Jev.</p></article>'''
+<p class="fine">Related survey: <a href="{esc(prior["url"])}" target="_blank" rel="noopener noreferrer"><em>Decisions, Not Tokens</em></a> (working draft, 2026) covers machine-native decision models more broadly, from classical classifiers to Jev.</p>{further_html}</article>'''
 
 
 def render_contribute(x):
@@ -586,6 +590,8 @@ def export_bibtex(x):
     extra = [J.bibtex_for_source(s) for s in x.d['sources']['sources']]
     rs = x.d['review-relations']['related_surveys'][0]
     extra.append(f'@misc{{{rs["bibtex_key"]},\n  title = {{{{{J.bib_text(rs["title"])}}}}},\n  author = {{Anonymous Authors}},\n  year = {{2026}},\n  howpublished = {{Public working draft on GitHub, dated 21 September 2026}},\n  url = {{{rs["url"]}}},\n  note = {{Commit {rs["commit"][:10]}; accessed 2026-09-23}}\n}}\n')
+    for rs in x.d['review-relations']['related_surveys'][1:]:
+        extra.append(f'@misc{{{rs["bibtex_key"]},\n  title = {{{{{J.bib_text(rs["title"])}}}}},\n  author = {{{rs["authors"].replace(", ", " and ")}}},\n  year = {{2026}},\n  eprint = {{2609.30216}},\n  archivePrefix = {{arXiv}},\n  primaryClass = {{cs.SE}},\n  url = {{{rs["url"]}}}\n}}\n')
     for r in x.repos:
         if 'priority' in r['sets'] or r['type'] == 'guide':
             extra.append(J.bibtex_for_repo(r, J.repo_key(r['id'])))

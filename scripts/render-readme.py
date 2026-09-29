@@ -101,9 +101,12 @@ def main():
         a('')
     a('## Related survey')
     a('')
-    rs = d['review-relations']['related_surveys'][0]
-    a(f'[*Decisions, Not Tokens*]({rs["url"]}) (working draft, 2026) covers machine-native decision models more broadly, from classical classifiers to Jev.')
-    a('')
+    for rs in d['review-relations']['related_surveys']:
+        if rs['id'].startswith('gh:'):
+            a(f'[*Decisions, Not Tokens*]({rs["url"]}) (working draft, 2026) covers machine-native decision models more broadly, from classical classifiers to Jev.')
+        else:
+            a(f'[*{md(rs["title"])}*]({rs["url"]}) (arXiv preprint, 2026) {md(rs["description"])}')
+        a('')
     a('## Method')
     a('')
     a('- Scope, search and screening: [docs/methodology.md](docs/methodology.md). Limitations: [docs/limitations.md](docs/limitations.md).')

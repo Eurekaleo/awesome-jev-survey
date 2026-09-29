@@ -55,8 +55,8 @@ def context():
         keys[src['bibtex_key']] = ('source', src)
     for r in d['repositories']['repositories']:
         keys[J.repo_key(r['id'])] = ('repo', r)
-    rs = d['review-relations']['related_surveys'][0]
-    keys[rs['bibtex_key']] = ('survey', rs)
+    for rs in d['review-relations']['related_surveys']:
+        keys[rs['bibtex_key']] = ('survey', rs)
     return d, s, keys
 
 

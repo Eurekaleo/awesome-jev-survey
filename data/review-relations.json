@@ -147,6 +147,16 @@
       "bib_entries": 41,
       "core_ids_cited": 0,
       "bibtex_key": "decisionsnottokens2026"
+    },
+    {
+      "id": "arxiv:2609.30216",
+      "title": "Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem",
+      "authors": "Guoming Ling, Muen Xue, Zijian Ye",
+      "dated": "2026",
+      "url": "https://arxiv.org/abs/2609.30216",
+      "status": "arXiv preprint",
+      "description": "surveys 2,170 public GitHub Jev projects to map early growth, application domains, and decision-use patterns.",
+      "bibtex_key": "ling2026jevwilddatadrivenanalysis"
     }
   ]
 }
