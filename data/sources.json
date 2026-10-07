@@ -18,7 +18,7 @@
       "title": "Models (Jev 1.13)",
       "publisher": "TypeSafe AI",
       "url": "https://docs.typesafe.ai/models",
-      "accessed": "2026-09-23",
+      "accessed": "2026-10-06",
       "kind": "vendor_docs",
       "bibtex_key": "typesafe2026models"
     },
@@ -63,7 +63,7 @@
       "title": "Jev 1.13 jaggedness",
       "publisher": "TypeSafe AI",
       "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13",
-      "accessed": "2026-09-23",
+      "accessed": "2026-10-06",
       "kind": "vendor_docs",
       "bibtex_key": "typesafe2026jaggedness"
     },
@@ -75,6 +75,15 @@
       "accessed": "2026-09-23",
       "kind": "vendor_docs",
       "bibtex_key": "typesafe2026routing"
+    },
+    {
+      "id": "src:typesafe-evals",
+      "title": "Workflow evals",
+      "publisher": "TypeSafe AI",
+      "url": "https://evals.typesafe.ai/",
+      "accessed": "2026-10-06",
+      "kind": "vendor_dashboard",
+      "bibtex_key": "typesafe2026evals"
     }
   ]
 }

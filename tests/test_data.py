@@ -77,7 +77,9 @@ class DataRules(unittest.TestCase):
                 self.assertNotIn(token, text, f'{path}: {token}')
 
     def test_site_lists_every_record(self):
+        # the first rows ship in the page; the rest load from a fragment when the reader nears the list
         html = (ROOT / 'index.html').read_text(encoding='utf-8')
+        html += (ROOT / 'site' / 'data' / 'fragments' / 'more-rows.html').read_text(encoding='utf-8')
         self.assertEqual(html.count('class="paper-row '), self.stats['papers'])
 
     def test_site_has_no_reference_domain_residue(self):

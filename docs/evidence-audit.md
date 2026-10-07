@@ -18,43 +18,120 @@ Rules used to read and record evidence, followed by the per-study audit. Values 
 
 | Study (v1 date) | Relationship | Test level | Model version | Code | Weights | Data | Predictions | Records |
 | --- | --- | --- | --- | --- | --- | --- | --- | ---: |
-| [Replacing LLMs with Jev at the Edge](https://arxiv.org/abs/2609.22753v1) (2026-09-19) ¹ | commercial_jev, downstream_system | Hybrid | Jev: jev-1.13 | not_located | not_applicable | partial | not_located | 3 |
-| [Intent-Driven 6G Edge Orchestration](https://arxiv.org/abs/2609.23136v1) (2026-09-19) ¹ | commercial_jev, downstream_system | Hybrid | Jev: Jev 1.13 | not_located | not_applicable | partial | not_located | 3 |
+| [Replacing LLMs with Jev at the Edge](https://arxiv.org/abs/2609.22753v2) (2026-09-19) ¹ | commercial_jev, independent_jev_like | Hybrid | Jev: jev-1.13.0 | not_located | not_applicable | partial | not_located | 4 |
+| [Intent at RIC Timescales](https://arxiv.org/abs/2609.23136v2) (2026-09-19) ¹ | commercial_jev, independent_jev_like | Hybrid | Jev: jev-1.13.0 | not_located | not_applicable | partial | not_located | 3 |
 | [this-that-model-1.0](https://arxiv.org/abs/2609.23886v1) (2026-09-20) | independent_jev_like | Model test | this-that-model-1.0: 1.0; Jev (comparison): not reported | available | available | partial | not_located | 4 |
 | [Open-Jev on CallScreenBench](https://arxiv.org/abs/2609.23959v1) (2026-09-21) | independent_jev_like | Model test | JevLite: paper v1 (three seeds) | not_located | not_located | not_located | not_located | 2 |
 | [Jev-Mem](https://arxiv.org/abs/2609.23986v1) (2026-09-21) | downstream_system, commercial_jev | System test | Jev: not reported | available | not_applicable | available | not_located | 1 |
-| [Calibrated Decisions at Scale](https://arxiv.org/abs/2609.24052v1) (2026-09-21) | commercial_jev, downstream_system | System test | Jev: jev-1.13.0 | available | not_applicable | restricted | partial | 5 |
+| [Calibrated Decisions at Scale](https://arxiv.org/abs/2609.24052v1) (2026-09-21) ¹ | commercial_jev, downstream_system | System test | Jev: jev-1.13.0 | available | not_applicable | restricted | partial | 5 |
 | [JEVQA](https://arxiv.org/abs/2609.24395v1) (2026-09-21) | commercial_jev, downstream_system | Model test | Jev: jev-1.13 | not_located | not_applicable | partial | not_located | 2 |
-| [Decision Models for CSS Annotation](https://arxiv.org/abs/2609.24574v1) (2026-09-21) | commercial_jev, independent_jev_like | Model test | Jev: typesafe/jev1.13 | available | not_applicable | available | available | 4 |
-| [Jev for Scientific Decisions](https://arxiv.org/abs/2609.24965v1) (2026-09-21) | commercial_jev | System test | Jev: Jev 1.13 | not_located | not_applicable | partial | not_located | 2 |
-| [Universal Fractal Decision Map](https://arxiv.org/abs/2609.25498v1) (2026-09-21) | independent_jev_like | Model test | werr: not reported | partial | not_applicable | partial | not_located | 2 |
+| [Decision Models for CSS Annotation](https://arxiv.org/abs/2609.24574v2) (2026-09-21) | commercial_jev, independent_jev_like | Model test | Jev: typesafe/jev1.13 | available | not_applicable | available | available | 4 |
+| [Pregnancy in Crash Narratives](https://arxiv.org/abs/2610.00213v1) (2026-09-21) ¹ | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | restricted | not_located | 1 |
+| [Jev for Scientific Decisions](https://arxiv.org/abs/2609.24965v2) (2026-09-21) | commercial_jev | System test | Jev: Jev 1.13 | not_located | not_applicable | partial | not_located | 2 |
+| [Universal Fractal Decision Map](https://arxiv.org/abs/2609.25498v2) (2026-09-21) | independent_jev_like | Model test | werr: not reported | partial | not_applicable | partial | not_located | 2 |
 | [Visual Jev](https://arxiv.org/abs/2609.25845v1) (2026-09-22) | independent_jev_like | Model test | Visual Jev (Qwen3-VL-4B based): paper v1 | project_page_only | not_located | available | partial | 3 |
-| [REFLEX with Jev](https://arxiv.org/abs/2609.26532v1) (2026-09-22) | commercial_jev, downstream_system | System test | Jev: jev-1.13.0 | not_located | not_applicable | partial | not_located | 3 |
-| [JEV-as-a-Judge](https://arxiv.org/abs/2609.26550v1) (2026-09-22) | commercial_jev | Model test | Jev: jev-1.13.0 | claimed_not_located | not_applicable | partial | claimed_not_located | 4 |
-| [Type-Safe Is Not Error-Free](https://arxiv.org/abs/2609.26758v1) (2026-09-22) | commercial_jev, independent_jev_like | Model test | TypeSafe hosted model: not reported | claimed_not_located | not_located | claimed_not_located | claimed_not_located | 6 |
+| [REFLEX with Jev](https://arxiv.org/abs/2609.26532v1) (2026-09-22) ¹ | commercial_jev, downstream_system | System test | Jev: jev-1.13.0 | not_located | not_applicable | partial | not_located | 3 |
+| [JEV-as-a-Judge](https://arxiv.org/abs/2609.26550v3) (2026-09-22) | commercial_jev | Model test | Jev: jev-1.13.0 | claimed_not_located | not_applicable | partial | claimed_not_located | 5 |
+| [Type-Safe Is Not Error-Free](https://arxiv.org/abs/2609.26758v2) (2026-09-22) | commercial_jev, independent_jev_like | Model test | TypeSafe hosted model: not reported | claimed_not_located | not_located | claimed_not_located | claimed_not_located | 6 |
 | [JEV-Star](https://arxiv.org/abs/2609.27331v1) (2026-09-23) | downstream_system | System test | Jev: Jev 1.13 | available | not_applicable | partial | partial | 3 |
 | [KITE](https://arxiv.org/abs/2609.27535v1) (2026-09-23) | downstream_system | System test | Jev: jev-1.13.0 | available | not_applicable | partial | not_located | 4 |
 | [Jev as a Radiology Report Judge](https://arxiv.org/abs/2609.27607v1) (2026-09-23) | commercial_jev | Model test | Jev: jev-1.13.0 | not_located | not_applicable | restricted | not_located | 3 |
 | [Jev on Contract Inference](https://arxiv.org/abs/2609.27678v1) (2026-09-23) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | available | 3 |
+| [NumericJev](https://arxiv.org/abs/2609.28587v1) (2026-09-23) | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13 | available | not_applicable | not_located | not_located | 1 |
+| [Decision Hijacking](https://arxiv.org/abs/2609.28613v1) (2026-09-23) ¹ | commercial_jev | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 2 |
+| [Harness Tokenomics](https://arxiv.org/abs/2609.28919v2) (2026-09-24) | downstream_system | Simulation | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 1 |
+| [Pentest Decision Layers](https://arxiv.org/abs/2609.28940v1) (2026-09-24) | downstream_system | System test | Jev: jev-latest | available | not_applicable | not_located | not_located | 1 |
+| [PixelJev](https://arxiv.org/abs/2609.29283v1) (2026-09-24) ¹ | independent_jev_like | Model test |  | not_located | not_applicable | not_located | not_located | 1 |
+| [Just Ask Jev](https://arxiv.org/abs/2609.29429v1) (2026-09-24) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | available | 2 |
+| [Jev as a Rubric Judge](https://arxiv.org/abs/2609.29769v2) (2026-09-24) | commercial_jev | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 2 |
+| [Jev-Mobile](https://arxiv.org/abs/2609.30186v1) (2026-09-24) | downstream_system | System test | Jev: not reported | not_located | not_applicable | not_located | not_located | 1 |
+| [Jev in the Wild](https://arxiv.org/abs/2609.30216v1) (2026-09-24) | downstream_system | Not applicable | Jev: not reported | available | not_applicable | partial | not_located | 1 |
+| [JevOut](https://arxiv.org/abs/2609.30243v1) (2026-09-24) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | partial | 1 |
+| [Biosecurity Audit](https://arxiv.org/abs/2609.30454v1) (2026-09-24) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | available | 2 |
+| [LAVOIR](https://arxiv.org/abs/2609.30706v1) (2026-09-25) | independent_jev_like | Model test |  | available | available | available | not_located | 1 |
+| [JevSoup](https://arxiv.org/abs/2609.30922v1) (2026-09-25) | downstream_system | System test | Jev: jev-1.13.0 | available | not_applicable | not_located | not_located | 1 |
+| [JevAdvBench](https://arxiv.org/abs/2609.31142v1) (2026-09-25) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | available | 2 |
+| [PACT](https://arxiv.org/abs/2609.35865v1) (2026-09-26) | independent_jev_like | Model test |  | available | available | available | available | 1 |
+| [Probability Axioms](https://arxiv.org/abs/2609.33209v1) (2026-09-27) | commercial_jev | Model test | Jev: jev-1.13 | available | not_applicable | available | available | 2 |
+| [Agent Security Decisions](https://arxiv.org/abs/2609.33401v3) (2026-09-27) | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13 | available | not_applicable | available | available | 2 |
+| [Speech Neuroprosthesis Rescoring](https://arxiv.org/abs/2609.33538v1) (2026-09-27) | commercial_jev | Model test | Jev: jev-latest | available | not_applicable | available | available | 1 |
+| [COGNIT-Guard](https://arxiv.org/abs/2609.33671v1) (2026-09-27) | independent_jev_like | Model test |  | available | available | available | not_located | 1 |
+| [Typed Decisions for 5G Control](https://arxiv.org/abs/2609.33689v1) (2026-09-27) | commercial_jev, independent_jev_like | System test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 2 |
+| [Laya Reproduction](https://arxiv.org/abs/2609.33843v1) (2026-09-27) | independent_jev_like | Model test |  | partial | available | available | available | 1 |
+| [Probability Contracts](https://arxiv.org/abs/2609.37470v2) (2026-09-27) | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 1 |
+| [JET](https://arxiv.org/abs/2609.33874v2) (2026-09-27) | independent_jev_like | Model test | Jev: Jev 1.13 | available | not_applicable | not_located | not_located | 1 |
+| [Do Decisions Add Up?](https://arxiv.org/abs/2609.33971v1) (2026-09-27) | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13.0 | available | not_applicable | available | available | 1 |
+| [Jev in Medicine](https://arxiv.org/abs/2609.34024v3) (2026-09-27) | commercial_jev | Model test | Jev: jev-1.13 | not_located | not_applicable | available | available | 2 |
+| [Video Anomaly Readouts](https://arxiv.org/abs/2609.34180v1) (2026-09-28) | commercial_jev | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 1 |
+| [Selection vs Extraction Memory](https://arxiv.org/abs/2609.34227v1) (2026-09-28) | downstream_system | System test | Jev: jev-1.13.0 | available | not_applicable | available | not_located | 1 |
+| [SeLMRoute](https://arxiv.org/abs/2609.34736v1) (2026-09-28) | downstream_system, independent_jev_like | System test | Jev: not reported | available | not_applicable | not_located | not_located | 1 |
+| [Agent Trace Security Judge](https://arxiv.org/abs/2609.34862v1) (2026-09-28) | commercial_jev | Model test | Jev: not reported | not_located | not_applicable | not_located | not_located | 1 |
+| [JevVibe](https://arxiv.org/abs/2609.34963v1) (2026-09-28) | commercial_jev | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 1 |
+| [NavJev](https://arxiv.org/abs/2609.34969v1) (2026-09-28) | downstream_system | System test | Jev: not reported | not_located | not_applicable | not_located | not_located | 1 |
+| [Source-Position Coherence](https://arxiv.org/abs/2609.35286v1) (2026-09-28) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | not_located | 1 |
+| [Decide, Don’t Generate (ABSA)](https://arxiv.org/abs/2609.35293v1) (2026-09-28) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | not_located | 1 |
+| [Sys1Cal-v1](https://arxiv.org/abs/2609.35342v1) (2026-09-28) | commercial_jev, independent_jev_like | Model test | Jev: not reported | not_located | not_applicable | not_located | not_located | 1 |
+| [Mnemon](https://arxiv.org/abs/2609.36059v1) (2026-09-28) | downstream_system | System test | Jev: jev-1.13 | available | not_applicable | not_located | available | 1 |
+| [Koa-action](https://arxiv.org/abs/2609.36115v1) (2026-09-28) | independent_jev_like | Model test |  | not_located | not_applicable | not_located | not_located | 1 |
+| [Dyad](https://arxiv.org/abs/2609.36116v1) (2026-09-28) | independent_jev_like | Model test | Jev: Jev 1.13 | not_located | not_applicable | not_located | not_located | 1 |
+| [Training-Free HAR](https://arxiv.org/abs/2609.36154v1) (2026-09-28) | commercial_jev | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 1 |
+| [Cultural Values Audit](https://arxiv.org/abs/2609.36399v2) (2026-09-28) | commercial_jev | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 1 |
+| [Chinese-Jev](https://arxiv.org/abs/2609.36965v1) (2026-09-29) | independent_jev_like, commercial_jev | Model test | Jev: not reported | not_located | not_applicable | not_located | not_located | 1 |
+| [Benchmarking Jev (37 datasets)](https://arxiv.org/abs/2609.37647v1) (2026-09-29) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | available | 3 |
+| [Certo (Cacheable Rules)](https://arxiv.org/abs/2609.37832v1) (2026-09-29) | independent_jev_like | Model test |  | not_located | not_applicable | not_located | not_located | 1 |
+| [Decision Gates Benchmark](https://arxiv.org/abs/2610.00346v1) (2026-09-29) ¹ | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 3 |
+| [Ordinal-Scale Bias](https://arxiv.org/abs/2609.38827v1) (2026-09-30) | commercial_jev, independent_jev_like | Model test | Jev: typesafe/jev-1.13-20260917 | available | not_applicable | available | not_located | 2 |
+| [OpenJev-RLCD](https://arxiv.org/abs/2609.38850v1) (2026-09-30) | independent_jev_like | Model test |  | available | not_applicable | not_located | not_located | 1 |
+| [Bongard](https://arxiv.org/abs/2609.39111v1) (2026-09-30) | independent_jev_like | Model test |  | available | available | not_located | not_located | 1 |
+| [Network Traffic Classification](https://arxiv.org/abs/2610.00376v1) (2026-09-30) | commercial_jev | Model test | Jev: typesafe/jev-1.13-20260917 | not_located | not_applicable | available | not_located | 2 |
+| [OmniMed-Jev](https://arxiv.org/abs/2610.00381v1) (2026-09-30) | independent_jev_like | Model test |  | available | not_applicable | available | not_located | 1 |
+| [Rejection Bottleneck](https://arxiv.org/abs/2609.39496v1) (2026-09-30) | commercial_jev | Model test | Jev: jev-1.13 | not_located | not_applicable | not_located | not_located | 2 |
+| [JevSpawn](https://arxiv.org/abs/2610.00437v1) (2026-09-30) | downstream_system, commercial_jev | System test | Jev: jev-1.13.0 | available | not_applicable | not_applicable | not_located | 2 |
+| [Recommendation Reranking](https://arxiv.org/abs/2609.40241v1) (2026-09-30) | commercial_jev | Model test | Jev: jev-latest | not_located | not_applicable | not_located | not_located | 1 |
+| [AnyJev](https://arxiv.org/abs/2610.00831v1) (2026-09-30) | independent_jev_like | Model test |  | available | not_applicable | not_located | not_located | 1 |
+| [Beyond Answer Confidence](https://arxiv.org/abs/2610.01006v1) (2026-10-01) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | partial | not_located | 2 |
+| [Jev-IDS](https://arxiv.org/abs/2610.01079v1) (2026-10-01) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | partial | 1 |
+| [Fast Models, Slow Evidence](https://arxiv.org/abs/2610.02267v1) (2026-10-01) | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13.0 | available | not_applicable | available | available | 3 |
+| [Candidate-Independent Attention](https://arxiv.org/abs/2610.01601v1) (2026-10-01) | independent_jev_like | Model test |  | available | partial | available | not_located | 1 |
+| [Code Owns the Simulation](https://arxiv.org/abs/2610.01834v1) (2026-10-01) | commercial_jev | System test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 2 |
+| [HakemBench](https://arxiv.org/abs/2610.02293v1) (2026-10-01) ¹ | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13 | available | not_applicable | available | not_located | 1 |
+| [JEVDB](https://arxiv.org/abs/2610.02046v1) (2026-10-01) | downstream_system, commercial_jev | System test | Jev: jev-1.13.0 | claimed_not_located | not_applicable | not_located | not_located | 1 |
+| [HydroJEV](https://arxiv.org/abs/2610.02048v1) (2026-10-01) | commercial_jev | Model test | Jev: jev-1.13.0 | available | not_applicable | available | available | 2 |
+| [LLM-as-Jev](https://arxiv.org/abs/2610.02076v2) (2026-10-01) | independent_jev_like | Model test |  | not_located | not_applicable | not_located | not_located | 1 |
+| [SBERT2S1](https://arxiv.org/abs/2610.02486v1) (2026-10-01) | independent_jev_like | Model test |  | available | available | available | not_located | 1 |
+| [Labels Override Definitions](https://arxiv.org/abs/2610.02586v1) (2026-10-01) | independent_jev_like | Model test |  | not_located | not_applicable | not_located | not_located | 1 |
+| [SecJev](https://arxiv.org/abs/2610.03073v1) (2026-10-02) | independent_jev_like | Model test |  | available | available | partial | not_located | 1 |
+| [HateDecide](https://arxiv.org/abs/2610.03324v1) (2026-10-02) | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 2 |
+| [Candidate Coverage](https://arxiv.org/abs/2610.03387v1) (2026-10-02) | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13.0 | not_located | not_applicable | not_located | not_located | 1 |
+| [JEVal and InnerJev](https://arxiv.org/abs/2610.03935v1) (2026-10-02) | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13.0 | available | not_located | available | not_located | 3 |
+| [Wireless Decision-Making](https://arxiv.org/abs/2610.04345v1) (2026-10-03) | commercial_jev | Model test | Jev: not reported | not_located | not_applicable | not_located | not_located | 1 |
+| [Hidden Risks of Jev](https://arxiv.org/abs/2610.04985v1) (2026-10-04) | commercial_jev, independent_jev_like | Model test | Jev: not reported | available | not_applicable | not_located | not_located | 3 |
+| [SearchJev](https://arxiv.org/abs/2610.05107v1) (2026-10-04) | independent_jev_like, commercial_jev | Model test | Jev: jev-1.13.0 | available | available | not_located | not_located | 2 |
+| [GraphDecide](https://arxiv.org/abs/2610.06354v1) (2026-10-05) ¹ | commercial_jev, independent_jev_like | Model test | Jev: jev-1.13.0 | available | not_applicable | not_located | partial | 1 |
+| [Political Science Replications](https://arxiv.org/abs/2610.06625v1) (2026-10-05) | commercial_jev | Model test | Jev: typesafe/jev-1.13-20260917 | not_located | not_applicable | not_located | not_located | 2 |
+| [ufakzeka-karar](https://arxiv.org/abs/2610.06744v1) (2026-10-05) ¹ | independent_jev_like | Model test |  | available | available | partial | not_located | 1 |
 
-¹ Study family `li-wang-edge-2026`.
+¹ Member of a study family: `li-wang-edge-2026` (2609.23136, 2609.22753); `teke-ufak-2026` (2610.02293, 2610.06744); `yang-zhao-2026` (2609.29283, 2610.06354); `wu-lim-2026` (2609.26532, 2609.28613); `rafe-das-2026` (2609.24052, 2610.00213, 2610.00346).
 
 ## Measurement scopes of speed and cost figures
 
-**single request** — Full semantic correctness; median 0.335 s, p95 0.442 s (2609.24965); 64.5 ms/decision; 4.9× faster than same backbone generating (2609.23959); 30.9 ms per decision on one laptop GPU; 32 decisions/s (2609.23886); Median decision latency −22.4% vs DeepSeek, −61.9% vs Gemini (2609.23136); Median client decision latency −15.9% to −26.5% (2609.22753); Self-reported 92.6% macro-accuracy, 7.08 ms on CPU, “#1” on JevBench (2609.25498)
+**single request** — Full semantic correctness; median 0.335 s, p95 0.442 s (2609.24965); 64.5 ms/decision; 4.9× faster than same backbone generating (2609.23959); 30.9 ms per decision on one laptop GPU; 32 decisions/s (2609.23886); Median decision latency −22.7% to −64.5% vs the fastest LLM (2609.22753); Self-reported 81.65% on public JevBench items at 7.08 ms (2609.25498); Meets the 1 s RIC budget on 99.8% of calls (LLMs: 17.9%, 0%) (2609.23136); Single-token LLM classifier: 85.5% at 0.53 s, flat across label spaces (2609.36115); Open encoder–decoder: 78.05% on DecisionBench, 32 questions in 221 ms (2609.39111); Strong reranking quality; latency between local models and pointwise LLMs (2609.40241); 0.75 s vs 6.0 s per request; accuracy difference not established (2610.00376); Intrusion pilot: F1 0.859, 4.8× faster than an LLM (2610.01079); Wireless control: 3.5–8.5× faster than LLMs; quality depends on the task (2610.04345); Order invariance by construction; sequential heads still flip 2–3% (2610.06744); Reranking: ties Cohere Rerank 4 Pro at half the latency (anessbelbati/jev-rerank-bench); Local 4B readout: 76% on public JevBench at 48 ms (yinsongxu/llm2jev)
 
 **amortized question** — 8.9× vs serial, 3.4× vs no-reuse batch; 5.7 ms/question amortized (2609.25845)
 
-**end to end** — 0.36% of the comparator’s fee; ≈$0.04 per 1,000 judgments at 0.15 s (2609.26550); 95% success with 1.12 strong calls/task vs 88% and 4.10 (−72.7%) (2609.26532); Behind best LLM on 14/15 tasks (−11.6 F1) at 44× lower cost (2609.24574); Low-confidence routing matches the LLM at ¼–½ of its cost (2609.24574); 499,500 narratives screened for $25.23; 195,857 fully coded (2609.24052); LoCoMo judge 0.777 (+11.0%); build 158 s; 0.93 s/query (2609.23986); Correct & on time: Jev 459, DeepSeek 463, Qwen 435 of 1,080 (2609.23136); No cache: e2e −11.1–25.3%; fees per correct completion −69–71% (2609.22753); Repeated-request caching largely removes the latency gap (2609.22753); $0.000228 and 1.24 s per contract — lowest of ten models (2609.27678); $0.0227 per 1,000 predictions; median 213 ms (2609.27535); Jev 0.422 s median; $0.15 of $3.71 per game (2609.27331)
+**batch** — Fees per correct decision −60% to −81% on four-field contracts (2609.22753); Classifier first, Jev on escalation: same accuracy at 0.43 of the cost (2610.00346); Same accuracy, no cost advantage at batch prices (2610.06625); 10,000 comments: 4× faster than a chat model, five points less agreement (nanmicoder/jev-arena); More rows per request, fewer correct: 100% → 77–94% (realzachi/pg-jev)
 
-**simulation** — Frozen two-order cascade: 99% of GPT-6 accuracy at 57% of its fee (2609.26550); Simulated completion +3.50 / +8.35 points (2609.23136)
+**end to end** — 0.36% of GPT-6’s fee at 0.15 s median (2609.26550); 95% success with 1.12 strong calls/task vs 88% and 4.10 (−72.7%) (2609.26532); Behind best LLM on 14/15 tasks (−11.6 F1) at 44× lower cost (2609.24574); Low-confidence routing matches the LLM at ¼–½ of its cost (2609.24574); 499,500 narratives screened for $25.23; 195,857 fully coded (2609.24052); LoCoMo judge 0.777 (+11.0%); build 158 s; 0.93 s/query (2609.23986); With caching, latencies converge: the gain is in fresh decisions (2609.22753); $0.000228 and 1.24 s per contract — lowest of ten models (2609.27678); $0.0227 per 1,000 predictions; median 213 ms (2609.27535); Jev 0.422 s median; $0.15 of $3.71 per game (2609.27331); Live admission: 0.91–0.95 exact and on time where LLMs fall below 0.1 (2609.22753); Under load, slow interpreters saturate — a small local JSON model keeps up too (2609.23136); One run each: 5 min faster, different severities — not a controlled test (2609.28940); AndroidWorld 79% (vs 84% step-wise) at 73% lower API cost (2609.30186); Hosted Jev never meets 100 ms near-RT deadlines (warm p50 281 ms) (2609.33689); Agent with spawned finite actions: Maze 0.96 vs 0.52 (2610.00437); Hosted Jev inside the agent: better on 3 of 8 tasks, 1.4–2.1× slower (2610.00437); Let code simulate: ALFWorld solved 31% → 87% (2610.01834); Semantic SQL: pruning + typed decisions finish 540K-pair joins (2610.02046); Pre-registered gate: a third of SCADA reviews offloaded, accuracy kept (2610.02048); Self-audit: a 23.9% saving was really 4.3% (2610.02267); Faster steps, slower agent: success 77.6% → 66.1% (2610.03935); Search agent: 3.7–4.7× faster, accuracy 45% → 54% (2610.05107); Browser tasks: specialised open model 38.5% vs Jev 16.7%; single steps alike (lexmount/webjev); Routing subagents with Jev: cheaper than one baseline, dearer than another (suenot/codex-jev-router)
+
+**simulation** — Frozen cascade: +0.9 points over GPT-6 at 41% of its fee (2609.26550); Radio conditions outweigh the interpreter; no LLM gain over Jev (2609.23136); Emulated router saves 13–21% of coding-agent spend (2609.28919)
 
 **author estimate** — $0.000217 electricity per suite pass vs $10.636 for a hosted model (2609.23886); Under $0.03 per 100 report pairs (judgment calls only) (2609.27607)
 
-**vendor claim** — No type errors by construction; plotted 0% is analytical (typesafe-launch); $0.042 / M input tokens; 70–500 ms end to end (vendor) (typesafe-launch); 193.6× faster, 444.6× cheaper on vendor workflow evals (typesafe-launch)
+**vendor claim** — No type errors by construction; plotted 0% is analytical (typesafe-launch); $0.042 / M input tokens; 70–500 ms end to end (vendor) (typesafe-launch); 193.6× faster, 444.6× cheaper on vendor workflow evals (typesafe-launch); Vendor dashboard: 67.8% agreement at $0.0004 and 0.4 s per case (typesafe-evals)
 
 ## What would upgrade the evidence
 
-1. Version-pinned reruns of the option-binding and calibration results on hosted Jev with a test–retest floor.
-2. Same-protocol comparisons of hosted Jev, open decision models, frozen readouts and structured-output LLMs (paper §10).
-3. Public raw predictions for the studies that claim them (2609.26758, 2609.26550).
+1. Version-pinned reruns of the option-binding, rejection and calibration results on hosted Jev with a test–retest floor.
+2. Same-protocol comparisons of hosted Jev, open decision models, frozen readouts and structured-output LLMs, with held-out thresholds (paper §10).
+3. Independent replications across author groups, starting with the study families flagged above.
+4. Public raw predictions for studies that report results without releasing them.

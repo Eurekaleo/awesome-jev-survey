@@ -5,16 +5,23 @@ README.md is generated: edit data/*.json or this template, then rebuild.
 """
 import pathlib
 import sys
+from collections import defaultdict
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import jevlib as J  # noqa: E402
 
 AVAIL_MD = {'available': '●', 'partial': '◐', 'restricted': '◑', 'project_page_only': '◔', 'claimed_not_located': '○ claimed',
             'not_located': '○', 'not_applicable': '–', 'not_assessed': '·', 'not_attempted': '·', 'no': '○'}
+GROUPS = [('commercial_jev', 'Studies of hosted Jev'), ('independent_jev_like', 'Open and independent Jev-like models'),
+          ('downstream_system', 'Systems built on typed decisions')]
 
 
 def md(s):
     return (s or '').replace('|', '\\|').replace('\n', ' ')
+
+
+def anchor(h):
+    return ''.join(c for c in h.lower().replace(' ', '-') if c.isalnum() or c == '-')
 
 
 def main():
@@ -24,7 +31,8 @@ def main():
     tax = d['taxonomy']
     P = d['papers']['papers']
     C = J.by_id(d['claims']['claims'])
-    T = {k: J.by_id(tax[k]) for k in ('topics', 'test_levels', 'model_relationships', 'background_groups', 'repository_types', 'method_families')}
+    R = d['repositories']['repositories']
+    T = {k: J.by_id(tax[k]) for k in ('topics', 'test_levels', 'model_relationships', 'background_groups', 'repository_types', 'method_families', 'applications', 'ecosystem_roles')}
     site = J.safe_url(cfg.get('site_url'))
     repo = J.safe_url(cfg.get('repository_url'))
     L = []
@@ -33,59 +41,96 @@ def main():
     a('')
     a('# Awesome Jev')
     a('')
-    a('**An evidence survey of TypeSafe’s Jev and Jev-like typed decision models — calibration, selective control and open implementations.**')
+    a('**An evidence survey of TypeSafe’s Jev and Jev-like typed decision models: what their probabilities mean, when software should act on them, where typed decisions fail, and what open implementations release.**')
     a('')
+    links = []
     if site:
-        a(f'**Website:** <{site}>')
-    else:
-        a('**Website:** open `index.html` in a browser, or serve the folder with `python3 -m http.server`.')
+        links.append(f'[Website]({site})')
+    links += ['[Survey (PDF)](paper/main.pdf)', '[Data](data/)', '[Cite](#citation-and-licence)']
+    a(' · '.join(links))
     a('')
     authors = [x for x in cfg.get('authors') or [] if x.get('name')]
     if authors:
-        a('**Author:** ' + ', '.join(f'[{x["name"]}]({J.safe_url(x.get("url"))})' if J.safe_url(x.get('url')) else x['name'] for x in authors))
+        a('**Author:** ' + ', '.join(f'[{x["name"]}]({J.safe_url(x.get("url"))})' if J.safe_url(x.get('url')) else x['name'] for x in authors)
+          + f' · Updated {J.fmt_date(s["cutoff"])}')
         a('')
-    a('> Numbers are as reported by paper authors, the vendor or repository maintainers; nothing here is a unified leaderboard.')
+    a('> Numbers are as reported by paper authors, the vendor or repository maintainers. Nothing here is a unified leaderboard, and nothing was re-run.')
     a('')
+    sections = ['Findings'] + [g for _, g in GROUPS] + ['Peripheral study', 'Open ecosystem', 'Background references', 'Related reviews and catalogues',
+                                                        'Method', 'Contributing', 'Citation and licence']
     a('## Contents')
     a('')
-    for h in ['Findings', 'Core studies', 'Peripheral study', 'Open implementations and evaluations', 'Background references',
-              'Related survey', 'Method', 'Contributing', 'Citation and licence']:
-        a(f'- [{h}](#{h.lower().replace(" ", "-")})')
+    for h in sections:
+        a(f'- [{h}](#{anchor(h)})')
     a('')
     a('## Findings')
     a('')
     for f in tax['findings']:
         a(f'**{f["id"]} · {f["title"]}** {f["body"]}')
         a('')
-    a('## Core studies')
-    a('')
-    a('| Date (v1) | Study | Relationship to Jev | Test level | Headline (author-reported) | Code |')
-    a('| --- | --- | --- | --- | --- | --- |')
-    for p in sorted([p for p in P if p['tier'] == 'core'], key=lambda p: p['published_at'], reverse=True):
-        head = C[p['claims'][0]]['headline'] if p['claims'] else ''
-        code = p['openness']['code']
-        code_md = f'[{AVAIL_MD[code["status"]]}]({code["url"]})' if code.get('url') else AVAIL_MD[code['status']]
-        fam = ' ¹' if p.get('study_family_id') else ''
-        a(f'| {p["published_at"][:10]} | [{md(p["title"])}]({p["url"]}){fam} | {md(p["relationship"])} | {T["test_levels"][p["test_level"]]["label"]} | {md(head)} | {code_md} |')
-    a('')
-    a('¹ Same study family (shared authors and service path); not independent replications. Code: ● available · ◐ partial · ◔ project page only · ○ not located · “claimed” = the paper says it is released.')
+    for rel, title in GROUPS:
+        ps = sorted([p for p in P if p['tier'] == 'core' and p['model_relationship'][0] == rel], key=lambda p: (p['published_at'], p['title']), reverse=True)
+        if not ps:
+            continue
+        a(f'## {title}')
+        a('')
+        a('| Date (v1) | Study | Headline (as reported) | Code |')
+        a('| --- | --- | --- | :-: |')
+        for p in ps:
+            head = C[p['claims'][0]]['headline'] if p['claims'] else ''
+            code = p['openness']['code']
+            code_md = f'[{AVAIL_MD[code["status"]]}]({code["url"]})' if code.get('url') else AVAIL_MD[code['status']]
+            fam = ' ¹' if p.get('study_family_id') else ''
+            a(f'| {p["published_at"][:10]} | [{md(p["short_title"])}]({p["url"]}){fam}: {md(p["title"])} | {md(head)} | {code_md} |')
+        a('')
+    a('¹ Shares authors with other studies here; read together, not as independent replications. Code: ● available · ◐ partial · ◔ project page only · ○ not located · “claimed” = the paper says it is released but no public release was found.')
     a('')
     a('## Peripheral study')
     a('')
     for p in [p for p in P if p['tier'] == 'peripheral']:
         a(f'- [{md(p["title"])}]({p["url"]}) — {md(p["relationship"])} {md(p["caveats"][0])}')
     a('')
-    a('## Open implementations and evaluations')
+    a('## Open ecosystem')
     a('')
-    a('● available · ◐ partial · ◑ restricted · ◔ project page only · ○ not located · – not applicable')
+    a('Availability follows each project’s own README; nothing here was run. ● available · ◐ partial · ◑ restricted · ◔ project page only · ○ not located · – not applicable.')
     a('')
-    a('| Resource | Type | Family | Code | Weights | Training | Evaluation | Raw predictions |')
-    a('| --- | --- | --- | :-: | :-: | :-: | :-: | :-: |')
-    for r in sorted([r for r in d['repositories']['repositories'] if 'priority' in r['sets']], key=lambda r: (r['type'], r['full_name'].lower())):
-        av = r['availability']
+    by_role = defaultdict(list)
+    for r in R:
+        by_role[r['ecosystem']].append(r)
+    fam_order = [f['id'] for f in tax['method_families']]
+    a(f'### {T["ecosystem_roles"]["open_model"]["label"]}')
+    a('')
+    a('| Resource | Family | Base | Weights | Training | Evaluation | Data | Licence |')
+    a('| --- | --- | --- | :-: | :-: | :-: | :-: | --- |')
+    for r in sorted(by_role['open_model'], key=lambda r: (fam_order.index(r['method_family']) if r.get('method_family') else 99, r['full_name'].lower())):
+        av = r.get('availability') or {}
         fam = T['method_families'][r['method_family']]['label'] if r.get('method_family') else '—'
-        a(f'| [{r["full_name"]}]({r.get("readme_url") or r["url"]}) | {T["repository_types"][r["type"]]["label"]} | {fam} | '
-          + ' | '.join(AVAIL_MD.get(av.get(k, 'not_assessed'), '·') for k in ('code', 'weights', 'training_code', 'evaluation', 'raw_predictions')) + ' |')
+        a(f'| [{r["full_name"]}]({r.get("readme_url") or r["url"]}) | {fam} | {md(r.get("base_model") or "—")} | '
+          + ' | '.join(AVAIL_MD.get(av.get(k, 'not_assessed'), '·') for k in ('weights', 'training_code', 'evaluation', 'data')) + f' | {r.get("license") or "—"} |')
+    a('')
+    a(f'### {T["ecosystem_roles"]["benchmark"]["label"]}')
+    a('')
+    for r in sorted(by_role['benchmark'], key=lambda r: r['full_name'].lower()):
+        a(f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])} *{md(r["boundary"])}*')
+    a('')
+    a(f'### {T["ecosystem_roles"]["built_with"]["label"]}')
+    a('')
+    groups = defaultdict(list)
+    for r in by_role['built_with']:
+        groups[r.get('domain')].append(r)
+    for app in tax['applications'] + [dict(id=None, label='Other')]:
+        rs = sorted(groups.get(app['id'], []), key=lambda r: r['full_name'].lower())
+        if not rs:
+            continue
+        a(f'**{app["label"]}**')
+        a('')
+        for r in rs:
+            a(f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])}')
+        a('')
+    a(f'### {T["ecosystem_roles"]["tooling"]["label"]}')
+    a('')
+    for r in sorted(by_role['tooling'], key=lambda r: (r['type'], r['full_name'].lower())):
+        a(f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])}')
     a('')
     a('## Background references')
     a('')
@@ -99,17 +144,17 @@ def main():
             venue = f' · {p["venue"]}' if p['venue_source'] in ('arxiv_comment', 'arxiv_journal_ref') else ''
             a(f'- [{md(p["title"])}]({p["url"]}) ({p["year"]}{venue}) — {md(p["role"])}')
         a('')
-    a('## Related survey')
+    a('## Related reviews and catalogues')
     a('')
-    rs = d['review-relations']['related_surveys'][0]
-    a(f'[*Decisions, Not Tokens*]({rs["url"]}) (working draft, 2026) covers machine-native decision models more broadly, from classical classifiers to Jev.')
+    for r in d['review-relations']['related_surveys']:
+        a(f'- [{md(r.get("short") or r["title"])}]({r["url"]}) ({md(r.get("kind_label") or "")}) — {md(r.get("scope") or "")}.')
     a('')
     a('## Method')
     a('')
     a('- Scope, search and screening: [docs/methodology.md](docs/methodology.md). Limitations: [docs/limitations.md](docs/limitations.md).')
     a('- How evidence records and openness fields are defined: [docs/evidence-audit.md](docs/evidence-audit.md).')
     a('- Survey manuscript: [PDF](paper/main.pdf) · [Markdown](paper/survey.md).')
-    a('- Data: [`data/`](data/) (JSON records), [`data/exports/`](data/exports/) (CSV) and [`data/references.bib`](data/references.bib).')
+    a('- Data: [`data/`](data/) (JSON records), [`data/exports/`](data/exports/) (CSV) and [`data/references.bib`](data/references.bib); screening lists in [`research/`](research/).')
     a('')
     a('## Contributing')
     a('')
@@ -129,9 +174,9 @@ def main():
         a(f'  author       = {{{names}}},')
         a('  title        = {Jev and Typed Decision Models: An Empirical Survey of Calibration, Selective Control, and Open Implementations},')
         a(f'  year         = {{{s["cutoff"][:4]}}},')
-        if repo:
-            a(f'  howpublished = {{\\url{{{repo}}}}},')
-        a(f'  note         = {{Version {J.VERSION}, data cutoff {J.fmt_date(s["cutoff"])}. Working draft, not peer-reviewed}}')
+        if site or repo:
+            a(f'  howpublished = {{\\url{{{site or repo}}}}},')
+        a(f'  note         = {{Version {J.VERSION}, updated {J.fmt_date(s["cutoff"])}. Working draft, not peer-reviewed}}')
         a('}')
         a('```')
         a('')

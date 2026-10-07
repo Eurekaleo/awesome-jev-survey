@@ -35,7 +35,7 @@ def main():
     initial += ['site/catalog.mjs']  # static import of site.js
     initial += sorted(set(re.findall(r'src="(assets/[^"]+)"', html)))
     initial += sorted(set(re.findall(r'href="(assets/favicon\.svg)"', html)))
-    lazy = ['site/lab.js', 'site/data/drawer.json']
+    lazy = ['site/lab.js', 'site/field.js', 'site/data/drawer.json'] + sorted(str(p.relative_to(ROOT)) for p in (ROOT / 'site' / 'data' / 'fragments').glob('*.html'))
     rows = {p: size(p) for p in dict.fromkeys(initial + lazy)}
     tot_raw = sum(rows[p][0] for p in dict.fromkeys(initial))
     tot_gz = sum(rows[p][1] for p in dict.fromkeys(initial))
@@ -48,7 +48,7 @@ def main():
         initial={p: dict(raw_kb=round(rows[p][0] / 1024, 1), gzip_kb=round(rows[p][1] / 1024, 1)) for p in dict.fromkeys(initial)},
         initial_total=dict(raw_kb=round(tot_raw / 1024, 1), gzip_kb=round(tot_gz / 1024, 1)),
         lazy={p: dict(raw_kb=round(rows[p][0] / 1024, 1), gzip_kb=round(rows[p][1] / 1024, 1)) for p in lazy},
-        external=['Google Fonts CSS + WOFF2 for DM Sans, Space Grotesk, Instrument Serif (display=swap)'],
+        external=['Google Fonts CSS + WOFF2 for Newsreader, Public Sans, IBM Plex Mono (display=swap)'],
         forbidden_on_first_load=forbidden, budget_gzip_kb=BUDGET_GZIP_KB)
     (ROOT / 'reports').mkdir(exist_ok=True)
     (ROOT / 'reports' / 'performance.json').write_text(json.dumps(report, indent=2) + '\n')

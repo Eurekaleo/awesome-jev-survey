@@ -2,6 +2,15 @@
 
 Notable changes to the data, website and manuscript.
 
+## 0.3.0 — 2026-10-07
+
+- Literature through early October 2026: new core studies on option semantics, missing-answer rejection, probability coherence, numeric and structural reasoning, security, agents, networks, medicine, search, databases and robotics, and new open models in several languages. Every core study was read in full; studies posted in revised versions were re-read and their records updated.
+- Ten findings instead of seven. New: a calibrated probability is not a coherent belief (F8); typed decisions read what the input states but do not reliably compute what it implies (F9); a typed output does not make a decision safe from its inputs (F10). Each finding now lists curated key evidence, and existing findings were revised with the new studies.
+- Open ecosystem: open models and readouts, benchmarks, applications and tools, each read at a pinned commit, with weights, training code, evaluation material and data recorded separately. Entries from community catalogues, including the OmniJev gallery, were traced to their own READMEs or papers; entries whose README does not mention Jev were left out.
+- Related reviews and catalogues compared side by side; lineage now covers study families, shared authors and name collisions (for example the several unrelated projects called OpenJev).
+- Redesigned website: chapter-based layout, findings with headline figures, a sortable study-by-finding heatmap, ecosystem tabs, a news list and a citation card, with a lighter first load.
+- Manuscript rewritten around the ten findings, with new figures and an ecosystem table; README regenerated as a curated list.
+
 ## 0.2.0 — 2026-09-24
 
 - Four new core studies from the 24 September arXiv listing: Jev on legal contract inference (ContractNLI), Jev as a radiology report factuality judge, KITE (population experiments with a typed Jev kernel) and JEV-Star (StarCraft II control with Jev action selection and GPT-6 planning), with their evidence records and code repositories.

@@ -8,20 +8,22 @@ authors:
   - family-names: "Luo"
     given-names: "Meng"
     website: "https://eurekaleo.github.io/"
-version: 0.2.0
-date-released: "2026-09-24"
+version: 0.3.0
+date-released: "2026-10-07"
 license: CC-BY-4.0
 repository-code: "https://github.com/Eurekaleo/awesome-jev-survey"
 url: "https://eurekaleo.github.io/awesome-jev-survey/"
 abstract: >-
   An evidence survey of TypeSafe's Jev and Jev-like typed decision models: what their probabilities mean,
-  when software should act on them, and what open implementations release. It combines claim-level evidence
-  records with source locators, an openness audit of implementation and evaluation resources, a searchable
-  website and a manuscript draft. Values are as reported by their sources.
+  when software should act on them, where typed decisions fail, and what open implementations release.
+  It combines claim-level evidence records with source locators, ten cross-cutting findings, an audit of
+  open models, benchmarks, applications and tools, a searchable website and a manuscript draft.
+  Values are as reported by their sources.
 keywords:
   - typed decision models
   - Jev
   - calibration
   - selective prediction
   - evidence audit
+  - open models
   - survey

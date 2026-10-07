@@ -8,7 +8,44 @@
         "arxiv:2609.23136",
         "arxiv:2609.22753"
       ],
-      "note": "Same author group (Li, Wang, Gong, Lang, Yu) and related edge service paths; synthesise as one family, not two independent replications."
+      "note": "Same author group (Li, Wang, Gong, Lang, Yu); both papers were substantially revised after first posting. The group also wrote the network-control SoK (2610.06425). Synthesise as one family, not independent replications."
+    },
+    {
+      "type": "study_family",
+      "id": "teke-ufak-2026",
+      "members": [
+        "arxiv:2610.02293",
+        "arxiv:2610.06744"
+      ],
+      "note": "Same author: the HakemBench benchmark and the ufakzeka-karar model it ranks; the model’s benchmark numbers are flagged by the author as not blind."
+    },
+    {
+      "type": "study_family",
+      "id": "yang-zhao-2026",
+      "members": [
+        "arxiv:2609.29283",
+        "arxiv:2610.06354"
+      ],
+      "note": "Shared authors (Yang, Zhao): PixelJev and GraphDecide."
+    },
+    {
+      "type": "study_family",
+      "id": "wu-lim-2026",
+      "members": [
+        "arxiv:2609.26532",
+        "arxiv:2609.28613"
+      ],
+      "note": "Same two authors (Wu, Lim): an agent architecture built on Jev and an attack study of Jev decision layers."
+    },
+    {
+      "type": "study_family",
+      "id": "rafe-das-2026",
+      "members": [
+        "arxiv:2609.24052",
+        "arxiv:2610.00213",
+        "arxiv:2610.00346"
+      ],
+      "note": "Same two authors (Rafe, Das): crash-narrative coding, pregnancy surveillance in crash narratives and a decision-gate benchmark; synthesise as one family, not independent replications."
     },
     {
       "type": "companion_repository",
@@ -96,7 +133,7 @@
     {
       "type": "name_collision",
       "term": "OpenJev",
-      "note": "Three different things: SemIf (formerly OpenJev, frozen-decoder readout), razorback16/openjev (DiffusionGemma server) and the “Open-Jev” title of 2609.23959 (JevLite)."
+      "note": "At least eight unrelated projects share the name: SemIf (formerly OpenJev), daseinlabs/open-jev and zhihz/openjev (frozen-decoder readouts); razorback16/openjev and JoshuaSP/open-jev (DiffusionGemma readouts); Zefan-Cai/Open-Jev (fine-tuned decision models); nico-martin/open-jev (an in-browser runtime for open checkpoints); and the “Open-Jev” of the title of 2609.23959, whose model is JevLite."
     },
     {
       "type": "name_collision",
@@ -131,6 +168,15 @@
       "type": "prior_survey",
       "source": "gh:youzizzz1028/awesome-jev",
       "note": "“Decisions, Not Tokens” survey draft dated 21 September 2026; see related-surveys."
+    },
+    {
+      "type": "same_author_group",
+      "members": [
+        "arxiv:2610.06425",
+        "arxiv:2609.22753",
+        "arxiv:2609.23136"
+      ],
+      "note": "The SoK on semantic decision engines in network control loops comes from the authors of the two edge/RAN studies."
     }
   ],
   "related_surveys": [
@@ -142,11 +188,78 @@
       "url": "https://github.com/youzizzz1028/Awesome-Jev/blob/f3703012b0034eefe0d59936c44cd33ea11b2990/paper/main.tex",
       "commit": "f3703012b0034eefe0d59936c44cd33ea11b2990",
       "manuscript_commit": "c1347c84a2577ac699fc954fc1b2ef60bd7eb025 (2026-09-21 14:53:42 UTC)",
-      "checked": "2026-09-23: head unchanged since the snapshot (GitHub API).",
+      "checked": "2026-10-06: head unchanged since the snapshot (GitHub API).",
       "status": "public working draft; CITATION.cff type dataset; no arXiv entry located",
       "bib_entries": 41,
       "core_ids_cited": 0,
-      "bibtex_key": "decisionsnottokens2026"
+      "bibtex_key": "decisionsnottokens2026",
+      "short": "Decisions, Not Tokens",
+      "kind_label": "Working draft on GitHub",
+      "scope": "Machine-native decision models, from classical classifiers to Jev",
+      "unit": "Literature",
+      "records": "Narrative survey of the model class",
+      "release": "Manuscript source on GitHub",
+      "versioning": "Working draft dated 21 Sep 2026"
+    },
+    {
+      "id": "arxiv:2609.32160",
+      "title": "Typed Decision Models: An Early Evidence Audit and Evaluation Checklist",
+      "authors": "Lijuan Tang; Yuemeng Zheng",
+      "dated": "2026-09-26",
+      "url": "https://arxiv.org/abs/2609.32160v1",
+      "status": "arXiv preprint",
+      "scope": "28 papers posted 19–24 September 2026",
+      "bibtex_key": "arxiv2609_32160",
+      "short": "Typed Decision Models: An Early Evidence Audit",
+      "kind_label": "arXiv preprint",
+      "unit": "Papers",
+      "records": "Recurring weaknesses of the early studies; a 14-item evaluation checklist",
+      "release": "Per-paper corpus sheet (arXiv ancillary file)",
+      "versioning": "arXiv v1"
+    },
+    {
+      "id": "arxiv:2610.06425",
+      "title": "SoK: Semantic Decision Engines in Network Control Loops",
+      "authors": "Delong Li; Chen Li; Xu Wang; Haochen Gong; Rui Lang; Guangsheng Yu",
+      "dated": "2026-10-05",
+      "url": "https://arxiv.org/abs/2610.06425v1",
+      "status": "arXiv preprint",
+      "scope": "139 paper families on semantic decision engines in network control loops",
+      "bibtex_key": "arxiv2610_06425",
+      "short": "SoK: Semantic Decision Engines in Network Control Loops",
+      "kind_label": "arXiv preprint",
+      "unit": "Paper families",
+      "records": "Classification by decision interface, execution path and check ownership; a minimum reporting record",
+      "release": "Paper",
+      "versioning": "arXiv v1"
+    },
+    {
+      "id": "gh:omnijev/awesome-jev-gallery",
+      "title": "Awesome Jev gallery",
+      "short": "OmniJev / awesome-jev-gallery",
+      "kind_label": "Curated list on GitHub",
+      "url": "https://github.com/OmniJev/awesome-jev-gallery",
+      "commit": "1607fe762c03b4aa219709e216facdcb1686efbe",
+      "checked": "2026-10-06",
+      "scope": "Open models, projects, benchmarks, commentary and context around Jev",
+      "unit": "Repositories, posts and papers",
+      "records": "One-line descriptions with links",
+      "release": "README list",
+      "versioning": "Continuously edited"
+    },
+    {
+      "id": "gh:omnijev/awesome-jev-papers",
+      "title": "Awesome Jev papers",
+      "short": "OmniJev / awesome-jev-papers",
+      "kind_label": "Curated list on GitHub",
+      "url": "https://github.com/OmniJev/awesome-jev-papers",
+      "commit": "a3339e373d10398073d8ca4c3dd5d8c936cff50b",
+      "checked": "2026-10-06",
+      "scope": "Research papers on Jev and open models built in its shape",
+      "unit": "Papers",
+      "records": "Thematic list with links",
+      "release": "README list",
+      "versioning": "Continuously edited"
     }
   ]
 }

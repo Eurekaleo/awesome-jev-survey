@@ -9,7 +9,8 @@ This project reviews other people’s work. The MIT License in `LICENSE` covers 
 | Vendor documentation (TypeSafe AI) | summarised in `data/claims.json`, `data/sources.json`, the site and the paper | Facts are paraphrased with links and access dates. “Jev”, “TypeSafe” and “System One” are names used by their owner; this project is independent and not affiliated with or endorsed by TypeSafe AI. |
 | Facts from third-party GitHub repositories | `data/repositories.json`, `data/claims.json` | Taken from READMEs at pinned commits and cited by URL. Licence fields are GitHub’s detection (`NOASSERTION` = not identified, not “no licence”). |
 | Prior survey draft “Decisions, Not Tokens” | cited in the paper and README | Cited; no text reused. Apache-2.0 per its repository. |
-| Web fonts | loaded from Google Fonts | DM Sans, Space Grotesk and Instrument Serif are licensed under the SIL Open Font License. |
+| Community catalogues (for example the OmniJev gallery and paper lists) | used for discovery | Entries were traced to their own READMEs or papers before use; no list text is reused. |
+| Web fonts | loaded from Google Fonts | Newsreader, Public Sans and IBM Plex Mono are licensed under the SIL Open Font License. |
 
 ## Trademarks and affiliation
 

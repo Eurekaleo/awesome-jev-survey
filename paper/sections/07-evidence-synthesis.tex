@@ -3,72 +3,143 @@
 
 \subsection{The evidence base}
 
-The core studies appeared between 19 and 23 September 2026, beginning four days after the launch (Figure 1). Relationships overlap: 12 studies evaluate or use hosted Jev, 5 build or evaluate independent Jev-like models, and 8 embed typed decisions in a larger system (Table 3). Of the 15 studies that query hosted Jev, 12 state the version they called (\texttt{jev-1.13.0} or \texttt{jev-1.13}; one uses \texttt{typesafe/jev1.13} through OpenRouter \citep{arxiv2609_24574}) and 3 state none. Every core study is an arXiv preprint; two had a second version by 24 September, and their evidence was read on the first.
+The core studies appeared between 19 September and 5 October 2026, beginning four days after the launch (Figure 1). Relationships overlap: 58 studies evaluate hosted Jev, 44 build or evaluate independent Jev-like models, and 17 embed typed decisions in a larger system (Table 3). In all, 72 studies call hosted Jev, as the object of study, a baseline or a component; 60 state the version they called and 12 state none. Every core study is an arXiv preprint.
 
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=\linewidth]{figures/timeline.pdf}
-\caption{Submission dates of the core and peripheral studies (arXiv v1) against context events, by primary relationship to Jev.}\label{fig:timeline}
+\caption{Submission dates (arXiv v1) of the core and peripheral studies, one dot per study stacked by day and coloured by primary relationship to Jev, against context events.}\label{fig:timeline}
 \end{figure}
 
-\begin{table}[tbp]
-\centering\footnotesize
-\caption{Core and peripheral studies (* peripheral; † same study family). Headline values are author-reported.}\label{tab:core}
-\begin{tabularx}{\linewidth}{p{0.2\linewidth}p{0.055\linewidth}p{0.085\linewidth}p{0.11\linewidth}Xp{0.075\linewidth}}
+{\footnotesize
+\begin{xltabular}{\linewidth}{p{0.2\linewidth}p{0.055\linewidth}p{0.085\linewidth}p{0.11\linewidth}Xp{0.075\linewidth}}
+\caption{Core and peripheral studies (* peripheral; † same study family). Headline values are author-reported.}\label{tab:core}\\
 \toprule
 \textbf{Study} & \textbf{v1 (2026)} & \textbf{Test level} & \textbf{Version} & \textbf{Headline (as reported)} & \textbf{Ref.} \\
 \midrule
-Replacing LLMs with Jev at the Edge † & 09-19 & Hybrid & jev-1.13 & Median client decision latency −15.9\% to −26.5\% & \citep{arxiv2609_22753} \\
-Intent-Driven 6G Edge Orchestration † & 09-19 & Hybrid & Jev 1.13 & Median decision latency −22.4\% vs DeepSeek, −61.9\% vs Gemini & \citep{arxiv2609_23136} \\
-this-that-model-1.0 & 09-20 & Model test & 1.0; not reported & 30.9 ms per decision on one laptop GPU; 32 decisions/s & \citep{arxiv2609_23886} \\
+\endfirsthead
+\toprule
+\textbf{Study} & \textbf{v1 (2026)} & \textbf{Test level} & \textbf{Version} & \textbf{Headline (as reported)} & \textbf{Ref.} \\
+\midrule
+\endhead
+Replacing LLMs with Jev at the Edge † & 09-19 & Hybrid & jev-1.13.0 & Median decision latency −22.7\% to −64.5\% vs the fastest LLM & \citep{arxiv2609_22753} \\
+Intent at RIC Timescales † & 09-19 & Hybrid & jev-1.13.0 & Meets the 1 s RIC budget on 99.8\% of calls (LLMs: 17.9\%, 0\%) & \citep{arxiv2609_23136} \\
+this-that-model-1.0 & 09-20 & Model test & 1.0; not reported & 30.9 ms per decision on one laptop GPU; 32 decisions/\allowbreak{}s & \citep{arxiv2609_23886} \\
 Open-Jev on CallScreenBench & 09-21 & Model test & paper v1 (three seeds) & JevLite ensemble AUROC .974, ECE .052; no false alarms & \citep{arxiv2609_23959} \\
-Jev-Mem & 09-21 & System test & not reported & LoCoMo judge 0.777 (+11.0\%); build 158 s; 0.93 s/query & \citep{arxiv2609_23986} \\
-Calibrated Decisions at Scale & 09-21 & System test & jev-1.13.0 & 499,500 narratives screened for \$25.23; 195,857 fully coded & \citep{arxiv2609_24052} \\
+Jev-Mem & 09-21 & System test & not reported & LoCoMo judge 0.777 (+11.0\%); build 158 s; 0.93 s/\allowbreak{}query & \citep{arxiv2609_23986} \\
+Calibrated Decisions at Scale † & 09-21 & System test & jev-1.13.0 & 499,500 narratives screened for \$25.23; 195,857 fully coded & \citep{arxiv2609_24052} \\
 JEVQA & 09-21 & Model test & jev-1.13 & PLCC vs VMAF: 0.737 (metadata) → 0.824 (+bitstream, pixel) & \citep{arxiv2609_24395} \\
-Decision Models for CSS Annotation & 09-21 & Model test & typesafe/jev1.13 & Behind best LLM on 14/15 tasks (−11.6 F1) at 44× lower cost & \citep{arxiv2609_24574} \\
+Decision Models for CSS Annotation & 09-21 & Model test & typesafe/\allowbreak{}jev1.13 & Behind best LLM on 14/\allowbreak{}15 tasks (−11.6 F1) at 44× lower cost & \citep{arxiv2609_24574} \\
+Pregnancy in Crash Narratives † & 09-21 & Model test & jev-1.13.0 & Population-scale reading audited by blind coders: sensitivity 0.999 & \citep{arxiv2610_00213} \\
 Jev for Scientific Decisions & 09-21 & System test & Jev 1.13 & Full semantic correctness; median 0.335 s, p95 0.442 s & \citep{arxiv2609_24965} \\
-Universal Fractal Decision Map * & 09-21 & Model test & not reported & Self-reported 92.6\% macro-accuracy, 7.08 ms on CPU, “\#1” on JevBench & \citep{arxiv2609_25498} \\
+Universal Fractal Decision Map * & 09-21 & Model test & not reported & Self-reported 81.65\% on public JevBench items at 7.08 ms & \citep{arxiv2609_25498} \\
 Visual Jev & 09-22 & Model test & paper v1 & Macro accuracy 0.706 → 0.761 after post-training (seen families) & \citep{arxiv2609_25845} \\
-REFLEX with Jev & 09-22 & System test & jev-1.13.0 & 95\% success with 1.12 strong calls/task vs 88\% and 4.10 (−72.7\%) & \citep{arxiv2609_26532} \\
-JEV-as-a-Judge & 09-22 & Model test & jev-1.13.0 & RewardBench 92.2\% vs 93.5\%; HaluEval 87.5\% vs 86.7\% (GPT-6) & \citep{arxiv2609_26550} \\
+REFLEX with Jev † & 09-22 & System test & jev-1.13.0 & 95\% success with 1.12 strong calls/\allowbreak{}task vs 88\% and 4.10 (−72.7\%) & \citep{arxiv2609_26532} \\
+JEV-as-a-Judge & 09-22 & Model test & jev-1.13.0 & Within 3 points of GPT-6 where the verdict can be read off the text & \citep{arxiv2609_26550} \\
 Type-Safe Is Not Error-Free & 09-22 & Model test & not reported & Hosted Jev AUROC .8146 → .5806 after name–rubric swap; 0\% type errors & \citep{arxiv2609_26758} \\
-JEV-Star & 09-23 & System test & Jev 1.13 & 4/4 full-game wins incl. two vs Lv7 with GPT-6 plans; Jev-only never expanded & \citep{arxiv2609_27331} \\
+JEV-Star & 09-23 & System test & Jev 1.13 & 4/\allowbreak{}4 full-game wins incl. two vs Lv7 with GPT-6 plans; Jev-only never expanded & \citep{arxiv2609_27331} \\
 KITE & 09-23 & System test & jev-1.13.0 & 1.7\% flagship anchors cut effect error 41\%; decision gain 0.27 → 0.39 & \citep{arxiv2609_27535} \\
-Jev as a Radiology Report Judge & 09-23 & Model test & jev-1.13.0 & Kendall τ 0.573 / 0.398 with expert error counts; beats open NLI & \citep{arxiv2609_27607} \\
+Jev as a Radiology Report Judge & 09-23 & Model test & jev-1.13.0 & Kendall τ 0.573 /\allowbreak{} 0.398 with expert error counts; beats open NLI & \citep{arxiv2609_27607} \\
 Jev on Contract Inference & 09-23 & Model test & jev-1.13.0 & \$0.000228 and 1.24 s per contract — lowest of ten models & \citep{arxiv2609_27678} \\
+NumericJev & 09-23 & Model test & jev-1.13 & Range refinement: 83.4\% within 5\% vs 80.5\% direct choice & \citep{arxiv2609_28587} \\
+Decision Hijacking † & 09-23 & Model test & jev-1.13.0 & Injection shifts probabilities (+0.043) but rarely selects the target (1.8\%) & \citep{arxiv2609_28613} \\
+Harness Tokenomics & 09-24 & Simulation & jev-1.13.0 & Emulated router saves 13–21\% of coding-agent spend & \citep{arxiv2609_28919} \\
+Pentest Decision Layers & 09-24 & System test & jev-latest & One run each: 5 min faster, different severities — not a controlled test & \citep{arxiv2609_28940} \\
+PixelJev † & 09-24 & Model test & — & Typed readout and generation gain equally after adaptation & \citep{arxiv2609_29283} \\
+Just Ask Jev & 09-24 & Model test & jev-1.13.0 & Zero-shot failure detection: median AUROC 0.886 at 1/\allowbreak{}63 of judge cost & \citep{arxiv2609_29429} \\
+Jev as a Rubric Judge & 09-24 & Model test & jev-1.13.0 & Parity on most rubric criteria at 1/\allowbreak{}16–1/\allowbreak{}325 of the cost & \citep{arxiv2609_29769} \\
+Jev-Mobile & 09-24 & System test & not reported & AndroidWorld 79\% (vs 84\% step-wise) at 73\% lower API cost & \citep{arxiv2609_30186} \\
+Jev in the Wild & 09-24 & Not applicable & not reported & Ecosystem: judgment 77\%, scoring 52\%, action selection 31\% of projects & \citep{arxiv2609_30216} \\
+JevOut & 09-24 & Model test & jev-1.13.0 & Natural context flips 61\% of correct decisions (vs 2\% neutral) & \citep{arxiv2609_30243} \\
+Biosecurity Audit & 09-24 & Model test & jev-1.13.0 & Confidence = chance-normalised max probability; pooled ECE 0.034 & \citep{arxiv2609_30454} \\
+LAVOIR & 09-25 & Model test & — & Learned “when to ask” policy ≈ oracle (AUC 0.80 vs 0.80) & \citep{arxiv2609_30706} \\
+JevSoup & 09-25 & System test & jev-1.13.0 & Jev-routed LoRA composition: +0.2 to +1.2 points & \citep{arxiv2609_30922} \\
+JevAdvBench & 09-25 & Model test & jev-1.13.0 & An appended opinion flips 12\% and drains 38\% of confident answers below the gate & \citep{arxiv2609_31142} \\
+PACT & 09-26 & Model test & — & Open recipe holds up; extra terms buy robustness, not accuracy & \citep{arxiv2609_35865} \\
+Probability Axioms & 09-27 & Model test & jev-1.13 & P(X) + P(not X) misses 1 by 0.064 (open LLM readout: 0.293) & \citep{arxiv2609_33209} \\
+Agent Security Decisions & 09-27 & Model test & jev-1.13 & Safe automation coverage: 7.6\% (symmetric) → 47\% (separate thresholds) & \citep{arxiv2609_33401} \\
+Speech Neuroprosthesis Rescoring & 09-27 & Model test & jev-latest & Rescoring: WER 7.5\% vs 7.8\% for 7B LLMs, no GPU needed & \citep{arxiv2609_33538} \\
+COGNIT-Guard & 09-27 & Model test & — & Adapted open guard: AUC 0.83 → 0.997, with an OOD “alignment tax” & \citep{arxiv2609_33671} \\
+Typed Decisions for 5G Control & 09-27 & System test & jev-1.13.0 & Hosted Jev never meets 100 ms near-RT deadlines (warm p50 281 ms) & \citep{arxiv2609_33689} \\
+Laya Reproduction & 09-27 & Model test & — & Open Laya checkpoint under-confident (gap −0.214); one temperature fixes it & \citep{arxiv2609_33843} \\
+Probability Contracts & 09-27 & Model test & jev-1.13.0 & Two interfaces, same question: different decision on 32.8\% of pairs & \citep{arxiv2609_37470} \\
+JET & 09-27 & Model test & Jev 1.13 & Local likelihood readout 85.1\% vs Jev 89.1\% on MMLU & \citep{arxiv2609_33874} \\
+Do Decisions Add Up? & 09-27 & Model test & jev-1.13.0 & Staged decisions disagree with direct ones; Jev loses 22.9 points on CLINC150 & \citep{arxiv2609_33971} \\
+Jev in Medicine & 09-27 & Model test & jev-1.13 & Medicine: parity on abstracts, −22 points on diagnostic cases & \citep{arxiv2609_34024} \\
+Video Anomaly Readouts & 09-28 & Model test & jev-1.13.0 & Same evidence, different readout: +18 AP on one dataset, none on the other & \citep{arxiv2609_34180} \\
+Selection vs Extraction Memory & 09-28 & System test & jev-1.13.0 & One Jev selection call ≈ LLM-extraction memory at 1/\allowbreak{}3,061 the write cost & \citep{arxiv2609_34227} \\
+SeLMRoute & 09-28 & System test & not reported & Typed-question features route LLMs: 72.1\% vs 69.2\% best single model & \citep{arxiv2609_34736} \\
+Agent Trace Security Judge & 09-28 & Model test & not reported & Trace security: F1 77.8 vs 74.1 for the best LLM judge & \citep{arxiv2609_34862} \\
+JevVibe & 09-28 & Model test & jev-1.13.0 & CWE triage: Top-1 0.46 vs 0.50 (frontier) at 1/\allowbreak{}56 of the cost & \citep{arxiv2609_34963} \\
+NavJev & 09-28 & System test & not reported & Navigation: 27\% SR at 0.65 s/\allowbreak{}step; components, not just Jev, carry the gain & \citep{arxiv2609_34969} \\
+Source-Position Coherence & 09-28 & Model test & jev-1.13.0 & Jev’s argument scores move with the stated source & \citep{arxiv2609_35286} \\
+Decide, Don’t Generate (ABSA) & 09-28 & Model test & jev-1.13.0 & SemEval ABSA: best regression error with 488 fitted coefficients & \citep{arxiv2609_35293} \\
+Sys1Cal-v1 & 09-28 & Model test & not reported & Known-probability test: Noul 0.92, Score 0.89, Choice 0.76 & \citep{arxiv2609_35342} \\
+Mnemon & 09-28 & System test & jev-1.13 & Memory agent: LoCoMo 91.7\% with Jev judging evidence (AUC 0.94) & \citep{arxiv2609_36059} \\
+Koa-action & 09-28 & Model test & — & Single-token LLM classifier: 85.5\% at 0.53 s, flat across label spaces & \citep{arxiv2609_36115} \\
+Dyad & 09-28 & Model test & Jev 1.13 & Native typed-decision head: 86.2\% vs Jev 85.0\% on JevBench & \citep{arxiv2609_36116} \\
+Training-Free HAR & 09-28 & Model test & jev-1.13.0 & Sensor activity recognition from text: macro-F1 ≤ 0.12 & \citep{arxiv2609_36154} \\
+Cultural Values Audit & 09-28 & Model test & jev-1.13.0 & Persona shifts reproduce 87\% (English) vs 62\% (Arabic) of a human difference & \citep{arxiv2609_36399} \\
+Chinese-Jev & 09-29 & Model test & not reported & Language-specific open encoder ≈ hosted Jev in Chinese, better calibrated & \citep{arxiv2609_36965} \\
+Benchmarking Jev (37 datasets) & 09-29 & Model test & jev-1.13.0 & Ahead of a 27B open LLM on 27/\allowbreak{}37 datasets; pooled Choice ECE 0.028 & \citep{arxiv2609_37647} \\
+Certo (Cacheable Rules) & 09-29 & Model test & — & Cacheable scoring loses rule sensitivity (recall@1 1.00 → 0.24) & \citep{arxiv2609_37832} \\
+Decision Gates Benchmark † & 09-29 & Model test & jev-1.13.0 & Threshold for 5\% risk still admits 31\% of out-of-scope requests & \citep{arxiv2610_00346} \\
+Ordinal-Scale Bias & 09-30 & Model test & typesafe/\allowbreak{}jev-1.13-20260917 & ANLI: Neutral absorbs 51\% of errors, at every position & \citep{arxiv2609_38827} \\
+OpenJev-RLCD & 09-30 & Model test & — & Open RLCD: best selective prediction among SFT, STaR, GRPO & \citep{arxiv2609_38850} \\
+Bongard & 09-30 & Model test & — & Open encoder–decoder: 78.05\% on DecisionBench, 32 questions in 221 ms & \citep{arxiv2609_39111} \\
+Network Traffic Classification & 09-30 & Model test & typesafe/\allowbreak{}jev-1.13-20260917 & Packet numbers in, 28\% accuracy out — trees trained on 8k records reach 70\% & \citep{arxiv2610_00376} \\
+OmniMed-Jev & 09-30 & Model test & — & Same backbone, decision-native output: calibration error down up to 10× & \citep{arxiv2610_00381} \\
+Rejection Bottleneck & 09-30 & Model test & jev-1.13 & Present 99\%, rejected when absent 7\% — though Boolean checks get 99\% & \citep{arxiv2609_39496} \\
+JevSpawn & 09-30 & System test & jev-1.13.0 & Agent with spawned finite actions: Maze 0.96 vs 0.52 & \citep{arxiv2610_00437} \\
+Recommendation Reranking & 09-30 & Model test & jev-latest & Strong reranking quality; latency between local models and pointwise LLMs & \citep{arxiv2609_40241} \\
+AnyJev & 09-30 & Model test & — & Order flips on a third of 20-option items; rotation averaging halves them & \citep{arxiv2610_00831} \\
+Beyond Answer Confidence & 10-01 & Model test & jev-1.13.0 & Confidence ≠ knowing: +0.21–0.33 overconfidence past the knowledge boundary & \citep{arxiv2610_01006} \\
+Jev-IDS & 10-01 & Model test & jev-1.13.0 & Intrusion pilot: F1 0.859, 4.8× faster than an LLM & \citep{arxiv2610_01079} \\
+Fast Models, Slow Evidence & 10-01 & Model test & jev-1.13.0 & Hosted beats open on 9 of 11 harness decisions; routing at chance for both & \citep{arxiv2610_02267} \\
+Candidate-Independent Attention & 10-01 & Model test & — & Isolate candidates: order flips 18.2\% → 1.2\% & \citep{arxiv2610_01601} \\
+Code Owns the Simulation & 10-01 & System test & jev-1.13.0 & Evaluates what is described; does not simulate what is not & \citep{arxiv2610_01834} \\
+HakemBench † & 10-01 & Model test & jev-1.13 & Turkish typed decisions: Jev fourth of 16 at a tenth of the leader’s time & \citep{arxiv2610_02293} \\
+JEVDB & 10-01 & System test & jev-1.13.0 & Semantic SQL: pruning + typed decisions finish 540K-pair joins & \citep{arxiv2610_02046} \\
+HydroJEV & 10-01 & Model test & jev-1.13.0 & Pre-registered gate: a third of SCADA reviews offloaded, accuracy kept & \citep{arxiv2610_02048} \\
+LLM-as-Jev & 10-01 & Model test & — & A frozen 4B LLM already matches community Jev-style models & \citep{arxiv2610_02076} \\
+SBERT2S1 & 10-01 & Model test & — & Open RLCD recipe trails plain cross-entropy by 2.5–3.0 points & \citep{arxiv2610_02486} \\
+Labels Override Definitions & 10-01 & Model test & — & The label wins over the definition — and the cause is one rendering line & \citep{arxiv2610_02586} \\
+SecJev & 10-02 & Model test & — & Security-specialised 0.8B beats general 9B by 20.5 points & \citep{arxiv2610_03073} \\
+HateDecide & 10-02 & Model test & jev-1.13.0 & Definitions move 28\% of answers — without reliably improving them & \citep{arxiv2610_03324} \\
+Candidate Coverage & 10-02 & Model test & jev-1.13.0 & Missing answer noticed 24.8\% of the time (Jev) — Laya over-rejects & \citep{arxiv2610_03387} \\
+JEVal and InnerJev & 10-02 & Model test & jev-1.13.0 & Right mode, wrong mass: 89\% placed where the truth is 36\% & \citep{arxiv2610_03935} \\
+Wireless Decision-Making & 10-03 & Model test & not reported & Wireless control: 3.5–8.5× faster than LLMs; quality depends on the task & \citep{arxiv2610_04345} \\
+Hidden Risks of Jev & 10-04 & Model test & not reported & Typed outputs, hijacked inputs: up to 100\% injection success & \citep{arxiv2610_04985} \\
+SearchJev & 10-04 & Model test & jev-1.13.0 & Task-specialised open model beats Jev on rewriting, trails on routing & \citep{arxiv2610_05107} \\
+GraphDecide † & 10-05 & Model test & jev-1.13.0 & Reads every edge; counts degree right 68\% of the time & \citep{arxiv2610_06354} \\
+Political Science Replications & 10-05 & Model test & typesafe/\allowbreak{}jev-1.13-20260917 & Same accuracy, no cost advantage at batch prices & \citep{arxiv2610_06625} \\
+ufakzeka-karar † & 10-05 & Model test & — & Order invariance by construction; sequential heads still flip 2–3\% & \citep{arxiv2610_06744} \\
 \bottomrule
-\end{tabularx}
-\end{table}
+\end{xltabular}}
 
 \subsection{F1 · A type-valid answer can still be the wrong answer}
 
-Typed interfaces remove parse and schema failures by construction, and nothing more. In the most direct test, the authors held question, state, rubric wording and the set of option names fixed and changed only which name was bound to which rubric \citep{arxiv2609_26758}. For hosted Jev, rebinding the rubrics behind \emph{no/yes} flipped 32.50\% of answers, against 2.08\% and 1.67\% under neutral names. It lowered balanced accuracy from .7127 to .5163 and AUROC from .8146 to .5806 on 1,200 items. The swap produced 24× the model's test–retest floor, while the type-error rate stayed at 0\% in every condition. The larger reversal in the abstract, AUROC .9376 → .2315, belongs to an open marker-readout head, not to Jev. That head is also where neutral renaming of multi-way options changed 52.42\% of answers. Random character-string names returned flip rates to the neutral regime without costing accuracy, which suggests that polarity, not naming itself, drives the effect. Community audits add closed-set and primitive effects. Removing an abstain option drove accuracy on unanswerable items from 0.950 to 0.000 at 0.79 confidence, and a Noul and a two-option Choice over the same question differed by 0.125 on average \citep{gh_jujumilk3_jev_calibration_audit}. In a synthetic-panel study, the choice of primitive reversed a comparison with GPT-4.1 \citep{gh_jjd_lab_jev_synthetic_survey}. In agents, reliability depends on the size of the action set and on near-valid alternatives near authorisation boundaries \citep{arxiv2609_26532}. In scientific workflows, wrong selections changed derived counts while the final label stayed correct \citep{arxiv2609_24965}. The vendor's own list of weaknesses — literal reading, arithmetic, dates, indirection, large irrelevant state and adversarial text — points the same way \citep{typesafe2026jaggedness}.
+Typed interfaces remove parse and schema failures by construction; they do not make the chosen option right. The most direct test held question, state, rubric wording and the set of option names fixed and changed only which name was bound to which rubric \citep{arxiv2609_26758}. For hosted Jev, rebinding the rubrics behind \emph{no/yes} flipped 32.50\% of answers against about 2\% under neutral names, 24× the model's test–retest floor, and lowered AUROC from .8146 to .5806 while the type-error rate stayed at 0\%. Swapping the meaning of yes and no flipped about half of Jev's answers in a decision-gate benchmark \citep{arxiv2610_00346}. In open models the short label wins over its definition: deleting every definition left one model's accuracy unchanged, renaming options to A and B gained 0.151, and a label contradicting its definition dropped one model from 0.85 to 0.23 \citep{arxiv2610_02586}. Supplying a dataset's definition of hate speech changed up to 28\% of predictions without reliably improving them \citep{arxiv2610_03324}.
 
-Two qualifications matter. Order is a different intervention from binding: one community audit saw no argmax flips in 400 order permutations on hosted Jev \citep{gh_jujumilk3_jev_calibration_audit}, whereas frozen open readouts are order-sensitive until calibrated \citep{gh_nokia_applied_research_anyjev}. And the mitigations the authors propose (neutral identifiers, randomised names in training) have not been evaluated. Related work outside the Jev literature reaches the same conclusion from other directions: schema descriptions act as prompts \citep{arxiv2608_08254}, forced forms invite invented answers \citep{arxiv2607_20492}, and tool-using agents fail by binding the right action to the wrong entity \citep{arxiv2606_30531}.
+Two further patterns recur. \textbf{Missing answers go unnoticed.} With an explicit “None” option, Jev chose the right value on 99\% of arithmetic menus that contained it but correctly rejected only 7\% of menus that did not, although yes/no checks of the same candidates rejected every wrong one in 99\% of those cases \citep{arxiv2609_39496}; when a reference label was removed from the options, Jev noticed 24.8\% of the time while an open encoder over-rejected valid menus \citep{arxiv2610_03387}; on unanswerable medical questions it chose “I don't know” 10.5\% of the time, a frontier model 8.6\% \citep{arxiv2609_34024}. \textbf{Middle options absorb errors.} On ANLI, Jev assigned 51\% of its errors to Neutral and chose Neutral 37–40\% of the time wherever it was placed, and across 36 ordinal datasets decisions used only two-thirds to three-quarters of the gold scale \citep{arxiv2609_38827}.
 
-Consistency is not correctness either. On contract inference, five of Jev's 30 fixed anchors received the same wrong label in all twelve responses across request conditions and repeats \citep{arxiv2609_27678}.
+Order needs care. One community audit saw no argmax flips in 400 order trials on hosted Jev \citep{gh_jujumilk3_jev_calibration_audit}, and a 37-dataset benchmark found aggregate accuracy unchanged under rotation \citep{arxiv2609_37647}; yet four cyclic rotations changed 37.4\% of answers item by item on a cyber-knowledge benchmark, 28 points beyond run-to-run variation \citep{arxiv2609_30454}, and the vendor now lists option order among Jev's weak spots \citep{typesafe2026jaggedness}. Aggregate accuracy can hide item-level instability. Consistency is not correctness either: on contract inference, five of Jev's 30 fixed anchors were answered wrongly in all twelve responses \citep{arxiv2609_27678}.
 
 \subsection{F2 · A native probability makes calibration measurable, not guaranteed}
 
-Every call returns a distribution, so reliability can be audited on each run. Measured reliability varies. Across 15 computational-social-science tasks, Jev's median ECE was 0.157 (95\% CI 0.108–0.233). That beat the verbalised confidence of 16 of 19 LLMs but not three frontier Claude models (best 0.066) \citep{arxiv2609_24574}. The same study shows how a global average hides a local failure: on empathy in peer-support dialogues the model was confident while near chance, a task ECE of 0.538. On crash narratives, probabilities ranked well but overstated prevalence. Recalibration fitted on half of 2,416 blinded human judgments cut calibration error by about 3.3×, and calibration varied by model rather than by paradigm \citep{arxiv2609_24052}. Community audits disagree across datasets. One pre-registered audit found ECE 0.0204 on CLINC150 and 0.0936 on Banking77 \citep{gh_jourdanlabs_assay_001}. Another found that a temperature of about 3.4 was needed on a task whose rule is not recoverable from the text \citep{gh_scienthoon_jev_ood_calibration}. A third found that a Spanish state cost 3.0–6.4 accuracy points and doubled ECE on the hardest tasks \citep{gh_marcosmartinez_jev_acento}. Open models show the same pattern: JevLite reaches calibration error .052 with a temperature-scaled two-label readout, but on synthetic calls and with a recipe chosen under test-set exposure \citep{arxiv2609_23959}.
+Every call returns a distribution, so reliability can be audited on each run, and broad evaluations find it often good: pooled over 22 Choice datasets and 279,925 answers, ECE was 0.028 \citep{arxiv2609_37647}, and on familiar closed-choice tasks Jev was calibrated \citep{arxiv2610_01006}. Measured reliability still varies by task, construct and language. Across 15 social-science tasks the median ECE was 0.157, better than the verbalised confidence of 16 of 19 LLMs but not of three frontier models, with a task ECE of 0.538 on empathy \citep{arxiv2609_24574}; in political-science replications Jev was better calibrated than one commercial model's token probabilities but not consistently better than an open model's \citep{arxiv2610_06625}. Probabilities rank better than they threshold: binary probabilities sat badly against a fixed 0.5, and tuned thresholds raised a legal benchmark's micro-F1 from 0.50 to 0.75 \citep{arxiv2609_37647}; zero-shot failure detection ranked well (median AUROC 0.886) while its ECE exceeded a null baseline \citep{arxiv2609_29429}. Thresholds do not travel: one chosen for 5\% in-scope risk still admitted 31\% of out-of-scope requests, and temperatures fitted on few options raised error with many \citep{arxiv2610_00346}.
 
-The qualifications are specific. Native confidence is essentially the maximum probability \citep{arxiv2609_26550}, and the vendor presents calibration as a group property \citep{typesafe2026systemone}. The probabilities are quantised to two decimals \citep{arxiv2609_24052}. The background literature explains the rest: calibration degrades under shift \citep{arxiv1906_02530}; the ranking of confidence signals changes out of domain \citep{arxiv2608_19558}; answer-preserving attacks can move confidence readouts \citep{arxiv2608_06571}; and conformal certificates can fail under a change in how scores are produced \citep{arxiv2609_04445}. Calibration is therefore a property to verify per workload and per construct, with recalibration on held-out target labels. It is not a certificate.
-
-Two new studies point the same way. On radiology report factuality, raw sentence-level probabilities had ECE 0.1192, lowered to 0.0077 on a held-out half by isotonic calibration \citep{arxiv2609_27607}. In population simulation, honest intervals needed a fitted human–model discrepancy: coverage was 0.93 and 0.96 at nominal 0.80 and 0.90, against 0.29 and 0.36 from sampling alone \citep{arxiv2609_27535}.
+Confidence is also not a signal of missing knowledge. With no answer-relevant information Jev still put up to 0.80 on a salient option, and on news past its knowledge boundary confidence exceeded accuracy by 0.21–0.33 even after recalibration on earlier months; targeted yes/no questions about whether the evidence suffices separated cases better than confidence \citep{arxiv2610_01006}. On items where 100 annotators split, Jev's mean Choice confidence was 0.81 against 0.47 agreement among the annotators \citep{gh_gautamtalksdev_jevbench}. Recalibration on held-out target labels helps substantially \citep{arxiv2609_24052,arxiv2609_27607}, and decision-native training improved calibration over a generative twin in medical imaging \citep{arxiv2610_00381}. The background literature explains why per-workload checks are needed \citep{arxiv1906_02530,arxiv2608_19558}.
 
 \subsection{F3 · A bounded first pass with confidence-gated escalation}
 
-Across judging, annotation and agent control, the typed model is usually the cheapest and fastest component, and rarely the most accurate. As a judge, Jev stayed within three points of the strongest comparator (GPT-6 Astra) on ordinary preference and evidence-grounded factuality: 92.2\% vs 93.5\% on RewardBench and 87.5\% vs 86.7\% on HaluEval. A frozen two-order cascade kept 99\% of the comparator's accuracy at 57\% of its fee \citep{arxiv2609_26550}. In agent control, a Jev-gated agent reached 95\% success with 1.12 strong-model calls per task against 88\% and 4.10 calls for a strong-only agent \citep{arxiv2609_26532}. In annotation, Jev trailed the per-task best LLM on 14 of 15 tasks (median −11.6 macro-F1) at a median 44× lower cost. Routing its low-confidence items to an LLM matched or exceeded the LLM alone at a quarter to half of the cost \citep{arxiv2609_24574}. On crash narratives the typed model reached F1 0.908 against human labels, and one frontier model was 0.059 higher \citep{arxiv2609_24052}.
+Across judging, annotation, moderation, security, infrastructure and agents, the typed model is usually the cheapest and fastest component and rarely the most accurate. The strongest designs now freeze thresholds in advance and test on new workloads. As a judge, Jev came within three points of GPT-6 wherever the verdict could be read off the text; a cascade with a threshold frozen before evaluation beat GPT-6 by 0.9 points on 1,610 held-out pairs at 41\% of its fee, and in a pre-specified live test on two new workloads it matched GPT-6's accuracy exactly while escalating 74\% of pairs \citep{arxiv2609_26550}. In water-network alarm triage, four sealed, pre-registered rounds showed that accepting only benign Jev verdicts confirmed by a rule tree spared an LLM reviewer 35–38\% of windows without loss of macro-F1, and the unchanged gate stayed non-inferior to its reviewer on two further networks \citep{arxiv2610_02048}. A blind-coder audit of population-scale crash-narrative reading found sensitivity 0.999 \citep{arxiv2610_00213}; an intrusion pilot found F1 0.859 at one example per category \citep{arxiv2610_01079}; in hate-speech moderation the best hosted decision model came within 1.6 macro-F1 of the best commercial LLM at about 97\% lower cost \citep{arxiv2610_03324}. Earlier results point the same way in agents and annotation \citep{arxiv2609_26532,arxiv2609_24574}.
 
-Every one of these gains is conditional. Thresholds chosen on a selection set did not transfer for every fallback, and simulated cascade fees say nothing about real cascade latency \citep{arxiv2609_26550}. On BFCL and τ-style episodes, where ordinary routing is already accurate, a cheap generative cascade remained competitive \citep{arxiv2609_26532}. Trained feature models still beat zero-shot JEVQA on video quality \citep{arxiv2609_24395}. On multi-step arithmetic, an open typed model trails strong reasoning models \citep{arxiv2609_23886}. The prior art is also clear. Cascades and routers have long traded cost against quality \citep{arxiv2305_05176,arxiv2406_18665,arxiv2601_07206}. In one recent comparison a cheap trained ensemble beat every LLM configuration outright, and a hybrid escalated only its least-confident predictions to an LLM \citep{arxiv2609_17977}. The lesson for RQ4 is to include cheap trained and generative cascades as baselines, and to fix thresholds on data separate from the test set.
-
-The pattern extends to new domains. On contract inference, Jev was the cheapest and fastest of ten configurations but below all seven hosted LLMs on accuracy (77.38\% against 78.96–83.21\%) \citep{arxiv2609_27678}. As a radiology report judge, a one-question configuration beat an open NLI judge but trailed a local 27B RadMatch on clinically significant errors \citep{arxiv2609_27607}. In population experiments, the Jev kernel passed content-fidelity gates but failed intervention-sensitivity gates until sparse flagship anchors, on 1.7\% of states, cut effect error by 41\% \citep{arxiv2609_27535}.
+Every gain is conditional. Trained classifiers win when labels exist: tree ensembles trained on 8,000 flows reached 70\% on packet-level traffic classes where Jev with 40 examples reached 28\% \citep{arxiv2610_00376}, and a classifier first stage escalating to Jev matched Jev's accuracy at 0.43 of its cost \citep{arxiv2610_00346}. Judges can share the typed model's confident errors: LLM judges repeated 96\% of Jev's most confident errors on rubric criteria, so cascades gained at most 2.7 points even with oracle thresholds \citep{arxiv2609_29769}. Audited savings shrink: one study found that counting the pre-screen cost turned a reported 23.9\% saving into 4.3\% \citep{arxiv2610_02267}, and at batch prices Jev had no cost advantage over a commercial LLM because every option is billed as input \citep{arxiv2610_06625}. Asking targeted questions can beat reading confidence \citep{arxiv2610_01006}. The lesson for RQ4 is to include cheap trained classifiers and generative cascades as baselines, to fix thresholds on separate data, and to count every cost the gate adds.
 
 \subsection{F4 · Speed and cost claims decompose into different mechanisms and scopes}
 
-Speed figures in this literature measure different things (Table 4). Single-request latencies include 0.335 s median for scientific Choices \citep{arxiv2609_24965}, 64.5 ms for JevLite on a consumer GPU \citep{arxiv2609_23959} and 30.9 ms for this-that-model on a laptop GPU \citep{arxiv2609_23886}. Visual Jev's 5.7 ms is amortized over 32 questions sharing one image: the batch takes about 182 ms \citep{arxiv2609_25845}. End-to-end figures include network, queueing and retries \citep{arxiv2609_26550,arxiv2609_22753}. Electricity-only marginal cost excludes hardware and operations and cannot be compared with an API bill \citep{arxiv2609_23886}. Several mechanisms produce speed-ups: avoiding autoregressive decoding (JevLite's 4.9× on the same backbone), prefix sharing and batching (Visual Jev's 8.9× and 3.4×), and caching. Caching alone largely removed the latency advantage of Jev over a structured-output LLM in an edge service \citep{arxiv2609_22753}. Faster decisions did not raise end-to-end success: in a real image service reached over simulated radio access, Jev completed 459 of 1,080 requests correctly and on time, against 463 for DeepSeek \citep{arxiv2609_23136}. Serving systems explain part of the effect independently of the model \citep{arxiv2312_07104}. For RQ3 the answer is that no single speed or cost number describes a typed decision model; each figure is valid only within its scope.
-
-Newer figures keep the scopes apart: \$0.000228 per contract at a 1.24 s median, measured end to end \citep{arxiv2609_27678}; judgment calls priced at under three cents per hundred radiology report pairs, excluding local statement extraction \citep{arxiv2609_27607}; \$0.0227 per thousand predictions at a 213 ms median \citep{arxiv2609_27535}; and a 0.422 s median action response inside a StarCraft II controller whose planning calls take 27.6 s and 96\% of the model cost \citep{arxiv2609_27331}.
+Speed figures measure different things (Table 4). Single-request latencies range from 30.9 ms for a laptop-GPU open model \citep{arxiv2609_23886} through 0.15 s for hosted judging \citep{arxiv2609_26550} to 0.75 s for packet classification \citep{arxiv2610_00376}. Amortized figures divide a batch over questions that share one state \citep{arxiv2609_25845,arxiv2609_39111}. Deadline attainment under load is another quantity: Jev met a 1 s RAN budget on 99.8\% of calls where two hosted LLMs met it on 17.9\% and 0\%, but under load a small self-hosted JSON model also kept up \citep{arxiv2609_23136}, and hosted Jev never met 100 ms near-real-time classes \citep{arxiv2609_33689}. Caching repeated descriptions gave all interpreters nearly the same latency, so the gain lay in fresh decisions \citep{arxiv2609_22753}. Inside an agent, hosted Jev took 1.4–2.1 times as long as local scoring, including API communication \citep{arxiv2610_00437}, and a faster step made a slower agent: Jev action selection cut median episode time from 267 s to 161 s but lowered success from 77.6\% to 66.1\% and lengthened the slowest runs \citep{arxiv2610_03935}. Billing every option as input can erase the price advantage against batch-priced LLMs \citep{arxiv2610_06625}. For RQ3, no single speed or cost number describes a typed decision model; each figure is valid only within its scope.
 
 \begin{table}[tbp]
 \centering\footnotesize
@@ -78,51 +149,85 @@ Newer figures keep the scopes apart: \$0.000228 per contract at a 1.24 s median,
 \textbf{Scope} & \textbf{Reported figure} & \textbf{Ref.} \\
 \midrule
 Single request & Full semantic correctness; median 0.335 s, p95 0.442 s & \citep{arxiv2609_24965} \\
-Single request & 64.5 ms/decision; 4.9× faster than same backbone generating & \citep{arxiv2609_23959} \\
-Single request & 30.9 ms per decision on one laptop GPU; 32 decisions/s & \citep{arxiv2609_23886} \\
-Single request & Median decision latency −22.4\% vs DeepSeek, −61.9\% vs Gemini & \citep{arxiv2609_23136} \\
-Single request & Median client decision latency −15.9\% to −26.5\% & \citep{arxiv2609_22753} \\
-Single request & Self-reported 92.6\% macro-accuracy, 7.08 ms on CPU, “\#1” on JevBench & \citep{arxiv2609_25498} \\
-Amortized per question & 8.9× vs serial, 3.4× vs no-reuse batch; 5.7 ms/question amortized & \citep{arxiv2609_25845} \\
-End to end & 0.36\% of the comparator’s fee; ≈\$0.04 per 1,000 judgments at 0.15 s & \citep{arxiv2609_26550} \\
-End to end & 95\% success with 1.12 strong calls/task vs 88\% and 4.10 (−72.7\%) & \citep{arxiv2609_26532} \\
-End to end & Behind best LLM on 14/15 tasks (−11.6 F1) at 44× lower cost & \citep{arxiv2609_24574} \\
+Single request & 64.5 ms/\allowbreak{}decision; 4.9× faster than same backbone generating & \citep{arxiv2609_23959} \\
+Single request & 30.9 ms per decision on one laptop GPU; 32 decisions/\allowbreak{}s & \citep{arxiv2609_23886} \\
+Single request & Median decision latency −22.7\% to −64.5\% vs the fastest LLM & \citep{arxiv2609_22753} \\
+Single request & Self-reported 81.65\% on public JevBench items at 7.08 ms & \citep{arxiv2609_25498} \\
+Single request & Meets the 1 s RIC budget on 99.8\% of calls (LLMs: 17.9\%, 0\%) & \citep{arxiv2609_23136} \\
+Single request & Single-token LLM classifier: 85.5\% at 0.53 s, flat across label spaces & \citep{arxiv2609_36115} \\
+Single request & Open encoder–decoder: 78.05\% on DecisionBench, 32 questions in 221 ms & \citep{arxiv2609_39111} \\
+Single request & Strong reranking quality; latency between local models and pointwise LLMs & \citep{arxiv2609_40241} \\
+Single request & 0.75 s vs 6.0 s per request; accuracy difference not established & \citep{arxiv2610_00376} \\
+Single request & Intrusion pilot: F1 0.859, 4.8× faster than an LLM & \citep{arxiv2610_01079} \\
+Single request & Wireless control: 3.5–8.5× faster than LLMs; quality depends on the task & \citep{arxiv2610_04345} \\
+Single request & Order invariance by construction; sequential heads still flip 2–3\% & \citep{arxiv2610_06744} \\
+Single request & Reranking: ties Cohere Rerank 4 Pro at half the latency &  \\
+Single request & Local 4B readout: 76\% on public JevBench at 48 ms &  \\
+Amortized per question & 8.9× vs serial, 3.4× vs no-reuse batch; 5.7 ms/\allowbreak{}question amortized & \citep{arxiv2609_25845} \\
+End to end & 0.36\% of GPT-6’s fee at 0.15 s median & \citep{arxiv2609_26550} \\
+End to end & 95\% success with 1.12 strong calls/\allowbreak{}task vs 88\% and 4.10 (−72.7\%) & \citep{arxiv2609_26532} \\
+End to end & Behind best LLM on 14/\allowbreak{}15 tasks (−11.6 F1) at 44× lower cost & \citep{arxiv2609_24574} \\
 End to end & Low-confidence routing matches the LLM at ¼–½ of its cost & \citep{arxiv2609_24574} \\
 End to end & 499,500 narratives screened for \$25.23; 195,857 fully coded & \citep{arxiv2609_24052} \\
-End to end & LoCoMo judge 0.777 (+11.0\%); build 158 s; 0.93 s/query & \citep{arxiv2609_23986} \\
-End to end & Correct \& on time: Jev 459, DeepSeek 463, Qwen 435 of 1,080 & \citep{arxiv2609_23136} \\
-End to end & No cache: e2e −11.1–25.3\%; fees per correct completion −69–71\% & \citep{arxiv2609_22753} \\
-End to end & Repeated-request caching largely removes the latency gap & \citep{arxiv2609_22753} \\
+End to end & LoCoMo judge 0.777 (+11.0\%); build 158 s; 0.93 s/\allowbreak{}query & \citep{arxiv2609_23986} \\
+End to end & With caching, latencies converge: the gain is in fresh decisions & \citep{arxiv2609_22753} \\
 End to end & \$0.000228 and 1.24 s per contract — lowest of ten models & \citep{arxiv2609_27678} \\
 End to end & \$0.0227 per 1,000 predictions; median 213 ms & \citep{arxiv2609_27535} \\
 End to end & Jev 0.422 s median; \$0.15 of \$3.71 per game & \citep{arxiv2609_27331} \\
-Simulated & Frozen two-order cascade: 99\% of GPT-6 accuracy at 57\% of its fee & \citep{arxiv2609_26550} \\
-Simulated & Simulated completion +3.50 / +8.35 points & \citep{arxiv2609_23136} \\
+End to end & Live admission: 0.91–0.95 exact and on time where LLMs fall below 0.1 & \citep{arxiv2609_22753} \\
+End to end & Under load, slow interpreters saturate — a small local JSON model keeps up too & \citep{arxiv2609_23136} \\
+End to end & One run each: 5 min faster, different severities — not a controlled test & \citep{arxiv2609_28940} \\
+End to end & AndroidWorld 79\% (vs 84\% step-wise) at 73\% lower API cost & \citep{arxiv2609_30186} \\
+End to end & Hosted Jev never meets 100 ms near-RT deadlines (warm p50 281 ms) & \citep{arxiv2609_33689} \\
+End to end & Agent with spawned finite actions: Maze 0.96 vs 0.52 & \citep{arxiv2610_00437} \\
+End to end & Hosted Jev inside the agent: better on 3 of 8 tasks, 1.4–2.1× slower & \citep{arxiv2610_00437} \\
+End to end & Let code simulate: ALFWorld solved 31\% → 87\% & \citep{arxiv2610_01834} \\
+End to end & Semantic SQL: pruning + typed decisions finish 540K-pair joins & \citep{arxiv2610_02046} \\
+End to end & Pre-registered gate: a third of SCADA reviews offloaded, accuracy kept & \citep{arxiv2610_02048} \\
+End to end & Self-audit: a 23.9\% saving was really 4.3\% & \citep{arxiv2610_02267} \\
+End to end & Faster steps, slower agent: success 77.6\% → 66.1\% & \citep{arxiv2610_03935} \\
+End to end & Search agent: 3.7–4.7× faster, accuracy 45\% → 54\% & \citep{arxiv2610_05107} \\
+End to end & Browser tasks: specialised open model 38.5\% vs Jev 16.7\%; single steps alike &  \\
+End to end & Routing subagents with Jev: cheaper than one baseline, dearer than another &  \\
+Simulated & Frozen cascade: +0.9 points over GPT-6 at 41\% of its fee & \citep{arxiv2609_26550} \\
+Simulated & Radio conditions outweigh the interpreter; no LLM gain over Jev & \citep{arxiv2609_23136} \\
+Simulated & Emulated router saves 13–21\% of coding-agent spend & \citep{arxiv2609_28919} \\
 Author estimate & \$0.000217 electricity per suite pass vs \$10.636 for a hosted model & \citep{arxiv2609_23886} \\
 Author estimate & Under \$0.03 per 100 report pairs (judgment calls only) & \citep{arxiv2609_27607} \\
 Vendor claim & No type errors by construction; plotted 0\% is analytical & \citep{typesafe2026launch} \\
-Vendor claim & \$0.042 / M input tokens; 70–500 ms end to end (vendor) & \citep{typesafe2026launch} \\
+Vendor claim & \$0.042 /\allowbreak{} M input tokens; 70–500 ms end to end (vendor) & \citep{typesafe2026launch} \\
 Vendor claim & 193.6× faster, 444.6× cheaper on vendor workflow evals & \citep{typesafe2026launch} \\
+Vendor claim & Vendor dashboard: 67.8\% agreement at \$0.0004 and 0.4 s per case & \citep{typesafe2026evals} \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \subsection{F5 · Interface compatibility is not mechanism equivalence}
 
-§6 established that the request and response shape can be served by encoders, frozen or fine-tuned decoders, diffusion reads and prompted generators. The evidence adds three points. First, readout matters more than a “typed head” label. JevLite's gain over generation comes from reading two label logits on the same backbone, and a ModernBERT encoder was not significantly worse \citep{arxiv2609_23959}; Visual Jev's typed head gave no consistent gain \citep{arxiv2609_25845}. Second, comparisons between open and commercial models are fragile. this-that-model's 0.941 vs Jev's 0.765 on a third party's 68 questions rests on 12 items, and its 0.844 vs 0.803 on 2,250 questions uses question shapes the open model was trained on \citep{arxiv2609_23886}. Third, several projects state explicitly that they do not reproduce the commercial model \citep{gh_theoleecj_semif,gh_githubnext_localjev,gh_jaredpalmer_kev}. Typed primitives with confidence-gated execution also appear independently in data systems \citep{arxiv2608_20630}.
+§6 established that the interface is served by many mechanisms. The evidence adds four points. First, frozen readouts are strong baselines: a frozen 4B model matched community Jev-style models on the same backbone \citep{arxiv2610_02076}, and in an earlier same-backbone ablation a typed head gave no consistent gain over reading the LM head \citep{arxiv2609_25845}. Second, rankings between hosted and open models change with the task: hosted Jev beat an open encoder on 9 of 11 agent-harness decision points \citep{arxiv2610_02267} and on safety judging \citep{arxiv2609_33401}, while specialised open models beat Jev on their own tasks \citep{arxiv2610_05107,gh_lexmount_webjev} and a language-specific encoder matched it on a general Chinese subset with better calibration \citep{arxiv2609_36965}. Third, reproducibility differs: repeating 1,080 decisions a day later changed 0.5\% of hosted answers, while an open checkpoint reproduced 1,180 of 1,180 bit-for-bit on a second machine \citep{arxiv2610_02267}. Fourth, projects state their own limits: SemIf that it does not reproduce Jev's model or training, LocalJev that it is wire-compatible but not mathematically equivalent to a logit read, and Kev that its architecture follows community speculation \citep{gh_theoleecj_semif,gh_githubnext_localjev,gh_jaredpalmer_kev}.
 
 \subsection{F6 · System-level gains need module-level attribution}
 
-Systems improve for many reasons at once. Jev-Mem reports a LoCoMo judge score of 0.777 (+11.0\% relative), memory construction in 158 s and 0.93 s per query. Each figure is measured against a different baseline, and the quality metric is itself an LLM judge \citep{arxiv2609_23986}. JEVQA's quality depends mainly on feature engineering: metadata-only PLCC 0.737 rose to 0.824 with bitstream and pixel features, while a pixel-only variant failed \citep{arxiv2609_24395}. The choice of reference matters as much as the model. Administrative crash codes understated narrative fidelity by a median 0.26 kappa \citep{arxiv2609_24052}, and correct final labels concealed wrong intermediate quantities in scientific workflows \citep{arxiv2609_24965}. Attribution needs ablations, matched baselines and references that measure what the workflow reuses.
-
-JEV-Star wins full games against the strongest non-cheating built-in StarCraft II AI only with GPT-6 plans added, and its two controllers also differ in candidate descriptions and execution handling, so the planner's share of the gain is not isolated \citep{arxiv2609_27331}.
+Systems improve for many reasons at once. A semantic database finished joins with up to 540,000 candidate pairs where baselines timed out, but pruning removed 87.4\% of pairs before any decision was made \citep{arxiv2610_02046}. A search agent cut active search time 3.7–4.7-fold and raised accuracy from 45\% to as much as 54\% by letting a small model take confident short decisions \citep{arxiv2610_05107}. Memory systems and navigation agents report gains measured against different baselines \citep{arxiv2609_23986,arxiv2609_36059,arxiv2609_34969}. The clearest attribution comes from letting code own what the model cannot do: Jev solved 31\% of ALFWorld games alone and 87\% with a code-supplied lookahead, and stating an opponent's move raised game accuracy from 33\% to 98\% \citep{arxiv2610_01834}. A faster step can still cost the episode: replacing an agent's action selection with Jev lowered success as step errors compounded \citep{arxiv2610_03935}. Attribution also needs references that measure what the workflow actually uses: administrative codes understated fidelity to the narratives by a median 0.26 in kappa \citep{arxiv2609_24052}, and wrong intermediate selections changed downstream counts while the final label stayed correct \citep{arxiv2609_24965}.
 
 \subsection{F7 · The evidence is young, clustered and unreplicated}
 
-The core preprints appeared within five days of one another, most as a single version (Figure 2). Two form one study family \citep{arxiv2609_23136,arxiv2609_22753}. The hosted model is non-deterministic: the test–retest floor was up to 1.33\% answer flips \citep{arxiv2609_26758}, and 50 identical requests produced 15 distinct answers in one audit \citep{gh_jujumilk3_jev_calibration_audit}. Several comparisons rest on small or test-informed samples. The recipe selection in one study had test-set exposure \citep{arxiv2609_23959}, and the 68-question comparison above rests on 12 items. The peripheral study reports “0.0\% injection bypass” with a 95\% interval up to 30.8\% \citep{arxiv2609_25498}. The vendor's workflow evaluations use model outputs as references \citep{typesafe2026launch}. None of the core results has been independently reproduced, and several claimed releases of code and raw predictions could not be located (§9).
+The core preprints appeared within three weeks of the launch, mostly as a single version, and several were substantially revised soon after: one edge-orchestration study was re-scoped into a different paper, and a judging study's cascade figures changed between versions \citep{arxiv2609_23136,arxiv2609_26550}. Several author groups contribute more than one study (§3), and in one case the author of a benchmark also ranks their own model on it, with results the author flags as not blind \citep{arxiv2610_02293,arxiv2610_06744}. Hosted answers drift: a re-run changed the Score value on 38.5\% of Score questions in one audit \citep{arxiv2609_31142}, and 0.5\% of decisions a day later in another \citep{arxiv2610_02267}. Grading a model with its own labels inflates its gain: a reranking gain of +0.053 NDCG under Jev-made labels became −0.028 under an unrelated model's \citep{gh_zhuyansen_jev_search_rerank_eval}. One study's audit of its own pipeline found three analysis errors that had distorted its headline deployment claims \citep{arxiv2610_02267}. None of the core results has been independently reproduced, and some claimed releases could not be located (§9).
+
+\subsection{F8 · A calibrated probability is not a coherent belief}
+
+Average calibration says nothing about whether probabilities obey basic rules across related questions. Jev's probabilities that “the label is X” and “the label is not X” missed summing to one by 0.064 on average, about five times its repeat noise, and three single-label probabilities summed to 1.14 \citep{arxiv2609_33209}. Asking the same probability question through two interfaces changed the act-or-defer decision on 32.8\% of pairs \citep{arxiv2609_37470}. Staged decisions through categories disagreed with direct ones, costing 22.9 points on one intent benchmark \citep{arxiv2609_33971}. On items with analytically known distributions, Jev picked the most likely option every time but put 89\% of the mass on it where the true chance was 36\% \citep{arxiv2610_03935}. Against known probabilities, yes/no and Score answers were close but Choice answers were not \citep{arxiv2609_35342}. The open readouts tested were less coherent still \citep{arxiv2609_33209,arxiv2609_33971}. Probabilities that rank well can still be used for selection; treating them as beliefs to combine requires coherence checks first.
+
+\subsection{F9 · Typed decisions read what the input states; they do not reliably compute what it implies}
+
+Studies of very different tasks meet the same boundary. Jev answered 99\% of Cognitive Reflection Test questions yet played one-shot games as if a rational opponent moved at random \citep{arxiv2610_01834}. It landed within one of exact numerical answers on 97\% of items but exactly on them on 44\% \citep{arxiv2610_03935}, read every edge of a graph but counted vertex degree right on 68\% \citep{arxiv2610_06354}, classified encrypted traffic from packet sizes and timings at 28\% with 40 examples \citep{arxiv2610_00376}, recognised activities from sensor values far below supervised models \citep{arxiv2609_36154}, and rejected arithmetic menus lacking the right value only 7\% of the time \citep{arxiv2609_39496}. Medical questions answerable from an abstract were at parity with a frontier model while diagnostic cases trailed by over 20 points \citep{arxiv2609_34024}. Range refinement through a sequence of choices recovered some numeric precision \citep{arxiv2609_28587}. The vendor's guidance agrees: count, convert and compare in code, and keep the model for the judgment \citep{typesafe2026jaggedness}. One qualification: calculation-heavy MMLU subjects were easier for Jev than its other subjects, the reverse of two open models, and the authors cannot rule out memorised question–answer pairs \citep{arxiv2609_37647}.
+
+\subsection{F10 · A typed output does not make a decision safe from its inputs}
+
+Because the answer depends on the state, text placed in the state can move it. How far depends on the attack and the task. In one study, injected content raised the attacker's target probability but selected it in only 1.8\% of cases, 3.5\% with adaptive search \citep{arxiv2609_28613}. In another, context-ignoring injection reached 96.5\% attack success on support routing, and injections that declared the state outdated and added false information reached 100\% on subscription cancellation and at least 96.8\% on issue severity \citep{arxiv2610_04985}. Optimised natural context redirected 61\% of correct decisions \citep{arxiv2609_30243}, and an appended observer opinion flipped 12\% of decisions and pushed 38\% of confident answers below a 0.8 gate \citep{arxiv2609_31142}. Open checkpoints add a supply chain: poisoning 5\% of an open model's training records implanted backdoors that redirected most targeted inputs with clean accuracy intact \citep{arxiv2610_04985}. Confidence gates themselves are attack surfaces: perturbations that lower confidence can drain an escalation tier \citep{arxiv2609_33992,arxiv2608_06571}. The same capability serves defence — as a detector, Jev reached ROC-AUC 0.95–1.0 on eight injection, jailbreak, harmful-content and AI-text benchmarks \citep{arxiv2610_04985} — but a detector's own decisions remain manipulable. Constrained outputs limit what an attacker can make the model say, not what it decides.
 
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=\linewidth]{figures/matrix.pdf}
-\caption{Which study bears on which finding, derived from the evidence records (filled: supports; half: qualifies).}\label{fig:matrix}
+\caption{Which study bears on which finding (F1–F10, §7), derived from the evidence records (filled: supports; open: qualifies only).}\label{fig:matrix}
 \end{figure}

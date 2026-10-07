@@ -54,21 +54,22 @@ def methodology(d, s):
         dd = run['decisions']
         L += ['', f'**Increment {run["id"].split("-", 2)[-1]}.** {run["accepted_rerun"]["queries"]} accepted and {len(run["expansion"])} expansion queries; '
               f'{run["new_candidates"]} records not screened before: {dd.get("include_core", 0)} added as core studies, {dd.get("include_background", 0)} as background, '
-              f'{dd.get("outside_core_scope", 0)} excluded with a recorded reason. {run.get("note") or ""}'.rstrip()]
+              f'{dd.get("excluded", dd.get("outside_core_scope", 0))} excluded with a recorded reason. {run.get("note") or ""}'.rstrip()]
+    L += ['', '**Curated lists (2026-10-06).** Repositories listed in OmniJev/awesome-jev-gallery and papers listed in OmniJev/awesome-jev-papers were checked against their own README or paper before inclusion; '
+          'decisions and reasons are in `research/repository-screening.json`. Lineage items in those lists that are general infrastructure were kept as context and covered through their papers.']
     L += ['', '## 3. Eligibility', '',
           '- **Core:** evaluates TypeSafe Jev, a clearly identified Jev-like typed-decision implementation, or a system whose contribution materially depends on such decisions.',
           '- **Peripheral:** within reach of the scope but with contested or self-reported claims; kept visible, not pooled.',
-          '- **Background:** adjacent methods needed for theory and baselines (classification, calibration, selective prediction, decision-focused calibration, structured output, judging, routing, label robustness), with a stated role.',
+          '- **Background:** adjacent methods needed for theory and baselines (classification, calibration, selective prediction, decision-focused calibration, structured output, judging, routing, label robustness), related reviews, and earlier work the interface descends from, each with a stated role.',
           '- **Excluded:** name collisions (Japanese encephalitis, JEPA, unrelated TypeSafe/Scala, other RLCD expansions), generic System 1/2 work without a typed-decision link.', '',
           '## 4. Screening and reading depth', '',
-          f'- {s["core"]} core and {s["peripheral"]} peripheral studies: full text, key tables and limitation sections; every extracted number carries a locator.',
-          f'- {s["background"]} background references: arXiv metadata and abstract (one reranker paper spot-checked in full text).',
-          f'- Repositories: README at a pinned commit; {s["source_files_read"]} source files read in {s["source_repos_read"]} repositories; nothing executed.',
+          '- Core and peripheral studies: full text, key tables and limitation sections; every extracted number carries a locator. When a study posts a new arXiv version, the new version is re-read and its records updated.',
+          '- Background references: arXiv metadata and abstract (one reranker paper spot-checked in full text).',
+          '- Repositories: README and metadata at a pinned commit, with selected source files for a few; code, weights and data links are checked to resolve; nothing is executed.',
           '- One AI-assisted reviewer. This is not a registered protocol or a PRISMA-compliant systematic review; a second independent screener is the first open task (docs/limitations.md).', '',
           '## 5. Extraction', '',
-          f'Each checkable statement is an evidence record in `data/claims.json` ({s["claims"]} records: ' +
-          ', '.join(f'{v} {k.replace("_", " ")}' for k, v in sorted(s['claims_by_type'].items())) + '). '
-          'Fields: subject, claim text, headline, source URL and locator, evidence type, metric/value/unit, baseline, task, sample size (or a reason), model and version (or a reason), hardware, test level, measurement scope, limitations and links to findings F1–F7.', '',
+          'Each checkable statement is an evidence record in `data/claims.json`, typed as an author-reported experiment, vendor documentation, a vendor-reported result or a community report. '
+          'Fields: subject, claim text, headline, source URL and locator, evidence type, metric/value/unit, baseline, task, sample size (or a reason), model and version (or a reason), hardware, test level, measurement scope, limitations and links to findings F1–F10.', '',
           'Measurement scopes are never pooled: single request, amortized per question, batch, end to end, simulation, author estimate, vendor claim. Test levels: model test, system test, hybrid, simulation.', '',
           'Openness is recorded as six independent fields per paper — code, weights, data, raw predictions, recomputable, independently reproduced — and seven per repository. “Not located” means not found, not that it does not exist.', '',
           '## 6. Synthesis', '',
@@ -102,32 +103,35 @@ def audit(d, s):
         o = p['openness']
         L.append(f'| [{md(p["short_title"])}]({p["url"]}) ({p["published_at"][:10]}){" ¹" if p.get("study_family_id") else ""} | {md(", ".join(p["model_relationship"]))} | '
                  f'{TL[p["test_level"]]["label"]} | {md(mv)} | {o["code"]["status"]} | {o["weights"]["status"]} | {o["data"]["status"]} | {o["predictions"]["status"]} | {len(p["claims"])} |')
-    L += ['', '¹ Study family `li-wang-edge-2026`.', '', '## Measurement scopes of speed and cost figures', '']
-    for scope in ('single_request', 'amortized_question', 'end_to_end', 'simulation', 'author_estimate', 'vendor_claim'):
+    fams = [r for r in d['review-relations']['relations'] if r['type'] == 'study_family']
+    L += ['', '¹ Member of a study family: ' + '; '.join(f'`{r["id"]}` (' + ', '.join(m.split(':', 1)[1] for m in r['members']) + ')' for r in fams) + '.', '',
+          '## Measurement scopes of speed and cost figures', '']
+    for scope in ('single_request', 'amortized_question', 'batch', 'end_to_end', 'simulation', 'author_estimate', 'vendor_claim'):
         rows = [c for c in d['claims']['claims'] if c['measurement_scope'] == scope]
         if rows:
             L.append(f'**{scope.replace("_", " ")}** — ' + '; '.join(f'{md(c["headline"])} ({c["subject"].split(":", 1)[-1]})' for c in rows))
             L.append('')
     L += ['## What would upgrade the evidence', '',
-          '1. Version-pinned reruns of the option-binding and calibration results on hosted Jev with a test–retest floor.',
-          '2. Same-protocol comparisons of hosted Jev, open decision models, frozen readouts and structured-output LLMs (paper §10).',
-          '3. Public raw predictions for the studies that claim them (2609.26758, 2609.26550).', '']
+          '1. Version-pinned reruns of the option-binding, rejection and calibration results on hosted Jev with a test–retest floor.',
+          '2. Same-protocol comparisons of hosted Jev, open decision models, frozen readouts and structured-output LLMs, with held-out thresholds (paper §10).',
+          '3. Independent replications across author groups, starting with the study families flagged above.',
+          '4. Public raw predictions for studies that report results without releasing them.', '']
     return '\n'.join(L)
 
 
 def data_readme(d, s):
     return '\n'.join([GEN, '# Data', '',
-        f'Canonical records for the Jev survey (cutoff {s["cutoff"]}). Edit these files, then run `python3 scripts/build.py`.', '',
+        f'Canonical records for the Jev survey (updated {s["cutoff"]}). Edit these files, then run `python3 scripts/build.py`.', '',
         '| File | Contents | Edited by hand? |', '| --- | --- | --- |',
-        f'| `papers.json` | {s["papers"]} records ({s["core"]} core, {s["peripheral"]} peripheral, {s["background"]} background) with verified arXiv metadata, editorial fields, openness and locators | yes |',
-        f'| `claims.json` | {s["claims"]} evidence records (paper, vendor and community claims) | yes |',
-        f'| `repositories.json` | {s["repos_unique"]} implementation, evaluation and related repositories, each audited at a linked commit | yes |',
-        '| `taxonomy.json` | vocabularies: stages, method families, topics, applications, relationships, test levels, scopes, evidence types, openness statuses, findings, failure modes, application cards | yes |',
-        '| `review-relations.json` | study families, lineage, name collisions and the related survey | yes |',
+        '| `papers.json` | core, peripheral and background records with verified arXiv metadata, editorial fields, openness and locators | yes |',
+        '| `claims.json` | evidence records from papers, vendor pages and community repositories | yes |',
+        '| `repositories.json` | open models, benchmarks, applications, tools and catalogues, each audited at a linked commit | yes |',
+        '| `taxonomy.json` | vocabularies: stages, method families, topics, applications, relationships, test levels, scopes, evidence types, openness statuses, ecosystem roles, findings, failure modes, application cards | yes |',
+        '| `review-relations.json` | study families, lineage, name collisions, related reviews and catalogues | yes |',
         '| `sources.json` | official vendor pages used as sources | yes |',
         '| `search-runs.json` | arXiv and GitHub search runs (snapshot and increments) | appended per increment |',
         '| `references.bib`, `exports/*.csv` | generated | no |', '',
-        'Screening decisions for every arXiv record considered, and the GitHub repositories already seen, are in `../research/`.', '',
+        'Screening decisions for every arXiv record considered, the repositories checked from curated lists, and the GitHub repositories already seen are in `../research/`.', '',
         '## Key rules', '',
         '- IDs: `arxiv:<id>` for papers, `gh:<owner/name>` (lower case) for repositories, `c-…`, `v-…`, `r-…` for claims from papers, vendor pages and repositories.',
         '- Unknown values are `null` with a `reason`; `null` is never zero.',

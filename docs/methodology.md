@@ -3,7 +3,7 @@
 
 # Methodology
 
-Data cutoff: **24 Sep 2026** (Asia/Singapore). This document is generated from `data/search-runs.json`, `data/papers.json` and `data/claims.json`.
+Data cutoff: **6 Oct 2026** (Asia/Singapore). This document is generated from `data/search-runs.json`, `data/papers.json` and `data/claims.json`.
 
 ## 1. Questions
 
@@ -66,23 +66,27 @@ The increment re-ran the searches: 1,108 results, 28 new unverified candidates (
 
 **Increment 2026-09-24T0502Z.** 17 accepted and 17 expansion queries; 7 records not screened before: 4 added as core studies, 0 as background, 3 excluded with a recorded reason. First run after the 2026-09-24 arXiv announcement: four new core studies. Two included papers gained a v2 (evidence was read on v1).
 
+**Increment 2026-10-06T1253Z.** 17 accepted and 17 expansion queries; 112 records not screened before: 74 added as core studies, 6 as background, 32 excluded with a recorded reason. Full-text reading of every included study; revised versions of seven included papers were re-read and their records updated.
+
+**Curated lists (2026-10-06).** Repositories listed in OmniJev/awesome-jev-gallery and papers listed in OmniJev/awesome-jev-papers were checked against their own README or paper before inclusion; decisions and reasons are in `research/repository-screening.json`. Lineage items in those lists that are general infrastructure were kept as context and covered through their papers.
+
 ## 3. Eligibility
 
 - **Core:** evaluates TypeSafe Jev, a clearly identified Jev-like typed-decision implementation, or a system whose contribution materially depends on such decisions.
 - **Peripheral:** within reach of the scope but with contested or self-reported claims; kept visible, not pooled.
-- **Background:** adjacent methods needed for theory and baselines (classification, calibration, selective prediction, decision-focused calibration, structured output, judging, routing, label robustness), with a stated role.
+- **Background:** adjacent methods needed for theory and baselines (classification, calibration, selective prediction, decision-focused calibration, structured output, judging, routing, label robustness), related reviews, and earlier work the interface descends from, each with a stated role.
 - **Excluded:** name collisions (Japanese encephalitis, JEPA, unrelated TypeSafe/Scala, other RLCD expansions), generic System 1/2 work without a typed-decision link.
 
 ## 4. Screening and reading depth
 
-- 17 core and 1 peripheral studies: full text, key tables and limitation sections; every extracted number carries a locator.
-- 53 background references: arXiv metadata and abstract (one reranker paper spot-checked in full text).
-- Repositories: README at a pinned commit; 12 source files read in 10 repositories; nothing executed.
+- Core and peripheral studies: full text, key tables and limitation sections; every extracted number carries a locator. When a study posts a new arXiv version, the new version is re-read and its records updated.
+- Background references: arXiv metadata and abstract (one reranker paper spot-checked in full text).
+- Repositories: README and metadata at a pinned commit, with selected source files for a few; code, weights and data links are checked to resolve; nothing is executed.
 - One AI-assisted reviewer. This is not a registered protocol or a PRISMA-compliant systematic review; a second independent screener is the first open task (docs/limitations.md).
 
 ## 5. Extraction
 
-Each checkable statement is an evidence record in `data/claims.json` (75 records: 57 author reported experiment, 3 code inspection, 6 community report, 8 vendor documentation, 1 vendor reported result). Fields: subject, claim text, headline, source URL and locator, evidence type, metric/value/unit, baseline, task, sample size (or a reason), model and version (or a reason), hardware, test level, measurement scope, limitations and links to findings F1–F7.
+Each checkable statement is an evidence record in `data/claims.json`, typed as an author-reported experiment, vendor documentation, a vendor-reported result or a community report. Fields: subject, claim text, headline, source URL and locator, evidence type, metric/value/unit, baseline, task, sample size (or a reason), model and version (or a reason), hardware, test level, measurement scope, limitations and links to findings F1–F10.
 
 Measurement scopes are never pooled: single request, amortized per question, batch, end to end, simulation, author estimate, vendor claim. Test levels: model test, system test, hybrid, simulation.
 

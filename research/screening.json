@@ -2298,6 +2298,790 @@
    "screened": "2026-09-24"
   },
   {
+   "arxiv_id": "2609.28587",
+   "title": "NumericJev: Jev-like LLM Numerical Decoding with Multiway Decision Trees",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.28613",
+   "title": "Decision Hijacking: Prompt Injection Attacks on Jev's Typed Probabilistic Decisions",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.28919",
+   "title": "Harness Tokenomics: A Router for the Enterprise Agentic Control Plane",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.28940",
+   "title": "Calibrated Decision Models for Autonomous Penetration-Testing Harnesses: JEV and Laya as System One Decision Layers for LLM-Driven Pentest Agents",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.29283",
+   "title": "From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.29429",
+   "title": "Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.29769",
+   "title": "JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30059",
+   "title": "KernelOPT: Dispatch-Aware Agentic Search for GPU Kernel Optimization",
+   "decision": "excluded",
+   "reason": "GPU kernel optimisation agents; matched on “structured decisions” only.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30186",
+   "title": "Jev-Mobile: Jev as an Executor for Mobile GUI Agents",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30216",
+   "title": "Jev in the Wild: A Data-Driven Analysis of the Jev Model's Functionality, Applications and Ecosystem",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30243",
+   "title": "JevOut: Natural Context Can Flip Decision Models",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30454",
+   "title": "Auditing System-1 Models on Biosecurity-Relevant Benchmarks: Calibration, Selective Prediction, and Permutation Instability in a Non-Generative Model",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30608",
+   "title": "Audit Before You Commit: Locating Belief Failures in Active Identification for One-Shot Manipulation",
+   "decision": "excluded",
+   "reason": "Robot probe-then-commit belief audit; no typed decision interface.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30706",
+   "title": "LAVOIR: Teaching a Single-Pass Decision Encoder When and What to Ask with Amortized Value of Information",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30922",
+   "title": "JevSoup: System-One Routing for Training-Free LoRA Composition",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.30982",
+   "title": "FARE: Forensic Acceptance Region Estimation for Catching Bait-and-Switch Image Generators",
+   "decision": "excluded",
+   "reason": "Image-generator forensics; matched on “decision model” only.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.31142",
+   "title": "JevAdvBench: A Benchmark and Black-Box Attacks for Reinforcement Learning for Calibrated Decisions Models",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.32160",
+   "title": "Typed Decision Models: An Early Evidence Audit and Evaluation Checklist",
+   "decision": "included_background",
+   "reason": "Review of the first week of typed-decision papers with an evaluation checklist.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.32191",
+   "title": "Spiral Harmonic Products",
+   "decision": "excluded",
+   "reason": "Differential geometry; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.32409",
+   "title": "Recovery-Directed Symbolic Distillation of Neural Likelihoods",
+   "decision": "excluded",
+   "reason": "Symbolic distillation of cognitive decision models; unrelated to typed decision interfaces.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.32893",
+   "title": "Worlds Next Door. V. A Candidate Solar System Scale Super-Jupiter in the 61 Cygni Binary System",
+   "decision": "excluded",
+   "reason": "Astronomy (“binary system”); unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33209",
+   "title": "Beyond Calibration: Do a Typed-Decision Model's Probabilities Obey the Probability Axioms?",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33282",
+   "title": "Multi-Dimensional Comparative Scale Construction for Efficient Personalized Subjective Judgment in High-Traffic Applications",
+   "decision": "excluded",
+   "reason": "Uses “System One” for an unrelated architecture; no typed decision interface.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33401",
+   "title": "Evaluating System One Models for Agent Security Decisions: Reliability, Calibration, and Selective Automation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33470",
+   "title": "LiveOption: Evaluating LLM Agents in Structured Option Trading with Nonlinear Payoffs",
+   "decision": "excluded",
+   "reason": "Option-trading agent benchmark; matched on “structured decisions” only.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33538",
+   "title": "Jev Matches 7B Language Models for Speech-Neuroprosthesis Rescoring",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33609",
+   "title": "You Only Edit Once: Incentivizing In-Context Capability of LLMs via Local Demonstration Refinement",
+   "decision": "excluded",
+   "reason": "In-context demonstration editing; “Jev-LDE” is an unrelated name.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33671",
+   "title": "COGNIT-Guard: Calibrated Standalone Direct-Decision Guardrails with Heterogeneous CPU-NPU Confidence Cascading under Explicit Latency and False-Positive Constraints",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33689",
+   "title": "Type-Safe Decision Frameworks for Agentic 5G Control: A Theory-Driven Testbed Characterization of Where They Can Be Applied",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33843",
+   "title": "Laya as a Typed Probabilistic Assessor: An Independent Reproduction and a Preregistered Study of Calibration and Selective Escalation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33874",
+   "title": "JET: Justification Evaluation in Transformer",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33971",
+   "title": "Do System One Decisions Add Up? A Study of Probabilistic Coherence",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.33992",
+   "title": "GateDrain: Availability Attacks and Admission-Side Defense for Confidence-Gated Edge-Cloud Inference",
+   "decision": "included_background",
+   "reason": "Availability attacks on confidence-gated edge–cloud inference: escalation itself is an attack surface.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34024",
+   "title": "Jev in Medicine: A Benchmark Evaluation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34180",
+   "title": "Decision Readouts for Text-Mediated Video Anomaly Detection: An Exploratory Evaluation of Jev and Qwen",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34227",
+   "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34244",
+   "title": "Heddle: Learning Structural Templates for Parallelism Planning on Heterogeneous GPU Clusters",
+   "decision": "excluded",
+   "reason": "GPU cluster parallelism planning; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34261",
+   "title": "RoboICL: Embodied In-Context Learning with GPT-6 Astra",
+   "decision": "excluded",
+   "reason": "Robot in-context learning with a generative VLM; no typed decision interface.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34294",
+   "title": "Semantic Modality Compensation for Unsupervised Visible-Infrared Person Re-identification under Unpaired Settings",
+   "decision": "excluded",
+   "reason": "Person re-identification; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34736",
+   "title": "SeLMRoute: Probabilistic Semantic Evidence for Large Language Model Routing",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34768",
+   "title": "Privacy-Preserving Full-Body Meshing from mmWave Radar via Mesh Foundation Model Supervision",
+   "decision": "excluded",
+   "reason": "mmWave body meshing (withdrawn); unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34862",
+   "title": "JEV as a Judge for Agent Trace Security: An Empirical Comparison with Generative LLM Judges",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34963",
+   "title": "JevVibe: Efficient Classification-Guided Secure Code Generation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.34969",
+   "title": "NavJev: Efficient Vision-Language Navigation via Action-Centric Visual Compression and Discriminative Action-Semantic Memory",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35031",
+   "title": "PEAR: Progressive Evidence-Based AutoResearch for Industrial Search Systems",
+   "decision": "excluded",
+   "reason": "Search-system auto-research; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35039",
+   "title": "Do Not Cut When Uncertain: Rejectable and Calibrated Decision Heads for VLA Policies in Robotic Harvesting",
+   "decision": "included_background",
+   "reason": "Adjacent work kept as background.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35217",
+   "title": "A Hierarchy of Entropy-Shapley Games for Multivariate Predictive Uncertainty",
+   "decision": "excluded",
+   "reason": "Uncertainty attribution with Shapley games; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35286",
+   "title": "The Argument and the Letterhead: Source-Position Coherence in AI Evaluation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35293",
+   "title": "Decide, Don't Generate: Competitive Dimensional ABSA with Jev's Typed Decisions",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35303",
+   "title": "PIVOT: Pivot-Aware On Policy Self Distillation for Multi-Turn VLM Agents",
+   "decision": "excluded",
+   "reason": "Multi-turn VLM agent distillation; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35342",
+   "title": "Jev thinks \"I don't know'', but doesn't say it: Introducing Sys1Cal-v1 Dataset for Probability Calibration",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35791",
+   "title": "FD-VAD: Semantic Endpoint Detection for Streaming Full-Duplex Speech",
+   "decision": "excluded",
+   "reason": "Speech endpoint detection; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.35865",
+   "title": "PACT: Pairwise-Anchored Calibrated Tuning for Single-Token Typed Decisions",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36059",
+   "title": "Mnemon: Raw Records, Fast Judgments, Slow Thoughts",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36115",
+   "title": "Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36116",
+   "title": "Dyad: Extending Large Language Models with Native Typed Decision-Making",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36154",
+   "title": "More Features Are Not More Evidence: Limits of Training-Free Human Activity Recognition with Jev",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36399",
+   "title": "Calibrated to Whom? Persona and Language Effects on Cultural Values in JEV",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36435",
+   "title": "MemFold: Learning Compact Soft Memory for Long-Context Personalization via On-Policy Optimization",
+   "decision": "excluded",
+   "reason": "Long-context memory compression; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36494",
+   "title": "Know the Normal, Track the Attack: Context-Grounded and Stateful LLM Investigation over System Provenance",
+   "decision": "excluded",
+   "reason": "Provenance-based intrusion investigation with generative LLMs; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36734",
+   "title": "Distilling What Matters: Confidence-Aware Selective Distillation for Large Language Models",
+   "decision": "excluded",
+   "reason": "Confidence-gated distillation of LLMs; unrelated to typed decision interfaces.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.36965",
+   "title": "Chinese-Jev: Bringing System One Model to Chinese-Language Tasks",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.37470",
+   "title": "Probability Contracts: Accuracy, Coherence, and Decisions Across LLM Interfaces",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.37647",
+   "title": "Evaluating and Benchmarking the System One Model Jev",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.37832",
+   "title": "Can a Cacheable Decision Model Follow Rules?",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.38827",
+   "title": "More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.38850",
+   "title": "OpenJev-RLCD: A Working RLCD Implementation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.38890",
+   "title": "PRICE the Action Chunks: Physical Relational Credit Assignment for Embodied Reinforcement Learning",
+   "decision": "excluded",
+   "reason": "Credit assignment in embodied RL; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.39111",
+   "title": "Bongard: Training Machine Intuition",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.39496",
+   "title": "When the Right Answer Is Missing: An Arithmetic-Dependent Rejection Bottleneck in Jev",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2609.40241",
+   "title": "Decision-Oriented Recommendation Reranking: An Empirical Study of Jev",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.00213",
+   "title": "Counting the Uncounted: Population-Level Surveillance of Documented Pregnancy and Fetal Harm in Police Crash Narratives with a System One Model (Jev)",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.00346",
+   "title": "Benchmarking System One decision models against trained classifiers and language models for automated decision gates",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.00376",
+   "title": "A First Glance at Jev for Network Traffic Classification: Accuracy, Processing Time, and Cost",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.00381",
+   "title": "OmniMed-Jev: Calibrating LVLM Confidence for Trustworthy Medical Multimodal Decisions via System One",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.00437",
+   "title": "JevSpawn: Adaptive Agentic Inference through Compositional Action Spaces",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.00831",
+   "title": "AnyJev Technical Report",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.01006",
+   "title": "Beyond Answer Confidence: A Controlled Audit of Self-Knowledge in a Black-Box Decision Model",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.01079",
+   "title": "Jev-IDS: System One Models for Network Intrusion Detection",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.01218",
+   "title": "AGO AI Quality Gate: Evidence-First Release Decisions for Retrieval-Augmented Generation",
+   "decision": "excluded",
+   "reason": "RAG release-gate framework with a generic decision model; no typed decision interface.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.01231",
+   "title": "Judgement in the Age of Jev: From Evaluation Scarcity to Evaluation Abundance",
+   "decision": "included_background",
+   "reason": "Perspective essay on what cheap machine evaluation could change in organisations.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.01508",
+   "title": "OverAct: Measuring and Mitigating Proactive Over-Authorization in LLM Tool-Calling Agents",
+   "decision": "excluded",
+   "reason": "Tool-calling over-authorization benchmark; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.01601",
+   "title": "Permutation-Robust Decision Modeling with Candidate-Independent Block-Causal Attention",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.01827",
+   "title": "Scientific Discovery under Validation Congestion via Multi-Fidelity Pairwise Rankings",
+   "decision": "excluded",
+   "reason": "Pairwise rankings for scientific curation; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.01834",
+   "title": "Code Owns the Simulation, Jev Owns the Evaluation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02046",
+   "title": "Prune First, Decide Fast: Scalable Semantic Query Processing with JEVDB",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02048",
+   "title": "HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02076",
+   "title": "LLM-as-Jev: LLMs Are Already Jev-Style Decision Models -- When and How to Fine-Tune Them",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02236",
+   "title": "An Adaptive Heterogeneous Architecture for High-Ratio, High-Throughput Lossless Compression",
+   "decision": "excluded",
+   "reason": "Lossless compression architecture; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02267",
+   "title": "Fast Models, Slow Evidence: A Paired and Self-Audited Evaluation of System-1 Decision Models for LLM Agent Harnesses",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02269",
+   "title": "Confidence-Gated Cloud-Edge Cascade Triage via Variational Risk Minimization for Medical Imaging",
+   "decision": "excluded",
+   "reason": "Medical-imaging cascade distillation; no typed decision interface.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02270",
+   "title": "Reliability Stress Tests and Decision-Time Routing for Chest X-ray Vision-Language Models",
+   "decision": "excluded",
+   "reason": "Chest X-ray VLM stress tests; no typed decision interface.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02293",
+   "title": "HakemBench: A Turkish Benchmark of Typed Decisions",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02486",
+   "title": "From Retrieval to Typed Decisions: Calibrated System One Models from Biomedical Sentence Encoders",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02516",
+   "title": "Student-Guided Teacher Distillation for Efficient LLM Task Routing: Positioning Against Jev-Style System-1 Classifiers",
+   "decision": "included_background",
+   "reason": "Adjacent work kept as background.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.02586",
+   "title": "Labels Override Definitions in Jev-Style Typed Decision Models",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.03073",
+   "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.03324",
+   "title": "To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.03387",
+   "title": "Benchmarking Candidate Coverage in Typed Decision Models",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.03935",
+   "title": "General Decision Models: Benchmarking and Insights Beyond Jev",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.03999",
+   "title": "SERA-IDS: Structured Experience Retrieval-Augmented Intrusion Detection with Small Language Models",
+   "decision": "excluded",
+   "reason": "Intrusion detection with retrieval-augmented SLMs; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.04345",
+   "title": "System One Models for Wireless Decision-Making:Applications and Performance Evaluation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.04385",
+   "title": "Largest Rashomon sets of decision trees for robust contextual optimization",
+   "decision": "excluded",
+   "reason": "Robust decision trees for contextual optimisation; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.04438",
+   "title": "RAGrasp: Geometry-Semantic Template Retrieval and Grasp Transfer",
+   "decision": "excluded",
+   "reason": "Grasp retrieval; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.04705",
+   "title": "Neurodiversity-Aware Multimodal Affective Computing for Neurodevelopmental Assessment: From Norm-Referenced Classification to Context-Sensitive Decision Support",
+   "decision": "excluded",
+   "reason": "Conceptual affective-computing framework; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.04985",
+   "title": "Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.05107",
+   "title": "SearchJev: A Fast and Calibrated System-1 Model for Search Agents",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.05505",
+   "title": "Robust 2D Traversability Mapping for Construction AMRs via Failure-Mode-Aware Fusion of LiDAR Geometry and Monocular Semantics",
+   "decision": "excluded",
+   "reason": "Construction-site traversability mapping; unrelated.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.06354",
+   "title": "GraphDecide: Benchmarking System One Models on Graph Tasks",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.06425",
+   "title": "SoK: Semantic Decision Engines in Network Control Loops",
+   "decision": "included_background",
+   "reason": "Systematization of semantic decision engines in network control loops.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.06625",
+   "title": "JEV versus LLMs: Accuracy, Cost and Calibration on Seven Political Science Replications",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "arxiv_id": "2610.06744",
+   "title": "ufakzeka-karar: An Open Turkish Typed-Decision Model with Order-Invariant Option Scoring",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
    "arxiv_id": "astro-ph/0302582",
    "title": "The VLT-UVES survey for molecular hydrogen in high-redshift damped Lyman-alpha systems",
    "decision": "excluded",

@@ -228,9 +228,10 @@ def main():
         r = refreshed.get(p.get('arxiv_id'))
         if not r:
             continue
-        diff = {f: [p.get(g), r.get(f)] for f, g in [('versioned_id', 'versioned_id'), ('title', 'title'),
-                                                     ('journal_ref', 'journal_ref'), ('doi', 'doi')]
-                if (p.get(g) or '') != (r.get(f) or '')}
+        # a journal reference is stored as the venue when arXiv supplies one
+        mine = dict(p, journal_ref=p.get('venue') if p.get('venue_source') == 'arxiv_journal_ref' else None)
+        diff = {f: [mine.get(f), r.get(f)] for f in ('versioned_id', 'title', 'journal_ref', 'doi')
+                if (mine.get(f) or '') != (r.get(f) or '')}
         if diff:
             changes.append(dict(arxiv_id=p['arxiv_id'], changes=diff))
 

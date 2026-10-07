@@ -29,16 +29,31 @@ async function loadDrawer() {
   return drawerData;
 }
 
-// ---------------------------------------------------------------- header & menu
-const header = $('.site-header');
-let ticking = false;
-addEventListener('scroll', () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { header.classList.toggle('is-scrolled', scrollY > 80); ticking = false; }); }, {passive: true});
-const menu = $('#menu-toggle'), mobileNav = $('#mobile-nav');
-const closeMenu = () => { menu.setAttribute('aria-expanded', 'false'); menu.setAttribute('aria-label', 'Open navigation'); mobileNav.hidden = true; };
-menu.addEventListener('click', () => { const open = menu.getAttribute('aria-expanded') !== 'true'; menu.setAttribute('aria-expanded', String(open)); menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation'); mobileNav.hidden = !open; });
-$$('#mobile-nav a').forEach(a => a.addEventListener('click', closeMenu));
-document.addEventListener('keydown', e => { if (e.key === 'Escape' && !mobileNav.hidden) { closeMenu(); menu.focus(); } });
-matchMedia('(min-width:1021px)').addEventListener('change', e => { if (e.matches) closeMenu(); });
+// ---------------------------------------------------------------- chapters: status bar, pager, contents
+const chapters = $$('.chapter');
+const statusLabel = $('#status-label'), where = $('#status-where'), contents = $('#contents');
+const pad = n => String(n).padStart(2, '0');
+function setCurrent(id) {
+  const i = chapters.findIndex(c => c.id === id);
+  if (i < 0) return;
+  statusLabel.replaceChildren(h('b', {text: pad(i + 1)}), ` / ${pad(chapters.length)} · ${chapters[i].dataset.label}`);
+  $$('[data-chapter]').forEach(a => a.setAttribute('aria-current', String(a.dataset.chapter === id)));
+}
+if ('IntersectionObserver' in window) {
+  const seen = new Map();
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => seen.set(e.target.id, e.isIntersecting));
+    const current = chapters.find(c => seen.get(c.id));
+    if (current) setCurrent(current.id);
+  }, {rootMargin: '-45% 0px -50% 0px'});
+  chapters.forEach(c => io.observe(c));
+}
+setCurrent((location.hash && chapters.find(c => '#' + c.id === location.hash)?.id) || chapters[0].id);
+const closeContents = () => { contents.hidden = true; where.setAttribute('aria-expanded', 'false'); };
+where.addEventListener('click', e => { e.stopPropagation(); const open = contents.hidden; contents.hidden = !open; where.setAttribute('aria-expanded', String(open)); if (open) $('a[aria-current=true]', contents)?.focus(); });
+$$('a', contents).forEach(a => a.addEventListener('click', closeContents));
+document.addEventListener('click', e => { if (!contents.hidden && !contents.contains(e.target)) closeContents(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !contents.hidden) { closeContents(); where.focus(); } });
 
 // ---------------------------------------------------------------- tabs (roving tabindex, arrow keys)
 function tabs(listSel, attr, show) {
@@ -58,26 +73,62 @@ function tabs(listSel, attr, show) {
 }
 tabs('.atlas-tabs', 'atlas', id => $$('.atlas-panel').forEach(p => p.classList.toggle('is-active', p.dataset.panel === id)));
 tabs('.lab-tabs', 'lab', id => $$('.lab-panel').forEach(p => { p.hidden = p.dataset.labPanel !== id; }));
+tabs('.eco-tabs', 'eco', id => $$('[data-eco-panel]').forEach(p => { p.hidden = p.dataset.ecoPanel !== id; if (!p.hidden) loadFragment(p); }));
 
-// ---------------------------------------------------------------- table views & ecosystem filter
+// ---------------------------------------------------------------- lazily loaded fragments (pre-rendered by the build)
+const fragments = new Map();
+function fetchFragment(url) {
+  if (!fragments.has(url)) fragments.set(url, fetch(url).then(r => { if (!r.ok) throw new Error(url); return r.text(); }));
+  return fragments.get(url);
+}
+async function loadFragment(el) {
+  if (!el?.dataset.fragment || el.dataset.loaded) return;
+  el.dataset.loaded = '1';
+  try { el.innerHTML = await fetchFragment(el.dataset.fragment); } catch { el.innerHTML = '<p class="fine">This part could not be loaded. The same records are in data/repositories.json.</p>'; }
+}
+function whenNear(target, fn, margin = '900px 0px') {
+  if (!target) return;
+  if (!('IntersectionObserver' in window)) { fn(); return; }
+  const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); fn(); } }, {rootMargin: margin});
+  io.observe(target);
+}
+whenNear($('#ecosystem'), () => $$('[data-eco-panel][data-fragment]').forEach(loadFragment));
+
+// ---------------------------------------------------------------- filters, sorting, table views, copy
+function pressGroup(attr, onPick) {
+  const btns = $$(`[${attr}]`);
+  btns.forEach(btn => btn.addEventListener('click', () => { btns.forEach(b => b.setAttribute('aria-pressed', String(b === btn))); onPick(btn.getAttribute(attr)); }));
+}
+pressGroup('data-eco-fam', f => $$('.eco-table tbody tr').forEach(r => { r.hidden = !!f && r.dataset.fam !== f; }));
+pressGroup('data-fm-filter', s => $$('.fm').forEach(c => { c.hidden = !!s && c.dataset.stage !== s; }));
+const heat = $('.heat tbody');
+pressGroup('data-heat-sort', key => {
+  const rows = $$('tr', heat), k = key.toLowerCase();
+  rows.sort((a, b) => key === 'date' ? a.dataset.date.localeCompare(b.dataset.date)
+    : (Number(b.dataset[k]) - Number(a.dataset[k])) || a.dataset.date.localeCompare(b.dataset.date));
+  heat.append(...rows);
+});
 $$('[data-table-toggle]').forEach(btn => btn.addEventListener('click', () => {
   const t = $(`[data-table="${btn.dataset.tableToggle}"]`), chart = $(`[data-chart="${btn.dataset.tableToggle}"]`);
   const on = btn.getAttribute('aria-pressed') !== 'true'; btn.setAttribute('aria-pressed', String(on)); t.hidden = !on; if (chart) chart.hidden = on;
   btn.textContent = on ? 'Chart view' : 'Table view';
 }));
-$$('[data-eco-filter]').forEach(btn => btn.addEventListener('click', () => {
-  $$('[data-eco-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
-  const t = btn.dataset.ecoFilter; $$('.eco-table tbody tr').forEach(r => { r.hidden = !!t && r.dataset.type !== t; });
+$$('[data-copy]').forEach(btn => btn.addEventListener('click', async () => {
+  const src = $(btn.dataset.copy), label = $('span', btn);
+  try { await navigator.clipboard.writeText(src.textContent); label.textContent = 'Copied'; }
+  catch { const r = document.createRange(); r.selectNodeContents(src); const s = getSelection(); s.removeAllRanges(); s.addRange(r); label.textContent = 'Selected — press Ctrl/Cmd+C'; }
+  setTimeout(() => { label.textContent = 'Copy BibTeX'; }, 2500);
 }));
 
 // ---------------------------------------------------------------- literature explorer
 const list = $('#paper-list');
-const rows = $$('.paper-row', list).map(el => ({
+const collectRows = () => $$('.paper-row', list).map(el => ({
   el, id: el.dataset.id, tier: el.dataset.tier, year: el.dataset.year, date: el.dataset.date, title: el.dataset.title,
   stages: el.dataset.stages.split(' ').filter(Boolean), families: el.dataset.families.split(' ').filter(Boolean),
   rel: el.dataset.rel.split(' ').filter(Boolean), topics: el.dataset.topics.split(' ').filter(Boolean), open: el.dataset.open.split(' ').filter(Boolean),
   search: `${el.dataset.id} ${el.dataset.topics} ${el.querySelector('.paper-main').textContent}`,
 }));
+let rows = collectRows();
 const ui = {q: $('#paper-search'), stage: $('#f-stage'), family: $('#f-family'), rel: $('#f-rel'), topic: $('#f-topic'), open: $('#f-open'), year: $('#f-year'), sort: $('#f-sort'),
   status: $('#catalog-status'), empty: $('#empty-state'), more: $('#load-more')};
 const PAGE = 20;
@@ -94,10 +145,10 @@ function render({pushUrl = true, reset = true} = {}) {
   hits.forEach(r => list.append(r.el));
   state.visible = hits;
   const n = hits.length, active = Object.entries(f).filter(([k, v]) => v && k !== 'sort').length;
-  ui.status.textContent = `${n} ${n === 1 ? 'reference' : 'references'}${active ? (n === 1 ? ' matches' : ' match') + ' the current filters' : ''}${n > state.limit ? ` · showing ${state.limit}` : ''}`;
+  ui.status.textContent = active ? `${n} ${n === 1 ? 'reference matches' : 'references match'} the current filters` : 'All references';
   ui.empty.hidden = n > 0;
   ui.more.hidden = n <= state.limit;
-  if (!ui.more.hidden) ui.more.textContent = `Show ${Math.min(PAGE, n - state.limit)} more of ${n - state.limit} remaining`;
+  if (!ui.more.hidden) ui.more.textContent = `Show ${Math.min(PAGE, n - state.limit)} more`;
   $$('[data-tier-filter]').forEach(b => { const on = b.dataset.tierFilter === state.tier; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on)); });
   if (pushUrl) {
     const p = filtersToParams(f); const paper = new URLSearchParams(location.search).get('paper'); if (paper) p.set('paper', paper);
@@ -113,6 +164,17 @@ ui.more.addEventListener('click', () => {
 selects.forEach(k => ui[k].addEventListener('change', () => render()));
 $$('[data-tier-filter]').forEach(b => b.addEventListener('click', () => { state.tier = b.dataset.tierFilter; render(); }));
 $('#clear-filters').addEventListener('click', () => { ui.q.value = ''; state.tier = ''; selects.forEach(k => { ui[k].value = k === 'sort' ? 'tier' : ''; }); render(); ui.q.focus({preventScroll: true}); });
+let moreLoaded = false;
+async function loadMoreRows() {
+  if (moreLoaded) return; moreLoaded = true;
+  try {
+    const html = await fetchFragment('site/data/fragments/more-rows.html');
+    list.insertAdjacentHTML('beforeend', html);
+    rows = collectRows();
+    render({pushUrl: false, reset: false});
+  } catch { ui.status.textContent = 'Some references could not be loaded; every record is in data/papers.json.'; }
+}
+whenNear($('#literature'), loadMoreRows, '1400px 0px');
 (function restore() {
   const allowed = Object.fromEntries(selects.map(k => [k, new Set([...ui[k].options].map(o => o.value))]));
   allowed.tier = new Set(['core', 'peripheral', 'background']);
@@ -120,6 +182,14 @@ $('#clear-filters').addEventListener('click', () => { ui.q.value = ''; state.tie
   ui.q.value = f.query || ''; state.tier = f.tier || ''; selects.forEach(k => { if (f[k]) ui[k].value = f[k]; });
   render({pushUrl: false});
 })();
+
+// ---------------------------------------------------------------- cross-links: stage → literature filter, family → ecosystem filter
+document.addEventListener('click', e => {
+  const st = e.target.closest('[data-filter-stage]');
+  if (st && ui.stage.querySelector(`option[value="${st.dataset.filterStage}"]`)) { ui.q.value = ''; state.tier = ''; selects.forEach(k => { ui[k].value = k === 'sort' ? 'tier' : ''; }); ui.stage.value = st.dataset.filterStage; render(); }
+  const fam = e.target.closest('[data-eco-family]');
+  if (fam) { $('#eco-tab-open_model')?.click(); $(`[data-eco-fam="${fam.dataset.ecoFamily}"]`)?.click(); }
+});
 
 // ---------------------------------------------------------------- exports of the current result set
 function download(name, text, type) {
@@ -151,6 +221,7 @@ function renderRecord(r) {
   add(r.url, 'arXiv abstract', 'i-paper'); add(r.pdf, 'PDF', 'i-down');
   if (r.openness?.code?.url) add(r.openness.code.url, 'Code', 'i-code');
   if (r.openness?.weights?.url) add(r.openness.weights.url, 'Weights', 'i-data');
+  if (r.openness?.data?.url) add(r.openness.data.url, 'Data', 'i-data');
   const copy = h('button', {type: 'button'}, icon('i-copy'), 'Copy BibTeX');
   copy.addEventListener('click', async () => { try { await navigator.clipboard.writeText(r.bibtex); copy.lastChild.textContent = 'Copied'; } catch { copy.lastChild.textContent = 'Copy failed — select the text below'; } });
   links.push(copy);
@@ -159,23 +230,23 @@ function renderRecord(r) {
     h('p', {class: 'd-kicker'}, h('span', {class: `tier-badge tier-${r.tier}`, text: r.tier}), r.short || r.group || '', ' · ', r.rel.join(' · ')),
     h('h2', {id: 'drawer-title', text: r.title}),
     h('p', {class: 'paper-authors', text: r.authors.join(', ')}),
-    h('dl', {class: 'd-meta'}, field('First submitted', r.published), field('Last updated', r.updated), field('Version', r.vid), field('Status', venue)),
+    h('dl', {class: 'd-meta'}, field('First submitted', r.published), field('Last updated', r.updated), field('Version read', r.vid), field('Status', venue)),
     h('div', {class: 'd-links'}, links),
   ];
   if (r.tier !== 'background') {
     kids.push(section('What the study does', h('p', {text: r.summary})), section('Relationship to Jev', h('p', {text: r.relationship})),
-      section('Task and data', h('p', {text: r.task}), listOf(r.datasets)), section('Main finding (author-reported)', h('p', {text: r.finding})),
+      section('Task and data', h('p', {text: r.task}), listOf(r.datasets)), section('Main finding (as reported)', h('p', {text: r.finding})),
       section('Limitations', listOf(r.caveats)));
     if (r.versions?.length) kids.push(section('Model versions', listOf(r.versions.map(v => `${v.model}: ${v.version ?? 'not reported'}${v.note ? ' — ' + v.note : ''}`))));
     const open = h('dl', {class: 'd-open'}, Object.entries({code: 'Code', weights: 'Weights', data: 'Data', predictions: 'Raw predictions', recomputable: 'Recomputable', reproduction: 'Reproduced'})
-      .map(([k, lab]) => { const o = r.openness[k]; return h('div', {}, h('dt', {text: lab}), h('dd', {}, h('span', {'aria-hidden': 'true', text: GLYPH[o.status] || '·'}), o.label), o.note ? h('small', {text: o.note}) : null); }));
+      .map(([k, lab]) => { const o = r.openness[k]; return h('div', {}, h('dt', {text: lab}), h('dd', {}, h('span', {'aria-hidden': 'true', text: (GLYPH[o.status] || '·') + ' '}), o.label), o.note ? h('small', {text: o.note}) : null); }));
     kids.push(section('Openness', open));
     kids.push(section('Evidence', h('div', {class: 'd-claims'}, r.claims.map(c => h('article', {class: 'd-claim'},
       h('strong', {text: c.headline}), h('p', {text: c.text}),
       h('div', {class: 'd-tags'}, [c.type, c.test, c.scope, c.locator, c.n?.n != null ? `n = ${c.n.n.toLocaleString()} ${c.n.unit}` : `n: ${(c.n?.reason || 'not reported').replaceAll('_', ' ')}`,
         `version: ${c.version?.value ?? (c.version?.reason || 'not reported').replaceAll('_', ' ')}`, ...c.findings].map(t => h('span', {text: t}))),
       c.limitations?.length ? h('p', {text: 'Limits: ' + c.limitations.join(' ')}) : null)))));
-    if (r.family) kids.push(section('Study family', h('p', {text: 'Shares authors and service path with another core study; the two are not independent replications.'})));
+    if (r.family) kids.push(section('Study family', h('p', {text: 'Shares authors with other studies here; read them together, not as independent replications.'})));
   } else {
     kids.push(section('Why it is relevant', h('p', {text: r.role})), section('Group', h('p', {text: r.group})));
   }
@@ -209,7 +280,8 @@ dialog.addEventListener('close', () => {
   if (lastFocus && document.contains(lastFocus)) lastFocus.focus({preventScroll: true});
 });
 const deep = new URLSearchParams(location.search).get('paper');
-if (deep && rows.some(r => r.id === deep)) openPaper(deep);
+if (deep && /^arxiv:\d{4}\.\d{4,5}$/.test(deep)) openPaper(deep);
+if ([...new URLSearchParams(location.search).keys()].some(k => k !== 'paper')) loadMoreRows();
 
 // ---------------------------------------------------------------- explainers load when their sections approach
 const labTargets = $$('[data-lab-panel], [data-control-explorer]');
@@ -219,3 +291,7 @@ if ('IntersectionObserver' in window) {
   const io = new IntersectionObserver(entries => { if (entries.some(e => e.isIntersecting)) { loadLab(); io.disconnect(); } }, {rootMargin: '600px 0px'});
   labTargets.forEach(t => io.observe(t));
 } else loadLab();
+
+// ---------------------------------------------------------------- background field, after first paint
+const startField = () => import('./field.js').then(m => m.start(document.getElementById('field'))).catch(() => { /* decorative only */ });
+if ('requestIdleCallback' in window) requestIdleCallback(startField, {timeout: 1500}); else setTimeout(startField, 300);

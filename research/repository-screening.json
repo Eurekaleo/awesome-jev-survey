@@ -1,0 +1,894 @@
+{
+ "note": "Repositories taken from curated lists and checked against their own README before inclusion. Included records live in data/repositories.json.",
+ "records": [
+  {
+   "full_name": "AbdelStark/jev-benchmarks",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "AlbionaHoti/refgarden",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "alperiox/audio-jevlike",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "AlperKartkaya/FlightBench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "anessbelbati/jev-rerank-bench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "apolinario/decision-index",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "appier-research/structure-gen",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "awlevin/typesafe-computer-use",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "bespokelabsai/nimble",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "BillionsBobby/JevRouter",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "bitnovus/jev-spam-eval",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Bodila51/grok-bot-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "browser-use/jev-ultrafast",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "ChetasLua/jevmeter",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "coldteadotai/abide",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "damanimehul/RLCR",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "daseinlabs/open-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "devagrawal09/jev-review",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Dimweaker/jev-libero",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "dottxt-ai/outlines",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "droidrun/mobile-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "ekzhang/openjev-sglang",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "erendikmenn/jev-rag-benchmark",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "FBddcz/embodied-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "featherless-ai/simple-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "feder-cr/jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "FLock-io/this-that-model",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "fstandhartinger/jevbench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Gaurav-Gosain/jev-sec-bench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "GautamTalksDev/jevbench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "getainode/jebadiah",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "githubnext/localjev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "guidance-ai/guidance",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "guidance-ai/jsonschemabench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Hanno-Labs/decision-bench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "hegargarcia/jev-playground",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Heman10x-NGU/Verdict-open-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "hiroki-abe-58/sokudan",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "iammrduncan/typesafe-ai-benchmark",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "iapp-technology/openthai-systemone",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "instax-dutta/sysone-bench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "ipenywis/laya-ultrafast",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "jaredpalmer/kev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "jarrodwatts/jev-trader",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "jev-chat/jev-chat-jarvis",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "excluded",
+   "reason": "A chat-copilot product named “Jev”; its README does not mention TypeSafe or a typed decision model.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Jevals/jevals-data",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "jgridifier/jev-research-eval",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "johnhughes3/LegalForecastBench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "excluded",
+   "reason": "Legal-forecasting benchmark for frontier models; the audited README does not mention Jev or typed decision models.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "JoshuaSP/open-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Knowledgator/GLiClass",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "kyu1204/jgrep",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "lexmount/WebJev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "lm-sys/FastChat",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "lm-sys/RouteLLM",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "lykycy123/RoboJEV",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Mapika/decider",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "meta-llama/PurpleLlama",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "milind-soni/tiptour-macos",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "mizorewww/laya-mlx",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "ML-GSAI/LLaDA",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "mmastrac/djev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "myc0576/SmartMoney-Cub",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "NanmiCoder/jev-arena",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "nico-martin/open-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "nyu-dl/dl4marco-bert",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "olanotolu/jevbetter",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "OmniJev/OneJev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "OmniJev/PlayJev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "openai/following-instructions-human-feedback",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "OpenByteInc/QuantDinger",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "openlayer-ai/jevals",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "openroboto-ai/jev-robot-control",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "PAI-CUHK/MEDJEV",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "PAI-CUHK/SLEEPJEV",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "pasta99/RewardingDoubt",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "phyous/tsai-sc",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "PromptEngineer48/laya-vs-jev-arena",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Prophetlab/JevPokerBench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "protectai/llm-guard",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "PsiACE/dohnuts",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "qybaihe/mu",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "realZachi/pg-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Rizzo-AI-Academy/rizzo-flow",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "rokbenko/quackd",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "RomanSlack/jev-drone",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "rorshopping/jev-on-a-laptop",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "SamratDuttaOfficial/WaterSheep",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "samuelfaj/distill",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "sedum-dev/sedum",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "shamazharikh/qwen-rlcd",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "shimo4228/jev-skill-router",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "shitianfang/jev-use",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "smkrv/jev-calibrate",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "socai-io/jev-social",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "stanfordnlp/dspy",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "suenot/codex-jev-router",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "sumleo/RLCDAlignBench",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "sunyasheng/JevDeepResearch",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "superagents-lab/jev-search",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "supercorp-ai/supercov",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "tamaratran/fast-jev-compaction",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "teyhouse/jev-secret-detection",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "TheoLeeCJ/SemIf",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "thijmenkam/jev-benchmarks",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "TianyuCodings/NanoJev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "trungdq88/youtube-sponsor-detection",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "typesafe-ai/skills",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "Official agent-skill files; no typed-decision evidence of their own.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "typesafe-ai/system-one-adapter-python",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "typesafeainate/dspy-typesafeify",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "urchade/GLiNER",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "uspraveen/Jevify",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "vinilana/jev-eval-agent",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "vinnylarouge/jevlike",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "virajbhartiya/laya-vs-jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "vllm-project/vllm",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "wondertwins/jev-benchmark",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "wy-coliney/jev-browser-use",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Yinsongxu/LLM2Jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "yinwenpeng/BenchmarkingZeroShot",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "context_only",
+   "reason": "General infrastructure or prior work listed for context; covered through its paper where relevant.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "Zefan-Cai/Open-Jev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "zhengxuyu/litjev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "zhihz/openjev",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "zhuyansen/jev-search-rerank-eval",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "zilliztech/deep-searcher",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "excluded",
+   "reason": "Deep-research framework; the audited README does not mention Jev.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "zilliztech/memsearch",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "zilliztech/vector-graph-rag",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  },
+  {
+   "full_name": "zsavage8/padflow-jev-evals",
+   "source": "OmniJev/awesome-jev-gallery@1607fe762c03",
+   "decision": "included",
+   "reason": "Audited from README and metadata at a pinned commit.",
+   "screened": "2026-10-06"
+  }
+ ]
+}

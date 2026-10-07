@@ -2,12 +2,13 @@
 \section{Open problems}\label{sec:open-problems}
 
 \begin{enumerate}[leftmargin=*,itemsep=2pt]
-  \item \textbf{Semantic invariance by design.} Train or calibrate readouts so that decisions follow rubrics rather than option-name polarity, and report name-invariance next to type-error rates.
+  \item \textbf{Semantic invariance by design.} Train or render readouts so that decisions follow definitions rather than labels or option-name polarity, and report name invariance next to type-error rates.
+  \item \textbf{Exits that work.} Make “none of the above” a real decision, not an option the model ignores, and evaluate it on answer-absent menus.
+  \item \textbf{Coherent probabilities.} Enforce or test consistency across complementary questions, granularities and interfaces before probabilities are combined.
+  \item \textbf{Computation boundaries.} Detect when a decision needs counting, arithmetic or simulation, and hand it to code automatically.
   \item \textbf{Per-construct reliability.} Identify, before deployment, the constructs and languages on which confidence is uninformative, using small labelled pilots and recalibration.
-  \item \textbf{Escalation that transfers.} Find threshold-selection rules that survive distribution shift and a change of fallback model, under explicit risk budgets \citep{arxiv2310_05921,arxiv2107_07511}.
-  \item \textbf{Joint consistency.} Questions are answered independently against a shared state; logical constraints across answers (exclusion, implication) are unchecked.
-  \item \textbf{Open-set decisions.} Closed option sets force errors when the right answer is missing; abstain options and out-of-set detection need standard tests.
-  \item \textbf{Adversarial confidence.} Confidence gates are attack surfaces \citep{arxiv2608_06571,arxiv2609_04445}; evaluation should include manipulation of state text and options.
+  \item \textbf{Escalation that transfers.} Find threshold rules that survive distribution shift, option-count changes and a change of fallback model, under explicit risk budgets \citep{arxiv2310_05921,arxiv2107_07511}.
+  \item \textbf{Security of the decision layer.} Separate trusted from untrusted state, defend against false-state injection, audit open checkpoints for backdoors, and protect escalation tiers from draining attacks.
   \item \textbf{Reproducible commercial evaluation.} Pinned versions, raw responses and dated repeats are needed to separate model drift from effects.
-  \item \textbf{Honest efficiency accounting.} Report the scope of every timing and cost figure and attribute gains to readout, batching, caching and network.
+  \item \textbf{Honest efficiency accounting.} Report the scope of every timing and cost figure and attribute gains to readout, batching, caching, pruning and network.
 \end{enumerate}

@@ -15,22 +15,23 @@
 \usepackage[hidelinks]{hyperref}
 \hypersetup{colorlinks=true,linkcolor={teal!60!black},citecolor={teal!60!black},urlcolor={teal!60!black}}
 \renewcommand{\arraystretch}{1.18}
+\setlength{\emergencystretch}{1.5em}
 \setlength{\tabcolsep}{4pt}
 \newcolumntype{X}{>{\raggedright\arraybackslash}X}
 \setcounter{topnumber}{3}\renewcommand{\topfraction}{0.9}\renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.8}
 \title{\vspace{-1.2em}Jev and Typed Decision Models: An Empirical Survey of Calibration, Selective Control, and Open Implementations}
-\author{\large \href{https://eurekaleo.github.io/}{Meng Luo}\\[5pt]\normalsize Draft 0.2.0 · Data cutoff 24 Sep 2026 · Not peer-reviewed}
+\author{\large \href{https://eurekaleo.github.io/}{Meng Luo}\\[5pt]\normalsize Draft 0.3.0 · Updated 6 Oct 2026 · Not peer-reviewed}
 \date{}
 \begin{document}
 \maketitle
 \begin{abstract}\noindent
-In September 2026 TypeSafe AI released Jev, a hosted “System One” model that answers typed questions about a text state with a probability distribution over declared options instead of generated text. Within a week a first wave of preprints evaluated it, built open alternatives and embedded it in judges, agents, annotation pipelines and edge systems. We review this evidence as it stood on 24 Sep 2026: 17 core studies, 1 peripheral study and 53 background references, extracted into 75 claim-level evidence records with locators, measurement scopes and sample sizes, plus an openness audit of 33 implementation and evaluation resources. Seven findings emerge. A type-valid answer can still be wrong: rebinding option names to rubrics lowered hosted Jev's AUROC from .8146 to .5806 with zero type errors. A native probability makes calibration measurable, not guaranteed: reliability varies by task and construct, and recalibration on held-out labels helps. The most consistent use is a cheap first pass with confidence-gated escalation, whose value depends on thresholds set on separate data and on strong cheap baselines. Speed and cost figures come from incompatible measurement scopes. Open implementations reproduce the interface through at least six non-equivalent mechanisms, none of which establishes the commercial architecture. System-level gains need module-level attribution. And the evidence is young, clustered and unreplicated. We contribute a versioned evidence base, a synthesis that keeps incomparable numbers apart, an implementation and openness audit, and a proposed evaluation protocol. We compare the work with a prior public survey draft and make no priority claim.
+In September 2026 TypeSafe AI released Jev, a hosted “System One” model that answers typed questions about a text state with a probability distribution over declared options instead of generated text. Within three weeks a literature formed around it: evaluations of the hosted model, open models and readouts that reproduce its interface, and systems that delegate bounded decisions to it. We review this evidence as it stood on 6 Oct 2026: 91 core studies, 1 peripheral study and 73 background references, read in full and extracted into 196 claim-level evidence records with locators, measurement scopes, sample sizes and model versions, together with an audit of 128 open models, benchmarks, applications and tools. Ten findings emerge. A type-valid answer can still be wrong: labels outweigh definitions, middle options absorb errors, and with an explicit “None” option hosted Jev rejected only 7\% of arithmetic menus that lacked the right value. A native probability makes calibration measurable but not guaranteed, and a calibrated probability is not a coherent belief: probabilities of a statement and its negation do not sum to one, and interfaces disagree. Typed decisions read what the input states but do not reliably compute what it implies, and they are not secure against text placed in the state. The most consistent use is a bounded first pass with confidence-gated escalation; the strongest designs fix thresholds in advance and test on new workloads, yet audited savings can shrink sharply. Speed and cost figures come from incompatible scopes, system gains need attribution, open implementations are compatible but not equivalent, and the evidence base is young, clustered and unreplicated. We contribute a versioned evidence base, a synthesis that keeps incomparable numbers apart, an implementation and ecosystem audit, and a proposed evaluation protocol.
 \end{abstract}
 
 \input{sections/01-introduction}
 \input{sections/02-scope-definitions-and-what-is-documented}
 \input{sections/03-review-method}
-\input{sections/04-related-surveys-and-positioning}
+\input{sections/04-related-reviews-and-positioning}
 \input{sections/05-lineage-and-an-analytical-frame}
 \input{sections/06-implementation-families}
 \input{sections/07-evidence-synthesis}
@@ -47,4 +48,5 @@ In September 2026 TypeSafe AI released Jev, a hosted “System One” model that
 \appendix
 \input{sections/14-appendix-a-search-queries}
 \input{sections/15-appendix-b-evidence-record-fields}
+\input{sections/16-appendix-c-openness-of-the-core-and-peripheral-studies}
 \end{document}

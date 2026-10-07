@@ -512,6 +512,171 @@
         "metadata_changes": 3
       },
       "note": "First run after the 2026-09-24 arXiv announcement: four new core studies. Two included papers gained a v2 (evidence was read on v1)."
+    },
+    {
+      "id": "increment-arxiv-2026-10-06T1253Z",
+      "kind": "arxiv_keyword_increment",
+      "date": "2026-10-06",
+      "retrieved_between": [
+        "2026-10-06T12:53:57.849557+00:00",
+        "2026-10-06T12:56:18.463529+00:00"
+      ],
+      "accepted_rerun": {
+        "queries": 17,
+        "hits_before_dedup": 710,
+        "reproduced_snapshot_totals": false,
+        "totals": {
+          "Q01_jev": 83,
+          "Q02_typesafe": 20,
+          "Q03_system_one": 108,
+          "Q04_typed_decision": 42,
+          "Q05_calibrated_decisions": 56,
+          "Q06_jevqa": 1,
+          "Q07_jev_survey": 25,
+          "Q08_decision_survey": 5,
+          "Q09_rlcd": 7,
+          "Q10_recent_decision_models": 71,
+          "Q11_recent_systemone": 32,
+          "Q12a_openjev": 1,
+          "Q12b_nanojev": 1,
+          "Q12c_jevlite": 1,
+          "Q12d_jevlike": 0,
+          "Q13_rlcd_expanded": 3,
+          "Q14_typed_surveys": 4
+        }
+      },
+      "expansion": [
+        {
+          "id": "X01_machine_native",
+          "query": "all:\"machine-native\" AND submittedDate:[202601010000 TO 202610062359]",
+          "total": 3,
+          "returned": 3,
+          "status": "ok"
+        },
+        {
+          "id": "X02_decision_head",
+          "query": "(abs:\"decision head\" OR abs:\"decision heads\") AND submittedDate:[202606010000 TO 202610062359]",
+          "total": 6,
+          "returned": 6,
+          "status": "ok"
+        },
+        {
+          "id": "X03a_laya",
+          "query": "(ti:laya OR abs:laya) AND submittedDate:[202609010000 TO 202610062359]",
+          "total": 11,
+          "returned": 11,
+          "status": "ok"
+        },
+        {
+          "id": "X03b_anyjev",
+          "query": "ti:anyjev OR abs:anyjev",
+          "total": 2,
+          "returned": 2,
+          "status": "ok"
+        },
+        {
+          "id": "X03c_semif",
+          "query": "ti:semif OR abs:semif",
+          "total": 2,
+          "returned": 2,
+          "status": "ok"
+        },
+        {
+          "id": "X03d_djev",
+          "query": "ti:djev OR abs:djev",
+          "total": 0,
+          "returned": 0,
+          "status": "ok"
+        },
+        {
+          "id": "X03e_localjev",
+          "query": "ti:localjev OR abs:localjev",
+          "total": 0,
+          "returned": 0,
+          "status": "ok"
+        },
+        {
+          "id": "X03f_this_that",
+          "query": "ti:\"this-that-model\" OR abs:\"this-that-model\"",
+          "total": 1241704,
+          "returned": 0,
+          "status": "rejected_implausibly_broad"
+        },
+        {
+          "id": "X03g_visual_jev",
+          "query": "ti:\"visual jev\" OR abs:\"visual jev\"",
+          "total": 1,
+          "returned": 1,
+          "status": "ok"
+        },
+        {
+          "id": "X04_system1_model",
+          "query": "(all:\"System 1 model\" OR all:\"System-1 model\" OR all:\"system one model\" OR all:\"System One models\") AND submittedDate:[202609010000 TO 202610062359]",
+          "total": 23,
+          "returned": 23,
+          "status": "ok"
+        },
+        {
+          "id": "X05_typed_outputs",
+          "query": "(abs:\"typed output\" OR abs:\"typed outputs\" OR abs:\"typed probabilistic\" OR abs:\"option probabilities\") AND submittedDate:[202606010000 TO 202610062359]",
+          "total": 9,
+          "returned": 9,
+          "status": "ok"
+        },
+        {
+          "id": "X06_confidence_gating",
+          "query": "(abs:\"confidence-gated\" OR abs:\"confidence gated\" OR abs:\"selective escalation\" OR abs:\"escalate when\") AND submittedDate:[202606010000 TO 202610062359]",
+          "total": 93,
+          "returned": 93,
+          "status": "ok"
+        },
+        {
+          "id": "X07_benchmark_names",
+          "query": "(all:jevbench OR all:callscreenbench OR all:\"sysone\" OR all:\"workflow evals\")",
+          "total": 4,
+          "returned": 4,
+          "status": "ok"
+        },
+        {
+          "id": "X08_decision_models_plural",
+          "query": "(ti:\"decision models\" OR abs:\"decision models\") AND (cat:cs.CL OR cat:cs.AI OR cat:cs.LG) AND submittedDate:[202609140000 TO 202610062359]",
+          "total": 45,
+          "returned": 45,
+          "status": "ok"
+        },
+        {
+          "id": "X09a_structured_decisions",
+          "query": "abs:\"structured decisions\" AND submittedDate:[202606010000 TO 202610062359]",
+          "total": 51,
+          "returned": 51,
+          "status": "ok"
+        },
+        {
+          "id": "X09b_smart_if",
+          "query": "abs:\"smart if-statements\" OR abs:\"smart if statements\"",
+          "total": 0,
+          "returned": 0,
+          "status": "ok"
+        },
+        {
+          "id": "X09c_semantic_if",
+          "query": "abs:\"semantic if\" OR abs:\"semantic ifs\"",
+          "total": 79464,
+          "returned": 0,
+          "status": "rejected_implausibly_broad"
+        }
+      ],
+      "new_candidates": 112,
+      "decisions": {
+        "include_core": 74,
+        "include_background": 6,
+        "excluded": 32
+      },
+      "id_refresh": {
+        "ids": 71,
+        "metadata_changes": 9
+      },
+      "note": "Full-text reading of every included study; revised versions of seven included papers were re-read and their records updated."
     }
   ]
 }

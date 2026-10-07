@@ -47,6 +47,14 @@ def context():
         open_code_available=oc['available'], open_code_partial=oc['partial'] + oc['project_page_only'], open_code_claimed=oc['claimed_not_located'],
         open_weights_available=sum(p['openness']['weights']['status'] == 'available' for p in prim),
         open_predictions_available=sum(p['openness']['predictions']['status'] == 'available' for p in prim))
+    R = d['repositories']['repositories']
+    om = [r for r in R if r['ecosystem'] == 'open_model']
+
+    def av(r, k):
+        return (r.get('availability') or {}).get(k)
+    extra.update({f'eco_{role}': sum(r['ecosystem'] == role for r in R) for role in ('open_model', 'benchmark', 'built_with', 'tooling')})
+    extra.update(eco_weights=sum(av(r, 'weights') == 'available' for r in om), eco_weights_na=sum(av(r, 'weights') == 'not_applicable' for r in om),
+                 eco_training=sum(av(r, 'training_code') == 'available' for r in om), eco_eval=sum(av(r, 'evaluation') == 'available' for r in om))
     s.update(extra)
     keys = {}
     for p in P:
@@ -55,12 +63,15 @@ def context():
         keys[src['bibtex_key']] = ('source', src)
     for r in d['repositories']['repositories']:
         keys[J.repo_key(r['id'])] = ('repo', r)
-    rs = d['review-relations']['related_surveys'][0]
-    keys[rs['bibtex_key']] = ('survey', rs)
+    for rs in d['review-relations']['related_surveys']:  # arXiv reviews and catalogues are already papers or repositories
+        if rs.get('bibtex_key') and rs['bibtex_key'] not in keys:
+            keys[rs['bibtex_key']] = ('survey', rs)
     return d, s, keys
 
 
 # ---------------------------------------------------------------- tables (as rows) and figures
+AV_SHORT = {'available': 'yes', 'partial': 'partial', 'restricted': 'restricted', 'project_page_only': 'page only', 'claimed_not_located': 'claimed',
+            'not_located': 'not loc.', 'not_applicable': 'n/a', 'not_assessed': '·', 'not_attempted': 'no', 'no': 'no'}
 AV_WORD = {'available': 'available', 'partial': 'partial', 'restricted': 'restricted', 'project_page_only': 'page only',
            'claimed_not_located': 'claimed', 'not_located': 'not located', 'not_applicable': 'n/a', 'not_assessed': '·', 'not_attempted': 'no', 'no': 'no'}
 
@@ -85,7 +96,7 @@ def tables(d, s):
         rows.append([p['short_title'] + (' *' if p['tier'] == 'peripheral' else '') + (' †' if p.get('study_family_id') else ''), p['published_at'][5:10],
                      T['test_levels'][p['test_level']]['label'], mv or '—', head, f"@{p['bibtex_key']}"])
     out['core'] = dict(caption='Core and peripheral studies (* peripheral; † same study family). Headline values are author-reported.',
-                       head=['Study', 'v1 (2026)', 'Test level', 'Version', 'Headline (as reported)', 'Ref.'], widths='p{0.2\\linewidth}p{0.055\\linewidth}p{0.085\\linewidth}p{0.11\\linewidth}Xp{0.075\\linewidth}', rows=rows)
+                       head=['Study', 'v1 (2026)', 'Test level', 'Version', 'Headline (as reported)', 'Ref.'], widths='p{0.2\\linewidth}p{0.055\\linewidth}p{0.085\\linewidth}p{0.11\\linewidth}Xp{0.075\\linewidth}', rows=rows, long=True)
     rows = []
     for scope in ('single_request', 'amortized_question', 'end_to_end', 'simulation', 'author_estimate', 'vendor_claim'):
         for c in [c for c in d['claims']['claims'] if c['measurement_scope'] == scope]:
@@ -106,31 +117,52 @@ def tables(d, s):
             else:
                 refs.append('@' + next(x['bibtex_key'] for x in d['sources']['sources'] if x['id'] == sub))
         rows.append([fm['title'], T['stages'][fm['stage']]['label'], fm['mitigation'], ' '.join(dict.fromkeys(refs))])
-    out['failures'] = dict(caption='Failure modes reported in the first wave, with mitigations (not yet evaluated at scale).',
+    out['failures'] = dict(caption='Failure modes reported so far, with mitigations (none replicated; several tested only on open models).',
                            head=['Failure mode', 'Stage', 'Mitigation', 'Sources'], widths='p{0.2\\linewidth}p{0.12\\linewidth}Xp{0.16\\linewidth}', rows=rows)
     out['openness'] = dict(caption='Openness of core and peripheral studies: six separate fields ("not located" is not "absent").',
                            head=['Study', 'Code', 'Weights', 'Data', 'Predictions', 'Recomputable', 'Reproduced'], widths='Xllllll',
                            rows=[[p['short_title']] + [AV_WORD[p['openness'][k]['status']] for k in ('code', 'weights', 'data', 'predictions', 'recomputable', 'reproduction')] for p in prim])
-    runs = J.by_id(d['search-runs']['runs'])
-    q = [[x['id'], x['query'], str(x['total'])] for x in runs['snapshot-arxiv-2026-09-23']['queries']]
-    q += [[x['id'], x['query'], (str(x['total']) + (' (rejected)' if x['status'] != 'ok' else ''))] for x in runs['increment-arxiv-2026-09-23T0818Z']['expansion']]
-    out['queries'] = dict(caption='arXiv API queries: 17 accepted snapshot queries (Q) and the increment’s expansion queries (X).',
-                          head=['ID', 'Query', 'Hits'], widths='>{\\raggedright\\arraybackslash}p{0.27\\linewidth}Xp{0.1\\linewidth}', rows=q, long=True, code_cols=[0, 1])
+    R = d['repositories']['repositories']
+    fam_order = [f['id'] for f in tax['method_families']]
+    rows = []
+    for r in sorted([r for r in R if r['ecosystem'] == 'open_model'], key=lambda r: (fam_order.index(r['method_family']) if r.get('method_family') else 99, r['full_name'].lower())):
+        a = r.get('availability') or {}
+        rows.append([r['full_name'], T['method_families'][r['method_family']]['label'] if r.get('method_family') else '—', r.get('base_model') or '—']
+                    + [AV_SHORT.get(a.get(k), '·') for k in ('weights', 'training_code', 'evaluation', 'data')] + ['@' + J.repo_key(r['id'])])
+    out['ecosystem'] = dict(caption='Open models and readouts, read from their READMEs at pinned commits (nothing executed). “n/a”: no weights of their own, e.g. readouts of existing checkpoints; “not loc.”: not located, which is not the same as absent.',
+                            head=['Resource', 'Family', 'Base model', 'Weights', 'Training', 'Eval.', 'Data', 'Ref.'],
+                            widths='>{\\raggedright\\arraybackslash}p{0.2\\linewidth}>{\\raggedright\\arraybackslash}p{0.13\\linewidth}>{\\raggedright\\arraybackslash}Xllllp{0.05\\linewidth}', rows=rows, long=True)
+    runs = d['search-runs']['runs']
+    by = J.by_id(runs)
+    latest = [r for r in runs if r['kind'] == 'arxiv_keyword_increment' and isinstance(r.get('accepted_rerun'), dict) and r['accepted_rerun'].get('totals')][-1]
+    lq, lx = latest['accepted_rerun']['totals'], {x['id']: x for x in latest['expansion']}
+
+    def hits(x):
+        return str(x['total']) if x.get('status', 'ok') == 'ok' else 'rejected'
+    q = [[x['id'], x['query'], str(x['total']), str(lq[x['id']]) if x['id'] in lq else '—'] for x in by['snapshot-arxiv-2026-09-23']['queries']]
+    q += [[x['id'], x['query'], hits(x), hits(lx[x['id']]) if x['id'] in lx else 'retired'] for x in by['increment-arxiv-2026-09-23T0818Z']['expansion']]
+    out['queries'] = dict(caption=f'arXiv API queries: the 17 accepted snapshot queries (Q) and the expansion queries (X), with hits on 23 September and in the run of {J.fmt_date(latest["date"])}. Date-bounded queries were re-run with the upper bound moved to the run date; a query returning implausibly many records was rejected by rule, not screened.',
+                          head=['ID', 'Query', '23 Sep', J.fmt_date(latest['date'])[:-5]], widths='>{\\raggedright\\arraybackslash}p{0.25\\linewidth}Xp{0.075\\linewidth}p{0.075\\linewidth}', rows=q, long=True, code_cols=[0, 1])
     return out
 
 
 FIGS = {
-    'timeline': 'Submission dates of the core and peripheral studies (arXiv v1) against context events, by primary relationship to Jev.',
-    'matrix': 'Which study bears on which finding, derived from the evidence records (filled: supports; half: qualifies).',
-    'openness': 'Openness of the core and peripheral studies across six independent fields.',
+    'timeline': 'Submission dates (arXiv v1) of the core and peripheral studies, one dot per study stacked by day and coloured by primary relationship to Jev, against context events.',
+    'matrix': 'Which study bears on which finding (F1–F10, §7), derived from the evidence records (filled: supports; open: qualifies only).',
+    'openness': 'Openness of the core and peripheral studies: number of studies per status in each of six independent fields.',
 }
+REL_COL = {'commercial_jev': '#2a78d6', 'independent_jev_like': '#eb6834', 'downstream_system': '#1baf7a'}
+REL_LAB = {'commercial_jev': 'Evaluates hosted Jev', 'independent_jev_like': 'Independent Jev-like model', 'downstream_system': 'Uses Jev inside a system'}
 
 
 def figures(d):
+    import datetime as dt
+    import textwrap
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
     from matplotlib.lines import Line2D
+    from matplotlib.patches import Patch
     plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 8.5, 'axes.edgecolor': '#c3cacc', 'axes.linewidth': 0.8,
                          'xtick.color': '#55636c', 'ytick.color': '#16222b', 'svg.fonttype': 'none', 'pdf.fonttype': 42})
     out = PAPER / 'figures'
@@ -138,103 +170,107 @@ def figures(d):
     P = d['papers']['papers']
     prim = sorted([p for p in P if p['tier'] in ('core', 'peripheral')], key=lambda p: p['published_at'])
     C = J.by_id(d['claims']['claims'])
-    col = {'commercial_jev': '#2a78d6', 'independent_jev_like': '#eb6834', 'downstream_system': '#1baf7a'}
-    lab = {'commercial_jev': 'Evaluates hosted Jev', 'independent_jev_like': 'Independent Jev-like model', 'downstream_system': 'Uses Jev inside a system'}
+    rel_order = list(REL_COL)
 
-    # Figure 1: timeline as a dot plot, one row per study (no label collisions)
-    cut = int(d['papers']['meta']['cutoff'][8:10])  # data cutoff (September)
-    fig, ax = plt.subplots(figsize=(7.2, 1.4 + 0.155 * len(prim)))
-    days = list(range(15, cut + 1))
-    for i, p in enumerate(prim):
-        rel = p['model_relationship'][0]
-        dday = int(p['published_at'][8:10]) + int(p['published_at'][11:13]) / 24
-        ax.plot([15, dday], [i, i], color='#eef3f3', linewidth=1, zorder=1)
-        ax.scatter([dday], [i], s=48, color='white' if p['tier'] == 'peripheral' else col[rel], edgecolors=col[rel], linewidths=1.6, zorder=3)
-    for dday, text in ((15, 'Jev launch'), (17, 'Vendor limits page\nlast reviewed'), (21, 'Prior survey\ndraft dated'), (cut, 'Cutoff')):
-        ax.axvline(dday, color='#8b979e', linewidth=0.9, zorder=2)
-        ax.text(dday, -1.1, text, ha='center', va='bottom', fontsize=6.4, color='#55636c')
-    ax.set_ylim(len(prim) - 0.4, -2.4)
-    ax.set_xticks(days)
-    ax.set_xticklabels([f'{x} Sep' for x in days])
-    ax.set_yticks(range(len(prim)))
-    ax.set_yticklabels([p['short_title'] for p in prim], fontsize=7)
-    for side in ('right', 'top'):
+    def save(fig, name):
+        for ext in ('pdf', 'png'):
+            fig.savefig(out / f'{name}.{ext}', dpi=200)
+        plt.close(fig)
+
+    # Figure 1: one dot per study, stacked by day of first submission
+    start = dt.date(2026, 9, 15)
+    cut = dt.date.fromisoformat(d['papers']['meta']['cutoff'][:10])
+    span = (cut - start).days
+
+    def day(iso):
+        return (dt.date.fromisoformat(iso[:10]) - start).days
+    stacks = {}
+    for p in sorted(prim, key=lambda p: (rel_order.index(p['model_relationship'][0]), p['published_at'])):
+        stacks.setdefault(day(p['published_at']), []).append(p)
+    top = max(len(v) for v in stacks.values())
+    fig, ax = plt.subplots(figsize=(7.2, 1.25 + 0.15 * top))
+    for x, ps in stacks.items():
+        for k, p in enumerate(ps):
+            c = REL_COL[p['model_relationship'][0]]
+            ax.scatter([x], [k + 0.6], s=30, color='white' if p['tier'] == 'peripheral' else c, edgecolors=c, linewidths=1.3, zorder=3)
+    events = [(0, 'Jev launch'), (6, 'Prior survey\ndraft dated'), (day('2026-10-02'), 'Vendor weak-spots\npage revised'), (span, 'Cutoff')]
+    for x, text in events:
+        ax.axvline(x, color='#8b979e', linewidth=0.8, linestyle=(0, (3, 2)), zorder=1)
+        ax.text(x, top + 1.1, text, ha='center', va='bottom', fontsize=6.3, color='#55636c')
+    ticks = list(range(0, span + 1, 2))
+    ax.set_xticks(ticks)
+    ax.set_xticklabels([(start + dt.timedelta(days=t)).strftime('%-d %b') for t in ticks], fontsize=6.8)
+    ax.set_xlim(-0.8, span + 0.8)
+    ax.set_ylim(0, top + 2.6)
+    ax.set_yticks([])
+    ax.set_ylabel('Studies per day', fontsize=7, color='#55636c')
+    for side in ('right', 'top', 'left'):
         ax.spines[side].set_visible(False)
-    ax.grid(axis='x', color='#e1e6e7', linewidth=0.6)
+    ax.grid(axis='x', color='#eef1f2', linewidth=0.6)
     ax.set_axisbelow(True)
-    handles = [Line2D([0], [0], marker='o', color='none', markerfacecolor=col[k], markeredgecolor=col[k], markersize=6, label=lab[k]) for k in col]
-    handles.append(Line2D([0], [0], marker='o', color='none', markerfacecolor='white', markeredgecolor='#55636c', markersize=6, label='Peripheral (open marker)'))
-    ax.set_xlim(14.4, cut + 0.6)
-    ax.legend(handles=handles, loc='upper center', bbox_to_anchor=(0.4, 1.17), frameon=False, fontsize=7, ncol=2, handletextpad=0.3, columnspacing=1.4)
+    handles = [Line2D([0], [0], marker='o', color='none', markerfacecolor=REL_COL[k], markeredgecolor=REL_COL[k], markersize=5.5, label=REL_LAB[k]) for k in rel_order]
+    handles.append(Line2D([0], [0], marker='o', color='none', markerfacecolor='white', markeredgecolor='#55636c', markersize=5.5, label='Peripheral (open marker)'))
+    ax.legend(handles=handles, loc='upper left', bbox_to_anchor=(0.0, 0.83), frameon=False, fontsize=6.6, ncol=1, handletextpad=0.3)
     fig.tight_layout()
-    for ext in ('pdf', 'png'):
-        fig.savefig(out / f'timeline.{ext}', dpi=200)
-    plt.close(fig)
+    save(fig, 'timeline')
 
-    # Figure 2: study x finding matrix
+    # Figure 2: study x finding matrix in two side-by-side panels
     F = [f['id'] for f in d['taxonomy']['findings']]
-    fig, ax = plt.subplots(figsize=(7.2, 4.4))
-    for i, p in enumerate(prim):
-        for j, fid in enumerate(F):
-            rels = {l['relation'] for cid in p['claims'] for l in C[cid]['findings'] if l['id'] == fid}
-            if 'supports' in rels:
-                ax.scatter(j, i, s=70, color='#1d716c', zorder=3)
-            elif rels:
-                ax.scatter(j, i, s=70, color='#a8521a', marker='o', zorder=3, facecolors='none', linewidths=1.6)
-    ax.set_xticks(range(len(F)))
-    import textwrap
-    ax.set_xticklabels([f['id'] + '\n' + '\n'.join(textwrap.wrap(f['short'], 12)) for f in d['taxonomy']['findings']], fontsize=6.4)
-    ax.set_yticks(range(len(prim)))
-    ax.set_yticklabels([p['short_title'] for p in prim], fontsize=7)
+    half = (len(prim) + 1) // 2
+    fig, axes = plt.subplots(1, 2, figsize=(7.2, 0.7 + 0.112 * half))
+    for ax, chunk in zip(axes, (prim[:half], prim[half:])):
+        for i, p in enumerate(chunk):
+            for j, fid in enumerate(F):
+                rels = {l['relation'] for cid in p['claims'] for l in C[cid]['findings'] if l['id'] == fid}
+                if 'supports' in rels:
+                    ax.scatter(j, i, s=17, color='#1d716c', zorder=3)
+                elif rels:
+                    ax.scatter(j, i, s=17, facecolors='none', edgecolors='#a8521a', linewidths=1.0, zorder=3)
+        ax.set_xticks(range(len(F)))
+        ax.set_xticklabels(F, fontsize=6)
+        ax.xaxis.tick_top()
+        ax.set_yticks(range(len(chunk)))
+        ax.set_yticklabels([p['short_title'] for p in chunk], fontsize=5.4)
+        ax.set_ylim(half - 0.5, -0.7)
+        ax.set_xlim(-0.6, len(F) - 0.4)
+        ax.tick_params(length=0, pad=2)
+        for side in ('right', 'bottom', 'left', 'top'):
+            ax.spines[side].set_visible(False)
+        ax.grid(color='#e6eaeb', linewidth=0.5)
+        ax.set_axisbelow(True)
+    handles = [Line2D([0], [0], marker='o', color='none', markerfacecolor='#1d716c', markeredgecolor='#1d716c', markersize=5, label='supports'),
+               Line2D([0], [0], marker='o', color='none', markerfacecolor='none', markeredgecolor='#a8521a', markeredgewidth=1.0, markersize=5, label='qualifies only')]
+    fig.legend(handles=handles, loc='lower center', bbox_to_anchor=(0.5, 0.0), frameon=False, ncol=2, fontsize=6.6)
+    fig.tight_layout(rect=(0, 0.025, 1, 1), w_pad=1.2)
+    save(fig, 'matrix')
+
+    # Figure 3: openness as stacked counts per field
+    fields = [('code', 'Code'), ('weights', 'Weights'), ('data', 'Data'), ('predictions', 'Raw predictions'), ('recomputable', 'Recomputable'), ('reproduction', 'Independently reproduced')]
+    groups = [('Available', ('available',), '#1d716c'), ('Partial or page only', ('partial', 'project_page_only'), '#7fb8b2'),
+              ('Restricted', ('restricted',), '#c9a24a'), ('Claimed, not located', ('claimed_not_located',), '#d4773a'),
+              ('Not located / no', ('not_located', 'no'), '#b9c3c8'), ('Not applicable / not attempted', ('not_applicable', 'not_attempted', 'not_assessed'), '#e6ebed')]
+    fig, ax = plt.subplots(figsize=(7.2, 2.5))
+    for i, (k, label) in enumerate(fields):
+        left = 0
+        for name, sts, colr in groups:
+            n = sum(p['openness'][k]['status'] in sts for p in prim)
+            if not n:
+                continue
+            ax.barh(i, n, left=left, color=colr, edgecolor='white', linewidth=1.0, height=0.62)
+            if n >= 4:
+                ax.text(left + n / 2, i, str(n), ha='center', va='center', fontsize=6.4, color='white' if colr in ('#1d716c', '#d4773a') else '#16222b')
+            left += n
+    ax.set_yticks(range(len(fields)))
+    ax.set_yticklabels([lab for _, lab in fields], fontsize=7.2)
     ax.invert_yaxis()
-    ax.set_xlim(-0.6, len(F) - 0.4)
+    ax.set_xlim(0, len(prim))
+    ax.set_xlabel(f'Studies (of {len(prim)})', fontsize=7, color='#55636c')
     for side in ('right', 'top'):
         ax.spines[side].set_visible(False)
-    ax.grid(color='#e1e6e7', linewidth=0.8)
-    ax.set_axisbelow(True)
-    handles = [Line2D([0], [0], marker='o', color='none', markerfacecolor='#1d716c', markeredgecolor='#1d716c', markersize=7, label='supports'),
-               Line2D([0], [0], marker='o', color='none', markerfacecolor='none', markeredgecolor='#a8521a', markeredgewidth=1.6, markersize=7, label='qualifies only')]
-    ax.legend(handles=handles, loc='lower center', bbox_to_anchor=(0.5, 1.0), frameon=False, ncol=2, fontsize=7)
+    ax.legend(handles=[Patch(facecolor=c, edgecolor='white', label=n) for n, _, c in groups], loc='upper center', bbox_to_anchor=(0.45, -0.2),
+              frameon=False, ncol=3, fontsize=6.5)
     fig.tight_layout()
-    for ext in ('pdf', 'png'):
-        fig.savefig(out / f'matrix.{ext}', dpi=200)
-    plt.close(fig)
-
-    # Figure 3: openness grid
-    fields = [('code', 'Code'), ('weights', 'Weights'), ('data', 'Data'), ('predictions', 'Raw preds.'), ('recomputable', 'Recomputable'), ('reproduction', 'Reproduced')]
-    style = {'available': ('o', '#1d716c', True), 'partial': ('o', '#1d716c', 'half'), 'project_page_only': ('o', '#1d716c', 'half'),
-             'restricted': ('s', '#9a7424', True), 'claimed_not_located': ('o', '#a8521a', False), 'not_located': ('o', '#8b979e', False),
-             'not_applicable': ('_', '#a8b3b8', True), 'not_attempted': ('_', '#a8b3b8', True), 'no': ('o', '#8b979e', False), 'not_assessed': ('_', '#a8b3b8', True)}
-    fig, ax = plt.subplots(figsize=(7.2, 4.3))
-    for i, p in enumerate(prim):
-        for j, (k, _) in enumerate(fields):
-            m, c, fill = style[p['openness'][k]['status']]
-            if fill == 'half':
-                ax.plot(j, i, marker='o', markersize=8, color=c, fillstyle='left', markerfacecoloralt='white', markeredgewidth=1.4, linestyle='none')
-            else:
-                ax.plot(j, i, marker=m, markersize=8, color=c, markerfacecolor=c if fill else 'none', markeredgewidth=1.6, linestyle='none')
-    ax.set_xticks(range(len(fields)))
-    ax.set_xticklabels([f for _, f in fields], fontsize=7.2)
-    ax.xaxis.tick_top()
-    ax.set_yticks(range(len(prim)))
-    ax.set_yticklabels([p['short_title'] for p in prim], fontsize=7)
-    ax.invert_yaxis()
-    ax.set_xlim(-0.6, len(fields) - 0.4)
-    for side in ('right', 'bottom'):
-        ax.spines[side].set_visible(False)
-    ax.grid(color='#e1e6e7', linewidth=0.8)
-    ax.set_axisbelow(True)
-    handles = [Line2D([0], [0], marker='o', color='#1d716c', linestyle='none', label='available'),
-               Line2D([0], [0], marker='o', color='#1d716c', fillstyle='left', markerfacecoloralt='white', linestyle='none', label='partial / page only'),
-               Line2D([0], [0], marker='s', color='#9a7424', linestyle='none', label='restricted'),
-               Line2D([0], [0], marker='o', color='#a8521a', markerfacecolor='none', linestyle='none', label='claimed, not located'),
-               Line2D([0], [0], marker='o', color='#8b979e', markerfacecolor='none', linestyle='none', label='not located / no'),
-               Line2D([0], [0], marker='_', color='#a8b3b8', linestyle='none', label='n/a / not attempted')]
-    ax.legend(handles=handles, loc='upper center', bbox_to_anchor=(0.5, -0.02), frameon=False, ncol=3, fontsize=6.8)
-    fig.tight_layout()
-    for ext in ('pdf', 'png'):
-        fig.savefig(out / f'openness.{ext}', dpi=200)
-    plt.close(fig)
+    save(fig, 'openness')
 
 
 # ---------------------------------------------------------------- inline rendering
@@ -364,7 +400,11 @@ def cell_tex(v, code=False):
     v = str(v)
     if v.startswith('@'):
         return r'\citep{' + ','.join(v.replace('@', '').split()) + '}'
-    return r'\texttt{\footnotesize ' + tex_escape(v) + '}' if code else tex_inline(v)
+    if code:
+        return r'\texttt{\footnotesize ' + tex_escape(v) + '}'
+    out = tex_inline(v)
+    # let long repository names and version strings break after a slash
+    return out if '](' in v or 'http' in v else out.replace('/', '/\\allowbreak{}')
 
 
 def ref_md(n, key, kind, obj):
@@ -502,6 +542,7 @@ MAIN_TEX = r'''% Generated by scripts/build-paper.py. Compile with: latexmk -xel
 \usepackage[hidelinks]{hyperref}
 \hypersetup{colorlinks=true,linkcolor={teal!60!black},citecolor={teal!60!black},urlcolor={teal!60!black}}
 \renewcommand{\arraystretch}{1.18}
+\setlength{\emergencystretch}{1.5em}
 \setlength{\tabcolsep}{4pt}
 \newcolumntype{X}{>{\raggedright\arraybackslash}X}
 \setcounter{topnumber}{3}\renewcommand{\topfraction}{0.9}\renewcommand{\textfraction}{0.08}\renewcommand{\floatpagefraction}{0.8}

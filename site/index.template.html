@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0f1219">
-  <title>Jev and Typed Decision Models · An Evidence Survey</title>
-  <meta name="description" content="A research companion to Jev and Jev-like typed decision models: what their probabilities mean, when software should act on them, and what open implementations release.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1220" media="(prefers-color-scheme: dark)">
+  <title>Jev Survey · Typed decisions, traced evidence</title>
+  <meta name="description" content="An evidence survey of TypeSafe’s Jev and Jev-like typed decision models: what their probabilities mean, when software should act on them, and what open implementations release.">
   {{meta_author}}
   {{canonical}}
-  <meta property="og:title" content="Jev and Typed Decision Models">
-  <meta property="og:description" content="An evidence survey of calibration, selective control and open implementations.">
+  <meta property="og:title" content="Jev Survey · Typed decisions, traced evidence">
+  <meta property="og:description" content="Findings, failure modes, applications and the open ecosystem of Jev-like typed decision models, each traced to its source.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="{{og_image}}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Space+Grotesk:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="stylesheet" href="site/site.css?v={{build_hash}}">
   <script type="module" src="site/site.js?v={{build_hash}}"></script>
@@ -25,6 +27,7 @@
   <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
     <symbol id="i-north" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5m-6 6 6-6 6 6"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></symbol>
     <symbol id="i-paper" viewBox="0 0 24 24"><path d="M6 2h8l4 4v16H6zM14 2v5h5M9 12h6m-6 4h6"/></symbol>
     <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5"/></symbol>
@@ -33,56 +36,49 @@
     <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></symbol>
     <symbol id="i-git" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><circle cx="18" cy="9" r="2.2"/><path d="M6 8.2v7.6M18 11.2c0 3-3 3.8-9.8 5.4"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"/></symbol>
+    <symbol id="st-contract" viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7zM14 3v4h4M10 12h5M10 16h5"/></symbol>
+    <symbol id="st-readout" viewBox="0 0 24 24"><path d="M4 19V9m5 10V5m5 14v-8m5 8v-4M3 21h18"/></symbol>
+    <symbol id="st-probability" viewBox="0 0 24 24"><path d="M3 19c3 0 4-12 9-12s6 12 9 12M3 21h18"/></symbol>
+    <symbol id="st-control" viewBox="0 0 24 24"><path d="M12 3v6m0 0-6 6m6-6 6 6M6 15v5m12-5v5M4 20h4m8 0h4"/></symbol>
+    <symbol id="st-use" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8.5 12.5 2.4 2.4 4.8-5.4"/></symbol>
   </defs></svg>
-  <a class="skip-link" href="#papers">Skip to the literature explorer</a>
+  <canvas id="field" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#literature">Skip to the literature explorer</a>
 
-  <header class="site-header">
-    <div class="shell header-inner">
-      <a class="brand" href="#top" aria-label="Jev Survey home"><img src="assets/logo.svg" width="30" height="30" alt=""><span>JEV <span class="brand-sub">survey</span></span></a>
-      <nav class="site-nav" aria-label="Primary navigation">
-        <a href="#what">What is Jev</a><a href="#map">Map</a><a href="#atlas">Methods</a><a href="#findings">Findings</a><a href="#reliability">Reliability</a><a href="#control">Control</a><a href="#ecosystem">Ecosystem</a><a href="#papers">Literature</a><a href="#method">Method</a>
-      </nav>
-      <button id="menu-toggle" class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
-    </div>
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="#what">What is Jev</a><a href="#map">Research map</a><a href="#atlas">Method atlas</a><a href="#findings">Findings</a><a href="#reliability">Reliability</a><a href="#control">Selective control</a><a href="#ecosystem">Open ecosystem</a><a href="#papers">Literature</a><a href="#method">Method &amp; data</a>
-    </nav>
-  </header>
+  <nav class="pager" id="pager" aria-label="Chapters">{{pager}}</nav>
 
   <main id="top">
-    <!-- HERO ----------------------------------------------------------- -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-art" aria-hidden="true">{{hero_art}}</div>
-      <div class="shell hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-rule"></span>AN EVIDENCE SURVEY</p>
-          <h1 id="hero-title">Jev and <em>typed</em><span>decision models</span></h1>
-          <p class="hero-statement">Every answer type-checks.<br>The evidence decides the rest.</p>
-          <p class="hero-description">A research companion to the first wave of studies on TypeSafe’s Jev and Jev-like models: what their probabilities mean, when software should act on them, and what open implementations actually release.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#papers"><svg class="icon"><use href="#i-search"/></svg>Browse the papers</a>
-            <a class="button button-ghost" href="#map">Explore the map <svg class="icon"><use href="#i-arrow"/></svg></a>
-            <a class="button button-ghost" href="{{repo_href}}"><svg class="icon"><use href="#i-git"/></svg>{{repo_label}}</a>
-          </div>
-          <p class="publication-note">{{byline}}</p>
+    <!-- 01 TITLE ---------------------------------------------------------- -->
+    <section class="chapter hero" id="title" data-label="Title" aria-labelledby="hero-title">
+      <div class="chapter-inner hero-inner">
+        <p class="kicker">An evidence survey · Updated {{cutoff_long}}</p>
+        <h1 id="hero-title" class="wordmark"><span class="wm-j">Jev</span> <span class="wm-s">Survey</span></h1>
+        <p class="hero-claim">Every answer type-checks. <em>The evidence decides the rest.</em></p>
+        <p class="hero-lede">TypeSafe’s Jev returns typed answers with a probability for every option, and open projects now copy its shape. This survey reads the studies, audits the open resources and traces every number to its source: what the probabilities mean, when software should act on them, and where typed decisions fail.</p>
+        {{hero_diagram}}
+        <div class="btns">
+          <a class="btn btn-primary" href="#findings">Read the findings <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="btn" href="#literature"><svg class="icon"><use href="#i-search"/></svg>Search the evidence</a>
+          <a class="btn btn-pill" href="paper/main.pdf"><svg class="icon"><use href="#i-paper"/></svg>Survey (PDF)</a>
+          <a class="btn btn-pill" href="{{repo_href}}"><svg class="icon"><use href="#i-git"/></svg>{{repo_label}}</a>
         </div>
-      </div>
-      <div class="shell hero-bottom">
-        <a class="scroll-cue" href="#what">What is Jev? <span aria-hidden="true">↓</span></a>
+        <ol class="pipeline" aria-label="Where a claim can live">{{pipeline}}</ol>
+        <p class="byline">{{byline}}</p>
       </div>
     </section>
 
-    <!-- 01 WHAT IS JEV --------------------------------------------------- -->
-    <section id="what" class="what section-light" aria-labelledby="what-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>01</span> THE OBJECT</p><h2 id="what-title">A function call that<br><em>returns a distribution.</em></h2></div>
-          <p>Jev is a hosted model from TypeSafe AI, released in early access on 15 September 2026 as its first “System One” model. Software sends a text state and typed questions; the model answers from the declared options with probabilities — it never writes free text.</p>
-        </div>
-        <div class="what-grid">
-          <div class="what-request">
-            <figure class="code-card">
-              <figcaption><span>Request shape</span><span>abridged from the documentation</span></figcaption>
+    <!-- 02 THE OBJECT ------------------------------------------------------ -->
+    <section class="chapter" id="object" data-label="The object" aria-labelledby="object-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>02</span> The object</p>
+          <h2 id="object-title">A function call that returns a distribution</h2>
+          <p class="lede">Jev is a hosted model from TypeSafe AI, released on 15 September 2026 as its first “System One” model. Software sends a text state and typed questions; the model answers from the declared options with probabilities and never writes free text.</p>
+        </header>
+        <div class="object-grid">
+          <figure class="card code-card">
+            <figcaption><span>Request shape</span><span>abridged from the documentation</span></figcaption>
 <pre><code><span class="tk">POST</span> /v1/systemone
 {
   <span class="k">"model"</span>: <span class="s">"jev-1.13.0"</span>,
@@ -93,64 +89,57 @@
     <span class="k">"human"</span>: { <span class="k">"type"</span>: <span class="s">"noul"</span>,   <span class="k">"instructions"</span>: <span class="s">"Wants a person?"</span> }
   }
 }</code></pre>
-            </figure>
-            <p class="fine">Questions are evaluated independently against one shared state. Option names <em>and</em> their descriptions are sent to the model.</p>
-          </div>
+            <p class="fine">Questions are evaluated independently against one shared state. Option names <em>and</em> their descriptions reach the model.</p>
+          </figure>
           <div class="primitive-list">{{primitives}}</div>
         </div>
-
-        <div class="three-objects">
-          <p class="aside-caption">THREE THINGS CALLED “JEV”</p>
-          <div class="objects-grid">
-            <article><span class="obj-n">A</span><h3>The commercial model</h3><p>TypeSafe’s hosted Jev, version <code>jev-1.13.0</code> at the cutoff. Its interface, prices, limits and known failure modes are documented; its architecture, training data and exact confidence statistic are not.</p><p class="obj-foot">Evidence: black-box evaluations only.</p></article>
-            <article><span class="obj-n">B</span><h3>The paradigm</h3><p>Jev-like typed decision models: encoders, frozen or fine-tuned decoders, diffusion reads and adapters that reproduce the request and response shape with other mechanisms.</p><p class="obj-foot">Evidence: open code and weights, of uneven completeness.</p></article>
-            <article><span class="obj-n">C</span><h3>The systems</h3><p>Judges, agents, memory controllers, annotation pipelines and orchestrators whose results depend on typed decisions — plus much else.</p><p class="obj-foot">Evidence: end-to-end outcomes that need attribution.</p></article>
-          </div>
+        <div class="three">
+          <article class="card"><span class="three-n">A</span><h3>The commercial model</h3><p>TypeSafe’s hosted Jev, version <code>jev-1.13.0</code>. Its interface, prices, limits and known weak spots are documented; its architecture, training data and confidence statistic are not.</p><p class="three-foot">Evidence: black-box evaluations</p></article>
+          <article class="card"><span class="three-n">B</span><h3>The paradigm</h3><p>Jev-like typed decision models: encoders, encoder–decoders, frozen or fine-tuned decoders, diffusion reads and adapters that reproduce the request and response shape with other mechanisms.</p><p class="three-foot">Evidence: open code and weights, of uneven completeness</p></article>
+          <article class="card"><span class="three-n">C</span><h3>The systems</h3><p>Judges, agents, search engines, databases, robots and annotation pipelines whose results depend on typed decisions — and on much else.</p><p class="three-foot">Evidence: end-to-end outcomes that need attribution</p></article>
         </div>
-
         <div class="docs-split">
-          <div>
-            <p class="aside-caption">DOCUMENTED BY THE VENDOR</p>
+          <div class="card pad">
+            <p class="kicker">Documented by the vendor</p>
             <ul class="check-list">
               <li>Input is text only: a string, JSON object or array of text. Images, audio and video must be converted first.</li>
-              <li>Versioned IDs; the aliases <code>jev-latest</code> and <code>jev-preview</code> both pointed to <code>jev-1.13.0</code>.</li>
-              <li><code>confidence</code> is a statistic computed from the returned distribution; Noul answers carry none.</li>
+              <li>Versioned IDs; the aliases <code>jev-latest</code> and <code>jev-preview</code> point to <code>jev-1.13.0</code>.</li>
+              <li><code>confidence</code> is a statistic of the returned distribution; yes/no answers carry none.</li>
               <li>Calibration is measured over groups of predictions and does not certify an individual answer.</li>
-              <li>A published list of <a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13" target="_blank" rel="noopener noreferrer">known failure modes ↗</a>: literal reading, arithmetic, dates, indirection, large states, adversarial text.</li>
+              <li>A published list of <a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13" target="_blank" rel="noopener noreferrer">known weak spots ↗</a>: literal reading, math and numbers, dates, indirection, large states, adversarial text and Choice option order.</li>
             </ul>
           </div>
-          <div>
-            <p class="aside-caption">VENDOR-REPORTED, NOT INDEPENDENTLY TESTED</p>
+          <div class="card pad">
+            <p class="kicker">Vendor-reported, not independently tested</p>
             <ul class="claim-list">{{vendor_claims}}</ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 02 RESEARCH MAP -------------------------------------------------- -->
-    <section id="map" class="map section-light" aria-labelledby="map-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>02</span> THE ORGANIZING MAP</p><h2 id="map-title">Five places a claim<br><em>can live.</em></h2></div>
-          <p>Each study is placed where its claim sits on the path from a declared question to a workflow outcome — a frame for comparing evidence, not a model architecture.</p>
-        </div>
-        <ol class="stage-flow">{{stages}}</ol>
-
-        <div class="rq-block">
-          <p class="aside-caption">SIX RESEARCH QUESTIONS</p>
+    <!-- 03 THE MAP --------------------------------------------------------- -->
+    <section class="chapter" id="map" data-label="The map" aria-labelledby="map-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>03</span> The map</p>
+          <h2 id="map-title">Five places a claim can live</h2>
+          <p class="lede">Each study is placed where its claim sits on the path from a declared question to a workflow outcome. The map is a frame for comparing evidence, not an architecture.</p>
+        </header>
+        <ol class="stages">{{stages}}</ol>
+        <div class="card pad rq">
+          <p class="kicker">Six research questions</p>
           <div class="rq-grid">
-            <article><span>RQ1</span><h3>Definition &amp; lineage</h3><p>How do runtime-defined finite-option decisions relate to classifiers, NLI zero-shot labelling, rerankers, reward models and constrained generation?</p></article>
-            <article><span>RQ2</span><h3>Probability quality</h3><p>What do returned probabilities and confidence mean, and for which tasks, languages and distributions do they hold?</p></article>
-            <article><span>RQ3</span><h3>Efficiency attribution</h3><p>How much of a speed or cost gain comes from the readout, and how much from backbone size, batching, prefix sharing, caching or the network?</p></article>
-            <article><span>RQ4</span><h3>Selective control</h3><p>Which decisions can be delegated, and when should software escalate, abstain or defer to code — judged by end outcome and total cost?</p></article>
-            <article><span>RQ5</span><h3>Robustness</h3><p>How do option names, order, rubric binding, missing options, language and distribution shift change decisions?</p></article>
+            <article><span>RQ1</span><h3>Definition &amp; lineage</h3><p>How do runtime-defined finite-option decisions relate to classifiers, entailment-based labelling, rerankers, reward models and constrained generation?</p></article>
+            <article><span>RQ2</span><h3>Probability quality</h3><p>What do returned probabilities and confidence mean, for which tasks, languages and distributions, and are they coherent across related questions?</p></article>
+            <article><span>RQ3</span><h3>Efficiency attribution</h3><p>How much of a speed or cost gain comes from the readout, and how much from model size, batching, prefix sharing, caching, pruning or the network?</p></article>
+            <article><span>RQ4</span><h3>Selective control</h3><p>Which decisions can be delegated, and when should software escalate, abstain or let code compute — judged by end outcome and total cost?</p></article>
+            <article><span>RQ5</span><h3>Robustness &amp; security</h3><p>How do option names, order, definitions, missing options, language, injected text and poisoned checkpoints change decisions?</p></article>
             <article><span>RQ6</span><h3>Openness &amp; reproducibility</h3><p>What do alternatives release — code, weights, data, predictions — and how much of the literature survives a common protocol?</p></article>
           </div>
         </div>
-
-        <figure class="timeline-figure viz-root" aria-labelledby="timeline-title">
+        <figure class="card pad timeline-figure" aria-labelledby="timeline-title">
           <figcaption class="viz-head">
-            <div><h3 id="timeline-title">The first wave arrived within a week of launch</h3><p>Submission dates of the core and peripheral studies (arXiv v1), grouped by their primary relationship to Jev.</p></div>
+            <div><h3 id="timeline-title">The literature arrived within weeks of launch</h3><p>First-submission dates of the core studies on arXiv, coloured by their primary relationship to Jev.</p></div>
             <button class="table-toggle" type="button" aria-pressed="false" data-table-toggle="timeline">Table view</button>
           </figcaption>
           {{timeline}}
@@ -158,35 +147,22 @@
       </div>
     </section>
 
-    <!-- 03 METHOD ATLAS -------------------------------------------------- -->
-    <section id="atlas" class="atlas section-dark" aria-labelledby="atlas-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>03</span> THE METHOD ATLAS</p><h2 id="atlas-title">Six ways to return<br><em>a typed answer.</em></h2></div>
-          <p>Implementations share the request and response shape, not the mechanism that produces the probabilities. Select a family to see how it works, what is public and where its evidence stops.</p>
-        </div>
-        {{atlas}}
-        <p class="atlas-foot">A compatible interface is not an equivalent mechanism. No project here establishes the architecture of the commercial model; several state so explicitly.</p>
-      </div>
-    </section>
-
-    <!-- 04 FINDINGS ------------------------------------------------------ -->
-    <section id="findings" class="findings section-light" aria-labelledby="findings-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>04</span> WHAT THE EVIDENCE SAYS</p><h2 id="findings-title">Findings, with<br><em>their counter-evidence.</em></h2></div>
-          <p>Each finding lists the evidence that supports or qualifies it. Values are as reported by their sources.</p>
-        </div>
-        <div class="finding-list">{{findings_list}}</div>
-
-        <figure class="matrix-figure" aria-labelledby="matrix-title">
+    <!-- 04 FINDINGS -------------------------------------------------------- -->
+    <section class="chapter" id="findings" data-label="Findings" aria-labelledby="findings-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>04</span> Findings</p>
+          <h2 id="findings-title">Ten findings, each with its counter-evidence</h2>
+          <p class="lede">Every finding is a synthesis across studies. The highlighted number comes from one of them; the lists name the evidence that supports or limits the claim. Values are as reported by their sources.</p>
+        </header>
+        <div class="finding-grid">{{findings_list}}</div>
+        <figure class="card pad heat-figure" aria-labelledby="heat-title">
           <figcaption class="viz-head">
-            <div><h3 id="matrix-title">Which study bears on which finding</h3><p>● supports · ◐ qualifies. A blank cell means the study makes no claim on that finding.</p></div>
+            <div><h3 id="heat-title">Where each study lands</h3><p>Teal: the study supports the finding. Amber: it qualifies or limits it. Blank: no claim. Select a column to bring its studies to the top.</p></div>
           </figcaption>
-          <div class="table-scroll" tabindex="0" role="region" aria-label="Study by finding matrix">{{evidence_matrix}}</div>
+          <div class="table-scroll heat-scroll" tabindex="0" role="region" aria-label="Study by finding matrix">{{evidence_matrix}}</div>
         </figure>
-
-        <figure class="scope-figure" aria-labelledby="scope-title">
+        <figure class="card pad scope-figure" aria-labelledby="scope-title">
           <figcaption class="viz-head">
             <div><h3 id="scope-title">Numbers that cannot share a leaderboard</h3><p>Speed and cost figures grouped by what they measure. Figures in different groups are not comparable.</p></div>
           </figcaption>
@@ -195,69 +171,86 @@
       </div>
     </section>
 
-    <!-- 05 RELIABILITY LAB ----------------------------------------------- -->
-    <section id="reliability" class="lab section-dark" aria-labelledby="lab-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>05</span> RELIABILITY &amp; FAILURE MODES</p><h2 id="lab-title">Where a valid answer<br><em>goes wrong.</em></h2></div>
-          <p>How reported failures arise. <b class="tag-illus">Illustrative</b> panels use hand-made numbers; <b class="tag-reported">Reported</b> panels show published values with their source.</p>
-        </div>
+    <!-- 05 FAILURES -------------------------------------------------------- -->
+    <section class="chapter" id="failures" data-label="Failure modes" aria-labelledby="failures-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>05</span> Failure modes</p>
+          <h2 id="failures-title">Where a valid answer goes wrong</h2>
+          <p class="lede">How reported failures arise. <b class="tag tag-illus">Illustrative</b> panels use hand-made numbers; <b class="tag tag-reported">Reported</b> panels show published values with their source.</p>
+        </header>
         <div class="lab-tabs" role="tablist" aria-label="Reliability explainers">
           <button role="tab" id="lab-tab-binding" aria-selected="true" aria-controls="lab-binding" data-lab="binding"><span>01</span>Names vs rubrics</button>
           <button role="tab" id="lab-tab-confidence" aria-selected="false" aria-controls="lab-confidence" tabindex="-1" data-lab="confidence"><span>02</span>What “confidence” summarises</button>
-          <button role="tab" id="lab-tab-calibration" aria-selected="false" aria-controls="lab-calibration" tabindex="-1" data-lab="calibration"><span>03</span>Calibration &amp; recalibration</button>
+          <button role="tab" id="lab-tab-calibration" aria-selected="false" aria-controls="lab-calibration" tabindex="-1" data-lab="calibration"><span>03</span>Calibration</button>
           <button role="tab" id="lab-tab-closed" aria-selected="false" aria-controls="lab-closed" tabindex="-1" data-lab="closed"><span>04</span>When the right option is missing</button>
         </div>
         {{lab_panels}}
-        <div class="failure-catalogue">
-          <div class="catalogue-head"><p class="aside-caption">FAILURE-MODE CATALOGUE</p><p>Each entry links to its sources. Community reports are not peer-reviewed; vendor entries are the vendor’s own statements.</p></div>
-          <div class="failure-grid">{{failure_modes}}</div>
+        <div class="fm-head">
+          <p class="kicker">Failure-mode catalogue</p>
+          <div class="chips" role="group" aria-label="Filter failure modes by stage">{{fm_filters}}</div>
         </div>
+        <div class="fm-grid">{{failure_modes}}</div>
       </div>
     </section>
 
-    <!-- 06 SELECTIVE CONTROL -------------------------------------------- -->
-    <section id="control" class="control section-light" aria-labelledby="control-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>06</span> APPLICATIONS &amp; SELECTIVE CONTROL</p><h2 id="control-title">A first pass,<br><em>not a replacement.</em></h2></div>
-          <p>Across judging, annotation and agent control the typed model is usually the cheapest and fastest component, and rarely the most accurate. Reported gains come from routing uncertain cases elsewhere — with thresholds set on separate data.</p>
-        </div>
+    <!-- 06 APPLICATIONS ---------------------------------------------------- -->
+    <section class="chapter" id="applications" data-label="Applications" aria-labelledby="apps-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>06</span> Applications &amp; selective control</p>
+          <h2 id="apps-title">A first pass, not a replacement</h2>
+          <p class="lede">Across domains the typed model is usually the cheapest and fastest component and rarely the most accurate. Reported gains come from routing uncertain cases elsewhere, with thresholds fixed on separate data, and from letting code compute what the model would only estimate.</p>
+        </header>
         {{control_explorer}}
         <div class="app-grid">{{applications}}</div>
       </div>
     </section>
 
-    <!-- 07 OPEN ECOSYSTEM ------------------------------------------------ -->
-    <section id="ecosystem" class="ecosystem section-dark" aria-labelledby="eco-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>07</span> THE OPEN ECOSYSTEM</p><h2 id="eco-title">“Open” is six<br><em>different things.</em></h2></div>
-          <p>Code, weights, training recipes, evaluation material, data and raw predictions are separate properties, released separately. “Not located” does not mean absent.</p>
-        </div>
-        {{openness}}
+    <!-- 07 METHODS --------------------------------------------------------- -->
+    <section class="chapter" id="methods" data-label="Methods" aria-labelledby="atlas-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>07</span> The method atlas</p>
+          <h2 id="atlas-title">Six ways to return a typed answer</h2>
+          <p class="lede">Implementations share the request and response shape, not the mechanism behind the probabilities. Select a family to see how it works, what is public and where its evidence stops.</p>
+        </header>
+        {{atlas}}
+        <p class="fine atlas-foot">A compatible interface is not an equivalent mechanism. No project here establishes the architecture of the commercial model; several say so explicitly.</p>
+      </div>
+    </section>
+
+    <!-- 08 ECOSYSTEM ------------------------------------------------------- -->
+    <section class="chapter" id="ecosystem" data-label="Ecosystem" aria-labelledby="eco-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>08</span> The open ecosystem</p>
+          <h2 id="eco-title">“Open” is several different things</h2>
+          <p class="lede">Code, weights, training recipes, evaluation material, data and raw predictions are released separately. Availability follows each project’s own README; nothing here was run, and “not located” does not mean absent.</p>
+        </header>
+        <div class="eco-tabs" role="tablist" aria-label="Ecosystem views">{{eco_tabs}}</div>
+        {{ecosystem}}
         <div class="lineage-grid">{{lineage}}</div>
       </div>
     </section>
 
-    <!-- 08 LITERATURE ---------------------------------------------------- -->
-    <section id="papers" class="paper-section section-light" aria-labelledby="papers-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>08</span> THE READING ROOM</p><h2 id="papers-title">Search the evidence.</h2></div>
-          <p>Filter by stage, method family, relationship to Jev or openness, and open any record for its evidence.</p>
-        </div>
-        <div class="library-layout">
+    <!-- 09 LITERATURE ------------------------------------------------------ -->
+    <section class="chapter" id="literature" data-label="Literature" aria-labelledby="papers-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>09</span> The reading room</p>
+          <h2 id="papers-title">Search the evidence</h2>
+          <p class="lede">Filter by stage, method family, relationship to Jev, topic or openness, and open any record for its evidence, versions and limitations.</p>
+        </header>
+        <div class="library card">
           <aside class="library-sidebar" aria-label="Collection filters">
-            <span class="sidebar-label">TIER</span>
+            <p class="kicker">Tier</p>
             <div id="tier-filters" class="tier-filters">{{tier_buttons}}</div>
-            <div class="sidebar-note">
-              <p class="sidebar-label">EXPORT</p>
-              <a class="dl-link" href="data/references.bib" download><svg class="icon"><use href="#i-down"/></svg>BibTeX · all references</a>
-              <button class="dl-link" type="button" data-export="bib"><svg class="icon"><use href="#i-down"/></svg>BibTeX · current results</button>
-              <button class="dl-link" type="button" data-export="csv"><svg class="icon"><use href="#i-down"/></svg>CSV · current results</button>
-              <a class="dl-link" href="data/papers.json" download><svg class="icon"><use href="#i-data"/></svg>JSON · canonical records</a>
-            </div>
+            <p class="kicker">Export</p>
+            <a class="dl-link" href="data/references.bib" download><svg class="icon"><use href="#i-down"/></svg>BibTeX · all references</a>
+            <button class="dl-link" type="button" data-export="bib"><svg class="icon"><use href="#i-down"/></svg>BibTeX · current results</button>
+            <button class="dl-link" type="button" data-export="csv"><svg class="icon"><use href="#i-down"/></svg>CSV · current results</button>
+            <a class="dl-link" href="data/papers.json" download><svg class="icon"><use href="#i-data"/></svg>JSON · canonical records</a>
           </aside>
           <div class="library-main">
             <div class="toolbar" role="search">
@@ -272,7 +265,7 @@
               <label><span>Year</span><select id="f-year"><option value="">All years</option>{{year_options}}</select></label>
               <label><span>Sort</span><select id="f-sort"><option value="tier">Tier, newest first</option><option value="new">Newest first</option><option value="old">Oldest first</option><option value="title">Title A–Z</option></select></label>
             </div>
-            <div class="results-head"><p id="catalog-status" role="status" aria-live="polite">{{papers}} references</p><button id="clear-filters" type="button">Reset filters</button></div>
+            <div class="results-head"><p id="catalog-status" role="status" aria-live="polite">All references</p><button id="clear-filters" type="button">Reset filters</button></div>
             <ol id="paper-list" class="paper-list">{{paper_rows}}</ol>
             <button id="load-more" class="load-more" type="button" hidden>Show more</button>
             <div id="empty-state" class="empty-state" hidden><svg class="icon"><use href="#i-search"/></svg><h3>No matching references.</h3><p>Try a broader term, or reset the filters.</p></div>
@@ -282,25 +275,47 @@
       </div>
     </section>
 
-    <!-- 09 METHOD -------------------------------------------------------- -->
-    <section id="method" class="method section-dark" aria-labelledby="method-title">
-      <div class="shell">
-        <div class="section-heading">
-          <div><p class="section-label"><span>09</span> METHOD &amp; DATA</p><h2 id="method-title">How the evidence<br><em>was gathered.</em></h2></div>
-          <p>What counts as a study here, how each one is read, and the data behind every section.</p>
-        </div>
+    <!-- 10 ABOUT ----------------------------------------------------------- -->
+    <section class="chapter about" id="about" data-label="About" aria-labelledby="about-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <p class="kicker"><span>10</span> About</p>
+          <h2 id="about-title">How the evidence was gathered, and how to cite it</h2>
+          <p class="lede">What counts as a study here, how each one is read, related reviews, release notes and the data behind every section.</p>
+        </header>
         <div class="method-grid">{{method_blocks}}</div>
+        <figure class="card pad related-figure" aria-labelledby="related-title">
+          <figcaption class="viz-head"><div><h3 id="related-title">Related reviews and catalogues</h3><p>What each one covers, as stated in its own text. A blank cell means the property is not described there.</p></div></figcaption>
+          <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison with related reviews">{{related_work}}</div>
+        </figure>
+        <div class="about-split">
+          <div class="card pad news">
+            <p class="kicker">News</p>
+            <ul class="news-list">{{news}}</ul>
+          </div>
+          <div class="card pad cite-card">
+            <p class="kicker">Cite</p>
+            <p class="fine">A versioned working draft without a DOI; it has not been peer-reviewed.</p>
+            <pre class="bib" id="site-bib">{{site_bibtex}}</pre>
+            <button class="btn btn-small" type="button" data-copy="#site-bib"><svg class="icon"><use href="#i-copy"/></svg><span>Copy BibTeX</span></button>
+          </div>
+        </div>
         <div class="contribute" id="contribute">
-          <div><p class="section-label"><span>10</span> AN OPEN, VERSIONED REVIEW</p><h2>Found a study,<br>or an <em>error?</em></h2><p>Suggest a new paper, correct a record, report a code or weights release, or share a reproduction.</p></div>
+          <div><p class="kicker">An open, versioned review</p><h3>Found a study, or an error?</h3><p>Suggest a new paper, correct a record, report a code or weights release, or share a reproduction.</p></div>
           <div class="contribute-actions">{{contribute}}</div>
         </div>
+        <footer class="site-footer">
+          <span>{{footer_credit}}</span><span>Updated {{cutoff_long}}</span><a href="paper/main.pdf">Survey (PDF)</a><a href="{{md_href}}">Markdown</a><a href="{{data_href}}">Data</a><a href="{{license_href}}">Code licence</a><a href="{{content_license_href}}">Content licence</a>
+        </footer>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer section-dark">
-    <div class="shell footer-inner"><a class="brand" href="#top"><img src="assets/logo.svg" width="26" height="26" alt=""><span>JEV <span class="brand-sub">survey</span></span></a><p>Evidence you can trace. Decisions you can check.</p><a href="#top" class="back-top">Back to top ↑</a></div>
-    <div class="shell footer-bottom"><span>{{footer_credit}}</span><span>Updated {{cutoff_long}}</span><a href="paper/main.pdf">Survey draft (PDF)</a><a href="{{md_href}}">Markdown</a><a href="{{data_href}}">Data</a><a href="{{license_href}}">Code licence</a><a href="{{content_license_href}}">Content licence</a></div>
+  <footer class="status" aria-label="Reading position">
+    <a class="status-brand" href="#title"><img src="assets/logo.svg" width="22" height="22" alt=""><span>Jev Survey</span><span class="status-sub">· typed decisions, traced evidence</span></a>
+    <button class="status-where" id="status-where" type="button" aria-expanded="false" aria-controls="contents"><svg class="icon"><use href="#i-list"/></svg><span id="status-label"><b>01</b> / 10 · Title</span></button>
+    <a class="totop" href="#title" aria-label="Back to top"><svg class="icon"><use href="#i-up"/></svg><span>Top</span></a>
+    <nav class="contents card" id="contents" aria-label="Contents" hidden>{{contents}}</nav>
   </footer>
 
   <dialog id="paper-drawer" class="drawer" aria-labelledby="drawer-title">

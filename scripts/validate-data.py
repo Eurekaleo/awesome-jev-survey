@@ -158,6 +158,7 @@ def main():
             err(f'{w}: not listed on its paper')
 
     # --- repositories ---------------------------------------------------
+    roles = {x['id'] for x in tax['ecosystem_roles']}
     rid = [r['id'] for r in repos]
     if len(rid) != len(set(rid)):
         err('repositories: duplicate id')
@@ -174,6 +175,12 @@ def main():
         for pid in r.get('related_papers') or []:
             if pid not in seen and pid.replace('arxiv:', '') not in seen:
                 err(f'{w}: unknown related paper {pid}')
+        if r.get('ecosystem') not in roles:
+            err(f'{w}: bad ecosystem role {r.get("ecosystem")}')
+        if r.get('domain') and r['domain'] not in V['applications']:
+            err(f'{w}: unknown domain {r["domain"]}')
+        check_url(r.get('weights_url'), w)
+        check_url(r.get('data_url'), w)
         if r['executed']:
             err(f'{w}: executed=true requires a run log (not supported in this release)')
         if 'priority' in r['sets'] and not r.get('availability'):
