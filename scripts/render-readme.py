@@ -139,8 +139,11 @@ def main():
       'the studies of TypeSafe’s Jev and Jev-like typed decision models, audits the open resources and traces every number to its source.')
     a('')
     a('> [!IMPORTANT]')
-    a('> **Four questions guide the survey.** **Meaning:** what do the probabilities mean? **Action:** when should software act on them? '
-      '**Failure:** where do typed decisions fail? **Openness:** what do open implementations release?')
+    a('> **Four questions guide the survey.**')
+    a('>')
+    for q, text in (('Meaning', 'what do the probabilities mean?'), ('Action', 'when should software act on them?'),
+                    ('Failure', 'where do typed decisions fail?'), ('Openness', 'what do open implementations release?')):
+        a(f'> - **{q}:** {text}')
     a('')
     a('> [!NOTE]')
     a('> Numbers are as reported by paper authors, the vendor or repository maintainers. Nothing here is a unified leaderboard, and nothing was re-run.')

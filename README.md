@@ -28,7 +28,12 @@
 Jev is a hosted model from TypeSafe AI, released on 15 September 2026 as its first “System One” model. Software sends a text state and typed questions; the model answers from the declared options with probabilities and never writes free text. Open projects now copy its shape. This repository reads the studies of TypeSafe’s Jev and Jev-like typed decision models, audits the open resources and traces every number to its source.
 
 > [!IMPORTANT]
-> **Four questions guide the survey.** **Meaning:** what do the probabilities mean? **Action:** when should software act on them? **Failure:** where do typed decisions fail? **Openness:** what do open implementations release?
+> **Four questions guide the survey.**
+>
+> - **Meaning:** what do the probabilities mean?
+> - **Action:** when should software act on them?
+> - **Failure:** where do typed decisions fail?
+> - **Openness:** what do open implementations release?
 
 > [!NOTE]
 > Numbers are as reported by paper authors, the vendor or repository maintainers. Nothing here is a unified leaderboard, and nothing was re-run.
