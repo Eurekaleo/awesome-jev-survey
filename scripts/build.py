@@ -11,6 +11,9 @@ Outputs
   data/exports/*.csv              papers, claims, repositories (formula-injection safe)
   paper/references.bib            manuscript bibliography (records + official sources + repositories)
   README.md, assets/readme/timeline-*.svg via scripts/render-readme.py
+
+Not built here: the README banner, cards and icons (assets/readme/*.svg) and the share image (assets/og-image.png)
+are static artwork from scripts/draw-readme-art.py, run by hand when the artwork changes.
 """
 import argparse
 import csv
