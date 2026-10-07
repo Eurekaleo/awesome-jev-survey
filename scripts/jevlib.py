@@ -13,6 +13,16 @@ from urllib.parse import urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 VERSION = '0.3.1'  # release of the survey, data and site (keep in step with CITATION.cff and CHANGELOG.md)
+
+# Curated key evidence per finding: claim ids shown first under each finding on the site and in the README.
+KEY_EVIDENCE = {
+    'F1': ['c-26758-hosted-swap', 'c-02586-labels', 'c-38827-neutral'], 'F2': ['c-24574-ece', 'c-37647-threshold', 'c-00346-oos'],
+    'F3': ['c-02048-cascade', 'c-26550-live', 'c-24574-cascade'], 'F4': ['c-22753-cache', 'c-00437-variant', 'c-02267-audit'],
+    'F5': ['c-02076-frozen', 'c-02267-drift', 'c-36116-jevbench'], 'F6': ['c-03935-tau', 'c-02046-jevdb', 'c-36059-memory'],
+    'F7': ['c-02267-drift', 'c-31142-rerun', 'c-02293-board'], 'F8': ['c-33209-negation', 'c-37470-interfaces', 'c-01006-boundary'],
+    'F9': ['c-39496-rejection', 'c-01834-simulation', 'c-06354-graph'], 'F10': ['c-28613-injection', 'c-30243-flips', 'c-04985-backdoor'],
+}
+
 DATA = ROOT / 'data'
 FILES = ['papers', 'claims', 'repositories', 'taxonomy', 'review-relations', 'sources', 'search-runs']
 

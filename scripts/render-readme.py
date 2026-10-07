@@ -4,6 +4,7 @@
 README.md is generated: edit data/*.json or this template, then rebuild.
 """
 import pathlib
+import html
 import re
 import sys
 from collections import defaultdict
@@ -20,7 +21,7 @@ GROUPS = [('commercial_jev', 'Studies of hosted Jev'), ('independent_jev_like', 
 ICON = {'About the survey': 'about', 'Repository guide': 'guide', 'Findings': 'findings', 'Studies of hosted Jev': 'hosted',
         'Open and independent Jev-like models': 'open', 'Systems built on typed decisions': 'systems', 'Peripheral study': 'peripheral',
         'Open ecosystem': 'ecosystem', 'Background references': 'background', 'Related reviews and catalogues': 'related',
-        'Method': 'method', 'Contributing': 'contribute', 'Star history': 'star', 'Citation and licence': 'cite'}
+        'Method': 'method', 'Contributing': 'contribute', 'Contributors': 'contributors', 'Star history': 'star', 'Citation and licence': 'cite'}
 CARDS = [('findings', 'Findings', 'Cross-study syntheses'), ('hosted', 'Studies of hosted Jev', 'Studies of TypeSafe’s model'),
          ('open', 'Open and independent Jev-like models', 'Same shape, other mechanisms'),
          ('systems', 'Systems built on typed decisions', 'Built on typed decisions'),
@@ -144,6 +145,10 @@ def main():
     a('> [!NOTE]')
     a('> Numbers are as reported by paper authors, the vendor or repository maintainers. Nothing here is a unified leaderboard, and nothing was re-run.')
     a('')
+    a('<p align="center"><img src="paper/figures/timeline.png" width="900" alt="Timeline of the studies, one dot per study per day from Jev’s launch on '
+      '15 September 2026 to the cutoff, coloured by whether a study evaluates hosted Jev, builds an independent Jev-like model or uses Jev inside a system"></p>')
+    a('<p align="center"><sub>The evidence so far: studies by day since Jev’s launch, coloured by how each relates to Jev (figure from the survey manuscript).</sub></p>')
+    a('')
     if site:
         a('**Explore:** ' + ' · '.join(f'[{t}]({site}#{k})' for k, t in (('map', 'Evidence map'), ('findings', 'Findings'), ('failures', 'Failure modes'),
                                                                         ('ecosystem', 'Open ecosystem'), ('literature', 'Literature search')))
@@ -158,9 +163,9 @@ def main():
         a('')
         a('Every release is listed in the [changelog](CHANGELOG.md).')
         a('')
-    slug =repo.rstrip('/').split('github.com/')[-1] if repo and 'github.com/' in repo else ''
+    slug = repo.rstrip('/').split('github.com/')[-1] if repo and 'github.com/' in repo else ''
     sections = ['Findings'] + [g for _, g in GROUPS] + ['Peripheral study', 'Open ecosystem', 'Background references', 'Related reviews and catalogues',
-                                                        'Method', 'Contributing'] + (['Star history'] if slug else []) + ['Citation and licence']
+                                                        'Method', 'Contributing'] + (['Contributors', 'Star history'] if slug else []) + ['Citation and licence']
     heading('Repository guide')
     a(' · '.join(f'[{h}](#{anchor(h)})' for h in sections))
     a('')
@@ -193,13 +198,20 @@ def main():
     a('')
     heading('Findings')
     top.append(True)
-    a('Each finding is a synthesis across studies; open one to read it.')
+    a('Each finding is a synthesis across studies; open one to read it with its key evidence.')
     a('')
+    papers = J.by_id(P)
     for f in tax['findings']:
         a('<details>')
         a(f'<summary><b>{f["id"]} · {f["title"]}</b></summary>')
         a('')
         a(f['body'])
+        a('')
+        a('**Key evidence**')
+        a('')
+        for cid in J.KEY_EVIDENCE[f['id']]:
+            p = papers[C[cid]['subject']]
+            a(f'- **[{md(p["short_title"])}]({p["url"]})** — {md(C[cid]["headline"])}')
         a('')
         a('</details>')
         a('')
@@ -244,41 +256,47 @@ def main():
         a(f'| **[{r["full_name"]}]({r.get("readme_url") or r["url"]})**<br><sub>{fam} · base: {md(r.get("base_model") or "—")}</sub> | '
           + ' | '.join(AVAIL_MD.get(av.get(k, 'not_assessed'), '·') for k in ('weights', 'training_code', 'evaluation', 'data')) + f' | {r.get("license") or "—"} |')
     a('')
+    # Long secondary lists are folded (as in Awesome-LLM) so the findings and study tables stay the main thread.
+    def folded(summary, lines):
+        a('<details>')
+        a(f'<summary>{summary}</summary>')
+        a('')
+        L.extend(lines)
+        a('')
+        a('</details>')
+        a('')
+
     a(f'### {T["ecosystem_roles"]["benchmark"]["label"]}')
     a('')
-    for r in sorted(by_role['benchmark'], key=lambda r: r['full_name'].lower()):
-        a(f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])} *{md(r["boundary"])}*')
-    a('')
+    folded('Show the list', [f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])} *{md(r["boundary"])}*'
+                             for r in sorted(by_role['benchmark'], key=lambda r: r['full_name'].lower())])
     a(f'### {T["ecosystem_roles"]["built_with"]["label"]}')
+    a('')
+    a('Grouped by application; open a group to see its projects.')
     a('')
     groups = defaultdict(list)
     for r in by_role['built_with']:
         groups[r.get('domain')].append(r)
     for app in tax['applications'] + [dict(id=None, label='Other')]:
         rs = sorted(groups.get(app['id'], []), key=lambda r: r['full_name'].lower())
-        if not rs:
-            continue
-        a(f'**{app["label"]}**')
-        a('')
-        for r in rs:
-            a(f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])}')
-        a('')
+        if rs:
+            folded(f'<b>{html.escape(app["label"])}</b>', [f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])}' for r in rs])
     a(f'### {T["ecosystem_roles"]["tooling"]["label"]}')
     a('')
-    for r in sorted(by_role['tooling'], key=lambda r: (r['type'], r['full_name'].lower())):
-        a(f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])}')
-    a('')
+    folded('Show the list', [f'- [{r["full_name"]}]({r["url"]}) — {md(r["summary"])}'
+                             for r in sorted(by_role['tooling'], key=lambda r: (r['type'], r['full_name'].lower()))])
     heading('Background references')
+    a('Earlier work the survey builds on, grouped by theme; open a theme to see its papers.')
+    a('')
     for g in tax['background_groups']:
         items = [p for p in P if p['tier'] == 'background' and p['background_group'] == g['id']]
         if not items:
             continue
-        a(f'### {g["label"]}')
-        a('')
+        lines = []
         for p in sorted(items, key=lambda p: p['published_at'], reverse=True):
             venue = f' · {p["venue"]}' if p['venue_source'] in ('arxiv_comment', 'arxiv_journal_ref') else ''
-            a(f'- [{md(p["title"])}]({p["url"]}) ({p["year"]}{venue}) — {md(p["role"])}')
-        a('')
+            lines.append(f'- [{md(p["title"])}]({p["url"]}) ({p["year"]}{venue}) — {md(p["role"])}')
+        folded(f'<b>{html.escape(g["label"])}</b>', lines)
     heading('Related reviews and catalogues')
     for r in d['review-relations']['related_surveys']:
         a(f'- [{md(r.get("short") or r["title"])}]({r["url"]}) ({md(r.get("kind_label") or "")}) — {md(r.get("scope") or "")}.')
@@ -297,6 +315,11 @@ def main():
         a(' · '.join(f'[{label}]({repo.rstrip("/")}/issues/new?template={form})' for form, label in ISSUE_FORMS))
         a('')
     if slug:
+        heading('Contributors')
+        a('Thanks to everyone who has added studies, corrections, code and reproduction reports.')
+        a('')
+        a(f'<a href="{repo.rstrip("/")}/graphs/contributors"><img src="https://contrib.rocks/image?repo={slug}" alt="Contributors to {slug}"></a>')
+        a('')
         heading('Star history')
         chart = f'https://api.star-history.com/svg?repos={slug}&type=Date'
         a('<p align="center">')

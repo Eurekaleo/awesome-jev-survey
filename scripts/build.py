@@ -48,14 +48,8 @@ FINDING_STATS = {
     'F9': ('c-03935-exact', '97% vs 44%', 'answers within one of an exact number, against answers exactly right'),
     'F10': ('c-04985-injection', '100%', 'success of injections that slip false facts into the state, on one decision task'),
 }
-# Evidence shown first under each finding (the rest sits under "More supporting evidence").
-KEY_EVIDENCE = {
-    'F1': ['c-26758-hosted-swap', 'c-02586-labels', 'c-38827-neutral'], 'F2': ['c-24574-ece', 'c-37647-threshold', 'c-00346-oos'],
-    'F3': ['c-02048-cascade', 'c-26550-live', 'c-24574-cascade'], 'F4': ['c-22753-cache', 'c-00437-variant', 'c-02267-audit'],
-    'F5': ['c-02076-frozen', 'c-02267-drift', 'c-36116-jevbench'], 'F6': ['c-03935-tau', 'c-02046-jevdb', 'c-36059-memory'],
-    'F7': ['c-02267-drift', 'c-31142-rerun', 'c-02293-board'], 'F8': ['c-33209-negation', 'c-37470-interfaces', 'c-01006-boundary'],
-    'F9': ['c-39496-rejection', 'c-01834-simulation', 'c-06354-graph'], 'F10': ['c-28613-injection', 'c-30243-flips', 'c-04985-backdoor'],
-}
+# Evidence shown first under each finding (the rest sits under "More supporting evidence"); shared with the README.
+KEY_EVIDENCE = J.KEY_EVIDENCE
 MECHANISM = {
     'hosted_service': ['Text state + typed questions', 'Undisclosed hosted model', 'Undisclosed; distribution over the declared options', 'Answer + probabilities + confidence'],
     'encoder_head': ['State ⊕ question ⊕ options', 'Bidirectional encoder or encoder–decoder', 'Per-option score → softmax over the legal set', 'Distribution over options'],
