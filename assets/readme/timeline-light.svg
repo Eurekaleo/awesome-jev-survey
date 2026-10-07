@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 347" width="900" height="347" role="img" aria-label="Timeline of the studies: one dot per study on the day of its first arXiv version, from Jev’s launch to the cutoff">
+<path d="M72.3 52V313" stroke="#eaeef2"/>
+<text x="72.3" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">15 Sep</text>
+<path d="M142.9 52V313" stroke="#eaeef2"/>
+<text x="142.9" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">17 Sep</text>
+<path d="M213.6 52V313" stroke="#eaeef2"/>
+<text x="213.6" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">19 Sep</text>
+<path d="M284.3 52V313" stroke="#eaeef2"/>
+<text x="284.3" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">21 Sep</text>
+<path d="M355.0 52V313" stroke="#eaeef2"/>
+<text x="355.0" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">23 Sep</text>
+<path d="M425.7 52V313" stroke="#eaeef2"/>
+<text x="425.7" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">25 Sep</text>
+<path d="M496.3 52V313" stroke="#eaeef2"/>
+<text x="496.3" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">27 Sep</text>
+<path d="M567.0 52V313" stroke="#eaeef2"/>
+<text x="567.0" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">29 Sep</text>
+<path d="M637.7 52V313" stroke="#eaeef2"/>
+<text x="637.7" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">1 Oct</text>
+<path d="M708.4 52V313" stroke="#eaeef2"/>
+<text x="708.4" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">3 Oct</text>
+<path d="M779.1 52V313" stroke="#eaeef2"/>
+<text x="779.1" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">5 Oct</text>
+<path d="M849.7 52V313" stroke="#eaeef2"/>
+<text x="849.7" y="335" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">7 Oct</text>
+<path d="M72.3 52V313" stroke="#8b979e" stroke-dasharray="4 3"/>
+<text x="72.3" y="44" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" text-anchor="middle">Jev launch</text>
+<path d="M284.3 52V313" stroke="#8b979e" stroke-dasharray="4 3"/>
+<text x="284.3" y="30" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" text-anchor="middle">Prior survey</text>
+<text x="284.3" y="44" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" text-anchor="middle">draft dated</text>
+<path d="M673.0 52V313" stroke="#8b979e" stroke-dasharray="4 3"/>
+<text x="673.0" y="30" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" text-anchor="middle">Vendor weak-spots</text>
+<text x="673.0" y="44" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" text-anchor="middle">page revised</text>
+<path d="M849.7 52V313" stroke="#8b979e" stroke-dasharray="4 3"/>
+<text x="849.7" y="44" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11.5" text-anchor="middle">Cutoff</text>
+<path d="M44 313H878" stroke="#c3cacc"/>
+<text transform="translate(16 186) rotate(-90)" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" text-anchor="middle">Studies per day</text>
+<circle cx="213.6" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="213.6" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="249.0" cy="301.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="284.3" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="284.3" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="284.3" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="284.3" cy="250.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="284.3" cy="233.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="284.3" cy="216.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="284.3" cy="199.9" r="5.6" fill="none" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="284.3" cy="182.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="319.6" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="319.6" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="319.6" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="319.6" cy="250.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="355.0" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="355.0" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="355.0" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="355.0" cy="250.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="355.0" cy="233.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="355.0" cy="216.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="390.3" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="390.3" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="390.3" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="390.3" cy="250.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="390.3" cy="233.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="390.3" cy="216.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="390.3" cy="199.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="390.3" cy="182.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="390.3" cy="165.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="425.7" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="425.7" cy="284.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="425.7" cy="267.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="461.0" cy="301.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="496.3" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="496.3" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="496.3" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="496.3" cy="250.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="496.3" cy="233.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="496.3" cy="216.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="496.3" cy="199.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="496.3" cy="182.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="496.3" cy="165.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="496.3" cy="148.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="531.7" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="531.7" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="531.7" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="531.7" cy="250.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="531.7" cy="233.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="531.7" cy="216.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="531.7" cy="199.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="531.7" cy="182.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="531.7" cy="165.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="531.7" cy="148.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="531.7" cy="131.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="531.7" cy="114.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="531.7" cy="97.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="531.7" cy="80.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="567.0" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="567.0" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="567.0" cy="267.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="567.0" cy="250.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="602.4" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="602.4" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="602.4" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="602.4" cy="250.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="602.4" cy="233.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="602.4" cy="216.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="602.4" cy="199.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="602.4" cy="182.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="602.4" cy="165.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="637.7" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="637.7" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="637.7" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="637.7" cy="250.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="637.7" cy="233.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="637.7" cy="216.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="637.7" cy="199.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="637.7" cy="182.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="637.7" cy="165.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="637.7" cy="148.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="637.7" cy="131.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="673.0" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="673.0" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="673.0" cy="267.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="673.0" cy="250.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="708.4" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="743.7" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="743.7" cy="284.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="743.7" cy="267.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="743.7" cy="250.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="779.1" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="779.1" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="779.1" cy="267.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="779.1" cy="250.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="779.1" cy="233.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="814.4" cy="301.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="814.4" cy="284.9" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/>
+<circle cx="814.4" cy="267.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="814.4" cy="250.9" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/>
+<circle cx="814.4" cy="233.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="814.4" cy="216.9" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/>
+<circle cx="94.3" cy="76" r="5.6" fill="#2a78d6" stroke="#2a78d6" stroke-width="1.6"/><text x="106.3" y="80.5" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5">Evaluates hosted Jev</text>
+<circle cx="94.3" cy="95" r="5.6" fill="#eb6834" stroke="#eb6834" stroke-width="1.6"/><text x="106.3" y="99.5" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5">Independent Jev-like model</text>
+<circle cx="94.3" cy="114" r="5.6" fill="#1baf7a" stroke="#1baf7a" stroke-width="1.6"/><text x="106.3" y="118.5" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5">Uses Jev inside a system</text>
+<circle cx="94.3" cy="133" r="5.6" fill="none" stroke="#55636c" stroke-width="1.6"/><text x="106.3" y="137.5" fill="#55636c" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12.5">Peripheral (open marker)</text>
+</svg>

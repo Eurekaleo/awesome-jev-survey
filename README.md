@@ -21,7 +21,7 @@
   <p><a href="https://eurekaleo.github.io/">Meng Luo</a></p>
 </div>
 
-<img src="assets/readme/section-icons/about.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/about-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/about-light.svg"><img src="assets/readme/section-icons/about-light.svg" alt="" width="36" align="left"></picture>
 
 ## About the survey
 
@@ -38,8 +38,8 @@ Jev is a hosted model from TypeSafe AI, released on 15 September 2026 as its fir
 > [!NOTE]
 > Numbers are as reported by paper authors, the vendor or repository maintainers. Nothing here is a unified leaderboard, and nothing was re-run.
 
-<p align="center"><img src="paper/figures/timeline.png" width="900" alt="Timeline of the studies, one dot per study per day from Jev’s launch on 15 September 2026 to the cutoff, coloured by whether a study evaluates hosted Jev, builds an independent Jev-like model or uses Jev inside a system"></p>
-<p align="center"><sub>The evidence so far: studies by day since Jev’s launch, coloured by how each relates to Jev (figure from the survey manuscript).</sub></p>
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/timeline-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/timeline-light.svg"><img src="assets/readme/timeline-light.svg" width="900" alt="Timeline of the studies, one dot per study on the day of its first arXiv version from Jev’s launch on 15 September 2026 to the cutoff, coloured by whether a study evaluates hosted Jev, builds an independent Jev-like model or uses Jev inside a system"></picture></p>
+<p align="center"><sub>The evidence so far: one dot per study on the day of its first arXiv version, coloured by how it relates to Jev.</sub></p>
 
 **Explore:** [Evidence map](https://eurekaleo.github.io/awesome-jev-survey/#map) · [Findings](https://eurekaleo.github.io/awesome-jev-survey/#findings) · [Failure modes](https://eurekaleo.github.io/awesome-jev-survey/#failures) · [Open ecosystem](https://eurekaleo.github.io/awesome-jev-survey/#ecosystem) · [Literature search](https://eurekaleo.github.io/awesome-jev-survey/#literature) · [Survey (PDF)](paper/main.pdf)
 
@@ -51,7 +51,7 @@ Jev is a hosted model from TypeSafe AI, released on 15 September 2026 as its fir
 
 Every release is listed in the [changelog](CHANGELOG.md).
 
-<img src="assets/readme/section-icons/guide.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/guide-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/guide-light.svg"><img src="assets/readme/section-icons/guide-light.svg" alt="" width="36" align="left"></picture>
 
 ## Repository guide
 
@@ -62,13 +62,13 @@ Every release is listed in the [changelog](CHANGELOG.md).
 Select a card to jump directly to its section.
 
 <p align="center">
-  <a href="#findings"><img src="assets/readme/card-findings.svg" width="246" alt="Findings: Cross-study syntheses"></a>
-  <a href="#studies-of-hosted-jev"><img src="assets/readme/card-hosted.svg" width="246" alt="Studies of hosted Jev: Studies of TypeSafe’s model"></a>
-  <a href="#open-and-independent-jev-like-models"><img src="assets/readme/card-open.svg" width="246" alt="Open and independent Jev-like models: Same shape, other mechanisms"></a>
+  <a href="#findings"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/card-findings-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/card-findings-light.svg"><img src="assets/readme/card-findings-light.svg" width="246" alt="Findings: Cross-study syntheses"></picture></a>
+  <a href="#studies-of-hosted-jev"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/card-hosted-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/card-hosted-light.svg"><img src="assets/readme/card-hosted-light.svg" width="246" alt="Studies of hosted Jev: Studies of TypeSafe’s model"></picture></a>
+  <a href="#open-and-independent-jev-like-models"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/card-open-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/card-open-light.svg"><img src="assets/readme/card-open-light.svg" width="246" alt="Open and independent Jev-like models: Same shape, other mechanisms"></picture></a>
   <br>
-  <a href="#systems-built-on-typed-decisions"><img src="assets/readme/card-systems.svg" width="246" alt="Systems built on typed decisions: Built on typed decisions"></a>
-  <a href="#open-ecosystem"><img src="assets/readme/card-ecosystem.svg" width="246" alt="Open ecosystem: Models, benchmarks and tools"></a>
-  <a href="#background-references"><img src="assets/readme/card-background.svg" width="246" alt="Background references: Calibration, deferral, routing"></a>
+  <a href="#systems-built-on-typed-decisions"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/card-systems-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/card-systems-light.svg"><img src="assets/readme/card-systems-light.svg" width="246" alt="Systems built on typed decisions: Built on typed decisions"></picture></a>
+  <a href="#open-ecosystem"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/card-ecosystem-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/card-ecosystem-light.svg"><img src="assets/readme/card-ecosystem-light.svg" width="246" alt="Open ecosystem: Models, benchmarks and tools"></picture></a>
+  <a href="#background-references"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/card-background-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/card-background-light.svg"><img src="assets/readme/card-background-light.svg" width="246" alt="Background references: Calibration, deferral, routing"></picture></a>
 </p>
 
 ## Reading the tables
@@ -88,7 +88,7 @@ Open-model availability uses these marks:
 
 ---
 
-<img src="assets/readme/section-icons/findings.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/findings-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/findings-light.svg"><img src="assets/readme/section-icons/findings-light.svg" alt="" width="36" align="left"></picture>
 
 ## Findings
 
@@ -226,7 +226,7 @@ Because the answer depends on the state, text placed in the state can move it. I
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/hosted.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/hosted-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/hosted-light.svg"><img src="assets/readme/section-icons/hosted-light.svg" alt="" width="36" align="left"></picture>
 
 ## Studies of hosted Jev
 
@@ -237,14 +237,14 @@ Because the answer depends on the state, text placed in the state can move it. I
 | 6&nbsp;Oct | **[BOTTLED](https://arxiv.org/abs/2610.08775v1)** [[code](https://github.com/aktsonthalia/bottled)]<br><sub>Agent in a Bottle: Can LLM Agents Turn Their Capabilities Into Cheap, Scalable Artifacts?</sub> | Agent-built artifacts: 94–97% of Jev’s quality at 2–25% of its projected cost |
 | 6&nbsp;Oct | **[System One Moderation](https://arxiv.org/abs/2610.07953v1)** [[code](https://github.com/FedericoMz/som-moderation-benchmark)]<br><sub>Benchmarking System One Models in Online Moderation</sub> | Precedents help Jev pick the right rule (+5 to +22 points); Laya barely moves |
 | 5&nbsp;Oct | **[Political Science Replications](https://arxiv.org/abs/2610.06625v2)**<br><sub>JEV versus LLMs: Accuracy, Cost and Calibration on Seven Political Science Replications</sub> | Same accuracy, no cost advantage at batch prices |
-| 5&nbsp;Oct | **[GraphDecide](https://arxiv.org/abs/2610.06354v1)**¹ [[code](https://github.com/VictorYXL/JevGraphBench)]<br><sub>GraphDecide: Benchmarking System One Models on Graph Tasks</sub> | Reads every edge; counts degree right 68% of the time |
+| 5&nbsp;Oct | **[GraphDecide](https://arxiv.org/abs/2610.06354v1)¹** [[code](https://github.com/VictorYXL/JevGraphBench)]<br><sub>GraphDecide: Benchmarking System One Models on Graph Tasks</sub> | Reads every edge; counts degree right 68% of the time |
 | 4&nbsp;Oct | **[Hidden Risks of Jev](https://arxiv.org/abs/2610.04985v1)** [[code](https://github.com/shihe98/Security_Privacy_Jev)]<br><sub>Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use</sub> | Typed outputs, hijacked inputs: up to 100% injection success |
 | 3&nbsp;Oct | **[Wireless Decision-Making](https://arxiv.org/abs/2610.04345v1)**<br><sub>System One Models for Wireless Decision-Making:Applications and Performance Evaluation</sub> | Wireless control: 3.5–8.5× faster than LLMs; quality depends on the task |
 | 2&nbsp;Oct | **[JEVal and InnerJev](https://arxiv.org/abs/2610.03935v1)** [[code](https://github.com/amazingljy1206/InnerJev)]<br><sub>General Decision Models: Benchmarking and Insights Beyond Jev</sub> | Right mode, wrong mass: 89% placed where the truth is 36% |
 | 2&nbsp;Oct | **[Candidate Coverage and Transfer](https://arxiv.org/abs/2610.03387v2)** [[code](https://github.com/luckykevvv/Decision_Model_Benchmark)]<br><sub>Benchmarking candidate coverage and rejection policy transfer in typed decision models</sub> | Rejection thresholds do not travel: 69% false rejection after transfer |
 | 2&nbsp;Oct | **[HateDecide](https://arxiv.org/abs/2610.03324v1)**<br><sub>To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation</sub> | Definitions move 28% of answers — without reliably improving them |
 | 1&nbsp;Oct | **[HydroJEV](https://arxiv.org/abs/2610.02048v1)** [[code](https://github.com/mutianwei521/hydrojev)]<br><sub>HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks</sub> | Pre-registered gate: a third of SCADA reviews offloaded, accuracy kept |
-| 1&nbsp;Oct | **[HakemBench](https://arxiv.org/abs/2610.02293v1)**¹ [[code](https://github.com/ufakai/hakembench)]<br><sub>HakemBench: A Turkish Benchmark of Typed Decisions</sub> | Turkish typed decisions: Jev fourth of 16 at a tenth of the leader’s time |
+| 1&nbsp;Oct | **[HakemBench](https://arxiv.org/abs/2610.02293v1)¹** [[code](https://github.com/ufakai/hakembench)]<br><sub>HakemBench: A Turkish Benchmark of Typed Decisions</sub> | Turkish typed decisions: Jev fourth of 16 at a tenth of the leader’s time |
 | 1&nbsp;Oct | **[Code Owns the Simulation](https://arxiv.org/abs/2610.01834v1)**<br><sub>Code Owns the Simulation, Jev Owns the Evaluation</sub> | Evaluates what is described; does not simulate what is not |
 | 1&nbsp;Oct | **[Fast Models, Slow Evidence](https://arxiv.org/abs/2610.02267v1)** [[code](https://github.com/David-DL-Space/sys1-eval)]<br><sub>Fast Models, Slow Evidence: A Paired and Self-Audited Evaluation of System-1 Decision Models for LLM Agent Harnesses</sub> | Hosted beats open on 9 of 11 harness decisions; routing at chance for both |
 | 1&nbsp;Oct | **[Jev-IDS](https://arxiv.org/abs/2610.01079v1)** [[code](https://github.com/jev-sec/jev-ids)]<br><sub>Jev-IDS: System One Models for Network Intrusion Detection</sub> | Intrusion pilot: F1 0.859, 4.8× faster than an LLM |
@@ -258,7 +258,7 @@ Because the answer depends on the state, text placed in the state can move it. I
 | 30&nbsp;Sep | **[Rejection Bottleneck](https://arxiv.org/abs/2609.39496v1)**<br><sub>When the Right Answer Is Missing: An Arithmetic-Dependent Rejection Bottleneck in Jev</sub> | Present 99%, rejected when absent 7% — though Boolean checks get 99% |
 | 30&nbsp;Sep | **[Network Traffic Classification](https://arxiv.org/abs/2610.00376v1)**<br><sub>A First Glance at Jev for Network Traffic Classification: Accuracy, Processing Time, and Cost</sub> | Packet numbers in, 28% accuracy out — trees trained on 8k records reach 70% |
 | 30&nbsp;Sep | **[Ordinal-Scale Bias](https://arxiv.org/abs/2609.38827v1)** [[code](https://github.com/Glax147/jev_ordinal_scale_bia)]<br><sub>More Choices, Fewer Decisions: Ordinal-Scale Bias in JEV-like Direct-Decision Models</sub> | ANLI: Neutral absorbs 51% of errors, at every position |
-| 29&nbsp;Sep | **[Decision Gates Benchmark](https://arxiv.org/abs/2610.00346v1)**¹<br><sub>Benchmarking System One decision models against trained classifiers and language models for automated decision gates</sub> | Threshold for 5% risk still admits 31% of out-of-scope requests |
+| 29&nbsp;Sep | **[Decision Gates Benchmark](https://arxiv.org/abs/2610.00346v1)¹**<br><sub>Benchmarking System One decision models against trained classifiers and language models for automated decision gates</sub> | Threshold for 5% risk still admits 31% of out-of-scope requests |
 | 29&nbsp;Sep | **[Benchmarking Jev (37 datasets)](https://arxiv.org/abs/2609.37647v1)** [[code](https://github.com/AppliedMachineLearning-Lab/jev-benchmarking)]<br><sub>Evaluating and Benchmarking the System One Model Jev</sub> | Ahead of a 27B open LLM on 27/37 datasets; pooled Choice ECE 0.028 |
 | 28&nbsp;Sep | **[Cultural Values Audit](https://arxiv.org/abs/2609.36399v2)**<br><sub>Calibrated to Whom? Persona and Language Effects on Cultural Values in JEV</sub> | Persona shifts reproduce 87% (English) vs 62% (Arabic) of a human difference |
 | 28&nbsp;Sep | **[Training-Free HAR](https://arxiv.org/abs/2609.36154v1)**<br><sub>More Features Are Not More Evidence: Limits of Training-Free Human Activity Recognition with Jev</sub> | Sensor activity recognition from text: macro-F1 ≤ 0.12 |
@@ -280,24 +280,24 @@ Because the answer depends on the state, text placed in the state can move it. I
 | 24&nbsp;Sep | **[JevOut](https://arxiv.org/abs/2609.30243v1)** [[code](https://github.com/xzx34/JevOut)]<br><sub>JevOut: Natural Context Can Flip Decision Models</sub> | Natural context flips 61% of correct decisions (vs 2% neutral) |
 | 24&nbsp;Sep | **[Jev as a Rubric Judge](https://arxiv.org/abs/2609.29769v2)**<br><sub>JEV vs. LLMs as Rubric Judges: Cheaper, Faster, and Wrong in the Same Places</sub> | Parity on most rubric criteria at 1/16–1/325 of the cost |
 | 24&nbsp;Sep | **[Just Ask Jev](https://arxiv.org/abs/2609.29429v1)** [[code](https://github.com/sumleo/RLCDAlignBench)]<br><sub>Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures</sub> | Zero-shot failure detection: median AUROC 0.886 at 1/63 of judge cost |
-| 23&nbsp;Sep | **[Decision Hijacking](https://arxiv.org/abs/2609.28613v1)**¹<br><sub>Decision Hijacking: Prompt Injection Attacks on Jev's Typed Probabilistic Decisions</sub> | Injection shifts probabilities (+0.043) but rarely selects the target (1.8%) |
+| 23&nbsp;Sep | **[Decision Hijacking](https://arxiv.org/abs/2609.28613v1)¹**<br><sub>Decision Hijacking: Prompt Injection Attacks on Jev's Typed Probabilistic Decisions</sub> | Injection shifts probabilities (+0.043) but rarely selects the target (1.8%) |
 | 23&nbsp;Sep | **[NumericJev](https://arxiv.org/abs/2609.28587v1)** [[code](https://github.com/Bring-AI/JevNext)]<br><sub>NumericJev: Jev-like LLM Numerical Decoding with Multiway Decision Trees</sub> | Range refinement: 83.4% within 5% vs 80.5% direct choice |
 | 23&nbsp;Sep | **[Jev on Contract Inference](https://arxiv.org/abs/2609.27678v1)** [[code](https://github.com/ZF-Utokyo/Jev-Benchmark)]<br><sub>Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding</sub> | $0.000228 and 1.24 s per contract — lowest of ten models |
 | 23&nbsp;Sep | **[Jev as a Radiology Report Judge](https://arxiv.org/abs/2609.27607v1)**<br><sub>Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality</sub> | Kendall τ 0.573 / 0.398 with expert error counts; beats open NLI |
 | 22&nbsp;Sep | **[Type-Safe Is Not Error-Free](https://arxiv.org/abs/2609.26758v2)** <sub>(code claimed, not found)</sub><br><sub>Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It</sub> | Hosted Jev AUROC .8146 → .5806 after name–rubric swap; 0% type errors |
 | 22&nbsp;Sep | **[JEV-as-a-Judge](https://arxiv.org/abs/2609.26550v4)** <sub>(code claimed, not found)</sub><br><sub>JEV-as-a-Judge: Accept When Confident, Escalate When Unsure</sub> | Within 3 points of GPT-6 where the verdict can be read off the text |
-| 22&nbsp;Sep | **[REFLEX with Jev](https://arxiv.org/abs/2609.26532v1)**¹<br><sub>REFLEX with Jev for Efficient Selective Control in LLM Agents</sub> | 95% success with 1.12 strong calls/task vs 88% and 4.10 (−72.7%) |
+| 22&nbsp;Sep | **[REFLEX with Jev](https://arxiv.org/abs/2609.26532v1)¹**<br><sub>REFLEX with Jev for Efficient Selective Control in LLM Agents</sub> | 95% success with 1.12 strong calls/task vs 88% and 4.10 (−72.7%) |
 | 21&nbsp;Sep | **[Jev for Scientific Decisions](https://arxiv.org/abs/2609.24965v2)**<br><sub>Jev for Scientific Decisions: Evaluating Semantic Choices and Their Consequences</sub> | Full semantic correctness; median 0.335 s, p95 0.442 s |
-| 21&nbsp;Sep | **[Pregnancy in Crash Narratives](https://arxiv.org/abs/2610.00213v1)**¹ [[code](https://github.com/pozapas/pregnancy-crash-narratives)]<br><sub>Counting the Uncounted: Population-Level Surveillance of Documented Pregnancy and Fetal Harm in Police Crash Narratives with a System One Model (Jev)</sub> | Population-scale reading audited by blind coders: sensitivity 0.999 |
+| 21&nbsp;Sep | **[Pregnancy in Crash Narratives](https://arxiv.org/abs/2610.00213v1)¹** [[code](https://github.com/pozapas/pregnancy-crash-narratives)]<br><sub>Counting the Uncounted: Population-Level Surveillance of Documented Pregnancy and Fetal Harm in Police Crash Narratives with a System One Model (Jev)</sub> | Population-scale reading audited by blind coders: sensitivity 0.999 |
 | 21&nbsp;Sep | **[Decision Models for CSS Annotation](https://arxiv.org/abs/2609.24574v2)** [[code](https://github.com/hazemibrahim97/decision-models-css/blob/45b71ce8403eababae18cc51dda5ecb6d67e05e4/README.md)]<br><sub>Evaluating Decision Models for Text Annotation in Computational Social Science</sub> | Behind best LLM on 14/15 tasks (−11.6 F1) at 44× lower cost |
 | 21&nbsp;Sep | **[JEVQA](https://arxiv.org/abs/2609.24395v1)**<br><sub>JEVQA - Video Quality from Metadata, Bitstream, and Pixel Features with a General-Purpose Decision Model</sub> | PLCC vs VMAF: 0.737 (metadata) → 0.824 (+bitstream, pixel) |
-| 21&nbsp;Sep | **[Calibrated Decisions at Scale](https://arxiv.org/abs/2609.24052v1)**¹ [[code](https://github.com/pozapas/jev-calibrated-narrative-coding/blob/850fe4f0db35f165b56247a53d786cd1dfc12302/README.md)]<br><sub>Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)</sub> | 499,500 narratives screened for $25.23; 195,857 fully coded |
-| 19&nbsp;Sep | **[Intent at RIC Timescales](https://arxiv.org/abs/2609.23136v2)**¹<br><sub>Intent Interpretation at RIC Timescales: Jev Decision Models versus Large Language Models in 6G Open RAN</sub> | Meets the 1 s RIC budget on 99.8% of calls (LLMs: 17.9%, 0%) |
-| 19&nbsp;Sep | **[Replacing LLMs with Jev at the Edge](https://arxiv.org/abs/2609.22753v2)**¹<br><sub>Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration</sub> | Median decision latency −22.7% to −64.5% vs the fastest LLM |
+| 21&nbsp;Sep | **[Calibrated Decisions at Scale](https://arxiv.org/abs/2609.24052v1)¹** [[code](https://github.com/pozapas/jev-calibrated-narrative-coding/blob/850fe4f0db35f165b56247a53d786cd1dfc12302/README.md)]<br><sub>Calibrated Decisions at Scale: Converting Police Crash Narratives into Probabilistic Crash Variables with a System One Model (Jev)</sub> | 499,500 narratives screened for $25.23; 195,857 fully coded |
+| 19&nbsp;Sep | **[Intent at RIC Timescales](https://arxiv.org/abs/2609.23136v2)¹**<br><sub>Intent Interpretation at RIC Timescales: Jev Decision Models versus Large Language Models in 6G Open RAN</sub> | Meets the 1 s RIC budget on 99.8% of calls (LLMs: 17.9%, 0%) |
+| 19&nbsp;Sep | **[Replacing LLMs with Jev at the Edge](https://arxiv.org/abs/2609.22753v2)¹**<br><sub>Replacing Large Language Models with Jev Decision Models for Low-Latency Edge Service Orchestration</sub> | Median decision latency −22.7% to −64.5% vs the fastest LLM |
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/open.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/open-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/open-light.svg"><img src="assets/readme/section-icons/open-light.svg" alt="" width="36" align="left"></picture>
 
 ## Open and independent Jev-like models
 
@@ -308,8 +308,8 @@ Because the answer depends on the state, text placed in the state can move it. I
 | 6&nbsp;Oct | **[SanSi](https://arxiv.org/abs/2610.07730v1)**<br><sub>SanSi: A Looped Typed Decision Model for System 1.5 Thinking</sub> | Looping a small decision model: +13.5 points at 7.7× compute |
 | 6&nbsp;Oct | **[Readout Stability](https://arxiv.org/abs/2610.07716v1)** [[code](https://github.com/rlisml/jev-cascade)]<br><sub>Readout Stability in Prefill-Only Decision Models:Zero-Label Prediction and Inference-Time Compute Allocation</sub> | Menu changes are predictable offline for decision models, not for generative LLMs |
 | 5&nbsp;Oct | **[SharedKV-BT](https://arxiv.org/abs/2610.07327v1)**<br><sub>SharedKV-BT: Node-Local Typed Decisions for Behavior-Tree Agents</sub> | Node-local candidates: 113/120 correct decisions against 90/120 |
-| 5&nbsp;Oct | **[CLM-as-a-Judge](https://arxiv.org/abs/2610.07177v1)**¹ [[code](https://arxiv.org/src/2610.07177v1/anc)]<br><sub>CLM-as-a-Judge: Evaluating an Open Contrastive Decision Model on Public Judge Benchmarks</sub> | Open contrastive decision model judges near chance, but ignores answer order |
-| 5&nbsp;Oct | **[ufakzeka-karar](https://arxiv.org/abs/2610.06744v1)**¹ [[code](https://github.com/ufakai/ufakzeka-karar)]<br><sub>ufakzeka-karar: An Open Turkish Typed-Decision Model with Order-Invariant Option Scoring</sub> | Order invariance by construction; sequential heads still flip 2–3% |
+| 5&nbsp;Oct | **[CLM-as-a-Judge](https://arxiv.org/abs/2610.07177v1)¹** [[code](https://arxiv.org/src/2610.07177v1/anc)]<br><sub>CLM-as-a-Judge: Evaluating an Open Contrastive Decision Model on Public Judge Benchmarks</sub> | Open contrastive decision model judges near chance, but ignores answer order |
+| 5&nbsp;Oct | **[ufakzeka-karar](https://arxiv.org/abs/2610.06744v1)¹** [[code](https://github.com/ufakai/ufakzeka-karar)]<br><sub>ufakzeka-karar: An Open Turkish Typed-Decision Model with Order-Invariant Option Scoring</sub> | Order invariance by construction; sequential heads still flip 2–3% |
 | 4&nbsp;Oct | **[Fiorillo](https://arxiv.org/abs/2610.07019v1)** [[code](https://github.com/johann-e-li/fiorillo)]<br><sub>Calibrated Answers About Randomized Trials From a 4-Billion-Parameter Open Model: A Registered Test and a License-Clean Release</sub> | Registered test passed: ECE 0.017, macro-F1 0.92 against 0.87 for a 31B model |
 | 4&nbsp;Oct | **[SearchJev](https://arxiv.org/abs/2610.05107v1)** [[code](https://github.com/EvoScientist/SearchJev)]<br><sub>SearchJev: A Fast and Calibrated System-1 Model for Search Agents</sub> | Task-specialised open model beats Jev on rewriting, trails on routing |
 | 4&nbsp;Oct | **[CrystalJev](https://arxiv.org/abs/2610.06985v1)**<br><sub>CrystalJev: thinking fast and slow with atomistic foundation models for materials discovery</sub> | One calibrated pass against a relaxation: as good or better at a thirtieth of the cost |
@@ -332,18 +332,18 @@ Because the answer depends on the state, text placed in the state can move it. I
 | 28&nbsp;Sep | **[Dyad](https://arxiv.org/abs/2609.36116v1)**<br><sub>Dyad: Extending Large Language Models with Native Typed Decision-Making</sub> | Native typed-decision head: 86.2% vs Jev 85.0% on JevBench |
 | 28&nbsp;Sep | **[Koa-action](https://arxiv.org/abs/2609.36115v1)**<br><sub>Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs</sub> | Single-token LLM classifier: 85.5% at 0.53 s, flat across label spaces |
 | 27&nbsp;Sep | **[JET](https://arxiv.org/abs/2609.33874v2)** [[code](https://github.com/yet-another-ai/jet)]<br><sub>JET: Justification Evaluation in Transformer</sub> | Local likelihood readout 85.1% vs Jev 89.1% on MMLU |
-| 27&nbsp;Sep | **[Laya Reproduction](https://arxiv.org/abs/2609.33843v1)**¹ <sub>(code, partial)</sub><br><sub>Laya as a Typed Probabilistic Assessor: An Independent Reproduction and a Preregistered Study of Calibration and Selective Escalation</sub> | Open Laya checkpoint under-confident (gap −0.214); one temperature fixes it |
+| 27&nbsp;Sep | **[Laya Reproduction](https://arxiv.org/abs/2609.33843v1)¹** <sub>(code, partial)</sub><br><sub>Laya as a Typed Probabilistic Assessor: An Independent Reproduction and a Preregistered Study of Calibration and Selective Escalation</sub> | Open Laya checkpoint under-confident (gap −0.214); one temperature fixes it |
 | 27&nbsp;Sep | **[COGNIT-Guard](https://arxiv.org/abs/2609.33671v1)** [[code](https://github.com/moyuan10086/cascaded-guardrail-npu)]<br><sub>COGNIT-Guard: Calibrated Standalone Direct-Decision Guardrails with Heterogeneous CPU-NPU Confidence Cascading under Explicit Latency and False-Positive Constraints</sub> | Adapted open guard: AUC 0.83 → 0.997, with an OOD “alignment tax” |
 | 26&nbsp;Sep | **[PACT](https://arxiv.org/abs/2609.35865v1)** [[code](https://github.com/BennyLinntu/PACT-Pairwise-Anchored-Calibrated-Tuning-for-Single-Token-Typed-Decisions)]<br><sub>PACT: Pairwise-Anchored Calibrated Tuning for Single-Token Typed Decisions</sub> | Open recipe holds up; extra terms buy robustness, not accuracy |
 | 25&nbsp;Sep | **[LAVOIR](https://arxiv.org/abs/2609.30706v1)** [[code](https://github.com/moganai/lavoir)]<br><sub>LAVOIR: Teaching a Single-Pass Decision Encoder When and What to Ask with Amortized Value of Information</sub> | Learned “when to ask” policy ≈ oracle (AUC 0.80 vs 0.80) |
-| 24&nbsp;Sep | **[PixelJev](https://arxiv.org/abs/2609.29283v1)**¹<br><sub>From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model</sub> | Typed readout and generation gain equally after adaptation |
+| 24&nbsp;Sep | **[PixelJev](https://arxiv.org/abs/2609.29283v1)¹**<br><sub>From Text Decisions to Pixels: An Study of Jev-Style Visual Choice Model</sub> | Typed readout and generation gain equally after adaptation |
 | 22&nbsp;Sep | **[Visual Jev](https://arxiv.org/abs/2609.25845v1)** [[project page](https://github.com/guanxuyu-sv/Visual-Jev/blob/2c3451b20d282545aa7372aa78b06fc795804738/README.md)]<br><sub>Visual Jev: Accurate and Efficient Decisions from Shared Visual Context</sub> | Macro accuracy 0.706 → 0.761 after post-training (seen families) |
 | 21&nbsp;Sep | **[Open-Jev on CallScreenBench](https://arxiv.org/abs/2609.23959v1)**<br><sub>Open-Jev Judgments on CallScreenBench: Calibrated One-Pass Scam Screening with a Small Language Model</sub> | JevLite ensemble AUROC .974, ECE .052; no false alarms |
 | 20&nbsp;Sep | **[this-that-model-1.0](https://arxiv.org/abs/2609.23886v1)** [[code](https://github.com/FLock-io/this-that-model/blob/542d445efa5f68b14bfbd1f8ed25aacd8379d839/README.md)]<br><sub>this-that-model-1.0: A typed decision model that decides in 30 ms, for a millionth of a cent</sub> | 30.9 ms per decision on one laptop GPU; 32 decisions/s |
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/systems.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/systems-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/systems-light.svg"><img src="assets/readme/section-icons/systems-light.svg" alt="" width="36" align="left"></picture>
 
 ## Systems built on typed decisions
 
@@ -375,7 +375,7 @@ Because the answer depends on the state, text placed in the state can move it. I
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/peripheral.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/peripheral-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/peripheral-light.svg"><img src="assets/readme/section-icons/peripheral-light.svg" alt="" width="36" align="left"></picture>
 
 ## Peripheral study
 
@@ -383,7 +383,7 @@ Because the answer depends on the state, text placed in the state can move it. I
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/ecosystem.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/ecosystem-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/ecosystem-light.svg"><img src="assets/readme/section-icons/ecosystem-light.svg" alt="" width="36" align="left"></picture>
 
 ## Open ecosystem
 
@@ -395,7 +395,7 @@ Availability follows each project’s own README; nothing here was run. ● avai
 | --- | :-: | :-: | :-: | :-: | --- |
 | **[alperiox/audio-jevlike](https://github.com/alperiox/audio-jevlike/blob/c3dc700cf1d9ebe71b28eb1754d797d2c4c83653/README.md)**<br><sub>Encoder decision heads · base: Whisper / WavLM audio encoders</sub> | ○ | ● | ● | ○ | — |
 | **[Contrastive-LM/CLM](https://github.com/Contrastive-LM/CLM/blob/d5f9ef0fd9bde185df0ceaad4f4ecc6cfe8c34f6/README.md)**<br><sub>Encoder decision heads · base: Qwen3-8B (frozen encoder)</sub> | ● | ◐ | ◐ | ○ | Apache-2.0 |
-| **[Heman10x-NGU/Verdict-open-jev](https://github.com/Heman10x-NGU/Verdict-open-jev/blob/30f15564821626ca5c1ad5b2638c4eb7078787dd/README.md)**<br><sub>Encoder decision heads · base: ModernBERT (151M, GLiClass lineage)</sub> | ● | ● | ● | ○ | NOASSERTION |
+| **[Heman10x-NGU/Verdict-open-jev](https://github.com/Heman10x-NGU/Verdict-open-jev/blob/30f15564821626ca5c1ad5b2638c4eb7078787dd/README.md)**<br><sub>Encoder decision heads · base: ModernBERT (151M, GLiClass lineage)</sub> | ● | ● | ● | ○ | Other |
 | **[hiroki-abe-58/sokudan](https://github.com/hiroki-abe-58/sokudan/blob/f491077d729f982e06193b0cb85a51214a88b88a/README.md)**<br><sub>Encoder decision heads · base: sbintuitions/modernbert-ja-310m</sub> | ● | ● | ● | ○ | Apache-2.0 |
 | **[mizorewww/laya-mlx](https://github.com/mizorewww/laya-mlx/blob/ca5940aa9286dbbdfaacbecbdb7b337295ad36a2/README.md)**<br><sub>Encoder decision heads · base: Laya checkpoints (ModernBERT / mmBERT)</sub> | ● | ○ | ● | ○ | Apache-2.0 |
 | **[NandhaKishorM/laya](https://github.com/NandhaKishorM/laya/blob/c7527708f9f5220c669d8aa385077cd28d04708a/README.md)**<br><sub>Encoder decision heads · base: ModernBERT-large; mmBERT-base</sub> | ● | ○ | ◐ | ○ | Apache-2.0 |
@@ -405,16 +405,16 @@ Availability follows each project’s own README; nothing here was run. ● avai
 | **[ekzhang/openjev-sglang](https://github.com/ekzhang/openjev-sglang/blob/bf6a53bbb1f75040b06de39abff1230524553ab5/README.md)**<br><sub>Frozen decoder option readout · base: Qwen3.6-35B-A3B</sub> | – | ○ | ◐ | ○ | — |
 | **[featherless-ai/simple-jev](https://github.com/featherless-ai/simple-jev/blob/9c11582d3e631e0b118f3f3132ebbb00c62020c5/README.md)**<br><sub>Frozen decoder option readout · base: Open instruction-tuned models (e.g. Gemma 4 26B-A4B)</sub> | – | ○ | ● | ○ | Apache-2.0 |
 | **[nokia-applied-research/AnyJev](https://github.com/nokia-applied-research/AnyJev/blob/54f1b3533639f52a406941706a4fdf08b2193589/README.md)**<br><sub>Frozen decoder option readout · base: any causal LM (Qwen3-8B in README)</sub> | – | ○ | ◐ | ○ | Apache-2.0 |
-| **[rorshopping/jev-on-a-laptop](https://github.com/rorshopping/jev-on-a-laptop/blob/5821d910610331a695f5185a6ad1d6b514e8a62f/README.md)**<br><sub>Frozen decoder option readout · base: Stock 1.5B–8B open models</sub> | – | ○ | ● | ○ | NOASSERTION |
+| **[rorshopping/jev-on-a-laptop](https://github.com/rorshopping/jev-on-a-laptop/blob/5821d910610331a695f5185a6ad1d6b514e8a62f/README.md)**<br><sub>Frozen decoder option readout · base: Stock 1.5B–8B open models</sub> | – | ○ | ● | ○ | Other |
 | **[TheoLeeCJ/SemIf](https://github.com/TheoLeeCJ/SemIf/blob/1f2dea3e25379f9dfc98cb83c324f00ab5deda37/README.md)**<br><sub>Frozen decoder option readout · base: frozen Qwen3.5-4B and others</sub> | – | ○ | ◐ | ○ | MIT |
 | **[Yinsongxu/LLM2Jev](https://github.com/Yinsongxu/LLM2Jev/blob/a4aafa85e1aba95329db36e085373d1572ab6917/README.md)**<br><sub>Frozen decoder option readout · base: Qwen3.5 (e.g. 4B) and other local LLMs</sub> | – | ○ | ● | ○ | Apache-2.0 |
 | **[zhengxuyu/litjev](https://github.com/zhengxuyu/litjev/blob/2cd915aff989b37bb1c46ef5ae480c4a01501404/README.md)**<br><sub>Frozen decoder option readout · base: Qwen model family</sub> | – | ○ | ○ | ○ | Apache-2.0 |
-| **[zhihz/openjev](https://github.com/zhihz/openjev/blob/ff94f61ec3b2d6a71b4c2b01e76104dfe37da4e6/README.md)**<br><sub>Frozen decoder option readout · base: Qwen3-4B-Instruct-2507 (frozen)</sub> | – | ○ | ● | ○ | NOASSERTION |
-| **[bespokelabsai/nimble](https://github.com/bespokelabsai/nimble/blob/38edc3b576f13179df785d412621d5cb1128d02d/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3.5-9B (LoRA)</sub> | ● | ● | ○ | ● | NOASSERTION |
+| **[zhihz/openjev](https://github.com/zhihz/openjev/blob/ff94f61ec3b2d6a71b4c2b01e76104dfe37da4e6/README.md)**<br><sub>Frozen decoder option readout · base: Qwen3-4B-Instruct-2507 (frozen)</sub> | – | ○ | ● | ○ | Other |
+| **[bespokelabsai/nimble](https://github.com/bespokelabsai/nimble/blob/38edc3b576f13179df785d412621d5cb1128d02d/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3.5-9B (LoRA)</sub> | ● | ● | ○ | ● | Other |
 | **[FLock-io/this-that-model](https://github.com/FLock-io/this-that-model/blob/542d445efa5f68b14bfbd1f8ed25aacd8379d839/README.md)**<br><sub>Fine-tuned decoder decision models · base: decider-2b (Qwen3.5-2B lineage)</sub> | ● | ○ | ● | ◐ | MIT |
 | **[getainode/jebadiah](https://github.com/getainode/jebadiah/blob/04d620413ff071c93120c92f3836942d504891ef/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3.8-27B, Qwen3.5-9B, Qwen3.5-4B (LoRA)</sub> | ● | ● | ● | ● | Apache-2.0 |
 | **[gitchw/LCT](https://github.com/gitchw/LCT/blob/19697d6a554b1d67312ea1538691b5a3a872d8f8/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen2.5-0.5B, Qwen2.5-1.5B, Qwen3-8B</sub> | ● | ● | ● | ● | Apache-2.0 |
-| **[guanxuyu-sv/Visual-Jev](https://github.com/guanxuyu-sv/Visual-Jev/blob/2c3451b20d282545aa7372aa78b06fc795804738/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3-VL-4B</sub> | – | ○ | ○ | ○ | NOASSERTION |
+| **[guanxuyu-sv/Visual-Jev](https://github.com/guanxuyu-sv/Visual-Jev/blob/2c3451b20d282545aa7372aa78b06fc795804738/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3-VL-4B</sub> | – | ○ | ○ | ○ | Other |
 | **[iapp-technology/openthai-systemone](https://github.com/iapp-technology/openthai-systemone/blob/5d04bcca0c58bd10e7dac2d3d369d8f760bea6cf/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3.5-0.8B (continued pre-training on Thai)</sub> | ● | ● | ○ | ○ | Apache-2.0 |
 | **[jaredpalmer/kev](https://github.com/jaredpalmer/kev/blob/557598fced1dada75dfbf36ed144dce309ac6ceb/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3.5 (0.8B, 4B, 9B)</sub> | ● | ● | ● | ● | Apache-2.0 |
 | **[lexmount/WebJev](https://github.com/lexmount/WebJev/blob/e7692e7716bb04799286c4c2276c883cda8ce160/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3.5-35B-A3B-Base</sub> | ● | ● | ● | ● | Apache-2.0 |
@@ -426,7 +426,7 @@ Availability follows each project’s own README; nothing here was run. ● avai
 | **[Rizzo-AI-Academy/rizzo-flow](https://github.com/Rizzo-AI-Academy/rizzo-flow/blob/b9ba007ee4d2928bbab5b1d8bfe9009c3696b6de/README.md)**<br><sub>Fine-tuned decoder decision models · base: Spark-X2.5 4B and 1.7B (LoRA)</sub> | ● | ● | ● | ○ | Apache-2.0 |
 | **[shamazharikh/qwen-rlcd](https://github.com/shamazharikh/qwen-rlcd/blob/d41a9aa2f3317f99e82c835dafaac424c6cfdca7/README.md)**<br><sub>Fine-tuned decoder decision models · base: Qwen3.5-0.8B</sub> | ○ | ◐ | ○ | ○ | — |
 | **[TianyuCodings/NanoJev](https://github.com/TianyuCodings/NanoJev/blob/76fdfc9ecdca45a9bcef17991a07d3041a87685a/README.md)**<br><sub>Fine-tuned decoder decision models · base: 0.6B decoder</sub> | ● | ○ | ◐ | ● | MIT |
-| **[uspraveen/Jevify](https://github.com/uspraveen/Jevify/blob/a1308666b5460291772161260f43ed95afa65815/README.md)**<br><sub>Fine-tuned decoder decision models · base: Gemma 4 E4B, Qwen3.5-2B/9B, Qwen3-VL-2B</sub> | ● | ● | ● | ● | NOASSERTION |
+| **[uspraveen/Jevify](https://github.com/uspraveen/Jevify/blob/a1308666b5460291772161260f43ed95afa65815/README.md)**<br><sub>Fine-tuned decoder decision models · base: Gemma 4 E4B, Qwen3.5-2B/9B, Qwen3-VL-2B</sub> | ● | ● | ● | ● | Other |
 | **[Zefan-Cai/Open-Jev](https://github.com/Zefan-Cai/Open-Jev/blob/bd4118882f733574a3250a4b65fe4d884130c08b/README.md)**<br><sub>Fine-tuned decoder decision models · base: Open-Jev 2B, 9B and 27B checkpoints</sub> | ● | ● | ● | ● | MIT |
 | **[JoshuaSP/open-jev](https://github.com/JoshuaSP/open-jev/blob/50d32c7e542dd714c89bb223e8fc8c0b2b3d0d9c/README.md)**<br><sub>Diffusion structured readout · base: DiffusionGemma 26B-A4B</sub> | – | ○ | ● | ○ | MIT |
 | **[mmastrac/djev](https://github.com/mmastrac/djev/blob/442eab6ed4a7694e20ae5f9171cfc5e4e5455771/README.md)**<br><sub>Diffusion structured readout · base: DiffusionGemma</sub> | – | ○ | ○ | ○ | Apache-2.0 |
@@ -436,7 +436,7 @@ Availability follows each project’s own README; nothing here was run. ● avai
 | **[feder-cr/jev](https://github.com/feder-cr/jev/blob/4b34eebf31c03709e13964f1d4c0d43ff30ed88e/README.md)**<br><sub>— · base: —</sub> | ○ | ○ | ● | ○ | MIT |
 | **[PAI-CUHK/MEDJEV](https://github.com/PAI-CUHK/MEDJEV/blob/64248609fae6c56128b8a8df64113921b067f506/README.md)**<br><sub>— · base: Qwen3 backbones (e.g. Qwen3-0.6B)</sub> | ○ | ● | ◐ | ○ | MIT |
 | **[PAI-CUHK/SLEEPJEV](https://github.com/PAI-CUHK/SLEEPJEV/blob/505a7658847cd51aa9e254f6ee5b4e241b4af46c/README.md)**<br><sub>— · base: Polysomnography signal encoder</sub> | ○ | ● | ● | ○ | MIT |
-| **[pCwOrM/werr](https://github.com/pCwOrM/werr/blob/2c3138200f1725f0efd8598b8b84729abde67c95/README.md)**<br><sub>— · base: —</sub> | – | ○ | ○ | ○ | NOASSERTION |
+| **[pCwOrM/werr](https://github.com/pCwOrM/werr/blob/2c3138200f1725f0efd8598b8b84729abde67c95/README.md)**<br><sub>— · base: —</sub> | – | ○ | ○ | ○ | Other |
 | **[vinnylarouge/jevlike](https://github.com/vinnylarouge/jevlike/blob/94f5fd1b0b11d52bbdfdf4e0ee6aa96b568f8452/README.md)**<br><sub>— · base: —</sub> | ○ | ● | ● | ○ | MIT |
 
 ### Benchmarks & evaluations
@@ -618,7 +618,7 @@ Grouped by application; open a group to see its projects.
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/background.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/background-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/background-light.svg"><img src="assets/readme/section-icons/background-light.svg" alt="" width="36" align="left"></picture>
 
 ## Background references
 
@@ -753,7 +753,7 @@ Earlier work the survey builds on, grouped by theme; open a theme to see its pap
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/related.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/related-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/related-light.svg"><img src="assets/readme/section-icons/related-light.svg" alt="" width="36" align="left"></picture>
 
 ## Related reviews and catalogues
 
@@ -765,7 +765,7 @@ Earlier work the survey builds on, grouped by theme; open a theme to see its pap
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/method.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/method-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/method-light.svg"><img src="assets/readme/section-icons/method-light.svg" alt="" width="36" align="left"></picture>
 
 ## Method
 
@@ -776,7 +776,7 @@ Earlier work the survey builds on, grouped by theme; open a theme to see its pap
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/contribute.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/contribute-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/contribute-light.svg"><img src="assets/readme/section-icons/contribute-light.svg" alt="" width="36" align="left"></picture>
 
 ## Contributing
 
@@ -786,7 +786,7 @@ New studies, corrections, code or weights updates and reproduction reports are w
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/contributors.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/contributors-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/contributors-light.svg"><img src="assets/readme/section-icons/contributors-light.svg" alt="" width="36" align="left"></picture>
 
 ## Contributors
 
@@ -796,7 +796,7 @@ Thanks to everyone who has added studies, corrections, code and reproduction rep
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/star.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/star-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/star-light.svg"><img src="assets/readme/section-icons/star-light.svg" alt="" width="36" align="left"></picture>
 
 ## Star history
 
@@ -812,7 +812,7 @@ Thanks to everyone who has added studies, corrections, code and reproduction rep
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
-<img src="assets/readme/section-icons/cite.svg" alt="" width="36" align="left">
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/readme/section-icons/cite-dark.svg"><source media="(prefers-color-scheme: light)" srcset="assets/readme/section-icons/cite-light.svg"><img src="assets/readme/section-icons/cite-light.svg" alt="" width="36" align="left"></picture>
 
 ## Citation and licence
 

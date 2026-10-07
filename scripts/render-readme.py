@@ -30,6 +30,7 @@ ISSUE_FORMS = [('add-paper.yml', 'Suggest a study'), ('correction.yml', 'Correct
                ('resource-update.yml', 'Update code, weights or availability')]
 
 
+LICENCE = {'NOASSERTION': 'Other'}  # GitHub's API value for a licence file it cannot classify; GitHub itself shows "Other"
 MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 CODE_LINK = {'available': 'code', 'partial': 'code, partial', 'project_page_only': 'project page', 'restricted': 'code, restricted',
              'claimed_not_located': 'code claimed, not found'}
@@ -66,6 +67,67 @@ def anchor(h):
     return ''.join(c for c in h.lower().replace(' ', '-') if c.isalnum() or c == '-')
 
 
+def themed(stem, attrs):
+    """An image that follows the reader's GitHub theme: `{stem}-dark.svg` / `{stem}-light.svg`, on one line."""
+    return (f'<picture><source media="(prefers-color-scheme: dark)" srcset="{stem}-dark.svg">'
+            f'<source media="(prefers-color-scheme: light)" srcset="{stem}-light.svg"><img src="{stem}-light.svg" {attrs}></picture>')
+
+
+# Timeline of the studies (same design as paper/figures/timeline.png), drawn here as SVG so it needs no plotting
+# library, follows the reader's theme and is rebuilt with the data.
+REL_COL = {'commercial_jev': ('#2a78d6', '#5c9ef0'), 'independent_jev_like': ('#eb6834', '#f08a50'), 'downstream_system': ('#1baf7a', '#3fc79a')}
+REL_LAB = {'commercial_jev': 'Evaluates hosted Jev', 'independent_jev_like': 'Independent Jev-like model', 'downstream_system': 'Uses Jev inside a system'}
+TL_INK = {'light': dict(text='#55636c', grid='#eaeef2', axis='#c3cacc', event='#8b979e'),
+          'dark': dict(text='#9aa4b2', grid='#21262d', axis='#3d444d', event='#6e7681')}
+TL_START = '2026-09-15'
+TL_EVENTS = [('2026-09-15', ['Jev launch']), ('2026-09-21', ['Prior survey', 'draft dated']),
+             ('2026-10-02', ['Vendor weak-spots', 'page revised']), (None, ['Cutoff'])]
+
+
+def timeline_svg(P, cutoff, theme):
+    import datetime as dt
+    start, cut = dt.date.fromisoformat(TL_START), dt.date.fromisoformat(cutoff[:10])
+    span = (cut - start).days
+    day = lambda iso: (dt.date.fromisoformat(iso[:10]) - start).days  # noqa: E731
+    order = list(REL_COL)
+    stacks = defaultdict(list)
+    for p in sorted([p for p in P if p['tier'] in ('core', 'peripheral')], key=lambda p: (order.index(p['model_relationship'][0]), p['published_at'])):
+        stacks[day(p['published_at'])].append(p)
+    top = max(len(v) for v in stacks.values())
+    ink, k = TL_INK[theme], 0 if theme == 'light' else 1
+    W, left, right, head, row, foot = 900, 44, 22, 58, 17, 34
+    H = head + row * (top + 1) + foot
+    base = H - foot
+    x = lambda d: left + (d + 0.8) * (W - left - right) / (span + 1.6)  # noqa: E731
+    font = "font-family=\"-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif\""
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" '
+         f'aria-label="Timeline of the studies: one dot per study on the day of its first arXiv version, from Jev’s launch to the cutoff">']
+    for t in range(0, span + 1, 2):
+        label = (start + dt.timedelta(days=t))
+        s.append(f'<path d="M{x(t):.1f} {head - 6}V{base}" stroke="{ink["grid"]}"/>')
+        s.append(f'<text x="{x(t):.1f}" y="{base + 22}" fill="{ink["text"]}" {font} font-size="12" text-anchor="middle">{label.day} {label.strftime("%b")}</text>')
+    for when, lines in TL_EVENTS:
+        d = span if when is None else day(when)
+        s.append(f'<path d="M{x(d):.1f} {head - 6}V{base}" stroke="{ink["event"]}" stroke-dasharray="4 3"/>')
+        for i, line in enumerate(lines):
+            s.append(f'<text x="{x(d):.1f}" y="{head - 14 - 14 * (len(lines) - 1 - i)}" fill="{ink["text"]}" {font} font-size="11.5" text-anchor="middle">{line}</text>')
+    s.append(f'<path d="M{left} {base}H{W - right}" stroke="{ink["axis"]}"/>')
+    s.append(f'<text transform="translate(16 {(head + base) / 2:.0f}) rotate(-90)" fill="{ink["text"]}" {font} font-size="12" text-anchor="middle">Studies per day</text>')
+    for d, ps in sorted(stacks.items()):
+        for i, p in enumerate(ps):
+            c = REL_COL[p['model_relationship'][0]][k]
+            fill = 'none' if p['tier'] == 'peripheral' else c
+            s.append(f'<circle cx="{x(d):.1f}" cy="{base - row * (i + 0.65):.1f}" r="5.6" fill="{fill}" stroke="{c}" stroke-width="1.6"/>')
+    # legend in the empty days just after the launch line
+    legend = [(REL_COL[r][k], REL_COL[r][k], REL_LAB[r]) for r in order] + [('none', ink['text'], 'Peripheral (open marker)')]
+    for i, (fill, stroke, label) in enumerate(legend):
+        y = head + 18 + 19 * i
+        s.append(f'<circle cx="{x(0) + 22:.1f}" cy="{y}" r="5.6" fill="{fill}" stroke="{stroke}" stroke-width="1.6"/>'
+                 f'<text x="{x(0) + 34:.1f}" y="{y + 4.5}" fill="{ink["text"]}" {font} font-size="12.5">{label}</text>')
+    s.append('</svg>')
+    return '\n'.join(s) + '\n'
+
+
 def badge(label, message, color, alt, href=None, logo=None):
     esc = lambda t: quote(t.replace('-', '--').replace('_', '__'), safe='')  # noqa: E731 - shields.io path escaping
     src = f'https://img.shields.io/badge/{esc(label)}-{esc(message)}-{color}?style=flat-square' + (f'&logo={logo}&logoColor=white' if logo else '')
@@ -93,7 +155,7 @@ def main():
         if top:
             a('<p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>')
             a('')
-        a(f'<img src="assets/readme/section-icons/{ICON[title]}.svg" alt="" width="36" align="left">')
+        a(themed(f'assets/readme/section-icons/{ICON[title]}', 'alt="" width="36" align="left"'))
         a('')
         a(f'## {title}')
         a('')
@@ -148,9 +210,12 @@ def main():
     a('> [!NOTE]')
     a('> Numbers are as reported by paper authors, the vendor or repository maintainers. Nothing here is a unified leaderboard, and nothing was re-run.')
     a('')
-    a('<p align="center"><img src="paper/figures/timeline.png" width="900" alt="Timeline of the studies, one dot per study per day from Jev’s launch on '
-      '15 September 2026 to the cutoff, coloured by whether a study evaluates hosted Jev, builds an independent Jev-like model or uses Jev inside a system"></p>')
-    a('<p align="center"><sub>The evidence so far: studies by day since Jev’s launch, coloured by how each relates to Jev (figure from the survey manuscript).</sub></p>')
+    for theme in ('light', 'dark'):
+        (J.ROOT / 'assets' / 'readme' / f'timeline-{theme}.svg').write_text(timeline_svg(P, s['cutoff'], theme), encoding='utf-8')
+    a('<p align="center">' + themed('assets/readme/timeline', 'width="900" alt="Timeline of the studies, one dot per study on the day of its first '
+                                    'arXiv version from Jev’s launch on 15 September 2026 to the cutoff, coloured by whether a study evaluates hosted Jev, '
+                                    'builds an independent Jev-like model or uses Jev inside a system"') + '</p>')
+    a('<p align="center"><sub>The evidence so far: one dot per study on the day of its first arXiv version, coloured by how it relates to Jev.</sub></p>')
     a('')
     if site:
         a('**Explore:** ' + ' · '.join(f'[{t}]({site}#{k})' for k, t in (('map', 'Evidence map'), ('findings', 'Findings'), ('failures', 'Failure modes'),
@@ -180,7 +245,8 @@ def main():
     for i, (key, title, sub) in enumerate(CARDS):
         if i == 3:
             a('  <br>')
-        a(f'  <a href="#{anchor(title)}"><img src="assets/readme/card-{key}.svg" width="246" alt="{title}: {sub}"></a>')
+        card = themed(f'assets/readme/card-{key}', f'width="246" alt="{title}: {sub}"')
+        a(f'  <a href="#{anchor(title)}">{card}</a>')
     a('</p>')
     a('')
     a('## Reading the tables')
@@ -236,7 +302,8 @@ def main():
                 fam = '¹' if p.get('study_family_id') else ''
                 full = f'<br><sub>{md(p["title"])}</sub>' if p['title'] != p['short_title'] else ''
                 day = f'{int(p["published_at"][8:10])}&nbsp;{MONTHS[int(month[5:7]) - 1][:3]}'
-                a(f'| {day} | **[{md(p["short_title"])}]({p["url"]})**{fam}{code_link(p["openness"]["code"])}{full} | {md(head)} |')
+                # the ¹ sits inside the bold: right after a closing ** it would stop GitHub from closing the bold
+                a(f'| {day} | **[{md(p["short_title"])}]({p["url"]}){fam}**{code_link(p["openness"]["code"])}{full} | {md(head)} |')
             a('')
     heading('Peripheral study')
     for p in [p for p in P if p['tier'] == 'peripheral']:
@@ -257,7 +324,7 @@ def main():
         av = r.get('availability') or {}
         fam = T['method_families'][r['method_family']]['label'] if r.get('method_family') else '—'
         a(f'| **[{r["full_name"]}]({r.get("readme_url") or r["url"]})**<br><sub>{fam} · base: {md(r.get("base_model") or "—")}</sub> | '
-          + ' | '.join(AVAIL_MD.get(av.get(k, 'not_assessed'), '·') for k in ('weights', 'training_code', 'evaluation', 'data')) + f' | {r.get("license") or "—"} |')
+          + ' | '.join(AVAIL_MD.get(av.get(k, 'not_assessed'), '·') for k in ('weights', 'training_code', 'evaluation', 'data')) + f' | {LICENCE.get(r.get("license"), r.get("license")) or "—"} |')
     a('')
     # Long secondary lists are folded (as in Awesome-LLM) so the findings and study tables stay the main thread.
     def folded(summary, lines):

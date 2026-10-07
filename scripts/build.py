@@ -10,7 +10,7 @@ Outputs
   data/references.bib             bibliography of all records
   data/exports/*.csv              papers, claims, repositories (formula-injection safe)
   paper/references.bib            manuscript bibliography (records + official sources + repositories)
-  README.md                       via scripts/render-readme.py
+  README.md, assets/readme/timeline-*.svg via scripts/render-readme.py
 """
 import argparse
 import csv
@@ -809,7 +809,7 @@ def main():
                'data/exports/papers.csv', 'data/exports/claims.csv', 'data/exports/repositories.csv', 'data/README.md',
                'docs/methodology.md', 'docs/evidence-audit.md', 'paper/survey.md', 'paper/main.tex',
                'site/data/fragments/more-rows.html', 'site/data/fragments/eco-benchmark.html', 'site/data/fragments/eco-built_with.html',
-               'site/data/fragments/eco-tooling.html']
+               'site/data/fragments/eco-tooling.html', 'assets/readme/timeline-light.svg', 'assets/readme/timeline-dark.svg']
     before = {t: (ROOT / t).read_bytes() if (ROOT / t).exists() else None for t in targets}
     (ROOT / 'site' / 'data').mkdir(parents=True, exist_ok=True)
     (ROOT / 'site' / 'data' / 'drawer.json').write_text(json.dumps(drawer_data(x), ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
