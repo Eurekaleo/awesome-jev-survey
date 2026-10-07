@@ -2,6 +2,13 @@
 
 Notable changes to the data, website and manuscript.
 
+## 0.3.1 — 2026-10-07
+
+- Studies from the 7 October arXiv listing, each read in full: content moderation with hosted Jev and Laya, readout stability of prefill-only decision models, a looped open decision model (SanSi) with hosted Jev as a reference, query optimisation with calibrated confidences, behaviour-tree agents with typed decisions, a preregistered evaluation of the open contrastive model CLM as a judge, a registered test of a 4B model for questions about randomised trials, a typed decision layer for materials discovery, multi-agent coordination by a System One model, and agents that build cheaper reusable solutions compared with Jev.
+- A revised candidate-coverage study now tests whether rejection thresholds transfer across tasks; its records were updated. Two other revised studies changed wording only.
+- Two open models added to the ecosystem: CLM and Jev-LCT.
+- Findings, failure modes, application cards and the manuscript updated with the new evidence.
+
 ## 0.3.0 — 2026-10-07
 
 - Literature through early October 2026: new core studies on option semantics, missing-answer rejection, probability coherence, numeric and structural reasoning, security, agents, networks, medicine, search, databases and robotics, and new open models in several languages. Every core study was read in full; studies posted in revised versions were re-read and their records updated.

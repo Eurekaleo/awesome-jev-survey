@@ -12,6 +12,15 @@
     },
     {
       "type": "study_family",
+      "id": "nandakishore-2026",
+      "members": [
+        "arxiv:2609.33843",
+        "arxiv:2610.07177"
+      ],
+      "note": "Same author: a reproduction of Laya and a preregistered judge evaluation of CLM that reuses its protocol; synthesise as one family, not independent replications."
+    },
+    {
+      "type": "study_family",
       "id": "teke-ufak-2026",
       "members": [
         "arxiv:2610.02293",

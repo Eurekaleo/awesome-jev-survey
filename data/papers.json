@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "jev-survey/papers@1",
-    "cutoff": "2026-10-06",
+    "cutoff": "2026-10-07",
     "timezone": "Asia/Singapore",
     "note": "Counts are derived by scripts/build.py. Venues are stated only as given in arXiv metadata (journal_ref or author comment); proceedings were not checked (venue_verified_at is null)."
   },
@@ -249,7 +249,7 @@
     {
       "id": "arxiv:2609.26550",
       "arxiv_id": "2609.26550",
-      "versioned_id": "2609.26550v3",
+      "versioned_id": "2609.26550v4",
       "doi": null,
       "title": "JEV-as-a-Judge: Accept When Confident, Escalate When Unsure",
       "short_title": "JEV-as-a-Judge",
@@ -260,8 +260,8 @@
         "Rema Padman"
       ],
       "published_at": "2026-09-22T15:05:56Z",
-      "updated_at": "2026-09-29T15:32:52Z",
-      "retrieved_at": "2026-10-06",
+      "updated_at": "2026-10-06T00:32:50Z",
+      "retrieved_at": "2026-10-07",
       "year": 2026,
       "month": 9,
       "tier": "core",
@@ -273,8 +273,8 @@
         "cs.AI"
       ],
       "abstract": "LLM-as-a-judge scales evaluation, but reasoning judges are slow and costly. We study JEV-as-a-Judge: evaluation with JEV, a decision-only judge that returns label probabilities instead of text, and whose confidence decides whether to accept its verdict or escalate to a reasoning judge. Against sixteen generative and reward-model judges, with blinded human adjudication, JEV comes within three points of GPT-6 wherever a verdict can be read off the text, at 0.36% of its fee and a 0.15-second median latency, and falls behind where the verdict must be derived, as in math, code, and logic. Its confidence marks this boundary. With a threshold frozen in advance, accepting confident verdicts and escalating the rest is 0.9 points more accurate than GPT-6 on 1,610 held-out pairs at 41% of its fee, and in a pre-specified live test on two new workloads the cascade matches GPT-6's accuracy exactly. Confidence routing weakens on style-adversarial pairs and reference-free prose; we close with a simple recipe for validating thresholds locally.",
-      "url": "https://arxiv.org/abs/2609.26550v3",
-      "pdf_url": "https://arxiv.org/pdf/2609.26550v3",
+      "url": "https://arxiv.org/abs/2609.26550v4",
+      "pdf_url": "https://arxiv.org/pdf/2609.26550v4",
       "bibtex_key": "arxiv2609_26550",
       "included_by": [
         "Q01_jev",
@@ -9177,7 +9177,7 @@
       ],
       "test_level": "model_test",
       "model_versions": [],
-      "study_family_id": null,
+      "study_family_id": "nandakishore-2026",
       "openness": {
         "code": {
           "status": "partial",
@@ -14496,17 +14496,17 @@
     {
       "id": "arxiv:2610.03387",
       "arxiv_id": "2610.03387",
-      "versioned_id": "2610.03387v1",
+      "versioned_id": "2610.03387v2",
       "doi": "",
-      "title": "Benchmarking Candidate Coverage in Typed Decision Models",
-      "short_title": "Candidate Coverage",
+      "title": "Benchmarking candidate coverage and rejection policy transfer in typed decision models",
+      "short_title": "Candidate Coverage and Transfer",
       "authors": [
         "Jiawen Lu",
         "Tongtong Wu"
       ],
       "published_at": "2026-10-02T14:36:46Z",
-      "updated_at": "2026-10-02T14:36:46Z",
-      "retrieved_at": "2026-10-06",
+      "updated_at": "2026-10-06T02:17:37Z",
+      "retrieved_at": "2026-10-07",
       "year": 2026,
       "month": 10,
       "tier": "core",
@@ -14518,8 +14518,8 @@
         "cs.AI",
         "cs.CL"
       ],
-      "url": "https://arxiv.org/abs/2610.03387v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.03387v1",
+      "url": "https://arxiv.org/abs/2610.03387v2",
+      "pdf_url": "https://arxiv.org/pdf/2610.03387v2",
       "bibtex_key": "arxiv2610_03387",
       "included_by": [
         "Q01_jev",
@@ -14530,26 +14530,29 @@
       ],
       "inclusion_reason": "Paired benchmark protocol for whether typed decision models notice that the reference answer is missing from the supplied options.",
       "relationship": "Paired benchmark protocol for whether typed decision models notice that the reference answer is missing from the supplied options.",
-      "summary": "Removes the reference label from otherwise matched candidate sets on AG News, DBpedia, Emotion and TREC (300 calibration and 589 test texts; 23,932 predictions per model), varies option names while keeping descriptions and order, and compares native rejection with calibration-only “none”-score thresholds for Laya and hosted Jev.",
-      "task": "Detecting missing answers without rejecting valid candidates.",
+      "summary": "Compares Laya, hosted Jev and Qwen2.5-7B-Instruct on missing-answer detection and false rejection: tests whether rejection thresholds calibrated on one task transfer to others at equal calibration budgets, and separates artificial omission, natural retrieval misses and out-of-scope queries on CLINC150; an earlier discovery stage on AG News, DBpedia, Emotion and TREC is kept in the appendix.",
+      "task": "Rejection when the reference answer is missing from the candidate set, and transfer of rejection policies across tasks and candidate configurations.",
       "datasets": [
         "AG News",
         "DBpedia",
         "Emotion",
-        "TREC"
+        "TREC (supplemental)",
+        "CLINC150 (artificial omission, BM25 retrieval misses, out-of-scope queries)"
       ],
       "baselines": [
-        "Laya 0.3.21 (open)",
-        "Calibration-only none-score thresholds"
+        "Laya 0.3.21",
+        "Qwen2.5-7B-Instruct",
+        "BM25 scope gate"
       ],
       "models": [
         "TypeSafe Jev (jev-1.13.0)",
-        "Laya 0.3.21"
+        "Laya 0.3.21",
+        "Qwen2.5-7B-Instruct"
       ],
-      "main_finding": "Native rejection differed sharply: with five TREC candidates and natural names, Laya detected 97.2% of missing-answer cases but falsely rejected 69.7% of present controls, while Jev detected 24.8% and falsely rejected none; thresholds fitted on calibration pairs moved these to 33.9%/3.7% (Laya) and 45.0%/1.8% (Jev).",
+      "main_finding": "Rejection thresholds calibrated on one task often failed on another: with 80 calibration pairs, none-score policies exceeded 5% target false rejection in six of twelve transfers for both Laya and Jev, a Jev policy fitted on DBpedia rejected 69.3% of covered Emotion inputs and an Emotion-fitted policy disabled rejection; with retrieved CLINC150 menus, more candidates raised Laya’s out-of-scope detection to 99.0% at 48.8% false rejection while Jev kept about 3% false rejection but detected 75.0%.",
       "caveats": [
-        "Small, roughly balanced samples; one replicate per candidate count.",
-        "Limited to reference-label omission; no out-of-scope generalisation claim."
+        "One checkpoint or version per model; natural-miss estimates rest on few cases at larger candidate counts.",
+        "Discovery-stage results (TREC native rejection) are kept separately in the appendix."
       ],
       "survey_use": "Evidence for the cross-cutting findings it is linked to.",
       "topics": [
@@ -14577,38 +14580,49 @@
         {
           "model": "Jev",
           "version": "jev-1.13.0"
+        },
+        {
+          "model": "Qwen2.5-7B-Instruct",
+          "version": null,
+          "reason": "not_reported"
         }
       ],
       "study_family_id": null,
       "openness": {
         "code": {
-          "status": "not_located"
+          "status": "available",
+          "note": "Benchmark code, frozen requests, recorded predictions and scoring outputs.",
+          "url": "https://github.com/luckykevvv/Decision_Model_Benchmark"
         },
         "weights": {
           "status": "not_applicable"
         },
         "data": {
-          "status": "not_located"
+          "status": "available",
+          "note": "Reconstruction indices for pinned public sources."
         },
         "predictions": {
-          "status": "not_located"
+          "status": "available",
+          "note": "Recorded predictions support offline recomputation."
         },
         "recomputable": {
-          "status": "no"
+          "status": "available"
         },
         "reproduction": {
           "status": "not_attempted"
         }
       },
-      "evidence_locator": "Abstract; §§4–7; §9",
+      "evidence_locator": "Abstract; §§3–5 (Figure 2, Tables 2, 4–6); Appendix E",
       "priority": "P1",
       "review_depth": "full_text_and_selected_tables",
       "background_group": null,
       "role": null,
       "claims": [
+        "c-03387-transfer",
+        "c-03387-retrieval",
         "c-03387-coverage"
       ],
-      "abstract": "Typed decision models return choices or distributions over answer options supplied at request time. Accuracy with complete options does not establish whether a model recognizes that a reference answer is missing or avoids rejecting valid candidates. We present a paired candidate-coverage benchmark protocol and an initial evaluation of Laya and Jev across AG News, DBpedia, Emotion, and TREC. The models receive identical frozen texts and requests: 300 calibration and 589 test texts yield 23,932 predictions per model. Present/absent pairs match ordinary candidate count, and name variants preserve descriptions, members, and order. Native rejection behavior differs sharply: at five TREC candidates with natural names, Laya detects 97.2% of missing-answer cases but falsely rejects 69.7% of present controls; Jev's rates are 24.8% and 0.0%. Calibration-only none-score thresholds change these rates to 33.9%/3.7% and 45.0%/1.8%, respectively. On DBpedia, Jev's high coverage-score AUROC supports a stronger operating point, whereas both models have weak complete-set accuracy on Emotion. Competence-conditioned analysis, probability-precision sensitivity, and interface audits show why classification, score ranking, and rejection policies need separate measurement. This initial benchmark is descriptive and limited to reference-label omission; it does not establish natural out-of-scope generalization, causal mechanisms, or a new rejection method."
+      "abstract": "Rejection policies must remain useful as candidate sets and tasks change. We compare Laya, Jev and Qwen2.5-7B-Instruct using public reference labels, testing Laya/Jev policy transfer at equal calibration budgets and all three models on artificial omission, natural retrieval misses and public out-of-scope queries. Source calibration often fails to preserve the target operating point. A Jev policy calibrated on DBpedia rejects 69.3% of covered Emotion test inputs, while an Emotion policy loses detection entirely. Retrieval exposes a different tradeoff: with ten intent candidates, Laya detects 99.0% of out-of-scope queries but rejects 48.8% of covered queries. Separating missing-answer sources reveals these costs alongside retrieval coverage. The benchmark provides shared inputs, explicit decision and failure categories, and reproducible scoring to assess rejection policies under the conditions in which they are reused. Code and benchmark artifacts are available at https://github.com/luckykevvv/Decision_Model_Benchmark."
     },
     {
       "id": "arxiv:2610.03935",
@@ -15240,17 +15254,17 @@
     {
       "id": "arxiv:2610.06625",
       "arxiv_id": "2610.06625",
-      "versioned_id": "2610.06625v1",
+      "versioned_id": "2610.06625v2",
       "doi": "",
       "title": "JEV versus LLMs: Accuracy, Cost and Calibration on Seven Political Science Replications",
       "short_title": "Political Science Replications",
       "authors": [
-        "Matthew DiGiuseppe",
-        "Steven Denney"
+        "Steven Denney",
+        "Matthew DiGiuseppe"
       ],
       "published_at": "2026-10-05T16:22:03Z",
-      "updated_at": "2026-10-05T16:22:03Z",
-      "retrieved_at": "2026-10-06",
+      "updated_at": "2026-10-06T05:45:51Z",
+      "retrieved_at": "2026-10-07",
       "year": 2026,
       "month": 10,
       "tier": "core",
@@ -15262,8 +15276,8 @@
         "cs.CL",
         "cs.CY"
       ],
-      "url": "https://arxiv.org/abs/2610.06625v1",
-      "pdf_url": "https://arxiv.org/pdf/2610.06625v1",
+      "url": "https://arxiv.org/abs/2610.06625v2",
+      "pdf_url": "https://arxiv.org/pdf/2610.06625v2",
       "bibtex_key": "arxiv2610_06625",
       "included_by": [
         "Q01_jev",
@@ -17588,6 +17602,1279 @@
       "background_group": "reviews",
       "role": "Systematises 139 paper families on semantic decision engines in network control loops: of 50 that claim to fit a control loop or time budget, four support the claim with matched measurement, and bounded tests show queueing can turn every isolated deadline hit into a miss.",
       "claims": []
+    },
+    {
+      "id": "arxiv:2610.07953",
+      "arxiv_id": "2610.07953",
+      "versioned_id": "2610.07953v1",
+      "doi": "",
+      "title": "Benchmarking System One Models in Online Moderation",
+      "short_title": "System One Moderation",
+      "authors": [
+        "Federico Mazzoni",
+        "Andrea Failla"
+      ],
+      "published_at": "2026-10-06T08:25:52Z",
+      "updated_at": "2026-10-06T08:25:52Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.SI",
+        "cs.CY"
+      ],
+      "url": "https://arxiv.org/abs/2610.07953v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.07953v1",
+      "bibtex_key": "arxiv2610_07953",
+      "included_by": [
+        "Q01_jev",
+        "Q03_system_one",
+        "Q11_recent_systemone",
+        "X03a_laya",
+        "X04_system1_model"
+      ],
+      "inclusion_reason": "Evaluates hosted Jev and the open Laya as content-moderation decision models under controlled information conditions.",
+      "relationship": "Evaluates hosted Jev and the open Laya as content-moderation decision models under controlled information conditions.",
+      "summary": "Separates written rules, retrieved precedents and restrictions on the candidate answer space across five moderation benchmarks, and tests whether Choice confidence supports selective review.",
+      "task": "Policy-violation detection with exact rule selection, and harmful-content detection.",
+      "datasets": [
+        "PluRule (six largest communities; test intersection)",
+        "HateModerate",
+        "OLID",
+        "HateXplain (offensive/normal subset)",
+        "ModerationBench (text adaptation with media captions)"
+      ],
+      "baselines": [
+        "Laya v0.3",
+        "Detoxify (five variants)",
+        "Published PluRule reference systems (GPT-5.2, Qwen3-VL 8B)"
+      ],
+      "models": [
+        "TypeSafe Jev (v1.13)",
+        "Laya v0.3"
+      ],
+      "main_finding": "With the full rule inventory held fixed, retrieved precedents raised Jev’s exact policy-selection accuracy by 12.35, 5.20 and 22.20 points on three evaluations while Laya gained little or lost; precedents raised Jev’s AUROC on OLID (.789 → .816), HateXplain (.749 → .755) and ModerationBench (.893 → .936 with Choice), and its confidence supported selective review (71.9% of ModerationBench decisions at confidence ≥ 0.8, with 94.3% accuracy), although it was not consistently calibrated.",
+      "caveats": [
+        "Two SOM implementations only; generative LLMs appear as published reference points, not under the same conditions.",
+        "ModerationBench media are replaced by machine-generated captions."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "classification",
+        "calibration",
+        "selective-control",
+        "open-models"
+      ],
+      "stages": [
+        "contract",
+        "probability",
+        "control"
+      ],
+      "method_families": [
+        "hosted_service",
+        "encoder_head"
+      ],
+      "applications": [
+        "safety-alignment",
+        "classification-tasks"
+      ],
+      "model_relationship": [
+        "commercial_jev",
+        "independent_jev_like"
+      ],
+      "test_level": "model_test",
+      "model_versions": [
+        {
+          "model": "Jev",
+          "version": "jev-1.13",
+          "note": "Reported as Jev v1.13."
+        },
+        {
+          "model": "Laya",
+          "version": "0.3"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "available",
+          "note": "Code and prompts.",
+          "url": "https://github.com/FedericoMz/som-moderation-benchmark"
+        },
+        "weights": {
+          "status": "not_applicable"
+        },
+        "data": {
+          "status": "available",
+          "note": "Public benchmarks; captions generated by the authors."
+        },
+        "predictions": {
+          "status": "not_located"
+        },
+        "recomputable": {
+          "status": "partial"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §§3–5 (Tables 2–8)",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-07953-precedents",
+        "c-07953-confidence"
+      ],
+      "abstract": "Online moderation systems must apply changing platform policies, community rules, and prior decisions while producing decisions that can be audited and routed to human review. We evaluate whether System One Models, which accept natural-language context but return typed choices, probabilities, or scores, can support this setting. Across five moderation benchmarks, Jev is competitive with specialized reference systems, matching or exceeding them in several policy-grounded and harmful-content settings. We then use controlled information conditions to separate written rules, retrieved precedents, and restrictions on the candidate answer space. Jev generally benefits from retrieved precedents, improving exact policy selection and harmful-content discrimination when the answer space is held fixed. Laya is less consistent: retrieval often shifts its positive prediction rate or no-violation rate without improving discrimination. Jev confidence can support selective review in several settings, although it is not consistently calibrated; Laya confidence is less useful for ranking errors. These results show a promising future for SOM-powered content moderation."
+    },
+    {
+      "id": "arxiv:2610.07716",
+      "arxiv_id": "2610.07716",
+      "versioned_id": "2610.07716v1",
+      "doi": "",
+      "title": "Readout Stability in Prefill-Only Decision Models:Zero-Label Prediction and Inference-Time Compute Allocation",
+      "short_title": "Readout Stability",
+      "authors": [
+        "Ran Li",
+        "Lei Chen"
+      ],
+      "published_at": "2026-10-06T04:10:16Z",
+      "updated_at": "2026-10-06T04:10:16Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.CL"
+      ],
+      "url": "https://arxiv.org/abs/2610.07716v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.07716v1",
+      "bibtex_key": "arxiv2610_07716",
+      "included_by": [
+        "Q01_jev",
+        "Q10_recent_decision_models",
+        "X08_decision_models_plural"
+      ],
+      "inclusion_reason": "Identifies a structural property of open prefill-only decision models and turns it into rules for spending inference-time compute.",
+      "relationship": "Identifies a structural property of open prefill-only decision models and turns it into rules for spending inference-time compute.",
+      "summary": "Shows that after a menu-only change the accuracy of a prefill-only decision model can be predicted from the cached first-pass distribution (restrict, renormalise, take the argmax), tests the property on seven open decision-model families against generative controls, and compares extra passes, re-asking, cascades and menu curation at matched cost.",
+      "task": "Candidate-menu interventions and inference-time compute allocation.",
+      "datasets": [
+        "CLINC150",
+        "AG News",
+        "DBpedia",
+        "SciQ",
+        "ARC",
+        "CommonsenseQA",
+        "OpenBookQA",
+        "MMLU",
+        "TREC",
+        "SST-5",
+        "Other classification and multiple-choice sets"
+      ],
+      "baselines": [
+        "Qwen3-4B-Instruct and Qwen3-8B (generative, next-token option scores)",
+        "Label-free accuracy estimators",
+        "Order-permuted multi-pass averaging",
+        "Re-ask schemes"
+      ],
+      "models": [
+        "Kev",
+        "Open-Jev",
+        "decider",
+        "this-that-model",
+        "Mica-4B",
+        "TinyJev",
+        "Qwen3-4B-Instruct",
+        "Qwen3-8B"
+      ],
+      "main_finding": "Across seven open decision-model families, accuracy after a menu-only change was predicted from the first pass within 4.2 points (exactly for one family), while same-scale generative models erred by 1.6–15.8 points; extra order-permuted passes cut calibration error by 67% but added almost no accuracy, a confidence cascade to a larger sibling beat every re-ask scheme at matched cost, and a 0.8B model on a curated five-candidate menu reached 95.4% on CLINC150 against 80.0% for a 4B model on all 150 labels.",
+      "caveats": [
+        "Open models only; hosted Jev was not tested.",
+        "Residuals are larger and one-sided on label spaces dense with near-duplicates."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "open-models",
+        "calibration",
+        "efficiency",
+        "selective-control",
+        "evaluation-methodology"
+      ],
+      "stages": [
+        "readout",
+        "probability",
+        "control"
+      ],
+      "method_families": [
+        "finetuned_decoder"
+      ],
+      "applications": [
+        "classification-tasks",
+        "model-routing"
+      ],
+      "model_relationship": [
+        "independent_jev_like"
+      ],
+      "test_level": "model_test",
+      "model_versions": [
+        {
+          "model": "Kev (0.8B, 4B, 9B)",
+          "version": null,
+          "reason": "not_reported"
+        },
+        {
+          "model": "Open-Jev-2B",
+          "version": null,
+          "reason": "not_reported"
+        },
+        {
+          "model": "decider (0.8B, 2B)",
+          "version": null,
+          "reason": "not_reported"
+        },
+        {
+          "model": "this-that-model",
+          "version": null,
+          "reason": "not_reported"
+        },
+        {
+          "model": "Mica-4B",
+          "version": null,
+          "reason": "not_reported"
+        },
+        {
+          "model": "TinyJev",
+          "version": null,
+          "reason": "not_reported"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "available",
+          "note": "Code and data.",
+          "url": "https://github.com/rlisml/jev-cascade"
+        },
+        "weights": {
+          "status": "not_applicable"
+        },
+        "data": {
+          "status": "available",
+          "note": "Public datasets with the released code."
+        },
+        "predictions": {
+          "status": "not_located"
+        },
+        "recomputable": {
+          "status": "partial"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §§3–6 (Tables 1–2, Figures 3–6); Limitations",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-07716-stability",
+        "c-07716-compute"
+      ],
+      "abstract": "Prefill-only decision models inspired by the Jev model score every candidate in a menu during a single forward pass and never decode, which makes one call one to two orders of magnitude cheaper than a same-scale generative language model. We show that this read-out structure comes with a testable property. When an intervention changes only the candidate menu and leaves the input text fixed, the post-intervention accuracy is already determined by the cached first-pass distribution. The estimator restricts the pass-1 probabilities to the menu, renormalizes, and reads off the argmax; it uses no labels and no second forward pass. Across seven model families, ten datasets and two task types, menu-only interventions are predicted to within 4.2 points, and for one family the prediction is exact. A probability-level variant of the same estimator errs by 21.0 points, so the property lives in the ranking rather than in the probabilities and is not recovered by calibration. Same-scale generative language models do not share the property. On those models the same estimator errs by 1.6 to 15.8 points and degrades as the model grows. The property turns inference-time compute into a decision that can be made before deployment. Uniform extra passes buy calibration but almost no accuracy; at matched cost a confidence cascade outperforms every scheme that re-asks the same model, and curating the menu beats enlarging the model, with a 0.8B model on a curated 5-candidate menu reaching 95.4% on CLINC150 against 80.0% for a 4B model on the full 150-label menu.Code and data are available at https://github.com/rlisml/jev-cascade."
+    },
+    {
+      "id": "arxiv:2610.07730",
+      "arxiv_id": "2610.07730",
+      "versioned_id": "2610.07730v1",
+      "doi": "",
+      "title": "SanSi: A Looped Typed Decision Model for System 1.5 Thinking",
+      "short_title": "SanSi",
+      "authors": [
+        "Shuyu Gan",
+        "Young-Jun Lee",
+        "Dongyeop Kang"
+      ],
+      "published_at": "2026-10-06T04:28:22Z",
+      "updated_at": "2026-10-06T04:28:22Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2610.07730v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.07730v1",
+      "bibtex_key": "arxiv2610_07730",
+      "included_by": [
+        "Q04_typed_decision",
+        "Q10_recent_decision_models",
+        "X02_decision_head",
+        "X05_typed_outputs",
+        "X08_decision_models_plural"
+      ],
+      "inclusion_reason": "Builds a looped open typed decision model and measures what looping adds, with hosted Jev as an external reference.",
+      "relationship": "Builds a looped open typed decision model and measures what looping adds, with hosted Jev as an external reference.",
+      "summary": "Turns a language model pre-trained to loop (Ouro) into a typed decision model whose option probabilities are read and trained after every loop, compares it with non-looped models trained on the same data and recipe, tests reasoning depth on program-generated tasks and uses it as a reward model for reinforcement learning.",
+      "task": "Typed decisions across classification, multi-step reasoning, uncertain evidence, long documents and knowledge questions.",
+      "datasets": [
+        "10,027 test decisions from 59 sources",
+        "Liar-chain and object-swap depth tasks",
+        "2WikiMultiHopQA (verifier case study)"
+      ],
+      "baselines": [
+        "SmolLM2-1.7B and Ouro-1.4B single pass (same recipe)",
+        "Qwen3.5-2B and Qwen3.5-4B (same recipe)",
+        "Kev-4B (released and retrained)",
+        "Hosted Jev (jev-1.13.0)"
+      ],
+      "models": [
+        "SanSi",
+        "SanSi-2.6B",
+        "Kev-4B",
+        "TypeSafe Jev (jev-1.13.0)"
+      ],
+      "main_finding": "Eight loops raised accuracy from 58.4% to 72.0% at fixed shape, data and recipe (+13.5 points), within 1.8 points of a single-pass model three times larger, and extended solvable reasoning depth beyond training; hosted Jev, not trained on these data, scored 78.9% overall but gave a hard answer to 62.8% of items whose deciding evidence had been removed and fell from 100% to chance on liar chains as the number of steps grew.",
+      "caveats": [
+        "Hosted Jev is a reference, not a controlled comparison: it was not trained on the authors’ data.",
+        "The looping gain rests on a backbone pre-trained to loop.",
+        "English test suite assembled from public datasets."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "open-models",
+        "calibration",
+        "evaluation-methodology",
+        "efficiency"
+      ],
+      "stages": [
+        "readout",
+        "probability",
+        "use"
+      ],
+      "method_families": [
+        "finetuned_decoder",
+        "hosted_service"
+      ],
+      "applications": [
+        "classification-tasks",
+        "judging"
+      ],
+      "model_relationship": [
+        "independent_jev_like",
+        "commercial_jev"
+      ],
+      "test_level": "model_test",
+      "model_versions": [
+        {
+          "model": "SanSi (Ouro-1.4B, Ouro-2.6B)",
+          "version": null,
+          "reason": "not_reported"
+        },
+        {
+          "model": "Jev",
+          "version": "jev-1.13.0"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "not_located"
+        },
+        "weights": {
+          "status": "not_located",
+          "note": "No release of the trained models was found."
+        },
+        "data": {
+          "status": "not_located"
+        },
+        "predictions": {
+          "status": "not_located"
+        },
+        "recomputable": {
+          "status": "no"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §§5–8; Appendices D, G.6; Limitations",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-07730-loops",
+        "c-07730-jev"
+      ],
+      "abstract": "Typed decision models answer a declared question without generating text: a decision head returns a probability for each of the declared options in a single forward pass. A single pass is fast, intuitive System 1 thinking. We study what lies between one pass and generated reasoning: looping, in which the same layers are recursively applied several times before one typed readout. Each loop lets the model revise its hidden state before it commits to an answer, without generating a token; we call this System 1.5 thinking. We propose SanSi, which turns a pre-trained looped language model into a typed decision model. The option probabilities are read after every loop, and every loop is trained with a proper scoring rule, so that one model serves every budget from one loop to eight in a single run. On 10,027 test decisions from 59 sources, SanSi reaches 72.0% accuracy: 13.5 points above a non-looped model of the same shape trained with the same recipe, 5.3 points above a newer non-looped model of its size, and 1.8 points below one with three times the parameters. On two depth-controlled tasks, loops extend the solvable depth beyond the depths seen in training, where the larger single-pass model fails. Used as the judge for policy optimization with reinforcement learning, without gold answers, SanSi raises the generator's F1 by 7.7 points."
+    },
+    {
+      "id": "arxiv:2610.08089",
+      "arxiv_id": "2610.08089",
+      "versioned_id": "2610.08089v1",
+      "doi": "",
+      "title": "When Plans Change Answers: Formalizing Cost-Accuracy Optimization for Semantic Queries",
+      "short_title": "Plans Change Answers",
+      "authors": [
+        "Kyoungmin Kim"
+      ],
+      "published_at": "2026-10-06T10:19:43Z",
+      "updated_at": "2026-10-06T10:19:43Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.DB",
+        "cs.AI"
+      ],
+      "url": "https://arxiv.org/abs/2610.08089v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.08089v1",
+      "bibtex_key": "arxiv2610_08089",
+      "included_by": [
+        "Q01_jev",
+        "Q10_recent_decision_models",
+        "X08_decision_models_plural"
+      ],
+      "inclusion_reason": "Formal treatment of query optimisation when semantic predicates are decided by calibrated decision models such as Jev.",
+      "relationship": "Formal treatment of query optimisation when semantic predicates are decided by calibrated decision models such as Jev.",
+      "summary": "Defines oracle semantics, physical plans as logical plans plus decision policies, output-level quality targets and a hierarchy of plan equivalence; propagates calibrated decision errors through joins by lineage, prices output error per tuple and illustrates the definitions with synthetic simulations.",
+      "task": "Cost–accuracy optimisation of semantic queries with escalation.",
+      "datasets": [
+        "Synthetic review–order join workload (simulated)"
+      ],
+      "baselines": [
+        "Fixed-threshold plans",
+        "Operator-level escalation bands (JEVDB-style)",
+        "Escalate-all"
+      ],
+      "models": [
+        "Simulated calibrated decision model"
+      ],
+      "main_finding": "Weighting each calibrated decision’s expected error by its contribution to the output predicts a plan’s output quality without labels; in simulation, plans for the same query differed by up to three orders of magnitude in cost, selection pushdown with bands calibrated on the plan’s own candidates met the output target on 62% of instances against 96% for pull-up, per-tuple prices met the target at about a fifth of the cost of the best operator-level band, and an overconfident model predicted output precision 0.981 where 0.872 was realised.",
+      "caveats": [
+        "Theory and synthetic simulation only; no Jev or LLM calls.",
+        "Assumes independent decisions and a perfect judge."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "calibration",
+        "selective-control",
+        "efficiency"
+      ],
+      "stages": [
+        "probability",
+        "control",
+        "use"
+      ],
+      "method_families": [
+        "hosted_service"
+      ],
+      "applications": [
+        "data-systems"
+      ],
+      "model_relationship": [
+        "downstream_system"
+      ],
+      "test_level": "simulation",
+      "model_versions": [
+        {
+          "model": "Simulated calibrated decision model",
+          "version": null,
+          "note": "No model was queried.",
+          "reason": "not_reported"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "not_located",
+          "note": "The paper names a simulation script but gives no public link."
+        },
+        "weights": {
+          "status": "not_applicable"
+        },
+        "data": {
+          "status": "not_applicable"
+        },
+        "predictions": {
+          "status": "not_located"
+        },
+        "recomputable": {
+          "status": "no"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §§4–9 (Tables 5–7, Figures 5–7); Limitations",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-08089-plans"
+      ],
+      "abstract": "In semantic query engines, predicates are evaluated by machine-learned models, and the choice of a query plan affects not only the cost of a query but also its result. Existing systems either apply a fixed threshold to each semantic operator or tune accuracy per operator, without accounting for how errors propagate through joins. We give a formal problem definition for cost-accuracy optimization of such queries. Our starting point is the calibrated confidence that decision models such as Jev attach to each decision. It yields an expected error for every decision; weighting these errors by each decision's contribution to the output (in the simplest case, its fan-out) gives the expected output quality of a plan without any labeled data, and the same computation in reverse turns an output-level accuracy target into a price on each base or intermediate tuple. Building on this, we define an oracle semantics for relational algebra with semantic operators, physical plans as pairs of a logical plan and a decision policy, declarative output-level targets, and a hierarchy of plan equivalence. We show that accuracy is plan-invariant under pointwise-deterministic policies, and that selection pushdown is not quality-sound when escalation bands are calibrated on the plan's own candidates. Expected quality can be computed in polynomial time under bag semantics; under set semantics it follows the dichotomy of tuple-independent probabilistic databases when every relation carries a semantic predicate. Choosing which tuples to drop is NP-hard, while the optimization problem decomposes into per-tuple decisions through two Lagrange multipliers. Simulations on a synthetic workload illustrate these effects; an evaluation on real engines is left for future work."
+    },
+    {
+      "id": "arxiv:2610.07327",
+      "arxiv_id": "2610.07327",
+      "versioned_id": "2610.07327v1",
+      "doi": "",
+      "title": "SharedKV-BT: Node-Local Typed Decisions for Behavior-Tree Agents",
+      "short_title": "SharedKV-BT",
+      "authors": [
+        "Naoki Wake",
+        "Justin Wagle"
+      ],
+      "published_at": "2026-10-05T19:59:12Z",
+      "updated_at": "2026-10-05T19:59:12Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.RO",
+        "cs.CL"
+      ],
+      "url": "https://arxiv.org/abs/2610.07327v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.07327v1",
+      "bibtex_key": "arxiv2610_07327",
+      "included_by": [
+        "Q04_typed_decision",
+        "Q10_recent_decision_models"
+      ],
+      "inclusion_reason": "Combines a Jev-style typed-decision interface over an open decoder with behaviour-tree control for robot and computer-use agents.",
+      "relationship": "Combines a Jev-style typed-decision interface over an open decoder with behaviour-tree control for robot and computer-use agents.",
+      "summary": "Each active behaviour-tree node exposes only its stage’s fields and candidates; an open decoder scores complete candidates in parallel from a shared KV cache; external postconditions, not the model, decide progression and completion.",
+      "task": "Typed action decisions for robot manipulation, navigation and computer-use agents.",
+      "datasets": [
+        "Robosuite (Stack, PickPlace, NutAssemblySquare, Door)",
+        "RoboCasa NavigateKitchen",
+        "WindowsAgentArena (Clock, Notepad, File Explorer)"
+      ],
+      "baselines": [
+        "Prompt-matched constrained autoregressive decoding",
+        "Unconstrained generation",
+        "Global-interface Shared-KV",
+        "Flat execution without stage gating"
+      ],
+      "models": [
+        "Qwen2.5-3B-Instruct",
+        "Qwen3-4B"
+      ],
+      "main_finding": "Exposing only the current node’s candidates raised correct joint typed decisions from 90/120 to 113/120 and closed-loop four-object completion from 0/30 to 18/30; prefix reuse alone cut decision latency 1.29–2.09-fold, and stage gating with external postconditions prevented out-of-order actions and premature completion, but an explicit ABSTAIN option rejected 28/30 invalid menus while choosing correctly in only 17/30 valid ones.",
+      "caveats": [
+        "Open Qwen2.5-3B (and Qwen3-4B) readout; hosted Jev was not used.",
+        "Simulated robots and a small number of computer-use runs."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "agents",
+        "efficiency",
+        "structured-output",
+        "robustness"
+      ],
+      "stages": [
+        "contract",
+        "control",
+        "use"
+      ],
+      "method_families": [
+        "frozen_decoder_readout"
+      ],
+      "applications": [
+        "agent-control",
+        "embodied-and-games"
+      ],
+      "model_relationship": [
+        "independent_jev_like",
+        "downstream_system"
+      ],
+      "test_level": "system_test",
+      "model_versions": [
+        {
+          "model": "Qwen2.5-3B-Instruct",
+          "version": null,
+          "note": "Open model; complete-candidate scoring.",
+          "reason": "not_reported"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "not_located"
+        },
+        "weights": {
+          "status": "not_applicable"
+        },
+        "data": {
+          "status": "not_located"
+        },
+        "predictions": {
+          "status": "not_located"
+        },
+        "recomputable": {
+          "status": "no"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §§III–VI (Table I, Figures 3–4)",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-07327-nodes",
+        "c-07327-abstain"
+      ],
+      "abstract": "Agent tasks require sequences of interdependent decisions. Autoregressive models support more flexible decision interfaces than conventional classifiers but incur the latency of token-by-token generation. Recent shared-prefix methods reduce this cost by reusing encoded context and scoring multiple decisions in parallel, but do not model decision dependencies or verify execution. We propose SharedKV-BT, where each active node of a behavior tree (BT) exposes stage-local fields and candidates, and Shared-KV scores the candidates in parallel and passes the selected decision to a separate execution system. We tested SharedKV-BT on robot manipulation, mobile navigation, and computer-use tasks. Across three tasks, SharedKV-BT made typed decisions 2.36-4.15 times faster than prompt-matched autoregressive decoding. On the manipulation task, node-local Shared-KV improved joint decision accuracy from 75% to 94% and closed-loop success from 0% to 60%. Fixed-score policy replay showed that stage gating prevented out-of-order actions and external postconditions prevented premature completion."
+    },
+    {
+      "id": "arxiv:2610.07177",
+      "arxiv_id": "2610.07177",
+      "versioned_id": "2610.07177v1",
+      "doi": "",
+      "title": "CLM-as-a-Judge: Evaluating an Open Contrastive Decision Model on Public Judge Benchmarks",
+      "short_title": "CLM-as-a-Judge",
+      "authors": [
+        "Gowthamkumar Nandakishore"
+      ],
+      "published_at": "2026-10-05T18:01:37Z",
+      "updated_at": "2026-10-05T18:01:37Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "url": "https://arxiv.org/abs/2610.07177v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.07177v1",
+      "bibtex_key": "arxiv2610_07177",
+      "included_by": [
+        "Q10_recent_decision_models",
+        "X06_confidence_gating",
+        "X08_decision_models_plural"
+      ],
+      "inclusion_reason": "Preregistered evaluation of an open contrastive System One model (CLM-v0.1-8B) and Laya as judges.",
+      "relationship": "Preregistered evaluation of an open contrastive System One model (CLM-v0.1-8B) and Laya as judges.",
+      "summary": "Scores CLM zero-shot and with fine-tuned heads on five preference benchmarks and one hallucination benchmark against generative, reward-model and trivial baselines under a frozen preregistration, measuring calibration, error detection, order and length bias and a confidence-gated cascade to a strong judge.",
+      "task": "Judging: pairwise and best-of-four preference, hallucination detection.",
+      "datasets": [
+        "RewardBench",
+        "RewardBench 2 (best-of-four and pairs)",
+        "RM-Bench",
+        "JudgeBench",
+        "HaluEval"
+      ],
+      "baselines": [
+        "Qwen3-8B generative judge",
+        "Skywork-Reward-V2-8B reward model",
+        "Qwen3-32B strong judge (hosted)",
+        "Laya 0.3.20",
+        "Trivial baselines"
+      ],
+      "models": [
+        "Contrastive-LM CLM-v0.1-8B",
+        "Laya 0.3.20",
+        "Qwen3-8B",
+        "Skywork-Reward-V2-8B",
+        "Qwen3-32B"
+      ],
+      "main_finding": "Zero-shot CLM scored 0.351–0.593 (at chance on RM-Bench and JudgeBench, one constant label on HaluEval) while a same-size reward model reached 0.764–0.976; raw confidences were overconfident by up to +0.401 but one pooled temperature brought ECE to at most 0.062, and order flips were 0.0002 against 0.2188 for the generative judge, yet a confidence-gated cascade escalated 92.3–100% of items to the strong judge.",
+      "caveats": [
+        "Same author as the Laya reproduction (2609.33843).",
+        "Laya’s 512-token window truncates most inputs on four benchmarks."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "judging",
+        "open-models",
+        "calibration",
+        "selective-control"
+      ],
+      "stages": [
+        "readout",
+        "probability",
+        "control"
+      ],
+      "method_families": [
+        "encoder_head"
+      ],
+      "applications": [
+        "judging"
+      ],
+      "model_relationship": [
+        "independent_jev_like"
+      ],
+      "test_level": "model_test",
+      "model_versions": [
+        {
+          "model": "CLM-v0.1-8B",
+          "version": null,
+          "note": "Pinned by revision hash in the ancillary files.",
+          "reason": "not_reported"
+        },
+        {
+          "model": "Laya",
+          "version": "0.3.20"
+        }
+      ],
+      "study_family_id": "nandakishore-2026",
+      "openness": {
+        "code": {
+          "status": "available",
+          "note": "Preregistration, pins, manifests and metric code in the arXiv ancillary files.",
+          "url": "https://arxiv.org/src/2610.07177v1/anc"
+        },
+        "weights": {
+          "status": "not_applicable"
+        },
+        "data": {
+          "status": "available",
+          "note": "Public benchmarks, pinned."
+        },
+        "predictions": {
+          "status": "available",
+          "note": "Per-item predictions released."
+        },
+        "recomputable": {
+          "status": "available"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §§3–7 (Tables 2–4)",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-07177-judge",
+        "c-07177-calibration"
+      ],
+      "abstract": "An open contrastive decision model is near chance as a judge on the hard public benchmarks: Contrastive-LM/CLM-v0.1-8B scores between 0.351 (best- of-four, chance 0.250) and 0.593 (pairwise, chance 0.500), is statistically indistinguishable from coin flipping on RM-Bench and JudgeBench, and answers every HaluEval item with one constant label, matching the trivial always-first baseline at 0.581. Judges with the same parameter count score far higher everywhere: a reward model reaches 0.764 to 0.976 and a generative judge 0.611 to 0.778, and every gap to CLM is significant after Benjamini-Hochberg correction. Two properties do work. Raw confidences are overconfident by up to +0.401, yet one pooled temperature fit on held-out calibration items repairs expected calibration error to at most 0.062, and the repaired confidence ranks the model's own errors above chance on three of six benchmarks. The decision order-flip rate is 0.0002 against 0.2188 for the generative judge, and the length-preference shift is -0.023 against -0.217. The confidence-gated cascade, however, escalates between 0.923 and 1.000 of items to the strong judge at the preregistered 0.97 retention bar: calibrated confidence about a near-chance judge has almost nothing to keep. The design: five public preference benchmarks and one hallucination benchmark with real labels, scored under a preregistration frozen before any test item was seen, against generative, reward-model, and trivial baselines, with per-item predictions released."
+    },
+    {
+      "id": "arxiv:2610.07019",
+      "arxiv_id": "2610.07019",
+      "versioned_id": "2610.07019v1",
+      "doi": "",
+      "title": "Calibrated Answers About Randomized Trials From a 4-Billion-Parameter Open Model: A Registered Test and a License-Clean Release",
+      "short_title": "Fiorillo",
+      "authors": [
+        "Johann Emmanuel Li"
+      ],
+      "published_at": "2026-10-04T15:09:39Z",
+      "updated_at": "2026-10-04T15:09:39Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.CL",
+        "cs.LG"
+      ],
+      "url": "https://arxiv.org/abs/2610.07019v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.07019v1",
+      "bibtex_key": "arxiv2610_07019",
+      "included_by": [
+        "Q10_recent_decision_models",
+        "X02_decision_head"
+      ],
+      "inclusion_reason": "Registered test and licence-clean release of a 4B open typed-decision model for questions about randomised trials.",
+      "relationship": "Registered test and licence-clean release of a 4B open typed-decision model for questions about randomised trials.",
+      "summary": "Fine-tunes Qwen3-4B-Base with LoRA and the Laya decision head on licence-clean Evidence Inference articles, decides the release by four criteria registered on OSF before test predictions, runs reading checks (no article, title only, arms exchanged) and tests handing uncertain answers to a larger model.",
+      "task": "Evidence Inference 2.0: the direction of a trial’s effect on an outcome.",
+      "datasets": [
+        "Evidence Inference 2.0 (1,218 test prompts in 333 articles)",
+        "PubMedQA",
+        "Hospital readmission (UCI)"
+      ],
+      "baselines": [
+        "Gemma 4 31B-it on the same input",
+        "Class prior",
+        "Fiorillo v0.4"
+      ],
+      "models": [
+        "Fiorillo v0.5 (Qwen3-4B-Base, LoRA, Laya decision head)",
+        "Gemma 4 31B-it"
+      ],
+      "main_finding": "All four criteria registered before test predictions passed: ECE 0.0168 (limit 0.05), log loss below Gemma 4 31B-it by 0.1829 and macro-F1 0.9248 against 0.8668; reading checks showed macro-F1 0.4384 without the article, a gain from the title alone, and only 66.5% of direction answers reversed when intervention and comparator were exchanged.",
+      "caveats": [
+        "EI test labels are public, so no evaluation of EI can be blind (author).",
+        "One question type; a research model, not for clinical use."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "open-models",
+        "calibration",
+        "evaluation-methodology"
+      ],
+      "stages": [
+        "readout",
+        "probability"
+      ],
+      "method_families": [
+        "finetuned_decoder"
+      ],
+      "applications": [
+        "health-and-medicine"
+      ],
+      "model_relationship": [
+        "independent_jev_like"
+      ],
+      "test_level": "model_test",
+      "model_versions": [
+        {
+          "model": "Fiorillo",
+          "version": "v0.5"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "available",
+          "note": "Code, results files and paper sources.",
+          "url": "https://github.com/johann-e-li/fiorillo"
+        },
+        "weights": {
+          "status": "available",
+          "note": "Apache-2.0, DOI 10.57967/hf/10722.",
+          "url": "https://huggingface.co/johanneli/fiorillo-v0.5"
+        },
+        "data": {
+          "status": "available",
+          "note": "Public benchmarks; licence-clean article list."
+        },
+        "predictions": {
+          "status": "partial",
+          "note": "Results files in the repository."
+        },
+        "recomputable": {
+          "status": "partial"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §§5–10",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-07019-registered",
+        "c-07019-reading"
+      ],
+      "abstract": "Fiorillo v0.5 is an open model that answers typed questions with a probability for each answer. Its main specialist reads a randomized trial's article, cut to 6,144 tokens, and answers whether an intervention significantly increased, significantly decreased or did not significantly change an outcome against a comparator (Evidence Inference 2.0, EI). It is Qwen3-4B-Base with low-rank adapters and a decision head, fine-tuned for EI only on the 1,431 of 2,657 training articles whose own license allows reuse. Four criteria registered on the Open Science Framework before this version's test predictions decided its release, the second bar judged on EI's test split, whose labels are public. On that split (1,218 prompts in 333 articles), the expected calibration error was 0.0168 against a limit of 0.05; log loss was below the prior's by 0.8603 (95 percent interval 0.8104 to 0.9078) and below that of Gemma 4 31B-it, reading the same input, by 0.1829 (0.1164 to 0.2598); and macro-F1 was 0.9248 against 0.8668, so all four criteria passed. Training the same recipe on clean articles alone cost 0.0123 in accuracy (0.0034 to 0.0207; descriptive). With no article, macro-F1 fell to 0.4384; the title alone raised it by 0.0939 (0.0655 to 0.1234), which a title stating the result or recall of the trial could explain; exchanging intervention and comparator reversed 0.6652 of its direction answers. Run as released, the files matched the evaluated predictions within limits set in advance. The release is under the Apache License 2.0 (digital object identifier 10.57967/hf/10722)."
+    },
+    {
+      "id": "arxiv:2610.06985",
+      "arxiv_id": "2610.06985",
+      "versioned_id": "2610.06985v1",
+      "doi": "",
+      "title": "CrystalJev: thinking fast and slow with atomistic foundation models for materials discovery",
+      "short_title": "CrystalJev",
+      "authors": [
+        "Peng Kang",
+        "Zhen Li",
+        "Yu Liu",
+        "Lei Zheng",
+        "Huibin Xu"
+      ],
+      "published_at": "2026-10-04T06:20:21Z",
+      "updated_at": "2026-10-04T06:20:21Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cond-mat.mtrl-sci",
+        "cs.AI",
+        "physics.comp-ph"
+      ],
+      "url": "https://arxiv.org/abs/2610.06985v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.06985v1",
+      "bibtex_key": "arxiv2610_06985",
+      "included_by": [
+        "Q10_recent_decision_models"
+      ],
+      "inclusion_reason": "Applies the typed-decision contract of System One models to atomistic foundation models for materials discovery.",
+      "relationship": "Applies the typed-decision contract of System One models to atomistic foundation models for materials discovery.",
+      "summary": "Small heads on one unrelaxed forward pass of a frozen interatomic potential answer typed questions with probabilities calibrated on a small random slice, conformal procedures give finite-sample guarantees, and a value-of-information rule decides when a relaxation or a DFT calculation is worth its cost.",
+      "task": "Materials-discovery decisions: crystal stability and electronic, mechanical and molecular properties.",
+      "datasets": [
+        "Matbench Discovery (MP reference set and WBM candidates; 65 models)",
+        "Registered prospective test with new DFT calculations"
+      ],
+      "baselines": [
+        "Each potential’s relax-and-threshold practice, recalibrated on the same slice"
+      ],
+      "models": [
+        "ORB-v3",
+        "MACE-MP-0",
+        "CHGNet",
+        "MatterSim",
+        "Other frozen potentials"
+      ],
+      "main_finding": "For MACE-MP-0 and CHGNet, one calibrated unrelaxed pass decided stability better than recalibrated relax-and-threshold (log-loss 0.191 against 0.247 and 0.196 against 0.266) at about a thirtieth of the cost, and slightly worse for four newer potentials; in a registered prospective test, single-pass forecasts calibrated only on existing data over-stated the stable fraction of unseen candidates (5.8%) by 0.8–2.1 points, with AUROC 0.965–0.982.",
+      "caveats": [
+        "Not a language model and no Jev calls: the typed-decision contract is applied to frozen interatomic potentials.",
+        "Code and data are to be released on publication."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "calibration",
+        "selective-control",
+        "efficiency"
+      ],
+      "stages": [
+        "probability",
+        "control"
+      ],
+      "method_families": [
+        "encoder_head"
+      ],
+      "applications": [
+        "scientific-workflow"
+      ],
+      "model_relationship": [
+        "independent_jev_like"
+      ],
+      "test_level": "model_test",
+      "model_versions": [
+        {
+          "model": "Frozen interatomic potentials (ORB-v3, MACE-MP-0, CHGNet, MatterSim and others)",
+          "version": null,
+          "reason": "not_reported"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "not_located",
+          "note": "The authors state that code will be released on publication."
+        },
+        "weights": {
+          "status": "not_located",
+          "note": "Trained heads to be released on publication."
+        },
+        "data": {
+          "status": "partial",
+          "note": "Matbench Discovery is public; the new DFT calculations are to be released on publication."
+        },
+        "predictions": {
+          "status": "not_located"
+        },
+        "recomputable": {
+          "status": "no"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; Results (Figures 2–6, Extended Data Table 1); Discussion",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-06985-single",
+        "c-06985-prospective"
+      ],
+      "abstract": "Atomistic foundation models triage millions of hypothetical materials but are used as slow simulators, their thresholded energies taken at face value. They are better read as fast decision-makers. CrystalJev queries a frozen interatomic potential once per unrelaxed structure and answers typed questions with calibrated probabilities, finite-sample guarantees and a rule for when to think slowly. Across 65 Matbench Discovery models, a 'stable' call is a probability in disguise, explained by a model's errors and the candidate population. Once trained, one forward pass decides nearly as well as a relaxation at a thirtieth of its cost, and a value-of-information theory sends slower computation only where decisions can change. The same layer answers electronic, mechanical and molecular questions. In a registered prospective test with 700 new density-functional calculations, single-pass forecasts calibrated only on existing data over-stated the stable fraction of unseen candidates (5.8%) by at most 2.1 percentage points."
+    },
+    {
+      "id": "arxiv:2610.08155",
+      "arxiv_id": "2610.08155",
+      "versioned_id": "2610.08155v1",
+      "doi": "",
+      "title": "Token-Efficient Multi-Agent Collaboration via System One-Guided Computational Division of Labor",
+      "short_title": "S1-MAS",
+      "authors": [
+        "Zihan Zhou",
+        "Xinzhe Hu",
+        "Hanxu Yang",
+        "Liangjian Wen",
+        "Zhao Kang"
+      ],
+      "published_at": "2026-10-06T11:11:05Z",
+      "updated_at": "2026-10-06T11:11:05Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.MA",
+        "cs.AI"
+      ],
+      "url": "https://arxiv.org/abs/2610.08155v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.08155v1",
+      "bibtex_key": "arxiv2610_08155",
+      "included_by": [
+        "Q11_recent_systemone",
+        "X04_system1_model"
+      ],
+      "inclusion_reason": "Multi-agent framework that hands bounded coordination decisions to an open System One model.",
+      "relationship": "Multi-agent framework that hands bounded coordination decisions to an open System One model.",
+      "summary": "Laya decides what to inspect, which task to run next and when to stop, a small reader localises evidence, and GPT-4o workers do the open-ended reasoning; compared with twelve training-free baselines and ablated against random and GPT-based coordination.",
+      "task": "Multi-agent coordination for reasoning, knowledge QA, code generation and web QA.",
+      "datasets": [
+        "MMLU",
+        "GSM8K",
+        "AQuA",
+        "MultiArith",
+        "SVAMP",
+        "HumanEval",
+        "WebSRC"
+      ],
+      "baselines": [
+        "AgentVerse",
+        "DyLAN",
+        "SelfOrg",
+        "MACNET",
+        "MAD-M2(S)",
+        "Fixed topologies (chain, tree, complete, random)",
+        "Vanilla, CoT and SC-CoT"
+      ],
+      "models": [
+        "Laya (System One controller)",
+        "Qwen3-0.6B (reader)",
+        "GPT-4o and GPT-4o-mini (workers)"
+      ],
+      "main_finding": "S1-MAS reached the highest mean accuracy on six benchmarks (macro-average 93.97%, 0.85 points above DyLAN) while cutting GPT-4o tokens by 78.3–94.0% and latency by 58.2–91.7% against five multi-agent baselines; in ablation, Laya’s coordination decisions beat random choices from the same legal menus by only 1.83 points but matched a GPT-4o-mini controller’s accuracy with 75.5% fewer GPT tokens.",
+      "caveats": [
+        "Gains combine the framework’s task construction, budgets and early stopping with the System One decisions.",
+        "No code release located."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "agents",
+        "efficiency",
+        "routing"
+      ],
+      "stages": [
+        "control",
+        "use"
+      ],
+      "method_families": [
+        "encoder_head"
+      ],
+      "applications": [
+        "agent-control"
+      ],
+      "model_relationship": [
+        "downstream_system",
+        "independent_jev_like"
+      ],
+      "test_level": "system_test",
+      "model_versions": [
+        {
+          "model": "Laya",
+          "version": null,
+          "note": "Hugging Face revision 1c5edc17 cited.",
+          "reason": "not_reported"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "not_located"
+        },
+        "weights": {
+          "status": "not_applicable"
+        },
+        "data": {
+          "status": "not_located"
+        },
+        "predictions": {
+          "status": "not_located"
+        },
+        "recomputable": {
+          "status": "no"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §5 (Tables 1–4, Figure 3)",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-08155-mas"
+      ],
+      "abstract": "Large language model (LLM)-based multi-agent systems (MAS) have become a promising paradigm for complex information-seeking and reasoning tasks by enabling collaborative problem solving among specialized agents. However, existing MAS frameworks tightly couple task reasoning with coordination operations, including task selection, role assignment, message routing, and context management. As interactions grow, using powerful LLMs for these bounded control decisions introduces substantial token overhead and latency, limiting the scalability of agentic Web services. In this paper, we investigate whether coordination can be decoupled from expensive reasoning without compromising collaborative performance. We propose S1-MAS, a token-efficient multi-agent framework based on System One-guided computational division of labor. S1-MAS assigns bounded coordination decisions to lightweight System One models while reserving open-ended reasoning for capable LLM workers. Specifically, a lightweight controller selects inspection conditions, chooses subsequent tasks, and determines termination, while a compact reader retrieves condition-relevant evidence from authorized sources to support these decisions. Through a decision-evidence loop, selected tasks dynamically determine worker roles and source access, enabling adaptive collaboration without task-specific training. Extensive experiments on seven diverse benchmarks demonstrate that S1-MAS achieves superior accuracy while substantially reducing the inference cost. Across individual comparisons with AgentVerse, DyLAN, and SelfOrg on seven benchmarks, S1-MAS reduces GPT-4o token consumption by 44.9%-97.2% and measured end-to-end latency by 37.8%-93.0%. These results highlight its potential for scalable and cost-effective agentic Web applications."
+    },
+    {
+      "id": "arxiv:2610.08775",
+      "arxiv_id": "2610.08775",
+      "versioned_id": "2610.08775v1",
+      "doi": "",
+      "title": "Agent in a Bottle: Can LLM Agents Turn Their Capabilities Into Cheap, Scalable Artifacts?",
+      "short_title": "BOTTLED",
+      "authors": [
+        "Ankit Sonthalia",
+        "Haritz Puerto",
+        "Alexander Rubinstein",
+        "Martin Gubri",
+        "Seong Joon Oh"
+      ],
+      "published_at": "2026-10-06T17:57:19Z",
+      "updated_at": "2026-10-06T17:57:19Z",
+      "retrieved_at": "2026-10-07",
+      "year": 2026,
+      "month": 10,
+      "tier": "core",
+      "publication_type": "preprint",
+      "venue": "arXiv",
+      "venue_source": "arxiv_metadata",
+      "venue_verified_at": null,
+      "categories": [
+        "cs.AI"
+      ],
+      "url": "https://arxiv.org/abs/2610.08775v1",
+      "pdf_url": "https://arxiv.org/pdf/2610.08775v1",
+      "bibtex_key": "arxiv2610_08775",
+      "included_by": [
+        "Q11_recent_systemone",
+        "X04_system1_model"
+      ],
+      "inclusion_reason": "Benchmark of LLM agents that turn a whole workload into a cheaper reusable solution, with hosted Jev as a zero-shot comparator.",
+      "relationship": "Benchmark of LLM agents that turn a whole workload into a cheaper reusable solution, with hosted Jev as a zero-shot comparator.",
+      "summary": "Agents receive an unlabelled workload and fixed time, compute and API budgets and must deliver a reusable solution (for example a trained small model or a program); results are compared with zero-shot LLM inference, small-model distillation and zero-shot hosted Jev on the classification tasks.",
+      "task": "Amortising narrow repetitive workloads: attribute extraction, query–product relevance and AI-text detection.",
+      "datasets": [
+        "MAVE",
+        "ESCI",
+        "RAID"
+      ],
+      "baselines": [
+        "Zero-shot LLM inference (ten models)",
+        "Small-model distillation baselines",
+        "Hosted Jev (jev-1.13.0), ESCI and RAID only"
+      ],
+      "models": [
+        "TypeSafe Jev (jev-1.13.0)",
+        "Ten LLM agents (including Opus 5 and Gemini 3.1 Pro)"
+      ],
+      "main_finding": "Strong zero-shot models did not reliably bottle (48 of 60 runs fell below their model’s zero-shot interval), but bottling could be far cheaper; against zero-shot Jev on 1,000-item samples, an Opus 5 solution reached 94% of Jev’s ESCI macro-F1 (0.499 against 0.531) at about a quarter of Jev’s projected full-workload cost, and a Gemini 3.1 Pro solution 97% of Jev’s RAID AUROC (0.822 against 0.846) at about 2% of its cost.",
+      "caveats": [
+        "Jev’s cost is projected from a 1,000-item sample to the full workload.",
+        "Jev cannot answer the generative MAVE task."
+      ],
+      "survey_use": "Evidence for the cross-cutting findings it is linked to.",
+      "topics": [
+        "efficiency",
+        "agents",
+        "evaluation-methodology"
+      ],
+      "stages": [
+        "use"
+      ],
+      "method_families": [
+        "hosted_service"
+      ],
+      "applications": [
+        "workflow-decisions",
+        "classification-tasks"
+      ],
+      "model_relationship": [
+        "commercial_jev"
+      ],
+      "test_level": "model_test",
+      "model_versions": [
+        {
+          "model": "Jev",
+          "version": "jev-1.13.0"
+        }
+      ],
+      "study_family_id": null,
+      "openness": {
+        "code": {
+          "status": "available",
+          "note": "Harness, prompts, evaluation code and baselines.",
+          "url": "https://github.com/aktsonthalia/bottled"
+        },
+        "weights": {
+          "status": "not_applicable"
+        },
+        "data": {
+          "status": "available",
+          "note": "Public datasets."
+        },
+        "predictions": {
+          "status": "not_located"
+        },
+        "recomputable": {
+          "status": "partial"
+        },
+        "reproduction": {
+          "status": "not_attempted"
+        }
+      },
+      "evidence_locator": "Abstract; §4 (Figure 3); Appendix E",
+      "priority": "P1",
+      "review_depth": "full_text_and_selected_tables",
+      "background_group": null,
+      "role": null,
+      "claims": [
+        "c-08775-bottled"
+      ],
+      "abstract": "Large language models (LLMs) can solve many narrow tasks, but querying them separately for millions of related instances can be prohibitively expensive. Can LLM agents autonomously create cheaper solutions for such workloads? We call this ability \"bottling\": the ability to turn general capabilities into task-specific solutions that balance answer quality and amortised cost. We introduce BOTTLED, a benchmark in which agents receive an entire unlabelled workload and must complete it under fixed time, compute and LLM API budgets. Agents choose their own approach, such as training a small model or writing a reusable program. Across ten models and three tasks, we find that strong zero-shot task performance does not reliably translate into strong bottling capabilities. Models with similar zero-shot scores can differ substantially after bottling, and 48 of 60 bottling runs score below the lower bound of the 95% confidence interval of their model's zero-shot performance. Moreover, 31 of 60 runs underperform the stronger of two small-model distillation baselines with the same token budget. Nevertheless, bottling can yield substantial savings: on query-product relevance classification, Opus 5 retains about 82% of its zero-shot macro-F1 at roughly 657 times lower reported cost. Bottling is also competitive with Jev, a \"system one\" model built especially for cheap, repetitive inference: Opus 5 on the same task recovers about 94% of Jev's macro-F1 at a quarter of Jev's projected full-workload cost. BOTTLED provides a basis for evaluating and improving agents' ability to invest limited resources in reusable solutions for large, repetitive workloads."
     }
   ]
 }

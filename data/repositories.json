@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "jev-survey/repositories@1",
-    "cutoff": "2026-10-06",
+    "cutoff": "2026-10-07",
     "note": "Implementation, evaluation and ecosystem resources, each audited at a linked commit from its README and metadata; nothing was executed."
   },
   "repositories": [
@@ -5306,6 +5306,90 @@
       "data_url": null,
       "created_at": "2026-09-17T01:10:55Z",
       "notes": null
+    },
+    {
+      "id": "gh:contrastive-lm/clm",
+      "full_name": "Contrastive-LM/CLM",
+      "url": "https://github.com/Contrastive-LM/CLM",
+      "sets": [
+        "ecosystem"
+      ],
+      "commit": "d5f9ef0fd9bde185df0ceaad4f4ecc6cfe8c34f6",
+      "commit_date": "2026-10-05T21:13:16Z",
+      "readme_url": "https://github.com/Contrastive-LM/CLM/blob/d5f9ef0fd9bde185df0ceaad4f4ecc6cfe8c34f6/README.md",
+      "accessed_at": "2026-10-07",
+      "license": "Apache-2.0",
+      "stars_at_snapshot": 2893,
+      "description": null,
+      "audit_depth": "README_metadata",
+      "readme_fetched": true,
+      "selected_source_read": [],
+      "executed": false,
+      "type": "model",
+      "summary": "Contrastive language models (CLM): a System One model with state and action heads on a frozen Qwen3-8B encoder, trained with a bidirectional InfoNCE loss and served behind a Jev-compatible API (Choice, Noul, Score) with cached state and action embeddings.",
+      "boundary": "The comparisons with Jev in the README are the maintainers’ own; an independent preregistered study found the released checkpoint near chance as a zero-shot judge (2610.07177).",
+      "method_family": "encoder_head",
+      "base_model": "Qwen3-8B (frozen encoder)",
+      "related_papers": [
+        "arxiv:2610.07177"
+      ],
+      "affiliation": "independent",
+      "availability": {
+        "code": "available",
+        "weights": "available",
+        "training_code": "partial",
+        "inference_code": "available",
+        "evaluation": "partial",
+        "data": "not_located",
+        "raw_predictions": "partial"
+      },
+      "notes": "Training code covers fine-tuning of the heads; pre-training data are described, not released.",
+      "ecosystem": "open_model",
+      "domain": null,
+      "weights_url": "https://huggingface.co/Contrastive-LM/CLM-v0.1-8B",
+      "data_url": null,
+      "created_at": "2026-09-23T19:29:56Z"
+    },
+    {
+      "id": "gh:gitchw/lct",
+      "full_name": "gitchw/LCT",
+      "url": "https://github.com/gitchw/LCT",
+      "sets": [
+        "ecosystem"
+      ],
+      "commit": "19697d6a554b1d67312ea1538691b5a3a872d8f8",
+      "commit_date": "2026-09-26T03:08:23Z",
+      "readme_url": "https://github.com/gitchw/LCT/blob/19697d6a554b1d67312ea1538691b5a3a872d8f8/README.md",
+      "accessed_at": "2026-10-07",
+      "license": "Apache-2.0",
+      "stars_at_snapshot": 6,
+      "description": "Jev-LCT: Open System-One Decision Engine with Free Calibrated Confidence from Recurrent Trajectories",
+      "audit_depth": "README_metadata",
+      "readme_fetched": true,
+      "selected_source_read": [],
+      "executed": false,
+      "type": "model",
+      "summary": "Jev-LCT: Qwen-based decision models that loop only the top two layers before a typed readout, read confidence from the loop trajectory, exit early on clear cases and serve a Jev-compatible API.",
+      "boundary": "Benchmarks are the maintainer’s 300-item set; its own table shows the looped models at or below their single-pass backbones in accuracy (for example 81.7% against 82.7% for Qwen3-8B).",
+      "method_family": "finetuned_decoder",
+      "base_model": "Qwen2.5-0.5B, Qwen2.5-1.5B, Qwen3-8B",
+      "related_papers": [],
+      "affiliation": "independent",
+      "availability": {
+        "code": "available",
+        "weights": "available",
+        "training_code": "available",
+        "inference_code": "available",
+        "evaluation": "available",
+        "data": "available",
+        "raw_predictions": "partial"
+      },
+      "notes": null,
+      "ecosystem": "open_model",
+      "domain": null,
+      "weights_url": "https://huggingface.co/CaoHaoWei",
+      "data_url": null,
+      "created_at": "2026-09-25T04:38:10Z"
     }
   ]
 }

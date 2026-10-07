@@ -12,7 +12,7 @@ from collections import Counter
 from urllib.parse import urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-VERSION = '0.3.0'  # release of the survey, data and site (keep in step with CITATION.cff and CHANGELOG.md)
+VERSION = '0.3.1'  # release of the survey, data and site (keep in step with CITATION.cff and CHANGELOG.md)
 DATA = ROOT / 'data'
 FILES = ['papers', 'claims', 'repositories', 'taxonomy', 'review-relations', 'sources', 'search-runs']
 

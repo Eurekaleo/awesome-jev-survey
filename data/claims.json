@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": "jev-survey/claims@1",
-    "cutoff": "2026-10-06",
+    "cutoff": "2026-10-07",
     "note": "Author-, vendor- or community-reported values; none independently reproduced."
   },
   "claims": [
@@ -277,7 +277,7 @@
       "id": "c-26550-quality",
       "subject": "arxiv:2609.26550",
       "claim_text": "On 1,500 RewardBench pairs Jev and GPT-6 Astra both scored 92.5%; on 3,000 HaluEval answers Jev scored 87.3% against 88.4%, and on final answers 94.0% against 96.7%. Pooled over 4,850 public judgments Jev ranked eighth of fifteen LLM judges, 1.7 points behind GPT-6, and it trailed by 6–15 points on difficult correctness and RM-Bench.",
-      "source_url": "https://arxiv.org/abs/2609.26550v3",
+      "source_url": "https://arxiv.org/abs/2609.26550v4",
       "locator": "§§5–6 (Tables 1–2)",
       "evidence_type": "author_reported_experiment",
       "reported_by": "authors",
@@ -321,7 +321,7 @@
       "id": "c-26550-fee",
       "subject": "arxiv:2609.26550",
       "claim_text": "On a 120-judgment timing panel Jev’s median latency was 0.15 s (p95 0.24 s) and its fee $0.044 per 1,000 judgments, against 1.89 s and $12.182 for GPT-6 — about 277 times cheaper and 13 times faster.",
-      "source_url": "https://arxiv.org/abs/2609.26550v3",
+      "source_url": "https://arxiv.org/abs/2609.26550v4",
       "locator": "§5 (Table 1, Figure 3)",
       "evidence_type": "author_reported_experiment",
       "reported_by": "authors",
@@ -362,7 +362,7 @@
       "id": "c-26550-cascade",
       "subject": "arxiv:2609.26550",
       "claim_text": "A two-order cascade with a threshold frozen before evaluation escalated 31% of 1,610 held-out preference pairs and beat GPT-6 alone by 0.9 points at 41% of its fee.",
-      "source_url": "https://arxiv.org/abs/2609.26550v3",
+      "source_url": "https://arxiv.org/abs/2609.26550v4",
       "locator": "§8 (Tables 3–4)",
       "evidence_type": "author_reported_experiment",
       "reported_by": "authors",
@@ -406,7 +406,7 @@
       "id": "c-26550-confidence",
       "subject": "arxiv:2609.26550",
       "claim_text": "Where Jev’s order-averaged confidence was at least 0.9, Jev and GPT-6 were nearly tied (94.7% vs 94.4% on 3,744 items); its native confidence detected errors with AUROC 0.876, 0.745 and 0.842 on RewardBench, JudgeBench and HaluEval, close to the maximum-probability values.",
-      "source_url": "https://arxiv.org/abs/2609.26550v3",
+      "source_url": "https://arxiv.org/abs/2609.26550v4",
       "locator": "§7; Appendices J–K",
       "evidence_type": "author_reported_experiment",
       "reported_by": "authors",
@@ -3131,7 +3131,7 @@
     {
       "id": "c-26550-live",
       "subject": "arxiv:2609.26550",
-      "source_url": "https://arxiv.org/abs/2609.26550v3",
+      "source_url": "https://arxiv.org/abs/2609.26550v4",
       "evidence_type": "author_reported_experiment",
       "reported_by": "authors",
       "independently_reproduced": false,
@@ -7163,8 +7163,8 @@
       "id": "c-03387-coverage",
       "subject": "arxiv:2610.03387",
       "claim_text": "With five TREC candidates and natural names, Jev detected only 24.8% of cases where the reference answer had been removed while falsely rejecting no present controls; Laya detected 97.2% but falsely rejected 69.7%; calibration-only thresholds moved Jev to 45.0% detection at 1.8% false rejection.",
-      "source_url": "https://arxiv.org/abs/2610.03387v1",
-      "locator": "Abstract; §§5–6",
+      "source_url": "https://arxiv.org/abs/2610.03387v2",
+      "locator": "Appendix E.2 (discovery stage)",
       "evidence_type": "author_reported_experiment",
       "reported_by": "authors",
       "independently_reproduced": false,
@@ -7637,7 +7637,7 @@
       "id": "c-06625-cost",
       "subject": "arxiv:2610.06625",
       "claim_text": "Across seven political-science replications, Jev matched or came close to GPT-6 Luna and Qwen3.8-27B against human coding, but had no cost advantage over GPT-6 Luna at OpenAI’s batch prices: it bills the question and every option as input, 1.2–3.3 times as many input tokens per decision as Luna, which wrote about four output tokens per answer.",
-      "source_url": "https://arxiv.org/abs/2610.06625v1",
+      "source_url": "https://arxiv.org/abs/2610.06625v2",
       "locator": "Abstract; §4",
       "evidence_type": "author_reported_experiment",
       "reported_by": "authors",
@@ -7681,7 +7681,7 @@
       "id": "c-06625-calibration",
       "subject": "arxiv:2610.06625",
       "claim_text": "When each question was asked once, Jev’s probabilities were better calibrated than GPT-6 Luna’s token probabilities but not consistently better than those of the open-weight Qwen3.8-27B.",
-      "source_url": "https://arxiv.org/abs/2610.06625v1",
+      "source_url": "https://arxiv.org/abs/2610.06625v2",
       "locator": "Abstract; §5",
       "evidence_type": "author_reported_experiment",
       "reported_by": "authors",
@@ -8473,6 +8473,849 @@
       ],
       "note": null,
       "headline": "Grading Jev with Jev’s own labels inflates its gain"
+    },
+    {
+      "id": "c-03387-transfer",
+      "subject": "arxiv:2610.03387",
+      "claim_text": "With 80 calibration pairs per source task, none-score rejection policies exceeded 5% target false rejection in six of twelve task transfers for each of Laya and Jev; a Jev policy calibrated on DBpedia rejected 69.3% of covered Emotion test inputs, and an Emotion-calibrated Jev policy disabled rejection entirely until it was recalibrated on target labels.",
+      "source_url": "https://arxiv.org/abs/2610.03387v2",
+      "locator": "§3.1 (Figure 2)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "false rejection of covered inputs after transfer (DBpedia → Emotion)",
+      "value": 0.693,
+      "unit": "fraction",
+      "baseline": null,
+      "task": "Rejection-policy transfer",
+      "sample_size": {
+        "n": null,
+        "reason": "not_reported"
+      },
+      "model": "Jev",
+      "model_version": {
+        "value": "jev-1.13.0"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_applicable_hosted"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F2",
+          "relation": "supports"
+        },
+        {
+          "id": "F1",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Two ordinary candidates and natural names in the transfer matrix."
+      ],
+      "note": null,
+      "headline": "Rejection thresholds do not travel: 69% false rejection after transfer"
+    },
+    {
+      "id": "c-03387-retrieval",
+      "subject": "arxiv:2610.03387",
+      "claim_text": "On CLINC150 with BM25-retrieved menus, raising the candidate count from two to ten raised Laya’s out-of-scope detection from 83.0% to 99.0% and its false rejection of covered queries from 15.2% to 48.8%, while Jev kept false rejection near 3% but its out-of-scope detection fell from 84.0% to 75.0% (Qwen2.5-7B: 85.0% to 63.0%); with artificial omission at five candidates, Jev detected 63.7% of missing answers.",
+      "source_url": "https://arxiv.org/abs/2610.03387v2",
+      "locator": "§3.2 (Table 2)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "out-of-scope detection with ten retrieved candidates",
+      "value": 0.75,
+      "unit": "fraction",
+      "baseline": null,
+      "task": "Retrieval misses and out-of-scope queries",
+      "sample_size": {
+        "n": 100,
+        "unit": "out-of-scope queries"
+      },
+      "model": "Jev",
+      "model_version": {
+        "value": "jev-1.13.0"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_applicable_hosted"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F1",
+          "relation": "supports"
+        },
+        {
+          "id": "F5",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Natural-miss estimates at ten candidates rest on five cases."
+      ],
+      "note": null,
+      "headline": "More candidates: Laya rejects half of covered queries, Jev misses a quarter of out-of-scope ones"
+    },
+    {
+      "id": "c-07953-precedents",
+      "subject": "arxiv:2610.07953",
+      "claim_text": "With the complete rule inventory held fixed, adding five retrieved precedents raised Jev’s exact-match moderation accuracy by 12.35 points on six large PluRule communities, 5.20 points on the PluRule test intersection and 22.20 points on HateModerate, while Laya changed by −1.4 to +1.4 points on PluRule; with Noul questions, precedents raised Jev’s AUROC on OLID from .789 to .816 but lowered Laya’s from .800 to .702.",
+      "source_url": "https://arxiv.org/abs/2610.07953v1",
+      "locator": "§4.1 (Tables 2–4); §4.2 (Table 6)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "exact-match accuracy gain from precedents (HateModerate)",
+      "value": 22.2,
+      "unit": "points",
+      "baseline": null,
+      "task": "Policy-grounded moderation",
+      "sample_size": {
+        "n": 3302,
+        "unit": "test sentences"
+      },
+      "model": "Jev",
+      "model_version": {
+        "value": "jev-1.13"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_applicable_hosted"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F5",
+          "relation": "supports"
+        },
+        {
+          "id": "F6",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Matched contrasts on public benchmarks; generative LLMs not run under the same conditions."
+      ],
+      "note": null,
+      "headline": "Precedents help Jev pick the right rule (+5 to +22 points); Laya barely moves"
+    },
+    {
+      "id": "c-07953-confidence",
+      "subject": "arxiv:2610.07953",
+      "claim_text": "Jev’s Choice confidence ranked its own errors with correctness AUC .628–.823 across five benchmarks; at confidence ≥ 0.8 it kept 45.0% of six-community PluRule decisions at 79.5% accuracy (65.1% overall) and 71.9% of ModerationBench decisions at 94.3% accuracy (86.7% overall), whereas Laya’s confidence ranked errors at AUC .560–.593 and covered 2.0–19.2% of decisions at that threshold.",
+      "source_url": "https://arxiv.org/abs/2610.07953v1",
+      "locator": "§4.3 (Table 8)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "coverage at confidence ≥ 0.8 (ModerationBench)",
+      "value": 0.719,
+      "unit": "fraction",
+      "baseline": null,
+      "task": "Selective moderation",
+      "sample_size": {
+        "n": 3689,
+        "unit": "posts"
+      },
+      "model": "Jev",
+      "model_version": {
+        "value": "jev-1.13"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_applicable_hosted"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F3",
+          "relation": "supports"
+        },
+        {
+          "id": "F2",
+          "relation": "supports"
+        },
+        {
+          "id": "F5",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "The authors note that confidence is not consistently calibrated."
+      ],
+      "note": null,
+      "headline": "Jev confidence supports selective review; Laya’s barely ranks errors"
+    },
+    {
+      "id": "c-07716-stability",
+      "subject": "arxiv:2610.07716",
+      "claim_text": "Across 91 menu-only interventions on seven open decision-model families, restricting the cached first-pass distribution to the new menu predicted post-intervention accuracy within 4.2 points (exactly for the Open-Jev family), whereas the same estimator erred by 1.6–15.8 points on same-scale generative models and a probability-level variant erred by 21.0 points.",
+      "source_url": "https://arxiv.org/abs/2610.07716v1",
+      "locator": "§4 (Table 1, Figure 3)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "maximum prediction error for menu-only interventions",
+      "value": 4.2,
+      "unit": "accuracy points",
+      "baseline": null,
+      "task": "Menu interventions",
+      "sample_size": {
+        "n": 91,
+        "unit": "interventions"
+      },
+      "model": "Open decision models",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F5",
+          "relation": "supports"
+        },
+        {
+          "id": "F8",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Open models only."
+      ],
+      "note": null,
+      "headline": "Menu changes are predictable offline for decision models, not for generative LLMs"
+    },
+    {
+      "id": "c-07716-compute",
+      "subject": "arxiv:2610.07716",
+      "claim_text": "Averaging sixteen order-permuted passes lowered expected calibration error by 67% but changed accuracy by at most 3.83 points (pooled +1.2); escalating the least-confident items from Kev-0.8B to larger siblings reached the 9B model’s single-pass accuracy at 1.0–6.3 forward units instead of 11, and on CLINC150 a 0.8B model on a curated five-candidate menu reached 95.4% against 80.0% for a 4B model on the full 150-label menu.",
+      "source_url": "https://arxiv.org/abs/2610.07716v1",
+      "locator": "§5 (Table 2, Figures 5–6)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "CLINC150 accuracy, 0.8B model on a curated five-candidate menu",
+      "value": 0.954,
+      "unit": "fraction",
+      "baseline": "4B model on the full 150-label menu (80.0%)",
+      "task": "Inference-time compute allocation",
+      "sample_size": {
+        "n": null,
+        "reason": "not_reported"
+      },
+      "model": "Kev-0.8B",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F3",
+          "relation": "supports"
+        },
+        {
+          "id": "F2",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Compute measured in forward units of the smallest model."
+      ],
+      "note": null,
+      "headline": "Extra passes buy calibration, not accuracy; escalate and curate instead"
+    },
+    {
+      "id": "c-07730-loops",
+      "subject": "arxiv:2610.07730",
+      "claim_text": "On 10,027 test decisions from 59 sources, applying the same layers eight times raised accuracy from 58.4% (a non-looped model of the same shape, data and recipe) to 72.0% at 7.7 times the computation; calibration error was lowest after three loops and rose again as confidence kept increasing on wrong answers, while detection of missing evidence improved (AUROC 0.835 → 0.935) and hard answers on evidence-removed items fell from 27.1% to 17.5%.",
+      "source_url": "https://arxiv.org/abs/2610.07730v1",
+      "locator": "§5 (Table 2, Figure 4)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "accuracy after eight loops",
+      "value": 0.72,
+      "unit": "fraction",
+      "baseline": "Same-shape single pass (58.4%)",
+      "task": "Typed decisions (mixed suite)",
+      "sample_size": {
+        "n": 10027,
+        "unit": "test decisions"
+      },
+      "model": "SanSi",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F5",
+          "relation": "supports"
+        },
+        {
+          "id": "F2",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Three training seeds; differences of one or two points on small groups need their intervals."
+      ],
+      "note": null,
+      "headline": "Looping a small decision model: +13.5 points at 7.7× compute"
+    },
+    {
+      "id": "c-07730-jev",
+      "subject": "arxiv:2610.07730",
+      "claim_text": "Queried as a reference, hosted Jev (jev-1.13.0) answered 78.9% of the 10,027 test decisions correctly but gave a hard answer to 62.8% of 382 items whose deciding evidence had been removed (evidence AUROC 0.743); on liar chains its accuracy fell from 100% at one step to 62.5% at three and stayed near chance from six steps on, while its confidence stayed above its accuracy.",
+      "source_url": "https://arxiv.org/abs/2610.07730v1",
+      "locator": "Appendix D (Table 7); Appendix G.6 (Table 31)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "hard-answer rate on evidence-removed items",
+      "value": 0.628,
+      "unit": "fraction",
+      "baseline": null,
+      "task": "Missing evidence; multi-step chains",
+      "sample_size": {
+        "n": 382,
+        "unit": "items"
+      },
+      "model": "Jev",
+      "model_version": {
+        "value": "jev-1.13.0"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_applicable_hosted"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F1",
+          "relation": "supports"
+        },
+        {
+          "id": "F9",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Single runs of the hosted model; not trained on the authors’ data."
+      ],
+      "note": null,
+      "headline": "Hosted Jev answers 63% of evidence-removed items and loses track after three steps"
+    },
+    {
+      "id": "c-08089-plans",
+      "subject": "arxiv:2610.08089",
+      "claim_text": "In synthetic simulations, plans for the same semantic join differed by up to three orders of magnitude in cost; bands calibrated on each plan’s own candidates made selection pushdown meet the output target on 62% of instances against 96% for pull-up, per-tuple prices met an output-level target at 7,164 cost units against 37,256 for the cheapest operator-level band, and an overconfident decision model predicted output precision 0.981 where 0.872 was realised.",
+      "source_url": "https://arxiv.org/abs/2610.08089v1",
+      "locator": "§9 (Tables 5–7)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "cost of meeting an output target with per-tuple prices",
+      "value": 7164,
+      "unit": "simulated cost units (best operator-level band: 37,256)",
+      "baseline": null,
+      "task": "Semantic join optimisation",
+      "sample_size": {
+        "n": null,
+        "reason": "not_reported"
+      },
+      "model": "Simulated calibrated decision model",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "simulation",
+      "measurement_scope": "simulation",
+      "findings": [
+        {
+          "id": "F6",
+          "relation": "supports"
+        },
+        {
+          "id": "F2",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Synthetic workload designed to make each effect visible."
+      ],
+      "note": null,
+      "headline": "Calibrated confidence prices query plans; overconfidence hides output errors"
+    },
+    {
+      "id": "c-07327-nodes",
+      "subject": "arxiv:2610.07327",
+      "claim_text": "In Adaptive PickPlace, exposing only the active behaviour-tree node’s fields raised correct joint skill–object decisions from 90/120 (all fields exposed) to 113/120 and closed-loop four-object completion from 0/30 to 18/30, at 128 ms against 316 ms per decision; with model scores held fixed, removing stage gating or the external postcondition let the agent act out of order or stop early in 10 of 15 saved states.",
+      "source_url": "https://arxiv.org/abs/2610.07327v1",
+      "locator": "§IV-B, §IV-C (Figure 4)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "correct joint typed decisions (node-local interface)",
+      "value": 113,
+      "unit": "of 120 saved states",
+      "baseline": null,
+      "task": "Robot manipulation",
+      "sample_size": {
+        "n": 120,
+        "unit": "saved states"
+      },
+      "model": "Qwen2.5-3B-Instruct",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "system_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F6",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Saved states repeat across seeds; counts are descriptive."
+      ],
+      "note": null,
+      "headline": "Node-local candidates: 113/120 correct decisions against 90/120"
+    },
+    {
+      "id": "c-07327-abstain",
+      "subject": "arxiv:2610.07327",
+      "claim_text": "With an explicit ABSTAIN candidate, complete-candidate scoring rejected 28 of 30 menus that contained no valid action but chose the correct action in only 17 of 30 valid menus (45/60 overall against 51/60 for autoregressive generation), and changing only the candidate order changed the selected value in 46 of 120 node-local states.",
+      "source_url": "https://arxiv.org/abs/2610.07327v1",
+      "locator": "§IV (rejection and order analyses)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "correct decisions on valid menus with ABSTAIN offered",
+      "value": 17,
+      "unit": "of 30",
+      "baseline": null,
+      "task": "Rejection when no candidate is valid",
+      "sample_size": {
+        "n": 60,
+        "unit": "held-out cases"
+      },
+      "model": "Qwen2.5-3B-Instruct",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F1",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "60 held-out cases; one open model."
+      ],
+      "note": null,
+      "headline": "ABSTAIN catches invalid menus but costs valid answers; order flips 46 of 120 picks"
+    },
+    {
+      "id": "c-07177-judge",
+      "subject": "arxiv:2610.07177",
+      "claim_text": "Zero-shot, the open contrastive decision model CLM-v0.1-8B scored 0.351–0.593 as a judge, statistically indistinguishable from chance on RM-Bench and JudgeBench and one constant label on HaluEval, while a same-size reward model reached 0.764–0.976 and a generative judge 0.611–0.778; its decisions flipped under answer-order swap at 0.0002 against 0.2188 for the generative judge.",
+      "source_url": "https://arxiv.org/abs/2610.07177v1",
+      "locator": "§4 (Table 2); §5",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "judge accuracy (best benchmark)",
+      "value": 0.593,
+      "unit": "accuracy",
+      "baseline": null,
+      "task": "Judging",
+      "sample_size": {
+        "n": 6,
+        "unit": "benchmarks"
+      },
+      "model": "CLM-v0.1-8B",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F5",
+          "relation": "supports"
+        },
+        {
+          "id": "F1",
+          "relation": "qualifies"
+        }
+      ],
+      "limitations": [
+        "One open checkpoint, zero-shot; fine-tuned heads moved accuracy by −0.028 to +0.060."
+      ],
+      "note": null,
+      "headline": "Open contrastive decision model judges near chance, but ignores answer order"
+    },
+    {
+      "id": "c-07177-calibration",
+      "subject": "arxiv:2610.07177",
+      "claim_text": "Raw CLM confidences were overconfident by +0.235 to +0.401; one pooled temperature fitted on held-out calibration items brought ECE to 0.032–0.062, but at a preregistered 0.97 retention bar the confidence-gated cascade escalated 92.3–100% of items to the strong judge, because calibrated confidence about a near-chance judge leaves almost nothing to keep.",
+      "source_url": "https://arxiv.org/abs/2610.07177v1",
+      "locator": "§5 (Table 3); §6 (Table 4)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "escalation fraction at the 0.97 retention bar (minimum)",
+      "value": 0.923,
+      "unit": "fraction",
+      "baseline": null,
+      "task": "Confidence-gated cascade",
+      "sample_size": {
+        "n": 6,
+        "unit": "benchmarks"
+      },
+      "model": "CLM-v0.1-8B",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F2",
+          "relation": "supports"
+        },
+        {
+          "id": "F3",
+          "relation": "qualifies"
+        }
+      ],
+      "limitations": [
+        "The strong judge is a hosted service whose configuration can change."
+      ],
+      "note": null,
+      "headline": "Calibrated after one temperature, yet the gate escalates 92–100%"
+    },
+    {
+      "id": "c-07019-registered",
+      "subject": "arxiv:2610.07019",
+      "claim_text": "On Evidence Inference 2.0’s test split (1,218 prompts in 333 articles), the 4B model met four criteria registered on OSF before its test predictions: ECE 0.0168 against a limit of 0.05, log loss 0.8603 below the prior and 0.1829 below Gemma 4 31B-it reading the same input, and macro-F1 0.9248 against 0.8668.",
+      "source_url": "https://arxiv.org/abs/2610.07019v1",
+      "locator": "Abstract; §6",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "expected calibration error (EI test)",
+      "value": 0.0168,
+      "unit": "ECE",
+      "baseline": "Gemma 4 31B-it (macro-F1 0.8668)",
+      "task": "Evidence Inference 2.0",
+      "sample_size": {
+        "n": 1218,
+        "unit": "test prompts"
+      },
+      "model": "Fiorillo v0.5",
+      "model_version": {
+        "value": "v0.5"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F2",
+          "relation": "supports"
+        },
+        {
+          "id": "F5",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Public test labels; pre-training overlap of both models is unknown."
+      ],
+      "note": null,
+      "headline": "Registered test passed: ECE 0.017, macro-F1 0.92 against 0.87 for a 31B model"
+    },
+    {
+      "id": "c-07019-reading",
+      "subject": "arxiv:2610.07019",
+      "claim_text": "Reading checks showed what the answers rest on: with no article macro-F1 fell to 0.4384, the title alone added 0.0939, and exchanging intervention and comparator reversed only 66.5% of direction answers; handing the least confident 10% of answers to Gemma 4 31B-it gave 0.9335 against 0.9269 alone, with no difference claimed.",
+      "source_url": "https://arxiv.org/abs/2610.07019v1",
+      "locator": "§§7, 9 (Table 8)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "direction answers reversed after exchanging the arms",
+      "value": 0.6652,
+      "unit": "fraction",
+      "baseline": null,
+      "task": "Reading checks",
+      "sample_size": {
+        "n": null,
+        "reason": "not_reported"
+      },
+      "model": "Fiorillo v0.5",
+      "model_version": {
+        "value": "v0.5"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F1",
+          "relation": "supports"
+        },
+        {
+          "id": "F3",
+          "relation": "qualifies"
+        }
+      ],
+      "limitations": [
+        "Descriptive checks."
+      ],
+      "note": null,
+      "headline": "Swap the two arms and a third of answers keep their direction"
+    },
+    {
+      "id": "c-06985-single",
+      "subject": "arxiv:2610.06985",
+      "claim_text": "Calibrated on a random 5% slice, one unrelaxed forward pass decided crystal stability better than each potential’s recalibrated relax-and-threshold practice for MACE-MP-0 (log-loss 0.191 against 0.247) and CHGNet (0.196 against 0.266) at about a thirtieth of the cost, and slightly worse for four newer potentials (log-loss higher by 0.009–0.033).",
+      "source_url": "https://arxiv.org/abs/2610.06985v1",
+      "locator": "Results (Figure 3a; Extended Data Table 1)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "stability log-loss, single pass (MACE-MP-0)",
+      "value": 0.191,
+      "unit": "log-loss (relaxed: 0.247)",
+      "baseline": null,
+      "task": "Crystal stability",
+      "sample_size": {
+        "n": null,
+        "reason": "not_reported"
+      },
+      "model": "CrystalJev heads on frozen potentials",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F2",
+          "relation": "supports"
+        },
+        {
+          "id": "F3",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Benchmark labels are DFT energies on a fixed hull."
+      ],
+      "note": null,
+      "headline": "One calibrated pass against a relaxation: as good or better at a thirtieth of the cost"
+    },
+    {
+      "id": "c-06985-prospective",
+      "subject": "arxiv:2610.06985",
+      "claim_text": "In a registered prospective test on newly computed candidates, 23 of 397 labelled test candidates (5.8%) proved stable; single-pass forecasts calibrated only on existing data over-stated that fraction by 0.8–2.1 percentage points across six backbones and ranked candidates with AUROC 0.965–0.982 (intervals and AUROC were not registered).",
+      "source_url": "https://arxiv.org/abs/2610.06985v1",
+      "locator": "Results (registered prospective test; Figure 6)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "over-statement of the stable fraction (maximum)",
+      "value": 2.1,
+      "unit": "percentage points",
+      "baseline": null,
+      "task": "Prospective stability forecast",
+      "sample_size": {
+        "n": 397,
+        "unit": "labelled test candidates"
+      },
+      "model": "CrystalJev heads on frozen potentials",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "not_applicable",
+      "findings": [
+        {
+          "id": "F2",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Candidates generated by substitution; DFT labels aligned to MP by fixed corrections."
+      ],
+      "note": null,
+      "headline": "Registered prospective test: stable fraction forecast within 2.1 points"
+    },
+    {
+      "id": "c-08155-mas",
+      "subject": "arxiv:2610.08155",
+      "claim_text": "Across six benchmarks S1-MAS reached the highest mean accuracy (macro-average 93.97%) while using 78.3–94.0% fewer GPT-4o tokens and 58.2–91.7% lower latency than five multi-agent baselines; in a GPT-4o-mini ablation, Laya’s coordination decisions scored 84.17% against 82.34% for random choices from the same legal menus and 83.14% for a GPT controller that used about four times as many tokens.",
+      "source_url": "https://arxiv.org/abs/2610.08155v1",
+      "locator": "§§5.2–5.3 (Tables 1–3)",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "GPT-4o token reduction against multi-agent baselines (minimum)",
+      "value": 0.783,
+      "unit": "fraction",
+      "baseline": null,
+      "task": "Multi-agent coordination",
+      "sample_size": {
+        "n": 6,
+        "unit": "benchmarks"
+      },
+      "model": "Laya",
+      "model_version": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_reported"
+      },
+      "test_level": "system_test",
+      "measurement_scope": "end_to_end",
+      "findings": [
+        {
+          "id": "F6",
+          "relation": "supports"
+        },
+        {
+          "id": "F3",
+          "relation": "supports"
+        },
+        {
+          "id": "F4",
+          "relation": "supports"
+        }
+      ],
+      "limitations": [
+        "Three seeds; tokens and latency include every GPT call."
+      ],
+      "note": null,
+      "headline": "Laya coordinates agents with 78–94% fewer GPT tokens; random choices trail by 1.8 points"
+    },
+    {
+      "id": "c-08775-bottled",
+      "subject": "arxiv:2610.08775",
+      "claim_text": "Against zero-shot Jev (jev-1.13.0) on 1,000-item samples, an Opus 5 agent’s bottled solution reached macro-F1 0.499 on ESCI against Jev’s 0.531 at about a quarter of Jev’s projected full-workload cost ($26.28 against $104.89), and a Gemini 3.1 Pro solution reached AUROC 0.822 on RAID against 0.846 at about 2% of the cost ($4.69 against $223.16); Jev’s cost grows with workload size, whereas a bottled artifact is reused.",
+      "source_url": "https://arxiv.org/abs/2610.08775v1",
+      "locator": "§4.2 (Figure 3); Appendix E",
+      "evidence_type": "author_reported_experiment",
+      "reported_by": "authors",
+      "independently_reproduced": false,
+      "metric": "projected full-workload cost relative to Jev (ESCI)",
+      "value": 0.25,
+      "unit": "fraction",
+      "baseline": null,
+      "task": "Query–product relevance (ESCI)",
+      "sample_size": {
+        "n": 1000,
+        "unit": "sampled instances (Jev)"
+      },
+      "model": "Jev",
+      "model_version": {
+        "value": "jev-1.13.0"
+      },
+      "hardware": {
+        "value": null,
+        "reason": "not_applicable_hosted"
+      },
+      "test_level": "model_test",
+      "measurement_scope": "author_estimate",
+      "findings": [
+        {
+          "id": "F4",
+          "relation": "supports"
+        },
+        {
+          "id": "F3",
+          "relation": "qualifies"
+        }
+      ],
+      "limitations": [
+        "Jev evaluated on 1,000-item samples; costs projected."
+      ],
+      "note": null,
+      "headline": "Agent-built artifacts: 94–97% of Jev’s quality at 2–25% of its projected cost"
     }
   ]
 }

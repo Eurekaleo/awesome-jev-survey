@@ -87,6 +87,7 @@ PRIMITIVES = [
 ]
 ECO_ORDER = ['open_model', 'benchmark', 'built_with', 'tooling']
 NEWS = [
+    ('2026-10-07', 'Version 0.3.1: studies from the 7 October arXiv listing, a revised candidate-coverage study, and two more open models.'),
     ('2026-10-07', 'Version 0.3.0: studies posted through early October; findings on probability coherence, computation and security; an audited open ecosystem of models, benchmarks and applications; a redesigned site.'),
     ('2026-09-24', 'Version 0.2.0: four new core studies from the 24 September arXiv listing, new application areas and a new failure mode.'),
     ('2026-09-23', 'Version 0.1.0: first public release of the survey, its data and this site.'),

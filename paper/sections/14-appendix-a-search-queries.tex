@@ -3,26 +3,26 @@
 
 {\footnotesize
 \begin{xltabular}{\linewidth}{>{\raggedright\arraybackslash}p{0.25\linewidth}Xp{0.075\linewidth}p{0.075\linewidth}}
-\caption{arXiv API queries: the 17 accepted snapshot queries (Q) and the expansion queries (X), with hits on 23 September and in the run of 6 Oct 2026. Date-bounded queries were re-run with the upper bound moved to the run date; a query returning implausibly many records was rejected by rule, not screened.}\label{tab:queries}\\
+\caption{arXiv API queries: the 17 accepted snapshot queries (Q) and the expansion queries (X), with hits on 23 September and in the run of 7 Oct 2026. Date-bounded queries were re-run with the upper bound moved to the run date; a query returning implausibly many records was rejected by rule, not screened.}\label{tab:queries}\\
 \toprule
-\textbf{ID} & \textbf{Query} & \textbf{23 Sep} & \textbf{6 Oct} \\
+\textbf{ID} & \textbf{Query} & \textbf{23 Sep} & \textbf{7 Oct} \\
 \midrule
 \endfirsthead
 \toprule
-\textbf{ID} & \textbf{Query} & \textbf{23 Sep} & \textbf{6 Oct} \\
+\textbf{ID} & \textbf{Query} & \textbf{23 Sep} & \textbf{7 Oct} \\
 \midrule
 \endhead
-\texttt{\footnotesize Q01\_jev} & \texttt{\footnotesize all:jev} & 14 & 83 \\
+\texttt{\footnotesize Q01\_jev} & \texttt{\footnotesize all:jev} & 14 & 86 \\
 \texttt{\footnotesize Q02\_typesafe} & \texttt{\footnotesize all:typesafe} & 5 & 20 \\
-\texttt{\footnotesize Q03\_system\_one} & \texttt{\footnotesize all:”System One” AND submittedDate:[202601010000 TO 202609232359]} & 84 & 108 \\
-\texttt{\footnotesize Q04\_typed\_decision} & \texttt{\footnotesize all:”typed decision”} & 20 & 42 \\
-\texttt{\footnotesize Q05\_calibrated\_decisions} & \texttt{\footnotesize all:”calibrated decisions”} & 46 & 56 \\
+\texttt{\footnotesize Q03\_system\_one} & \texttt{\footnotesize all:”System One” AND submittedDate:[202601010000 TO 202609232359]} & 84 & 110 \\
+\texttt{\footnotesize Q04\_typed\_decision} & \texttt{\footnotesize all:”typed decision”} & 20 & 44 \\
+\texttt{\footnotesize Q05\_calibrated\_decisions} & \texttt{\footnotesize all:”calibrated decisions”} & 46 & 57 \\
 \texttt{\footnotesize Q06\_jevqa} & \texttt{\footnotesize all:jevqa} & 1 & 1 \\
 \texttt{\footnotesize Q07\_jev\_survey} & \texttt{\footnotesize (all:jev OR all:typesafe OR all:”System One”) AND (ti:survey OR ti:review)} & 25 & 25 \\
 \texttt{\footnotesize Q08\_decision\_survey} & \texttt{\footnotesize (all:”decision model” OR all:”decision models”) AND (ti:survey OR ti:review) AND submittedDate:[202501010000 TO 202609232359]} & 5 & 5 \\
 \texttt{\footnotesize Q09\_rlcd} & \texttt{\footnotesize all:RLCD AND (cat:cs.AI OR cat:cs.CL OR cat:cs.LG)} & 2 & 7 \\
-\texttt{\footnotesize Q10\_recent\_decision\_models} & \texttt{\footnotesize (ti:”decision model” OR abs:”decision model” OR abs:”decision-only” OR abs:”typed decisions” OR abs:”typed questions”) AND submittedDate:[202609140000 TO 202609232359]} & 12 & 71 \\
-\texttt{\footnotesize Q11\_recent\_systemone} & \texttt{\footnotesize (all:”system-one” OR all:systemone OR all:”TypeSafe AI”) AND submittedDate:[202609140000 TO 202609232359]} & 6 & 32 \\
+\texttt{\footnotesize Q10\_recent\_decision\_models} & \texttt{\footnotesize (ti:”decision model” OR abs:”decision model” OR abs:”decision-only” OR abs:”typed decisions” OR abs:”typed questions”) AND submittedDate:[202609140000 TO 202609232359]} & 12 & 78 \\
+\texttt{\footnotesize Q11\_recent\_systemone} & \texttt{\footnotesize (all:”system-one” OR all:systemone OR all:”TypeSafe AI”) AND submittedDate:[202609140000 TO 202609232359]} & 6 & 36 \\
 \texttt{\footnotesize Q12a\_openjev} & \texttt{\footnotesize ti:openjev OR abs:openjev} & 0 & 1 \\
 \texttt{\footnotesize Q12b\_nanojev} & \texttt{\footnotesize ti:nanojev OR abs:nanojev} & 0 & 1 \\
 \texttt{\footnotesize Q12c\_jevlite} & \texttt{\footnotesize ti:jevlite OR abs:jevlite} & 1 & 1 \\
@@ -30,20 +30,20 @@
 \texttt{\footnotesize Q13\_rlcd\_expanded} & \texttt{\footnotesize all:”Reinforcement Learning for Calibrated Decisions”} & 0 & 3 \\
 \texttt{\footnotesize Q14\_typed\_surveys} & \texttt{\footnotesize (ti:survey OR ti:review OR ti:overview) AND (all:”typed decision” OR all:”decision-only” OR all:”non-generative”) AND submittedDate:[202001010000 TO 202609232359]} & 4 & 4 \\
 \texttt{\footnotesize X01\_machine\_native} & \texttt{\footnotesize all:”machine-native” AND submittedDate:[202601010000 TO 202609232359]} & 3 & 3 \\
-\texttt{\footnotesize X02\_decision\_head} & \texttt{\footnotesize (abs:”decision head” OR abs:”decision heads”) AND submittedDate:[202606010000 TO 202609232359]} & 3 & 6 \\
+\texttt{\footnotesize X02\_decision\_head} & \texttt{\footnotesize (abs:”decision head” OR abs:”decision heads”) AND submittedDate:[202606010000 TO 202609232359]} & 3 & 8 \\
 \texttt{\footnotesize X03\_open\_model\_names} & \texttt{\footnotesize (all:laya OR all:anyjev OR all:semif OR all:djev OR all:localjev OR all:”this-that-model” OR all:”visual jev”) AND submittedDate:[202609010000 TO 202609232359]} & rejected & retired \\
-\texttt{\footnotesize X03a\_laya} & \texttt{\footnotesize (ti:laya OR abs:laya) AND submittedDate:[202609010000 TO 202609232359]} & 0 & 11 \\
+\texttt{\footnotesize X03a\_laya} & \texttt{\footnotesize (ti:laya OR abs:laya) AND submittedDate:[202609010000 TO 202609232359]} & 0 & 12 \\
 \texttt{\footnotesize X03b\_anyjev} & \texttt{\footnotesize ti:anyjev OR abs:anyjev} & 0 & 2 \\
 \texttt{\footnotesize X03c\_semif} & \texttt{\footnotesize ti:semif OR abs:semif} & 1 & 2 \\
 \texttt{\footnotesize X03d\_djev} & \texttt{\footnotesize ti:djev OR abs:djev} & 0 & 0 \\
 \texttt{\footnotesize X03e\_localjev} & \texttt{\footnotesize ti:localjev OR abs:localjev} & 0 & 0 \\
 \texttt{\footnotesize X03f\_this\_that} & \texttt{\footnotesize ti:”this-that-model” OR abs:”this-that-model”} & rejected & rejected \\
 \texttt{\footnotesize X03g\_visual\_jev} & \texttt{\footnotesize ti:”visual jev” OR abs:”visual jev”} & 1 & 1 \\
-\texttt{\footnotesize X04\_system1\_model} & \texttt{\footnotesize (all:”System 1 model” OR all:”System-1 model” OR all:”system one model” OR all:”System One models”) AND submittedDate:[202609010000 TO 202609232359]} & 2 & 23 \\
-\texttt{\footnotesize X05\_typed\_outputs} & \texttt{\footnotesize (abs:”typed output” OR abs:”typed outputs” OR abs:”typed probabilistic” OR abs:”option probabilities”) AND submittedDate:[202606010000 TO 202609232359]} & 5 & 9 \\
-\texttt{\footnotesize X06\_confidence\_gating} & \texttt{\footnotesize (abs:”confidence-gated” OR abs:”confidence gated” OR abs:”selective escalation” OR abs:”escalate when”) AND submittedDate:[202606010000 TO 202609232359]} & 73 & 93 \\
+\texttt{\footnotesize X04\_system1\_model} & \texttt{\footnotesize (all:”System 1 model” OR all:”System-1 model” OR all:”system one model” OR all:”System One models”) AND submittedDate:[202609010000 TO 202609232359]} & 2 & 26 \\
+\texttt{\footnotesize X05\_typed\_outputs} & \texttt{\footnotesize (abs:”typed output” OR abs:”typed outputs” OR abs:”typed probabilistic” OR abs:”option probabilities”) AND submittedDate:[202606010000 TO 202609232359]} & 5 & 10 \\
+\texttt{\footnotesize X06\_confidence\_gating} & \texttt{\footnotesize (abs:”confidence-gated” OR abs:”confidence gated” OR abs:”selective escalation” OR abs:”escalate when”) AND submittedDate:[202606010000 TO 202609232359]} & 73 & 96 \\
 \texttt{\footnotesize X07\_benchmark\_names} & \texttt{\footnotesize (all:jevbench OR all:callscreenbench OR all:”sysone” OR all:”workflow evals”)} & 4 & 4 \\
-\texttt{\footnotesize X08\_decision\_models\_plural} & \texttt{\footnotesize (ti:”decision models” OR abs:”decision models”) AND (cat:cs.CL OR cat:cs.AI OR cat:cs.LG) AND submittedDate:[202609140000 TO 202609232359]} & 4 & 45 \\
+\texttt{\footnotesize X08\_decision\_models\_plural} & \texttt{\footnotesize (ti:”decision models” OR abs:”decision models”) AND (cat:cs.CL OR cat:cs.AI OR cat:cs.LG) AND submittedDate:[202609140000 TO 202609232359]} & 4 & 49 \\
 \texttt{\footnotesize X09\_structured\_decisions} & \texttt{\footnotesize (abs:”structured decisions” OR abs:”fast structured decisions” OR abs:”smart if-statements” OR abs:”semantic if”) AND submittedDate:[202606010000 TO 202609232359]} & rejected & retired \\
 \texttt{\footnotesize X09a\_structured\_decisions} & \texttt{\footnotesize abs:”structured decisions” AND submittedDate:[202606010000 TO 202609232359]} & 42 & 51 \\
 \texttt{\footnotesize X09b\_smart\_if} & \texttt{\footnotesize abs:”smart if-statements” OR abs:”smart if statements”} & 0 & 0 \\

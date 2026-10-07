@@ -3,7 +3,7 @@
 
 # Methodology
 
-Data cutoff: **6 Oct 2026** (Asia/Singapore). This document is generated from `data/search-runs.json`, `data/papers.json` and `data/claims.json`.
+Data cutoff: **7 Oct 2026** (Asia/Singapore). This document is generated from `data/search-runs.json`, `data/papers.json` and `data/claims.json`.
 
 ## 1. Questions
 
@@ -67,6 +67,8 @@ The increment re-ran the searches: 1,108 results, 28 new unverified candidates (
 **Increment 2026-09-24T0502Z.** 17 accepted and 17 expansion queries; 7 records not screened before: 4 added as core studies, 0 as background, 3 excluded with a recorded reason. First run after the 2026-09-24 arXiv announcement: four new core studies. Two included papers gained a v2 (evidence was read on v1).
 
 **Increment 2026-10-06T1253Z.** 17 accepted and 17 expansion queries; 112 records not screened before: 74 added as core studies, 6 as background, 32 excluded with a recorded reason. Full-text reading of every included study; revised versions of seven included papers were re-read and their records updated.
+
+**Increment 2026-10-07T0140Z.** 17 accepted and 17 expansion queries; 14 records not screened before: 10 added as core studies, 0 as background, 4 excluded with a recorded reason. First run after the 7 October arXiv listing reached the API. Reruns at 23:33 and 23:57 UTC on 6 October and at 00:15 UTC on 7 October returned no new records because the listing had not yet been indexed. Full-text reading of every included study; revised versions of three included papers were compared with the versions read.
 
 **Curated lists (2026-10-06).** Repositories listed in OmniJev/awesome-jev-gallery and papers listed in OmniJev/awesome-jev-papers were checked against their own README or paper before inclusion; decisions and reasons are in `research/repository-screening.json`. Lineage items in those lists that are general infrastructure were kept as context and covered through their papers.
 

@@ -3108,6 +3108,104 @@
    "decision": "excluded",
    "reason": "No direct link to Jev or a Jev-like typed decision interface at title/abstract level.",
    "screened": "2026-09-23"
+  },
+  {
+   "arxiv_id": "2610.08089",
+   "title": "When Plans Change Answers: Formalizing Cost-Accuracy Optimization for Semantic Queries",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07953",
+   "title": "Benchmarking System One Models in Online Moderation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07716",
+   "title": "Readout Stability in Prefill-Only Decision Models:Zero-Label Prediction and Inference-Time Compute Allocation",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07586",
+   "title": "Stability of steady transonic shocks with constant states in 3D rectangular nozzles under small external forces",
+   "decision": "excluded",
+   "reason": "Name match only: “system one” refers to a system of equations in a PDE paper; no typed-decision link.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07730",
+   "title": "SanSi: A Looped Typed Decision Model for System 1.5 Thinking",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07327",
+   "title": "SharedKV-BT: Node-Local Typed Decisions for Behavior-Tree Agents",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07242",
+   "title": "Quantum Machine Learning for Few-Shot Impersonation Detection in Digital Account Opening",
+   "decision": "excluded",
+   "reason": "No link to Jev or a typed decision interface; “calibrated decisions” is used generically.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07177",
+   "title": "CLM-as-a-Judge: Evaluating an Open Contrastive Decision Model on Public Judge Benchmarks",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07019",
+   "title": "Calibrated Answers About Randomized Trials From a 4-Billion-Parameter Open Model: A Registered Test and a License-Clean Release",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.06985",
+   "title": "CrystalJev: thinking fast and slow with atomistic foundation models for materials discovery",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.08775",
+   "title": "Agent in a Bottle: Can LLM Agents Turn Their Capabilities Into Cheap, Scalable Artifacts?",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.08155",
+   "title": "Token-Efficient Multi-Agent Collaboration via System One-Guided Computational Division of Labor",
+   "decision": "included_core",
+   "reason": "Evaluates, builds or uses Jev or a Jev-like typed decision model.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07816",
+   "title": "Do I Need the Cloud? Uncertainty-Aware Step-Level Handoff for Small Language Model Agents",
+   "decision": "excluded",
+   "reason": "Step-level escalation for small language-model agents without a typed decision model; adjacent method, not added as background.",
+   "screened": "2026-10-07"
+  },
+  {
+   "arxiv_id": "2610.07760",
+   "title": "Token-Budgeted Escalation for Financial Document QA: Cost Is Predictable, Benefit Is the Bottleneck",
+   "decision": "excluded",
+   "reason": "Selective escalation for retrieval-augmented QA without a typed decision model; adjacent method, not added as background.",
+   "screened": "2026-10-07"
   }
  ]
 }

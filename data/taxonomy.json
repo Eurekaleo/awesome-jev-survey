@@ -663,7 +663,8 @@
         "c-30454-order",
         "c-00831-rotation",
         "c-01601-flips",
-        "v-jaggedness"
+        "v-jaggedness",
+        "c-07327-abstain"
       ],
       "mitigation": "Report per-item flip rates under rotation next to aggregate accuracy; average over rotations or isolate candidates."
     },
@@ -684,12 +685,14 @@
       "id": "closed-set",
       "stage": "contract",
       "title": "Missing answers go unnoticed",
-      "desc": "When the right answer is absent the model usually picks a wrong option rather than the exit: 7% correct rejection of arithmetic menus with an explicit “None”, 24.8% detection of a removed reference label, few “I don’t know” choices on unanswerable questions.",
+      "desc": "When the right answer is absent the model usually picks a wrong option rather than the exit: 7% correct rejection of arithmetic menus with an explicit “None”, 24.8% detection of a removed reference label, a hard answer on 63% of items whose deciding evidence was removed, few “I don’t know” choices on unanswerable questions.",
       "claims": [
         "c-39496-rejection",
         "c-03387-coverage",
         "c-34024-unanswerable",
-        "r-calibration-audit"
+        "r-calibration-audit",
+        "c-07730-jev",
+        "c-03387-retrieval"
       ],
       "mitigation": "Keep an explicit exit, verify candidates with separate yes/no questions, and fit a rejection threshold on held-out answer-absent cases."
     },
@@ -850,11 +853,12 @@
       "id": "threshold-transfer",
       "stage": "control",
       "title": "Thresholds that do not travel",
-      "desc": "A threshold set for 5% in-scope risk still admitted 31% of out-of-scope requests, binary probabilities ranked well but sat badly against 0.5, and in-sample thresholds aimed at 5% misses gave up to 17% on held-out data.",
+      "desc": "A threshold set for 5% in-scope risk still admitted 31% of out-of-scope requests, a rejection threshold fitted on one task rejected 69% of covered inputs on another, binary probabilities ranked well but sat badly against 0.5, and in-sample thresholds aimed at 5% misses gave up to 17% on held-out data.",
       "claims": [
         "c-00346-oos",
         "c-37647-threshold",
-        "c-02267-audit"
+        "c-02267-audit",
+        "c-03387-transfer"
       ],
       "mitigation": "Fit thresholds on held-out data from the deployment distribution, per option count, and re-check after any version change."
     },
@@ -862,12 +866,13 @@
       "id": "compute-not-read",
       "stage": "use",
       "title": "Asked to compute, it estimates",
-      "desc": "Exact numbers, counts, graph degrees, packet statistics and opponents’ moves must be computed or simulated, and typed answers land near rather than on them: 44% exact on repeating division (97% within one), 68% on vertex degree, 28% on packet-based traffic classes.",
+      "desc": "Exact numbers, counts, graph degrees, packet statistics, chains of statements and opponents’ moves must be computed or simulated, and typed answers land near rather than on them: 44% exact on repeating division (97% within one), 68% on vertex degree, 28% on packet-based traffic classes, chance on liar chains from six steps.",
       "claims": [
         "c-03935-exact",
         "c-06354-graph",
         "c-00376-traffic",
-        "c-01834-simulation"
+        "c-01834-simulation",
+        "c-07730-jev"
       ],
       "mitigation": "Compute in code and ask the model to judge the result; supply simulations or lookahead explicitly."
     },
@@ -929,13 +934,15 @@
       "papers": [
         "arxiv:2609.26550",
         "arxiv:2609.27607",
-        "arxiv:2609.29769"
+        "arxiv:2609.29769",
+        "arxiv:2610.07177"
       ],
       "claims": [
         "c-26550-cascade",
         "c-26550-live",
         "c-29769-parity",
-        "c-27607-agreement"
+        "c-27607-agreement",
+        "c-07177-judge"
       ],
       "caution": "Falls behind where the verdict must be derived (math, code, logic); judges can share its confident errors."
     },
@@ -978,14 +985,17 @@
       "decides": "Hate-speech moderation and failure detection against written policies.",
       "papers": [
         "arxiv:2610.03324",
-        "arxiv:2609.29429"
+        "arxiv:2609.29429",
+        "arxiv:2610.07953"
       ],
       "claims": [
         "c-03324-cost",
         "c-03324-definitions",
-        "c-29429-auroc"
+        "c-29429-auroc",
+        "c-07953-precedents",
+        "c-07953-confidence"
       ],
-      "caution": "Supplied definitions move many answers without reliably improving them."
+      "caution": "Supplied definitions move many answers without reliably improving them; retrieved precedents help Jev more than open models."
     },
     {
       "id": "agent-control",
@@ -994,13 +1004,15 @@
         "arxiv:2609.26532",
         "arxiv:2610.02267",
         "arxiv:2610.03935",
-        "arxiv:2610.01834"
+        "arxiv:2610.01834",
+        "arxiv:2610.08155"
       ],
       "claims": [
         "c-26532-calls",
         "c-02267-points",
         "c-03935-tau",
-        "c-01834-lookahead"
+        "c-01834-lookahead",
+        "c-08155-mas"
       ],
       "caution": "Faster steps can make a slower, less successful agent; let code supply lookahead and simulation."
     },
@@ -1059,13 +1071,15 @@
         "arxiv:2609.34024",
         "arxiv:2610.00213",
         "arxiv:2610.00381",
-        "arxiv:2609.33538"
+        "arxiv:2609.33538",
+        "arxiv:2610.07019"
       ],
       "claims": [
         "c-34024-diagnosis",
         "c-00213-surveillance",
         "c-00381-omnimed",
-        "c-33538-wer"
+        "c-33538-wer",
+        "c-07019-registered"
       ],
       "caution": "Parity on abstracts but large gaps on diagnostic cases; none of this is clinical validation."
     },
@@ -1074,11 +1088,13 @@
       "decides": "Semantic filters, joins and rankings inside SQL; structural questions about graphs.",
       "papers": [
         "arxiv:2610.02046",
-        "arxiv:2610.06354"
+        "arxiv:2610.06354",
+        "arxiv:2610.08089"
       ],
       "claims": [
         "c-02046-jevdb",
-        "c-06354-graph"
+        "c-06354-graph",
+        "c-08089-plans"
       ],
       "caution": "Pruning carries much of the gain; graph structure has to be computed, not read."
     },
@@ -1105,12 +1121,14 @@
       "papers": [
         "arxiv:2609.27331",
         "arxiv:2609.34969",
-        "arxiv:2610.01834"
+        "arxiv:2610.01834",
+        "arxiv:2610.07327"
       ],
       "claims": [
         "c-27331-games",
         "c-34969-nav",
-        "c-01834-simulation"
+        "c-01834-simulation",
+        "c-07327-nodes"
       ],
       "caution": "Plays as if the opponent were random unless the opponent’s move is stated."
     },
@@ -1143,13 +1161,15 @@
       "id": "scientific-workflow",
       "decides": "Which scientific relation governs a calculation that code then performs.",
       "papers": [
-        "arxiv:2609.24965"
+        "arxiv:2609.24965",
+        "arxiv:2610.06985"
       ],
       "claims": [
         "c-24965-correct-latency",
-        "c-24965-hidden-errors"
+        "c-24965-hidden-errors",
+        "c-06985-single"
       ],
-      "caution": "Twenty Choices in ten cases; not discriminative across strong models."
+      "caution": "One study covers twenty Choices in ten cases; the materials-discovery layer is calibrated on in-domain labels and is not a language model."
     }
   ],
   "ecosystem_roles": [

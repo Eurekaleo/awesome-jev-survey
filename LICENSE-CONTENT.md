@@ -19,6 +19,6 @@ Third-party material keeps its owners’ terms and is not relicensed here: bibli
 
 ## Suggested attribution
 
-> Meng Luo, *Jev and Typed Decision Models: An Empirical Survey of Calibration, Selective Control, and Open Implementations*, version 0.3.0, https://github.com/Eurekaleo/awesome-jev-survey, licensed CC BY 4.0.
+> Meng Luo, *Jev and Typed Decision Models: An Empirical Survey of Calibration, Selective Control, and Open Implementations*, version 0.3.1, https://github.com/Eurekaleo/awesome-jev-survey, licensed CC BY 4.0.
 
 Machine-readable citation metadata is in [CITATION.cff](CITATION.cff).

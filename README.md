@@ -6,7 +6,7 @@
 
 [Website](https://eurekaleo.github.io/awesome-jev-survey/) · [Survey (PDF)](paper/main.pdf) · [Data](data/) · [Cite](#citation-and-licence)
 
-**Author:** [Meng Luo](https://eurekaleo.github.io/) · Updated 6 Oct 2026
+**Author:** [Meng Luo](https://eurekaleo.github.io/) · Updated 7 Oct 2026
 
 > Numbers are as reported by paper authors, the vendor or repository maintainers. Nothing here is a unified leaderboard, and nothing was re-run.
 
@@ -50,12 +50,14 @@
 
 | Date (v1) | Study | Headline (as reported) | Code |
 | --- | --- | --- | :-: |
-| 2026-10-05 | [Political Science Replications](https://arxiv.org/abs/2610.06625v1): JEV versus LLMs: Accuracy, Cost and Calibration on Seven Political Science Replications | Same accuracy, no cost advantage at batch prices | ○ |
+| 2026-10-06 | [BOTTLED](https://arxiv.org/abs/2610.08775v1): Agent in a Bottle: Can LLM Agents Turn Their Capabilities Into Cheap, Scalable Artifacts? | Agent-built artifacts: 94–97% of Jev’s quality at 2–25% of its projected cost | [●](https://github.com/aktsonthalia/bottled) |
+| 2026-10-06 | [System One Moderation](https://arxiv.org/abs/2610.07953v1): Benchmarking System One Models in Online Moderation | Precedents help Jev pick the right rule (+5 to +22 points); Laya barely moves | [●](https://github.com/FedericoMz/som-moderation-benchmark) |
+| 2026-10-05 | [Political Science Replications](https://arxiv.org/abs/2610.06625v2): JEV versus LLMs: Accuracy, Cost and Calibration on Seven Political Science Replications | Same accuracy, no cost advantage at batch prices | ○ |
 | 2026-10-05 | [GraphDecide](https://arxiv.org/abs/2610.06354v1) ¹: GraphDecide: Benchmarking System One Models on Graph Tasks | Reads every edge; counts degree right 68% of the time | [●](https://github.com/VictorYXL/JevGraphBench) |
 | 2026-10-04 | [Hidden Risks of Jev](https://arxiv.org/abs/2610.04985v1): Hidden Risks of Jev: An Empirical Study of Security, Privacy, and Dual Use | Typed outputs, hijacked inputs: up to 100% injection success | [●](https://github.com/shihe98/Security_Privacy_Jev) |
 | 2026-10-03 | [Wireless Decision-Making](https://arxiv.org/abs/2610.04345v1): System One Models for Wireless Decision-Making:Applications and Performance Evaluation | Wireless control: 3.5–8.5× faster than LLMs; quality depends on the task | ○ |
 | 2026-10-02 | [JEVal and InnerJev](https://arxiv.org/abs/2610.03935v1): General Decision Models: Benchmarking and Insights Beyond Jev | Right mode, wrong mass: 89% placed where the truth is 36% | [●](https://github.com/amazingljy1206/InnerJev) |
-| 2026-10-02 | [Candidate Coverage](https://arxiv.org/abs/2610.03387v1): Benchmarking Candidate Coverage in Typed Decision Models | Missing answer noticed 24.8% of the time (Jev) — Laya over-rejects | ○ |
+| 2026-10-02 | [Candidate Coverage and Transfer](https://arxiv.org/abs/2610.03387v2): Benchmarking candidate coverage and rejection policy transfer in typed decision models | Rejection thresholds do not travel: 69% false rejection after transfer | [●](https://github.com/luckykevvv/Decision_Model_Benchmark) |
 | 2026-10-02 | [HateDecide](https://arxiv.org/abs/2610.03324v1): To Jev or Not? Evaluating the Accuracy and Efficiency of Structured Decision Models for Hate-Speech Moderation | Definitions move 28% of answers — without reliably improving them | ○ |
 | 2026-10-01 | [HydroJEV](https://arxiv.org/abs/2610.02048v1): HydroJEV: A one-second, training-free screen for cyber-attack and fault attribution in water distribution networks | Pre-registered gate: a third of SCADA reviews offloaded, accuracy kept | [●](https://github.com/mutianwei521/hydrojev) |
 | 2026-10-01 | [HakemBench](https://arxiv.org/abs/2610.02293v1) ¹: HakemBench: A Turkish Benchmark of Typed Decisions | Turkish typed decisions: Jev fourth of 16 at a tenth of the leader’s time | [●](https://github.com/ufakai/hakembench) |
@@ -94,7 +96,7 @@
 | 2026-09-23 | [Jev on Contract Inference](https://arxiv.org/abs/2609.27678v1): Same Scores, Different Decisions: Evaluating JEV and Language Models for Legal Document Understanding | $0.000228 and 1.24 s per contract — lowest of ten models | [●](https://github.com/ZF-Utokyo/Jev-Benchmark) |
 | 2026-09-23 | [Jev as a Radiology Report Judge](https://arxiv.org/abs/2609.27607v1): Can Jev Judge Radiology Reports? Evaluating a System One Model for Clinical Factuality | Kendall τ 0.573 / 0.398 with expert error counts; beats open NLI | ○ |
 | 2026-09-22 | [Type-Safe Is Not Error-Free](https://arxiv.org/abs/2609.26758v2): Type-Safe Is Not Error-Free: A Constrained Decision Head Follows the Option Name, Not the Rubric Bound to It | Hosted Jev AUROC .8146 → .5806 after name–rubric swap; 0% type errors | ○ claimed |
-| 2026-09-22 | [JEV-as-a-Judge](https://arxiv.org/abs/2609.26550v3): JEV-as-a-Judge: Accept When Confident, Escalate When Unsure | Within 3 points of GPT-6 where the verdict can be read off the text | ○ claimed |
+| 2026-09-22 | [JEV-as-a-Judge](https://arxiv.org/abs/2609.26550v4): JEV-as-a-Judge: Accept When Confident, Escalate When Unsure | Within 3 points of GPT-6 where the verdict can be read off the text | ○ claimed |
 | 2026-09-22 | [REFLEX with Jev](https://arxiv.org/abs/2609.26532v1) ¹: REFLEX with Jev for Efficient Selective Control in LLM Agents | 95% success with 1.12 strong calls/task vs 88% and 4.10 (−72.7%) | ○ |
 | 2026-09-21 | [Jev for Scientific Decisions](https://arxiv.org/abs/2609.24965v2): Jev for Scientific Decisions: Evaluating Semantic Choices and Their Consequences | Full semantic correctness; median 0.335 s, p95 0.442 s | ○ |
 | 2026-09-21 | [Pregnancy in Crash Narratives](https://arxiv.org/abs/2610.00213v1) ¹: Counting the Uncounted: Population-Level Surveillance of Documented Pregnancy and Fetal Harm in Police Crash Narratives with a System One Model (Jev) | Population-scale reading audited by blind coders: sensitivity 0.999 | [●](https://github.com/pozapas/pregnancy-crash-narratives) |
@@ -108,8 +110,14 @@
 
 | Date (v1) | Study | Headline (as reported) | Code |
 | --- | --- | --- | :-: |
+| 2026-10-06 | [SanSi](https://arxiv.org/abs/2610.07730v1): SanSi: A Looped Typed Decision Model for System 1.5 Thinking | Looping a small decision model: +13.5 points at 7.7× compute | ○ |
+| 2026-10-06 | [Readout Stability](https://arxiv.org/abs/2610.07716v1): Readout Stability in Prefill-Only Decision Models:Zero-Label Prediction and Inference-Time Compute Allocation | Menu changes are predictable offline for decision models, not for generative LLMs | [●](https://github.com/rlisml/jev-cascade) |
+| 2026-10-05 | [SharedKV-BT](https://arxiv.org/abs/2610.07327v1): SharedKV-BT: Node-Local Typed Decisions for Behavior-Tree Agents | Node-local candidates: 113/120 correct decisions against 90/120 | ○ |
+| 2026-10-05 | [CLM-as-a-Judge](https://arxiv.org/abs/2610.07177v1) ¹: CLM-as-a-Judge: Evaluating an Open Contrastive Decision Model on Public Judge Benchmarks | Open contrastive decision model judges near chance, but ignores answer order | [●](https://arxiv.org/src/2610.07177v1/anc) |
 | 2026-10-05 | [ufakzeka-karar](https://arxiv.org/abs/2610.06744v1) ¹: ufakzeka-karar: An Open Turkish Typed-Decision Model with Order-Invariant Option Scoring | Order invariance by construction; sequential heads still flip 2–3% | [●](https://github.com/ufakai/ufakzeka-karar) |
+| 2026-10-04 | [Fiorillo](https://arxiv.org/abs/2610.07019v1): Calibrated Answers About Randomized Trials From a 4-Billion-Parameter Open Model: A Registered Test and a License-Clean Release | Registered test passed: ECE 0.017, macro-F1 0.92 against 0.87 for a 31B model | [●](https://github.com/johann-e-li/fiorillo) |
 | 2026-10-04 | [SearchJev](https://arxiv.org/abs/2610.05107v1): SearchJev: A Fast and Calibrated System-1 Model for Search Agents | Task-specialised open model beats Jev on rewriting, trails on routing | [●](https://github.com/EvoScientist/SearchJev) |
+| 2026-10-04 | [CrystalJev](https://arxiv.org/abs/2610.06985v1): CrystalJev: thinking fast and slow with atomistic foundation models for materials discovery | One calibrated pass against a relaxation: as good or better at a thirtieth of the cost | ○ |
 | 2026-10-02 | [SecJev](https://arxiv.org/abs/2610.03073v1): SecJev: Bringing Security Expertise to System One Decision Models | Security-specialised 0.8B beats general 9B by 20.5 points | [●](https://github.com/UESTC1010/SecJev) |
 | 2026-10-01 | [Labels Override Definitions](https://arxiv.org/abs/2610.02586v1): Labels Override Definitions in Jev-Style Typed Decision Models | The label wins over the definition — and the cause is one rendering line | ○ |
 | 2026-10-01 | [SBERT2S1](https://arxiv.org/abs/2610.02486v1): From Retrieval to Typed Decisions: Calibrated System One Models from Biomedical Sentence Encoders | Open RLCD recipe trails plain cross-entropy by 2.5–3.0 points | [●](https://github.com/pritamdeka/sbert2s1) |
@@ -124,7 +132,7 @@
 | 2026-09-28 | [Dyad](https://arxiv.org/abs/2609.36116v1): Dyad: Extending Large Language Models with Native Typed Decision-Making | Native typed-decision head: 86.2% vs Jev 85.0% on JevBench | ○ |
 | 2026-09-28 | [Koa-action](https://arxiv.org/abs/2609.36115v1): Koa-action: Fast and Consistent Structured Decision Making with Generative LLMs | Single-token LLM classifier: 85.5% at 0.53 s, flat across label spaces | ○ |
 | 2026-09-27 | [JET](https://arxiv.org/abs/2609.33874v2): JET: Justification Evaluation in Transformer | Local likelihood readout 85.1% vs Jev 89.1% on MMLU | [●](https://github.com/yet-another-ai/jet) |
-| 2026-09-27 | [Laya Reproduction](https://arxiv.org/abs/2609.33843v1): Laya as a Typed Probabilistic Assessor: An Independent Reproduction and a Preregistered Study of Calibration and Selective Escalation | Open Laya checkpoint under-confident (gap −0.214); one temperature fixes it | ◐ |
+| 2026-09-27 | [Laya Reproduction](https://arxiv.org/abs/2609.33843v1) ¹: Laya as a Typed Probabilistic Assessor: An Independent Reproduction and a Preregistered Study of Calibration and Selective Escalation | Open Laya checkpoint under-confident (gap −0.214); one temperature fixes it | ◐ |
 | 2026-09-27 | [COGNIT-Guard](https://arxiv.org/abs/2609.33671v1): COGNIT-Guard: Calibrated Standalone Direct-Decision Guardrails with Heterogeneous CPU-NPU Confidence Cascading under Explicit Latency and False-Positive Constraints | Adapted open guard: AUC 0.83 → 0.997, with an OOD “alignment tax” | [●](https://github.com/moyuan10086/cascaded-guardrail-npu) |
 | 2026-09-26 | [PACT](https://arxiv.org/abs/2609.35865v1): PACT: Pairwise-Anchored Calibrated Tuning for Single-Token Typed Decisions | Open recipe holds up; extra terms buy robustness, not accuracy | [●](https://github.com/BennyLinntu/PACT-Pairwise-Anchored-Calibrated-Tuning-for-Single-Token-Typed-Decisions) |
 | 2026-09-25 | [LAVOIR](https://arxiv.org/abs/2609.30706v1): LAVOIR: Teaching a Single-Pass Decision Encoder When and What to Ask with Amortized Value of Information | Learned “when to ask” policy ≈ oracle (AUC 0.80 vs 0.80) | [●](https://github.com/moganai/lavoir) |
@@ -137,6 +145,8 @@
 
 | Date (v1) | Study | Headline (as reported) | Code |
 | --- | --- | --- | :-: |
+| 2026-10-06 | [S1-MAS](https://arxiv.org/abs/2610.08155v1): Token-Efficient Multi-Agent Collaboration via System One-Guided Computational Division of Labor | Laya coordinates agents with 78–94% fewer GPT tokens; random choices trail by 1.8 points | ○ |
+| 2026-10-06 | [Plans Change Answers](https://arxiv.org/abs/2610.08089v1): When Plans Change Answers: Formalizing Cost-Accuracy Optimization for Semantic Queries | Calibrated confidence prices query plans; overconfidence hides output errors | ○ |
 | 2026-10-01 | [JEVDB](https://arxiv.org/abs/2610.02046v1): Prune First, Decide Fast: Scalable Semantic Query Processing with JEVDB | Semantic SQL: pruning + typed decisions finish 540K-pair joins | [○ claimed](https://jevdb.org) |
 | 2026-09-30 | [JevSpawn](https://arxiv.org/abs/2610.00437v1): JevSpawn: Adaptive Agentic Inference through Compositional Action Spaces | Agent with spawned finite actions: Maze 0.96 vs 0.52 | [●](https://github.com/Hoyant-Su/JevSpawn) |
 | 2026-09-28 | [Mnemon](https://arxiv.org/abs/2609.36059v1): Mnemon: Raw Records, Fast Judgments, Slow Thoughts | Memory agent: LoCoMo 91.7% with Jev judging evidence (AUC 0.94) | [●](https://github.com/Grivn/mnemon-memory-agent) |
@@ -167,6 +177,7 @@ Availability follows each project’s own README; nothing here was run. ● avai
 | Resource | Family | Base | Weights | Training | Evaluation | Data | Licence |
 | --- | --- | --- | :-: | :-: | :-: | :-: | --- |
 | [alperiox/audio-jevlike](https://github.com/alperiox/audio-jevlike/blob/c3dc700cf1d9ebe71b28eb1754d797d2c4c83653/README.md) | Encoder decision heads | Whisper / WavLM audio encoders | ○ | ● | ● | ○ | — |
+| [Contrastive-LM/CLM](https://github.com/Contrastive-LM/CLM/blob/d5f9ef0fd9bde185df0ceaad4f4ecc6cfe8c34f6/README.md) | Encoder decision heads | Qwen3-8B (frozen encoder) | ● | ◐ | ◐ | ○ | Apache-2.0 |
 | [Heman10x-NGU/Verdict-open-jev](https://github.com/Heman10x-NGU/Verdict-open-jev/blob/30f15564821626ca5c1ad5b2638c4eb7078787dd/README.md) | Encoder decision heads | ModernBERT (151M, GLiClass lineage) | ● | ● | ● | ○ | NOASSERTION |
 | [hiroki-abe-58/sokudan](https://github.com/hiroki-abe-58/sokudan/blob/f491077d729f982e06193b0cb85a51214a88b88a/README.md) | Encoder decision heads | sbintuitions/modernbert-ja-310m | ● | ● | ● | ○ | Apache-2.0 |
 | [mizorewww/laya-mlx](https://github.com/mizorewww/laya-mlx/blob/ca5940aa9286dbbdfaacbecbdb7b337295ad36a2/README.md) | Encoder decision heads | Laya checkpoints (ModernBERT / mmBERT) | ● | ○ | ● | ○ | Apache-2.0 |
@@ -185,6 +196,7 @@ Availability follows each project’s own README; nothing here was run. ● avai
 | [bespokelabsai/nimble](https://github.com/bespokelabsai/nimble/blob/38edc3b576f13179df785d412621d5cb1128d02d/README.md) | Fine-tuned decoder decision models | Qwen3.5-9B (LoRA) | ● | ● | ○ | ● | NOASSERTION |
 | [FLock-io/this-that-model](https://github.com/FLock-io/this-that-model/blob/542d445efa5f68b14bfbd1f8ed25aacd8379d839/README.md) | Fine-tuned decoder decision models | decider-2b (Qwen3.5-2B lineage) | ● | ○ | ● | ◐ | MIT |
 | [getainode/jebadiah](https://github.com/getainode/jebadiah/blob/04d620413ff071c93120c92f3836942d504891ef/README.md) | Fine-tuned decoder decision models | Qwen3.8-27B, Qwen3.5-9B, Qwen3.5-4B (LoRA) | ● | ● | ● | ● | Apache-2.0 |
+| [gitchw/LCT](https://github.com/gitchw/LCT/blob/19697d6a554b1d67312ea1538691b5a3a872d8f8/README.md) | Fine-tuned decoder decision models | Qwen2.5-0.5B, Qwen2.5-1.5B, Qwen3-8B | ● | ● | ● | ● | Apache-2.0 |
 | [guanxuyu-sv/Visual-Jev](https://github.com/guanxuyu-sv/Visual-Jev/blob/2c3451b20d282545aa7372aa78b06fc795804738/README.md) | Fine-tuned decoder decision models | Qwen3-VL-4B | – | ○ | ○ | ○ | NOASSERTION |
 | [iapp-technology/openthai-systemone](https://github.com/iapp-technology/openthai-systemone/blob/5d04bcca0c58bd10e7dac2d3d369d8f760bea6cf/README.md) | Fine-tuned decoder decision models | Qwen3.5-0.8B (continued pre-training on Thai) | ● | ● | ○ | ○ | Apache-2.0 |
 | [jaredpalmer/kev](https://github.com/jaredpalmer/kev/blob/557598fced1dada75dfbf36ed144dce309ac6ceb/README.md) | Fine-tuned decoder decision models | Qwen3.5 (0.8B, 4B, 9B) | ● | ● | ● | ● | Apache-2.0 |
@@ -470,7 +482,7 @@ Citation metadata is in [CITATION.cff](CITATION.cff) (GitHub shows it under “C
   title        = {Jev and Typed Decision Models: An Empirical Survey of Calibration, Selective Control, and Open Implementations},
   year         = {2026},
   howpublished = {\url{https://eurekaleo.github.io/awesome-jev-survey/}},
-  note         = {Version 0.3.0, updated 6 Oct 2026. Working draft, not peer-reviewed}
+  note         = {Version 0.3.1, updated 7 Oct 2026. Working draft, not peer-reviewed}
 }
 ```
 

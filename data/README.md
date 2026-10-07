@@ -3,7 +3,7 @@
 
 # Data
 
-Canonical records for the Jev survey (updated 2026-10-06). Edit these files, then run `python3 scripts/build.py`.
+Canonical records for the Jev survey (updated 2026-10-07). Edit these files, then run `python3 scripts/build.py`.
 
 | File | Contents | Edited by hand? |
 | --- | --- | --- |
