@@ -269,6 +269,19 @@
       "records": "Thematic list with links",
       "release": "README list",
       "versioning": "Continuously edited"
+    },
+    {
+      "id": "web:madewithjev/open-source-jev",
+      "title": "Is Jev open source? No, but 54 open alternatives are",
+      "short": "Made with Jev / Is Jev open source?",
+      "kind_label": "Web catalogue",
+      "url": "https://madewithjev.com/open-source-jev",
+      "checked": "2026-10-08",
+      "scope": "54 open models and reproductions that answer typed questions locally",
+      "unit": "Models and repositories",
+      "records": "One card per project with its author-published size and speed",
+      "release": "Web page",
+      "versioning": "Continuously edited"
     }
   ]
 }

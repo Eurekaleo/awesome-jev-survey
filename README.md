@@ -762,6 +762,7 @@ Earlier work the survey builds on, grouped by theme; open a theme to see its pap
 - [SoK: Semantic Decision Engines in Network Control Loops](https://arxiv.org/abs/2610.06425v1) (arXiv preprint) — 139 paper families on semantic decision engines in network control loops.
 - [OmniJev / awesome-jev-gallery](https://github.com/OmniJev/awesome-jev-gallery) (Curated list on GitHub) — Open models, projects, benchmarks, commentary and context around Jev.
 - [OmniJev / awesome-jev-papers](https://github.com/OmniJev/awesome-jev-papers) (Curated list on GitHub) — Research papers on Jev and open models built in its shape.
+- [Made with Jev / Is Jev open source?](https://madewithjev.com/open-source-jev) (Web catalogue) — 54 open models and reproductions that answer typed questions locally.
 
 <p align="right"><sub><a href="#repository-guide">↑ Back to guide</a></sub></p>
 
